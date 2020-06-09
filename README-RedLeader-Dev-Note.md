@@ -83,10 +83,13 @@ Requirement:
 4. After you are done, **commit** your final changes to master.
 5. Deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
    ```bash
-   $ ./bin/deploy [--user]
+    $ ./bin/deploy [--user]
    ```
-   By default, the script uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
-   The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
+   with ```deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH]```
+   
+   The optional flag `--user` tells it to deploy to `master` branch using `source` for the source code instead.
+   
+   By default, `source="master"` and deploys the webpage to `gh-pages` branch.
    Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
 
    **Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
