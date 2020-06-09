@@ -188,3 +188,5 @@ mdb:
 popper:
   version: "2.4.0"
   integrity: "sha256-OH05DFHUWzr725HmuHo3pnuvUUn+TJuj8/Qz9xytFEw="
+
+theme: jekyll-theme-midnight
