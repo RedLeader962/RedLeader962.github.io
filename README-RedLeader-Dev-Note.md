@@ -87,17 +87,18 @@ Requirement:
    ```
    with ```deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH]```
    
+   By default, `source="master"` and `deploys="gh-pages"`
+    
    The optional flag `--user` tells it to deploy to `master` branch using `source` for the source code instead.
    
-   By default, `source="master"` and deploys the webpage to `gh-pages` branch.
    Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
 
-   **Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
-
-   ```
-   url: # should be empty
-   baseurl:  # should be empty
-   ```
+   > (★) **Note:**  
+   > When deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
+   > ```
+   > url: # should be empty
+   > baseurl:  # should be empty
+   > ```
 
 ### Usage
 
