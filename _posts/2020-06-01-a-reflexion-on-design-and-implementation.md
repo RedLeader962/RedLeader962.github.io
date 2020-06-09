@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 layout: distill
-title: A reflection on design, architecture and implementation details
-description: This essay is my journey through that reflection process and the lessons I have learned on the importance of design decisions, architectural decisions and implementation details in Deep Reinforcement Learning policy gradient class algorithms.
+title: A reflection on design, architecture and implementation details in Deep Reinforcement Learning
+description: My journey through that reflection process and the lessons I have learned on the importance of design decisions, architectural decisions and implementation details in Deep Reinforcement Learning.
 
 authors:
   - name: Luc Coupal
@@ -17,21 +17,17 @@ _styles: >
     .supervisorDbyline {
         contain: style;
         font-size: 0.8rem;
-        line-height: 1.8em;
-        min-height: 1.8em;
+        line-height: 0.75em;
+        min-height: 0.75em;
         padding: 0rem 0;
         border-down: 1px solid rgba(0, 0, 0, 0.1);
-        margin-bottom: -2.75em;
-        margin-top: -0.5em;
+        margin: 0rem 0;
     }
     .supervisorDbyline h3 {
         font-size: 0.6rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.5);
         text-transform: uppercase;
-        padding-bottom: 0em 0;
-        line-height: 1.8em;
-        min-height: 1.8em;
     }
     .supervisorDbyline a {
       color: rgba(0, 0, 0, 0.8);
@@ -46,14 +42,27 @@ _styles: >
     .supervisorThe {
       font-weight: 500;
     }
+    .definition h5 {
+        padding-top: 1em;
+        padding-bottom: 0em; 
+        margin-bottom: 0em;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: none;
+    }
+    .definition dt {
+        padding-top: 1em;
+    }
+    .definition dd {
+        padding-top: 1em;
+    }
 ---
+<div style=""></div>
 
 <div class="container supervisorDbyline">
     <div class="row">
         <div class="col">
-            <div class="supervisorDbylineH3">
-            Supervisor
-            </div> 
+            <h3> Supervisor </h3> 
         </div>
         <!-- Force next columns to break to new line -->
         <div class="w-100"></div>
@@ -78,84 +87,96 @@ _styles: >
 A quest for answers
 ===================
 
-While I was writing my essay on *Deep Reinforcement Learning -
-Actor-Critic* method, I felt the need to find answers to some questions
-that felt important linked to the applied part.  
-Those questions are linked to design & architectural aspects of Deep
+While I was finishing an essay on *Deep Reinforcement Learning -
+Actor-Critic* method, a part of me felt that some important questions
+ linked to the applied part were  unanswered or disregarded.  
+
+Those questions were linked to design & architectural aspects of Deep
 Reinforcement Learning from a software engineering perspective applied
 to research.
 
-Which design & architecture should I choose?  
-Which implementation details are impactful or critical?  
-Does it even matter?
+<p class="text-center" style="font-weight: bolder;">
+Which design & architecture should I choose?<br>
+Which implementation details are impactful or critical?<br>  
+Does it even matter?<br>
+</p>
 
 This essay is my journey through that reflection process and the lessons
 I have learned on the importance of design decisions, architectural
 decisions and implementation details in Deep Reinforcement Learning
-policy gradient class algorithms.
+(specificaly regarding the class of policy gradient algorithms).
 
 Clarification on ambiguous terminology
 --------------------------------------
 
-The setting:  
-In this essay, with respect to an algorithm implementation, the term
-"setting" will refer to any outside element like the following:
-
-– implementation requirement:  
-method signature, choice of hyperparameter to expose or capacity to run
-multi-process in parallel…
-
-– output requirement:  
-robustness, wall clock time limitation, minimum return goal…
-
-– inputed environment:  
-observation space dimensionality, discreet vs. continuous action space,
-episodic vs. infinite horizon…
-
-– computing ressources:  
-available number of cores, RAM capacity…
-
-Architecture: (Software)  
-From the [wikipedia page on Software
-architecture](https://en.wikipedia.org/wiki/Software_architecture)
-
-> “ refers to the fundamental structures of a software system and the
-> discipline of creating such structures and systems. Each structure
-> comprises software elements, relations among them, and properties of
-> both elements and relations. ” by Clements *et al.*
-
-In the ML field, it often refers to the computation graph structure,
-data handling and algorithm structure.
-
-Design: (Software)  
-There are a lot of different definitions and the line between design and
-architectural concern is often not clear. Let’s use the first definition
-stated on the [wikipedia page on Software
-design](https://en.wikipedia.org/wiki/Software_design#cite_note-2)
-
-> “ the process by which an agent creates a specification of a software
-> artifact, **intended to accomplish goals**, using a set of primitive
-> components and **subject to constraints**. ” by Ralf & Wand
-
-In the ML field, it often refer to choices made regarding improvement
-technique, hyperparameter, algorithm type, math computation…
-
-Implementation details:  
-This is a term often a source of confusion in software engineering . The
-consensus is the following:
-
-**everything that should not leak
-outside                                
-                              a public API** is an implementation
-detail.
-
-So it’s closely linked to the definition & specification of an API but
-it’s not just code. **The meaning feel blurier in the machine learning
-field** as I often have the impression that it’s usage implicitly mean
-“everything that is not part of the math formula or the high-level
-algorithm is an implementation detail” and also that
-
-“it’s just implementation details”.
+<div class="definition">
+    <dl style="padding-left: 0em;" class="row">
+      <dt class="col-md-3">The setting</dt> 
+      <dd class="col-sm-9 ml-auto">
+        In this essay, with respect to an algorithm implementation, the term
+        "setting" will refer to any outside element like the following:
+        <h5>- implementation requirement:</h5>  
+        method signature, choice of hyperparameter to expose or capacity to run
+        multi-process in parallel…
+        <h5>- output requirement:</h5>  
+        robustness, wall clock time limitation, minimum return goal…
+        <h5>– inputed environment:</h5>  
+        observation space dimensionality, discreet vs. continuous action space,
+        episodic vs. infinite horizon…
+        <h5>– computing ressources:</h5>  
+        available number of cores, RAM capacity…
+      </dd>
+      <dt class="col-md-3">Architecture (Software)</dt> 
+      <dd class="col-sm-9 ml-auto">
+        From the <a href="https://en.wikipedia.org/wiki/Software_architecture" target="blank">wikipedia page on Software
+        architecture</a>
+        <blockquote class="blockquote text-justify" style="margin: 0em">
+            <div class="mb-0" style="font-size: smaller;">
+            “ refers to the fundamental structures of a software system and the
+            discipline of creating such structures and systems. Each structure
+            comprises software elements, relations among them, and properties of
+            both elements and relations.”</div>
+            <footer class="blockquote-footer text-right"> <cite title="Source Title">Clements et al.</cite></footer>
+        </blockquote>
+        In the ML field, it often refers to the computation graph structure,
+        data handling and algorithm structure.
+      </dd>
+      <dt class="col-md-3">Design (Software)</dt> 
+      <dd class="col-sm-9 ml-auto">
+        There are a lot of different definitions and the line between design and
+        architectural concern is often not clear. Let’s use the first definition
+        stated on the 
+        <a href="https://en.wikipedia.org/wiki/Software_design#cite_note-2" target="blank">wikipedia page on Software
+        design</a>
+        <blockquote class="blockquote text-justify" style="margin: 0em">
+            <div class="mb-0" style="font-size: smaller;">
+            “ the process by which an agent creates a specification of a software
+        artifact, <b>intended to accomplish goals</b>, using a set of primitive
+        components and <b>subject to constraints</b>. ”</div>
+            <footer class="blockquote-footer text-right"> <cite title="Source Title">Ralf & Wand</cite></footer>
+        </blockquote>
+        In the ML field, it often refer to choices made regarding improvement
+        technique, hyperparameter, algorithm type, math computation…
+      </dd>
+      <dt class="col-md-3">Implementation details</dt> 
+      <dd class="col-sm-9 ml-auto">
+        This is a term often a source of confusion in software engineering . The
+        consensus is the following*:
+        <p class="text-center" style="padding-top: 0.75em">
+        <b>everything that should not leak outside</b>
+        <b>a public API</b> is an implementation detail.
+        </p>
+        <p>So it’s closely linked to the definition & specification of an API but it’s not just code. <b>The meaning feel blurier in the machine learning
+        field</b> as I often have the impression that it’s usage implicitly mean “everything that is not part of the math formula or the high-level
+        algorithm is an implementation detail” and also that</p>
+        <p class="text-center" style="font-size: larger; font-weight: bolder;">
+        “<span style="font-weight: bold">it’s just</span> implementation details”.
+        </p>
+      </dd>
+    </dl>
+</div>
+  
+---
 
 Going down the rabbit hole
 --------------------------

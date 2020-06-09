@@ -12,7 +12,7 @@ footer_text: > # this means to ignore newlines until "url:"
 #  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
 url:  # the base hostname & protocol for your site
-baseurl: # /myWebsite_Theme-al-folio-dev # the subpath of your site, e.g. /blog/ originaly: /al-folio
+baseurl: # the subpath of your site, e.g. /blog/ originaly: /al-folio
 last_updated: true # set to true if you want to display last updated in the footer
 
 # -----------------------------------------------------------------------------
