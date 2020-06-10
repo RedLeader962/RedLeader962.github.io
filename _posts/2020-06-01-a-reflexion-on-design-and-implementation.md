@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: distill
 title: A reflection on design, architecture and implementation details in Deep Reinforcement Learning
 description: My journey through that reflection process and the lessons I have learned on the importance of design decisions, architectural decisions and implementation details in Deep Reinforcement Learning.
@@ -11,7 +11,7 @@ authors:
       name: Université Laval
       url: https://www.ulaval.ca
 
-bibliography: ProjetDeLecture2019.bib
+bibliography: 2020-06-01-a-reflexion-on-design-and-implementation.bib
 
 _styles: >
     .supervisorDbyline {
@@ -56,8 +56,33 @@ _styles: >
     .definition dd {
         padding-top: 1em;
     }
+    .myLead {
+        font-size: larger; 
+        font-weight: bolder;
+    }
+    figcaption {
+        padding-top: 1em;
+        text-align: center;
+    }
+    figcaption strong {
+        font-size: larger;
+    }
+    figure {
+        padding-top: 1em;
+        padding-bottom: 2em;
+    }
+    blockquote {
+        margin: 0.5em; 
+        margin-bottom: 1em;
+        font-size: unset;
+    }
+    .definition blockquote {
+        font-size: inherit;
+        margin: 0.5em; 
+        margin-bottom: 0.25em;
+    }
 ---
-<div style=""></div>
+<div style="font-size: inherit"></div>
 
 <div class="container supervisorDbyline">
     <div class="row">
@@ -84,6 +109,14 @@ _styles: >
 
 ---
 
+<!-- Bibtex citation key
+Henderson2018
+Plappert2017
+Duan2016
+Schulman2015a
+Amiranashvili2018
+-->
+
 
 A quest for answers
 ===================
@@ -107,7 +140,7 @@ I have learned on the importance of design decisions, architectural
 decisions and implementation details in Deep Reinforcement Learning
 (specificaly regarding the class of policy gradient algorithms).
 
-Clarification on ambiguous terminology
+<i class="fas fa-th-large"></i> Clarification on ambiguous terminology
 --------------------------------------
 
 <div class="definition">
@@ -131,12 +164,12 @@ Clarification on ambiguous terminology
       <dd class="col-sm-9 ml-auto">
         From the <a href="https://en.wikipedia.org/wiki/Software_architecture" target="blank">wikipedia page on Software
         architecture</a>
-        <blockquote class="blockquote text-justify" style="margin: 0em">
-            <div class="mb-0" style="font-size: smaller;">
-            “ refers to the fundamental structures of a software system and the
+        <blockquote class="blockquote text-justify">
+            <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+            refers to the fundamental structures of a software system and the
             discipline of creating such structures and systems. Each structure
             comprises software elements, relations among them, and properties of
-            both elements and relations.”</div>
+            both elements and relations.
             <footer class="blockquote-footer text-right"> <cite title="Source Title">Clements et al.</cite></footer>
         </blockquote>
         In the ML field, it often refers to the computation graph structure,
@@ -149,11 +182,11 @@ Clarification on ambiguous terminology
         stated on the 
         <a href="https://en.wikipedia.org/wiki/Software_design#cite_note-2" target="blank">wikipedia page on Software
         design</a>
-        <blockquote class="blockquote text-justify" style="margin: 0em">
-            <div class="mb-0" style="font-size: smaller;">
-            “ the process by which an agent creates a specification of a software
+        <blockquote class="blockquote text-justify">
+            <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+            the process by which an agent creates a specification of a software
         artifact, <b>intended to accomplish goals</b>, using a set of primitive
-        components and <b>subject to constraints</b>. ”</div>
+        components and <b>subject to constraints</b>.
             <footer class="blockquote-footer text-right"> <cite title="Source Title">Ralf & Wand</cite></footer>
         </blockquote>
         In the ML field, it often refer to choices made regarding improvement
@@ -161,17 +194,27 @@ Clarification on ambiguous terminology
       </dd>
       <dt class="col-md-3">Implementation details</dt> 
       <dd class="col-sm-9 ml-auto">
-        This is a term often a source of confusion in software engineering . The
-        consensus is the following*:
-        <p class="text-center" style="padding-top: 0.75em">
+        This is a term often a source of confusion in software engineering 
+        <d-footnote>I recommend this very good post on the topic of <i>Implementation details</i> by Vladimir Khorikov: <a href="https://enterprisecraftsmanship.com/posts/what-is-implementation-detail/" target="blank">What is an implementation detail?</a></d-footnote>. 
+        The
+        consensus is the following:
+        <p class="text-center lead" style="padding-top: 0.75em">
         <b>everything that should not leak outside</b>
         <b>a public API</b> is an implementation detail.
         </p>
         <p>So it’s closely linked to the definition & specification of an API but it’s not just code. <b>The meaning feel blurier in the machine learning
-        field</b> as I often have the impression that it’s usage implicitly mean “everything that is not part of the math formula or the high-level
-        algorithm is an implementation detail” and also that</p>
-        <p class="text-center" style="font-size: larger; font-weight: bolder;">
-        “<span style="font-weight: bold">it’s just</span> implementation details”.
+        field as I often have the impression that it’s usage implicitly mean</b> 
+        <blockquote class="blockquote text-justify">
+            <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+            everything that is not part of the math formula or the high-level algorithm is an implementation detail
+        </blockquote>
+        and also that
+        <blockquote class="blockquote text-justify">
+            <div class="lead">
+            <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+            <span style="font-weight: bold">those are just</span> implementation details
+            </div>
+        </blockquote>
         </p>
       </dd>
     </dl>
@@ -179,13 +222,14 @@ Clarification on ambiguous terminology
   
 ---
 
-Going down the rabbit hole
+<i class="fas fa-th-large"></i> Going down the rabbit hole
 --------------------------
 
 Making sense of *Actor-Critic* algorithm scheme definitively ticked my
 curiosity. Studying the theoretical part was a relatively straight
 forward process as there is a lot of literature covering the core theory
 with well-detailed analysis & explanation.  
+
 On the other hand, studying the applied part has been puzzling. I took
 the habit when I study a new algorithm-related subject, to first
 implement it by myself without any code example. After I’ve done the
@@ -197,13 +241,21 @@ details I was not understanding or for which I was not giving enough
 attention. Proceeding this way takes more time, it’s sometimes a reality
 check and a self-confidence shaker, but in the end, I get a deeper
 understanding of the studied subject.  
+
 So I did exactly that. I started by refactoring my *Basic Policy
 Gradient* implementation toward an *Advantage Actor-Critic* one. I made
 a few attempts with unconvincing results and finally managed to make it
 work. I then started to look at other existing implementations. Like it
 was the case for the theoretical part, there was also a lot of
 available, well-crafted code example & published implementation of
-various *Actor-Critic* class algorithm .  
+various *Actor-Critic* class 
+algorithm <d-footnote>
+    - <a href="https://github.com/openai/baselines" target="blank">OpenAI Baseline</a><br>
+    - <a href="https://github.com/Breakend/DeepReinforcementLearningThatMatters" target="blank">DeepReinforcementLearningThatMatters on GitHub</a> The accompanying code for the paper "<a href="https://arxiv.org/abs/1709.06560" target="blank">Deep Reinforcement Learning at Matters</a>"<d-cite key="Henderson2018"></d-cite><br>
+    - <a href="https://github.com/openai/spinningup/blob/master/spinup/algos/vpg/vpg.py" target="blank">OpenAI: Spinning Up</a>, by Josh Achiam;<br>
+    - <a href="https://github.com/dennybritz/reinforcement-learning/blob/master/PolicyGradient" target="blank">Ex Google Brain resident Denny Britz GitHub</a><br>
+    - <a href="https://github.com/lilianweng/deep-reinforcement-learning-gym/blob/master/playground/policies/actor_critic.py" target="blank">Lil’Log GitHub by Lilian Weng</a>, research intern at OpenAI<br> 
+</d-footnote>. 
 
 However, I was surprised to find that most of serious implementations
 were very different. The high-level ideas were more or less the same,
@@ -213,37 +265,42 @@ different. To the point where I had to ask myself if I was missing the
 bigger picture. Was I looking at esthetical choices with no implication,
 at personal touch taken likely or **was I looking at well considered,
 deliberate, impactful design & architectural decision**?  
+
 While going down that rabbit hole, the path became even blurrier when I
 began to realize that some design implementation related to theory and
 others related to speed optimization were not having just plus value,
 they could have a tradeoff on certain settings.  
+
 Still, a part of me was seeking for a clear choice like some kind of
 *best practice*, *design patern* or *most effective architectural
-pattern*.  
+pattern*. 
+ 
 Which led me to those next questions:
 
-**Which design & architecture** should I choose?  
-**Which implementation details** are impactful or critical?  
-**Does it even matter?**  
+<p class="text-center myLead">
+    <b>Which design & architecture</b> should I choose?<br>  
+    <b>Which implementation details</b> are impactful or critical?<br>  
+    <b>Does it even matter?</b><br>  
+</p>
 
-### Does it even matter?
+
+### <i class="fas fa-th"></i> Does it even matter?
 
 Apparently, it does a great deal as Henderson, P. et al. demonstrated in
-their paper *Deep reinforcement learning that matters*  (from McGill’s
+their paper *Deep reinforcement learning that matters* <d-cite key="Henderson2018"></d-cite>  (from McGill’s
 university and Microsoft Malumba Montreal). Their goal was to highlight
 many recurring problems regarding reproducibility in DRL publication.
 Even though my concerns were not on reproducibility, I was astonished by
 how much the questions and doubts I was experiencing at that time were
 related to some of their findings.
 
-#### Regarding implementation details:
-
-One disturbing result they got was on one experiment they conducted on
+**Regarding implementation details:** One disturbing result they got was on one experiment they conducted on
 the performance of a given algorithm across different code base. Their
 goal was “to draw attention to the variance due to implementation
 details across algorithms”. As an example they compared 3 high quality
-implementations of TRPO: OpenAI Baselines , OpenAI rllab  and the
-original TRPO codebase .  
+implementations of TRPO: OpenAI Baselines<d-cite key="Plappert2017"></d-cite> , OpenAI rllab<d-cite key="Duan2016"></d-cite>  and the
+original TRPO<d-cite key="Schulman2015a"></d-cite> codebase.  
+
 The way I see it, those are all codebase linked to publish paper so they
 were all implemented by experts and they must have been extensively peer
 reviewed. So I would assume that given the same setting (same
@@ -251,34 +308,30 @@ hyperparameters, same environment) they would all have similar
 performances. As you can see, that assumption was wrong.
 
 
-<figure id="basic-structure" class="l-page">
+<figure id="trpo-codebase-comparison-henderson-2018" class="l-page">
     <div class="row">
         <div class="col">
             <img src="{{ '/assets/img/post_a_reflexion_on_design_and_implementation/trpo_codebase_result2_drlthatMatter.png' | relative_url }}" />
         </div>
     </div>
+    <figcaption>
+    <strong>TRPO codebase comparison using a default set of hyperparameters.</strong><br>
+    <b>Source:</b> Figure 35 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite>
+    </figcaption>
 </figure>
 
-<figure id="basic-structure" class="l-page-outset">
-    <div class="row">
-        <div class="col two">
-            <img src="{{ site.baseurl }}/assets/img/post_a_reflexion_on_design_and_implementation/trpo_codebase_result2_drlthatMatter.png" />  
-        </div>
-    </div>
-</figure>
-
-TRPO codebase comparison using a default set of hyperparameters.  
-Source: Figure 35 from *Deep reinforcement learning that matters*  <span
-id="a01575a08d494e02a8dbc64c3af85484"
-label="a01575a08d494e02a8dbc64c3af85484">\[a01575a08d494e02a8dbc64c3af85484\]</span>
 
 They also did the same experiment with DDPG and got similar results.
-They found that
+They found that 
 
-> “ **…implementation differences which are often not reflected in
-> publications can have dramatic impacts on performance**   …  This
-> (result) demonstrates the necessity that implementation details be
-> enumerated, codebases packaged with publications   … ”
+<blockquote class="blockquote text-justify">
+    <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+    <b>... implementation differences which are often not reflected in
+    publications can have dramatic impacts on performance</b> ... This
+    (result) demonstrates the necessity that implementation details be
+    enumerated, codebases packaged with publications ...
+</blockquote>
+
 
 This does not answer my question about “Which implementation detail are
 impactful or critical?” but it certainly tells me **that some
@@ -373,7 +426,7 @@ question:                                   �
                                     **in what settings would this work
 be useful?** ”*
 
-### Which implementation details are impactful or critical?
+### <i class="fas fa-th"></i> Which implementation details are impactful or critical?
 
 We have established in the previous section
 <a href="#par:RegardingImplementationDetail" data-reference-type="ref" data-reference="par:RegardingImplementationDetail">1.2.1.1</a>
@@ -451,7 +504,7 @@ I need to ask myself is:
 How do I recognize **when** an implementation detail becomes impactful
 or critical?  
 
-### Asking the right questions.
+### <i class="fas fa-th"></i> Asking the right questions.
 
 From my understanding, there is no cookbook defining the recipe of a
 *one best* design & architecture that will outperform all the other ones

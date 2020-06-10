@@ -90,6 +90,9 @@ news_limit: 10
 # Jekyll settings
 # -----------------------------------------------------------------------------
 
+# Local server setting
+livereload: true
+
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
@@ -114,7 +117,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll/scholar
   - jemoji
-  - bootstrap
+  #  - bootstrap
   # - material-sass
 
 # -----------------------------------------------------------------------------
