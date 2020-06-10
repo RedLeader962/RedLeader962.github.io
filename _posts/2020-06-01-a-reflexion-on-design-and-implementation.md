@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: distill
 title: A reflection on design, architecture and implementation details in Deep Reinforcement Learning
 description: My journey through that reflection process and the lessons I have learned on the importance of design decisions, architectural decisions and implementation details in Deep Reinforcement Learning.
@@ -64,16 +64,18 @@ _styles: >
         <div class="col">
             <h3> Supervisor </h3> 
         </div>
-        <!-- Force next columns to break to new line -->
+        <!-- 
+            Force next columns to break to new line 
+        -->
         <div class="w-100"></div>
         <div class="col">
             Professor 
-                <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/">
+                <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
                   <span class="supervisorThe"> Brahim Chaib-draa </span>
-                </a > 
+                </a> 
         </div>
         <div class="col-md-8">
-            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca">
+            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca" target="blank">
             Université Laval
             </a> 
         </div>
@@ -81,7 +83,6 @@ _styles: >
 </div>
 
 ---
-
 
 
 A quest for answers

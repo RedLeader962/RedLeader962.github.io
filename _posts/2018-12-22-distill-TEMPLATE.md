@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: distill
 title: a distill-style blog post
 description: an example of a distill-style blog post and main elements
