@@ -6,10 +6,12 @@
 
 a, table.table a {
   color: $theme-color;
+
   &:hover {
     color: $theme-color;
     text-decoration: underline;
   }
+
   &:hover:after {
     width: 100%;
   }
@@ -35,13 +37,14 @@ a, table.table a {
 // Profile
 
 .profile {
-    .address {
-      font-family: monospace;
-      font-size: 1.2rem;
-      p {
-        margin: 0;
-      }
+  .address {
+    font-family: monospace;
+    font-size: 1.2rem;
+
+    p {
+      margin: 0;
     }
+  }
 }
 
 
@@ -57,47 +60,56 @@ a, table.table a {
 .navbar {
   box-shadow: True; //none
   border-bottom: 1px solid $grey-color-light;
-//   background-color: $white;
+  //   background-color: $white;
   background-color: $grey-color-dark;
   opacity: 0.95;
 }
+
 .navbar.navbar-light {
   // Remove link decoration
   a {
     color: $white;
+
     &:hover {
       text-decoration: none;
       color: $theme-color;
     }
   }
+
   .navbar-nav .nav-item .nav-link {
     color: $white;
+
     &:hover {
       color: $theme-color;
     }
   }
-  .navbar-nav .nav-item.active>.nav-link {
-      background-color: inherit;
-//       color: $theme-color;
-//       color: darken($theme-color, 70%);
-      color: $white;
-      font-weight: bolder;
-      &:hover {
-        color: $theme-color;
-      }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    background-color: inherit;
+    //       color: $theme-color;
+    //       color: darken($theme-color, 70%);
+    color: $white;
+    font-weight: bolder;
+
+    &:hover {
+      color: $theme-color;
+    }
   }
-//   .navbar-brand {
-// //     color: $white;
-//     font-weight-lighter
-//       &:hover {
-//         color: $theme-color;
-//       }
-//   }
+
+  //   .navbar-brand {
+  // //     color: $white;
+  //     font-weight-lighter
+  //       &:hover {
+  //         color: $theme-color;
+  //       }
+  //   }
   .contact-icon {
     font-size: 1.25rem;
+
     a {
-//       color: lighten($grey-color, 43%);
+      //       color: lighten($grey-color, 43%);
       color: lighten($grey-color-dark, 7%);
+
       &:hover {
         color: $theme-color;
       }
@@ -110,24 +122,29 @@ a, table.table a {
     display: block;
     width: 22px;
     height: 2px;
-//     background-color: $grey-color-dark;
+    //     background-color: $grey-color-dark;
     background-color: $white;
+
     &:hover {
-//         background-color: $theme-color;
-        background-color: darken($theme-color, 20%);
-//         background-color: $white;
-      }
+      //         background-color: $theme-color;
+      background-color: darken($theme-color, 20%);
+      //         background-color: $white;
+    }
+
     border-radius: 1px;
     margin-bottom: 4px;
     transition: all 0.2s;
   }
+
   .top-bar {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
   }
+
   .middle-bar {
     opacity: 0;
   }
+
   .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
@@ -138,9 +155,11 @@ a, table.table a {
   .top-bar {
     transform: rotate(0);
   }
+
   .middle-bar {
     opacity: 1;
   }
+
   .bottom-bar {
     transform: rotate(0);
   }
@@ -158,15 +177,19 @@ a, table.table a {
 
 .social {
   text-align: center;
+
   .contact-icon {
     font-size: 2rem;
+
     a {
       color: $grey-color-dark;
+
       &:hover {
         color: $theme-color;
       }
     }
   }
+
   .contact-note {
     font-size: 0.8rem;
   }
@@ -179,17 +202,21 @@ footer.fixed-bottom {
   color: lighten($grey-color, 25%);
   background-color: $grey-color-dark;
   font-size: 0.75rem;
+
   .container {
     padding-top: 11px;
     padding-bottom: 10px;
     text-align: center;
   }
+
   h1 {
     color: $white;
     font-size: 1.25rem;
   }
+
   a {
     color: white;
+
     &:hover {
       color: lighten($theme-color, 25%);
       text-decoration: none;
@@ -198,31 +225,35 @@ footer.fixed-bottom {
 }
 
 
-
 footer.sticky-bottom {
   border-top: 1px solid $grey-color-light;
   color: $grey-color;
   font-size: 0.75rem;
+
   .container {
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
   }
+
   .row {
     margin-right: 0;
     margin-left: 0;
   }
+
   .col, [class*="col-"] {
     padding-right: 5px;
     padding-left: 5px;
   }
+
   h1 {
     color: $white;
     font-size: 1.25rem;
   }
+
   a {
     color: darken($grey-color, 20%);
-//     color: white;
+    //     color: white;
     &:hover {
       color: lighten($theme-color, 25%);
       text-decoration: none;
@@ -232,22 +263,26 @@ footer.sticky-bottom {
 
 // About page
 .about-me {
-    header {
-        padding-bottom: 1rem;
-        .post-description {
-//             padding-top: 30px;
-            padding-bottom: 30px;
-            font-size: larger;
-        }
+  header {
+    padding-bottom: 1rem;
+
+    .post-description {
+      //             padding-top: 30px;
+      padding-bottom: 30px;
+      font-size: larger;
     }
-    .about-newsfeed {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    .about-social {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
+  }
+
+  .about-newsfeed {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .about-social {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
   article h3 {
     border-bottom: 1px solid $text-color;
     padding-top: 1rem;
@@ -263,10 +298,12 @@ footer.sticky-bottom {
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 4rem;
+
   h1 {
-//     color: $theme-color;
+    //     color: $theme-color;
     font-size: 4rem;
   }
+
   h2 {
     color: $theme-color;
     font-size: 2rem;
@@ -277,19 +314,23 @@ footer.sticky-bottom {
   margin: 0;
   margin-bottom: 40px;
   padding: 0;
+
   li {
     border-bottom: 1px solid $grey-color-light;
     list-style: none;
     padding-top: 2rem;
     padding-bottom: 2rem;
+
     .post-meta {
       color: $grey-color;
       font-size: 0.875rem;
       margin-bottom: 0;
     }
+
     a {
       color: black;
       text-decoration: none;
+
       &:hover {
         color: $theme-color;
       }
@@ -299,6 +340,7 @@ footer.sticky-bottom {
 
 .pagination .page-item.active .page-link {
   background-color: $theme-color;
+
   &:hover {
     background-color: $theme-color;
   }
@@ -312,6 +354,14 @@ footer.sticky-bottom {
     border-bottom-color: $theme-color;
     text-decoration: none;
   }
+
+  h2 {
+    //color: red;
+  }
+
+  //hr {
+  //  border-top: 1px solid red;
+  //}
 }
 
 
@@ -319,17 +369,20 @@ footer.sticky-bottom {
 
 .projects {
   .grid-item {
-//     width: 250px;
+    //     width: 250px;
     width: 350px;
     margin-bottom: 10px;
+
     a {
       color: black;
       text-decoration: none;
+
       &:hover {
         color: $theme-color;
       }
     }
   }
+
   .card img {
     width: 100%;
   }
@@ -346,6 +399,7 @@ footer.sticky-bottom {
 
 .publications {
   margin-top: 2rem;
+
   h2.year {
     color: $grey-color-light;
     border-top: 1px solid $grey-color-light;
@@ -354,6 +408,7 @@ footer.sticky-bottom {
     margin-bottom: -2rem;
     text-align: right;
   }
+
   ol.bibliography {
     list-style: none;
     padding: 0;
@@ -361,9 +416,11 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
+
         abbr {
           display: inline-block;
           background-color: $theme-color;
@@ -371,33 +428,41 @@ footer.sticky-bottom {
           padding-right: 1rem;
         }
       }
+
       span {
         display: block;
       }
+
       .title {
         font-weight: bolder;
       }
+
       .author {
         a {
           border-bottom: 1px dashed $theme-color;
+
           &:hover {
-              border-bottom-style: solid;
-              text-decoration: none;
+            border-bottom-style: solid;
+            text-decoration: none;
           }
         }
+
         > em {
           border-bottom: 1px solid;
           font-style: normal;
         }
       }
+
       em.star {
         border-bottom: none;
         color: $theme-color;
         font-style: normal;
       }
+
       a.abstract, a.bibtex {
         cursor: pointer;
       }
+
       .hidden {
         font-size: 0.875rem;
         max-height: 0px;
@@ -413,12 +478,14 @@ footer.sticky-bottom {
           line-height: 1.4em;
           margin: 10px;
         }
+
         pre {
           font-size: 1em;
           line-height: 1.4em;
           padding: 10px;
         }
       }
+
       .hidden.open {
         max-height: 100em;
         -webkit-transition: 0.15s ease;
@@ -427,9 +494,11 @@ footer.sticky-bottom {
         -o-transition: 0.15s ease;
         transition: all 0.15s ease;
       }
+
       span.abstract.hidden {
         border: dashed 1px white;
       }
+
       span.abstract.hidden.open {
         border-color: $grey-color;
       }
