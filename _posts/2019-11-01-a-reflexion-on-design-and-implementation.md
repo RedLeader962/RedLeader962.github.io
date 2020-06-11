@@ -2,7 +2,8 @@
 published: true
 layout: distill
 title: A reflection on design, architecture and implementation details in Deep Reinforcement Learning
-description: My journey through that reflection process and the lessons I have learned on the importance of design decisions, architectural decisions and implementation details in Deep Reinforcement Learning.
+description: 'Lessons learned studing DRL algortihm from a software engineering perspective applied to research. Asking question like:
+<i>Does implementation details realy matters? Which one does, when & why?</i>'
 
 authors:
   - name: Luc Coupal
@@ -11,7 +12,7 @@ authors:
       name: Université Laval
       url: https://www.ulaval.ca
 
-bibliography: 2020-06-01-a-reflexion-on-design-and-implementation.bib
+bibliography: 2019-11-01-a-reflexion-on-design-and-implementation.bib
 
 _styles: >
     d-byline {
@@ -257,9 +258,7 @@ they could have a tradeoff on certain settings.
 
 Still, a part of me was seeking for a clear choice like some kind of
 *best practice*, *design patern* or *most effective architectural
-pattern*. 
- 
-Which led me to those next questions:
+pattern*. Which led me to those next questions:
 
 <p class="text-center myLead">
     <b>Which design & architecture</b> should I choose?<br>  
@@ -460,35 +459,73 @@ their closing thought:
 
 ### <i class="fas fa-th"></i> Which implementation details are impactful or critical?
 
-We have established in the section
-<a href="#subsec-regarding-implementation-details"><i>Regarding implementation details</i></a>
-that implementation details could be impactful in regards to the
-performance of an algorithm: if it converges to an optimal solution and
-how fast it does.  
+We have established 
+<a href="#subsec-regarding-implementation-details">previously</a>
+that implementation details could be impactful with regards to the
+performance of an algorithm eg.: how fast it converges to an optimal solution or
+ if it converges at all.  
 
 Could it be impactful else where? Like wall clock speed for example or
 memory management. Of course it does, any book on data structure or
 algorithm analysis will say so. On the other end, there is this famous
-say in the computer science community: “early optimization is a sin”.  
+say in the computer science community: <i>“early optimization is a sin”</i>.  
 
 Does it apply to the ML/RL field? Anyone that has been waiting for an
 experiment to conclude after a few strikes will say that waiting for
-result is playing with their mind and that speed matters a lot to them
+result is playing with their mind and that speed matters **a lot** to them
 at the moment. Aside from mental health, the reality is that **the
 faster you can iterate between experiments, the faster you get feedback
 from your decisions, the faster you can make adjustments towards your
 goals.** So optimizing for speed sooner than later is impactful indeed
-in ML/RL. It’s all about choosing what it a good optimization
-investment.  
+in ML/RL. It’s all about choosing what is a good optimization investment.  
 
-So we now need to look for 2 types of implementation details: those
-related to algorithm performance and those related to wall clock speed.
+So we now need to look for 2 types of implementation details: 
+ 
+<ul class="fa-ul">
+    <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>those related to algorithm performance</li>
+    <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>and those related to wall clock speed.</li>
+</ul>
+ 
 That’s when things get trickier. Take for example the *value estimate*
-computation $$\hat{V}_\phi^\pi(\mathbf{s})$$ in a *batch
-Actor-Critic with bootstraps target* design. In the end, we just need
-$$\hat{V}_\phi^\pi(\mathbf{s})$$ to compute the critic target and
+computation $\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ in a *batch
+Actor-Critic with bootstraps target* design.
+
+The Actor-Critic objective goes like this
+
+$$
+\nabla_\theta J(\theta) \:\: \approx \:\: \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{i, t} | \mathbf{s}_{i, t} ) \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t})
+$$
+
+with the advantage
+
+$$
+\widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \:\: = \:\: r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t+1}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t})
+$$
+
+<br>
+Training $$\widehat{V}_\phi^\pi(\mathbf{s})$$ is a supervised regression problem that we can define like this:
+
+$$
+    \mathcal{D}^{\text{train}} \ \ = \ \ \Big\{ \, \Big( \ \mathbf{x}_i \: , \, \mathbf{y}_i \, ) \  \Big)  \, \Big\} \\[-1em]
+$$
+
+with 
+- the **input** $$\:\: \mathbf{x}_i \, := \, \mathbf{s}_{i, t} \:\:$$ with the state $\mathbf{s}$ at timestep $t$ of the $i^e$ sample 
+- the **target**
+$$
+\:\: \mathbf{y}_i \ \ := \ \ r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) + \widehat{V}_\phi^\pi(\mathbf{s}_{i, t+1}) \ \ \approx \ \ V^\pi(\mathbf{s}_t) \:\:
+\\[0em]$$
+
+
+$$
+    L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, \middle| \, \mathbf{y}_i  \, \right) \ \ = \ \  \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \ - \ \left( \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i, \, t+1}) \, \right)  \, \right\|^2 
+$$
+
+
+
+In the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the critic target and
 the advantage at the update stage. Ok, then what’s the best place to
-compute $$\hat{V}_\phi^\pi(\mathbf{s})$$? Is it at *timestep
+compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? Is it at *timestep
 level* close to the *collect process* or at *batch level* close to the
 *update process*? 
  
@@ -501,7 +538,7 @@ since you only need to store in RAM at each timestep a 4-digit
 observation and that trajectory length is capped at $200$ steps. So you
 end up with relatively small batches size. Even if that design choice
 completely fails to leverage the power of matrix computation framework,
-considering the setting, computing $$\hat{V}_\phi^\pi$$
+considering the setting, computing $$\widehat{V}_\phi^\pi$$
 anywhere would be relatively fast anyway.
 
 **Casse 2 - _batch level_:** On the other hand, using the same design in an environment with very
@@ -509,19 +546,19 @@ high dimensional observation space like the [*PySc2
 Starcraft*](https://github.com/deepmind/pysc2) environment <d-footnote>PySc2 have multiple observation output. As an example, minimap observation is an RGB representation of 7 feature layers with resolution ranging from 32 − 2562<sup>2</sup> where most pixel value give important information on the game state.</d-footnote>, will make
 that same operation slower, potentially to a point where it could become
 a bottleneck that will considerably impair experimentation speed. So
-maybe a design where you compute $$\hat{V}_\phi^\pi(\mathbf{s})$$
+maybe a design where you compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$
 at *batch level* would make more sense in that setting.
 
 **Casse 3 - _trajectory level_:** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
 Starcraft* game is  $$\sim 40, 000$$ steps long. In order to compute
-$$\hat{V}_\phi^\pi(\mathbf{s})$$ at batch level, you need to store
+$$\widehat{V}_\phi^\pi(\mathbf{s})$$ at batch level, you need to store
 in RAM memory each timestep observation for the full batch, so given the
 observation space size and the range of trajectory length, in that
 setting you could end up with RAM issues. If you have access to powerful
 hardware like they have in Google Deepmind laboratory it won’t really be
 a problem, but if you have a humble consumer market computer, it will
 matter. So maybe in that case, keeping only observations from the
-current trajectory and computing $$\hat{V}_\phi^\pi(\mathbf{s})$$
+current trajectory and computing $$\widehat{V}_\phi^\pi(\mathbf{s})$$
 at trajectory end would be a better design choice.  
 
 What I want to show with this example is that
@@ -539,7 +576,7 @@ This means that it’s a **setting sensitive** issue and the real question I nee
 
 
 
-### <i class="fas fa-th"></i> Asking the right questions.
+### <i class="fas fa-th"></i> Asking the right questions
 
 From my understanding, there is no cookbook defining the recipe of a
 *one best* design & architecture that will outperform all the other ones
