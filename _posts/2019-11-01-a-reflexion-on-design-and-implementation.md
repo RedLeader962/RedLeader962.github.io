@@ -533,7 +533,6 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
 </div>
 
 
-
 **Casse 1 - _timestep level_:** Choosing to do this operation at each timestep instead of doing it over
 a batch might make no difference on a [*CartPole-v1* Gym
 environment](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
