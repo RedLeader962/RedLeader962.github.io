@@ -166,7 +166,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
- * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">University Laval</a> 
+ * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
  * Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
 
 ##### Past:
