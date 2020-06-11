@@ -12,6 +12,13 @@
   //  margin: 2.25rem;
   //}
 
+  .card-body {
+    .card-d-math-display {
+      margin-left: 3em;
+      font-size: 1.1em;
+    }
+  }
+
   a:hover {
     border-bottom-color: $theme-color;
     text-decoration: none;

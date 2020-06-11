@@ -12,7 +12,10 @@ $red-color:           #FF3636 !default;
 $red-color-dark:      #B71C1C !default;
 $orange-color:        #F29105 !default;
 $blue-color:          #0076df !default;
+$blue-color-myLaTeX:  #4d79ff !default;
 $blue-color-dark:     #00369f !default;
+$blue-color-Dark:     #2d4052 !default;
+$blue-color-DARK:     rgb(14, 14, 26) !default;
 $cyan-color:          #2698BA !default;
 $green-color:         #00ab37 !default;
 $green-color-lime:    #B7D12A !default;
@@ -26,7 +29,9 @@ $yellow-color:        #efcc00 !default;
 
 $grey-color:          #828282 !default;
 $grey-color-light:    lighten($grey-color, 40%);
+$grey-color-lighter:    lighten($grey-color, 20%);
 $grey-color-dark:     darken($grey-color, 25%);
+$grey-color-darker:     darken($grey-color, 15%);
 
 $white:             #fff !default;
 $dark-gray:         #333 !default;
@@ -40,8 +45,12 @@ $lighter-gray:      #eee !default;
 // $theme-color:         $red-color-dark;
 // $theme-color:         $orange-color;
 // $theme-color:         $yellow-color;
-$theme-color:         $grey-color;
 // $theme-color:         $grey-color-dark;
+//$theme-color:         $grey-color;
+$theme-color:         $blue-color-DARK;
+
+$theme-color-light:    lighten($theme-color, 40%);
+$theme-color-dark:     darken($theme-color, 25%);
 
 $link-color:          $theme-color;
 $text-color:          #111111 !default;

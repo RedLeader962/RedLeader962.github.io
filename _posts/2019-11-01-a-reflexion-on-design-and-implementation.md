@@ -486,50 +486,59 @@ So we now need to look for 2 types of implementation details:
     <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>and those related to wall clock speed.</li>
 </ul>
  
-That’s when things get trickier. Take for example the *value estimate*
-computation $\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ in a *batch
-Actor-Critic with bootstraps target* design.
-
-The Actor-Critic objective goes like this
-
-$$
-\nabla_\theta J(\theta) \:\: \approx \:\: \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{i, t} | \mathbf{s}_{i, t} ) \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t})
-$$
-
-with the advantage
-
-$$
-\widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \:\: = \:\: r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t+1}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t})
-$$
-
-<br>
-Training $$\widehat{V}_\phi^\pi(\mathbf{s})$$ is a supervised regression problem that we can define like this:
-
-$$
-    \mathcal{D}^{\text{train}} \ \ = \ \ \Big\{ \, \Big( \ \mathbf{x}_i \: , \, \mathbf{y}_i \, ) \  \Big)  \, \Big\} \\[-1em]
-$$
-
-with 
-- the **input** $$\:\: \mathbf{x}_i \, := \, \mathbf{s}_{i, t} \:\:$$ with the state $\mathbf{s}$ at timestep $t$ of the $i^e$ sample 
-- the **target**
-$$
-\:\: \mathbf{y}_i \ \ := \ \ r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) + \widehat{V}_\phi^\pi(\mathbf{s}_{i, t+1}) \ \ \approx \ \ V^\pi(\mathbf{s}_t) \:\:
-\\[0em]$$
-
-
-$$
-    L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, \middle| \, \mathbf{y}_i  \, \right) \ \ = \ \  \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \ - \ \left( \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i, \, t+1}) \, \right)  \, \right\|^2 
-$$
-
-
-
-In the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the critic target and
-the advantage at the update stage. Ok, then what’s the best place to
-compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? Is it at *timestep
-level* close to the *collect process* or at *batch level* close to the
-*update process*? 
+That’s when things get trickier. Take for example the *value estimate* computation of the **critic** 
+$$\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$$ 
+in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
+I won't dive in the detail here, but keep in mind that in the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the **critic bootstrap target** and
+the **advantage** at the update stage. 
+Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? 
+Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
-<p class="text-center lead">Does it matter?</p>
+<p class="text-center lead" style="padding-top: 0em; padding-bottom: 0em">Does it even matter?</p>
+
+<div style="padding-top: 1em; padding-bottom: 1.5em;" class="l-body-outset">
+    <div class="card border-dark mb-3">
+        <div class="card-header" style="font-size: inherit; color: white; background-color: rgb(14, 14, 26)">
+            Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+        </div>
+        <div class="card-body text-dark">
+            <div class="container card-text" style="font-size: unset;">
+                <div class="row">
+                    <div class="col">
+                        The Actor-Critic <b>objective</b> goes like this
+                        <d-math block="" class="card-d-math-display">
+                        \nabla_\theta J(\theta) \:\: \approx \:\: \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{i, t} | \mathbf{s}_{i, t} ) \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t})
+                        </d-math>
+                        with the <b>advantage</b>
+                        <d-math block="" class="card-d-math-display">
+                        \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \:\: = \:\: r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t+1}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{i,t})
+                        </d-math>
+                        Training the <b>critic</b> <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> is a supervised regression problem that we can define like this:
+                        <d-math block="" class="card-d-math-display">
+                            \mathcal{D}^{\text{train}} \ \ = \ \ \Big\{ \, \Big( \ \mathbf{x}_i \: , \, \mathbf{y}_i \, ) \  \Big)  \, \Big\} \\[-1em]
+                        </d-math>
+                        with 
+                        <ul>
+                            <li>
+                            the <b>input</b> <d-math>\:\: \mathbf{x}_i \, := \, \mathbf{s}_{i, t} \:\:</d-math> with the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
+                            </li>
+                            <li>the <b>bootstrap target</b>
+                            <d-math>
+                            \:\: \mathbf{y}_i \ \ := \ \ r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) + \widehat{V}_\phi^\pi(\mathbf{s}_{i, t+1}) \ \ \approx \ \ V^\pi(\mathbf{s}_t) \:\:
+                            \\[0em]
+                            </d-math>
+                            </li>
+                        </ul>
+                        <d-math block="" class="card-d-math-display">
+                            L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, \middle| \, \mathbf{y}_i  \, \right) \ \ = \ \  \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \ - \ \left( \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \ + \ \widehat{V}_\phi^\pi(\mathbf{s}_{i, \, t+1}) \, \right)  \, \right\|^2 
+                        </d-math>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 **Casse 1 - _timestep level_:** Choosing to do this operation at each timestep instead of doing it over
 a batch might make no difference on a [*CartPole-v1* Gym
@@ -580,22 +589,37 @@ This means that it’s a **setting sensitive** issue and the real question I nee
 
 From my understanding, there is no cookbook defining the recipe of a
 *one best* design & architecture that will outperform all the other ones
-in every setting, maybe there was at one point, but not anymore. Like
-I’ve talked about previously in the part 1 introduction, even
-Monte-Carlo variations are back in the game in DRL, outperforming
-bootstraping variations on certain settings <d-cite key="Amiranashvili2018"></d-cite> . 
-The subsection <a href="#subsec-regarding-the-setting">Regarding the setting</a> also showed
-that there was no clear winner in policy gradient class algorithms.  
+in every setting, maybe there was at one point, but not anymore. 
+ 
+As a matter of fact, it was well establish since de 90's that **Temporal-Diference** RL method were superior to 
+**Monte-Carlo** RL method. Never the less, it was recently highlithed by Amiranashvili et al. 
+(2018)<d-cite key="Amiranashvili2018"></d-cite> 
+that **RL theorical and empirical result might not systematicaly hold up in the context of DRL**. 
+They point out that modern problem tackled in DRL research deal with a much more rich and complex state space than those
+use for RL experiment at the time were those result where found. 
+As such, those new empirical result show that, in the context of DRL, MC methods might be back being a top contender in 
+certain setting. Those result contrast with how MC methods where performing in the RL setting where they were left in the dust
+by TD methods.
 
-It’s also clear now that implementation details, design decisions and
-architectural decisions can have a huge impact in various settings <d-footnote>Refer to the section: <a href="#sec-does-it-even-matter" data-reference-type="ref">Does it even matter?</a></d-footnote>
-so that aspect deserves a lot of attention.  
+<blockquote class="blockquote text-justify">
+    <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+    We find that while TD is at an advantage in tasks with simple perception, long planning horizons, or terminal 
+    rewards, MC training is more robust to noisy rewards, effective for training perception systems from raw sensory 
+    inputs, and surprisingly successful in dealing with sparse and delayed rewards. 
+    <footer class="blockquote-footer text-right">  <cite title="Source Title">Amiranashvili et al.</cite></footer>
+</blockquote>
+
+We also saw earlier that there was no clear winner in policy gradient class algorithms <d-footnote>Refer to the 
+subsection: <a href="#subsec-regarding-the-setting">Regarding the setting</a></d-footnote>. 
+So we can safely say that performance of DRL algorithm can be significantly affected by the setting in wich they are trained.
+It’s also clear now that for a given type of algorithm and with respect to certain settings, implementation details, design decisions and
+architectural decisions can have a huge impact<d-footnote>Refer to the subsection: <a href="#subsec-regarding-implementation-details" data-reference-type="ref">Regarding implementation details</a></d-footnote> so that aspect deserves a lot of attention.  
 
 So we are now left with those unanswered questions:
 
 <p class="text-center myLead">
     <b>Why</b> choose a design & architecture over another?<br>  
-    How do I recognize <b>when</b> an implementation detail becomes impactful or critical?
+    How do I recognize <b>when</b> an implementation detail becomes impactful<br> or critical?
 </p>
 
 I don’t think there is a single answer to those questions and experience
@@ -624,6 +648,5 @@ developed**.
 In retrospect, I have the feeling that the many practical aspects of DRL
 are maybe sometimes undervalued in the literature at the moment but my
 observation led me to conclude that it probably plays a greater role in
-the success or failure of a DRL project and it’s a must study in my
-quest for seeking *Actor-Critic* method proficiency.
+the success or failure of a DRL project and it’s a must study.
 
