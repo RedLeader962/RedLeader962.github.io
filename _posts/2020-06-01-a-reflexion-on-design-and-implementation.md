@@ -14,94 +14,73 @@ authors:
 bibliography: 2020-06-01-a-reflexion-on-design-and-implementation.bib
 
 _styles: >
+    d-byline {
+        padding: 1.5rem 0;
+        padding-bottom: 0em;
+        margin-bottom: 0em;
+        min-height: 1.8em;
+    }
     .supervisorDbyline {
         contain: style;
+        overflow: hidden;
         font-size: 0.8rem;
-        line-height: 0.75em;
-        min-height: 0.75em;
-        padding: 0rem 0;
-        border-down: 1px solid rgba(0, 0, 0, 0.1);
-        margin: 0rem 0;
-    }
-    .supervisorDbyline h3 {
+        line-height: 1.8em;
+        padding: 1.5rem 0;
+        min-height: 1.8em;
+        padding-bottom: 0em;
+        margin-bottom: 0em;
+      }
+    .supervisorDbylineTitle {
         font-size: 0.6rem;
         font-weight: 400;
+        line-height: 1.8em;
         color: rgba(0, 0, 0, 0.5);
         text-transform: uppercase;
-    }
+        margin: 0rem 0;
+        padding: 0rem 0;
+      }
     .supervisorDbyline a {
-      color: rgba(0, 0, 0, 0.8);
-      text-decoration: none;
-      border-bottom: none;
-    }
+        color: rgba(0, 0, 0, 0.8);
+        text-decoration: none;
+        border-bottom: none;
+      }
     .supervisorDbyline a:hover {
-      text-decoration: none;
-      color: #828282;
-      border-bottom: none;
-    }
+        text-decoration: none;
+        color: #828282;
+        border-bottom: none;
+     }
     .supervisorThe {
-      font-weight: 500;
+        font-weight: 500;
     }
-    .definition h5 {
-        padding-top: 1em;
-        padding-bottom: 0em; 
-        margin-bottom: 0em;
-        font-size: 0.9em;
-        font-weight: bold;
-        text-transform: none;
-        color: #666;
+    .supervisorDbylineHorizontalRule {
+        display: block;
+        margin-top: 1.75em;
+        height:1px;
+        border-width:0;
+        color:rgba(0, 0, 0, 0.1);
+        background-color:rgba(0, 0, 0, 0.1)
     }
-    .definition dt {
-        padding-top: 1em;
+    d-article {
+        border-top: 0px solid rgba(0, 0, 0, 0.1);
+        padding-top: 0rem;
+        margin-top: 0rem;
     }
-    .definition dd {
-        padding-top: 1em;
-    }
-    .myLead {
-        font-size: larger; 
-        font-weight: bolder;
-    }
-    figcaption {
-        padding-top: 1em;
-        text-align: center;
-    }
-    figcaption strong {
-        font-size: larger;
-    }
-    figure {
-        padding-top: 1em;
-        padding-bottom: 2em;
-    }
-    blockquote.blockquote {
-        margin: 0.5em; 
-        margin-bottom: 1em;
-        font-size: inherit;
-        border-left: none;
-    }
-    blockquote i {
-        color: #ccc;
-    }
-    .definition blockquote {
-        font-size: inherit;
-        margin: 0.5em; 
-        margin-bottom: 0.25em;
-        border-left: none;
-    }
-    ul li {
-        margin-left: 1em;
-        margin-bottom: 0.25em;
-    }
-    .mainH1 {
-        margin-top: 1em;
-    }
-    
 ---
+
 <div style=""></div>
+
+<!-- Bibtex citation key
+Henderson2018
+Plappert2017
+Duan2016
+Schulman2015a
+Amiranashvili2018
+-->
 
 <div class="container supervisorDbyline">
     <div class="row">
         <div class="col">
-            <h3> Supervisor </h3> 
+            <p class="supervisorDbylineTitle"> Supervisor </p> 
         </div>
         <!-- 
             Force next columns to break to new line 
@@ -121,15 +100,7 @@ _styles: >
     </div>
 </div>
 
----
-
-<!-- Bibtex citation key
-Henderson2018
-Plappert2017
-Duan2016
-Schulman2015a
-Amiranashvili2018
--->
+<hr class="supervisorDbylineHorizontalRule">
 
 
 A quest for answers
@@ -346,6 +317,7 @@ They found that
     publications can have dramatic impacts on performance</b> ... This
     (result) demonstrates the necessity that implementation details be
     enumerated, codebases packaged with publications ...
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -368,6 +340,7 @@ Nevertheless, their result showed that:
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
     <b>no single algorithm can perform consistently better in all
     environments.</b>
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -377,8 +350,7 @@ not be wise to take it into consideration before planning the
 implementation as it could clearly affect the outcome. Otherwise it’s
 like expecting a Formula One to perform well in the desert during a
 Paris-Dakar race on the basis that it holds a top speed record of 400
-km/h.  
-They concluded that
+km/h. They concluded that
 
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
@@ -386,6 +358,7 @@ They concluded that
     stochasticity, shortened trajectories, or different dynamic properties
     ... as a result of these differences, algorithm performance can vary
     across environments ...
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -414,6 +387,7 @@ reward scale. As an example:
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
     Figure 2 shows how significantly performance can be affected by simple changes to the policy or value network
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -433,6 +407,7 @@ reward scale. As an example:
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
     Our results show that the value network structure can have a significant effect on the performance of ACKTR algorithms.
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -456,6 +431,7 @@ activation function:
     The effects are not consistent across algorithms or environments.
     This inconsistency <b>demonstrates how interconnected network
     architecture is to algorithm methodology</b>.
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 It’s not a surprise that hyperparameter has an effect on the
@@ -476,6 +452,7 @@ their closing thought:
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
     Maybe new methods should be answering the question: <b>in what settings would this work be useful?</b>
+    <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
@@ -507,11 +484,11 @@ investment.
 So we now need to look for 2 types of implementation details: those
 related to algorithm performance and those related to wall clock speed.
 That’s when things get trickier. Take for example the *value estimate*
-computation *V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**) in a *batch
+computation $$\hat{V}_\phi^\pi(\mathbf{s})$$ in a *batch
 Actor-Critic with bootstraps target* design. In the end, we just need
-*V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**) to compute the critic target and
+$$\hat{V}_\phi^\pi(\mathbf{s})$$ to compute the critic target and
 the advantage at the update stage. Ok, then what’s the best place to
-compute *V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**)? Is it at *timestep
+compute $$\hat{V}_\phi^\pi(\mathbf{s})$$? Is it at *timestep
 level* close to the *collect process* or at *batch level* close to the
 *update process*? 
  
@@ -521,10 +498,10 @@ level* close to the *collect process* or at *batch level* close to the
 a batch might make no difference on a [*CartPole-v1* Gym
 environment](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
 since you only need to store in RAM at each timestep a 4-digit
-observation and that trajectory length is capped at 200 steps. So you
+observation and that trajectory length is capped at $200$ steps. So you
 end up with relatively small batches size. Even if that design choice
 completely fails to leverage the power of matrix computation framework,
-considering the setting, computing *V̂*<sub>*ϕ*</sub><sup>*π*</sup>
+considering the setting, computing $$\hat{V}_\phi^\pi$$
 anywhere would be relatively fast anyway.
 
 **Casse 2 - _batch level_:** On the other hand, using the same design in an environment with very
@@ -532,19 +509,19 @@ high dimensional observation space like the [*PySc2
 Starcraft*](https://github.com/deepmind/pysc2) environment <d-footnote>PySc2 have multiple observation output. As an example, minimap observation is an RGB representation of 7 feature layers with resolution ranging from 32 − 2562<sup>2</sup> where most pixel value give important information on the game state.</d-footnote>, will make
 that same operation slower, potentially to a point where it could become
 a bottleneck that will considerably impair experimentation speed. So
-maybe a design where you compute *V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**)
+maybe a design where you compute $$\hat{V}_\phi^\pi(\mathbf{s})$$
 at *batch level* would make more sense in that setting.
 
 **Casse 3 - _trajectory level_:** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
-Starcraft* game is  ∼ 40, 000 steps long. In order to compute
-*V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**) at batch level, you need to store
+Starcraft* game is  $$\sim 40, 000$$ steps long. In order to compute
+$$\hat{V}_\phi^\pi(\mathbf{s})$$ at batch level, you need to store
 in RAM memory each timestep observation for the full batch, so given the
 observation space size and the range of trajectory length, in that
 setting you could end up with RAM issues. If you have access to powerful
 hardware like they have in Google Deepmind laboratory it won’t really be
 a problem, but if you have a humble consumer market computer, it will
 matter. So maybe in that case, keeping only observations from the
-current trajectory and computing *V̂*<sub>*ϕ*</sub><sup>*π*</sup>(**s**)
+current trajectory and computing $$\hat{V}_\phi^\pi(\mathbf{s})$$
 at trajectory end would be a better design choice.  
 
 What I want to show with this example is that

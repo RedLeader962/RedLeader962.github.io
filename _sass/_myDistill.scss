@@ -1,0 +1,104 @@
+/*******************************************************************************
+ * Styles for the base elements of the theme.
+ ******************************************************************************/
+
+
+// Distill
+
+.distill {
+
+  //hr {
+  //  border-top: 1px solid red;
+  //  margin: 2.25rem;
+  //}
+
+  a:hover {
+    border-bottom-color: $theme-color;
+    text-decoration: none;
+  }
+
+  d-article {
+
+    h2 {
+      //color: red;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid $text-color;
+    }
+
+    h3 {
+      //color: red;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid $text-color;
+      font-size: x-large;
+    }
+
+  }
+
+  .definition h5 {
+    padding-top: 1em;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: none;
+    color: #666;
+  }
+
+  .definition dt {
+    padding-top: 2em;
+  }
+
+  .definition dd {
+    padding-top: 2em;
+  }
+
+
+  .definition blockquote {
+    font-size: inherit;
+    margin: 0.5em;
+    margin-bottom: 0em;
+    border-left: none;
+  }
+
+  .myLead {
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+  figcaption {
+    padding-top: 1em;
+    text-align: center;
+  }
+
+  figcaption strong {
+    font-size: larger;
+  }
+
+  figure {
+    padding-top: 1em;
+    padding-bottom: 2em;
+  }
+
+  blockquote.blockquote {
+    margin: 0.5em;
+    margin-bottom: 1em;
+    font-size: inherit;
+    border-left: none;
+  }
+
+  blockquote i {
+    color: #ccc;
+  }
+
+
+  ul li {
+    margin-left: 1em;
+    margin-bottom: 0.25em;
+  }
+
+  .mainH1 {
+    margin-top: 1em;
+  }
+}
