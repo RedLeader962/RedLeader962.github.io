@@ -496,7 +496,7 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
  
 <p class="text-center lead" style="padding-top: 0em; padding-bottom: 0em">Does it even matter?</p>
 
-<div class="card border-dark" style="margin-top: 1em; margin-bottom: 2em;">
+<div class="card border-dark l-body-outset" style="margin-top: 1em; margin-bottom: 2em;">
     <div class="card-header" style="color: white; background-color: rgb(14, 14, 26)">
         Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
     </div>
