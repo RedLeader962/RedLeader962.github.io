@@ -496,12 +496,12 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
  
 <p class="text-center lead" style="padding-top: 0em; padding-bottom: 0em">Does it even matter?</p>
 
-<div class="card border-dark l-body-outset" style="margin-top: 1em; margin-bottom: 2em;">
-    <div class="card-header" style="font-size: inherit; color: white; background-color: rgb(14, 14, 26)">
+<div class="card border-dark" style="margin-top: 1em; margin-bottom: 2em;">
+    <div class="card-header" style="color: white; background-color: rgb(14, 14, 26)">
         Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
     </div>
     <div class="card-body text-dark">
-        <p class="card-text" style="font-size: unset;">
+        <p class="card-text">
             The Actor-Critic <b>objective</b> goes like this
             <d-math block class="card-d-math-display">
                 \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{i, t} | \mathbf{s}_{i, t} ) \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t})
@@ -515,8 +515,8 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
                 \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}_i \, , \, \mathbf{y}_i \, ) \,  \Big)  \, \Big\} 
             </d-math>
             with 
-            <ul>
-                <li>
+            <ul class="card-text">
+                <li >
                 the <b>input</b> <d-math>\, \mathbf{x}_i \, := \, \mathbf{s}_{i, t} \,</d-math> with the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
                 </li>
                 <li>the <b>bootstrap target</b>
@@ -525,7 +525,7 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
                 </d-math>
                 </li>
             </ul>
-            <d-math block class="card-d-math-display">
+            <d-math block class="card-d-math-display ">
                 L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, \middle| \, \mathbf{y}_i  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, - \, \left( \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, \, t+1}) \, \right)  \, \right\|^2 
             </d-math>
         </p>
