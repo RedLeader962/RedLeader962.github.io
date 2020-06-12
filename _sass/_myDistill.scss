@@ -12,9 +12,53 @@
   //  margin: 2.25rem;
   //}
 
-  .card-d-math-display {
-    margin-left: 1.25em;
-    //font-size: 1.1rem;
+  .test {
+    background-color: cyan;
+    color: red;
+  }
+
+  .remark-card {
+    border-color: $grey-color-lighter;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .header-grey {
+    font-size: medium;
+    color: $grey-color;
+    //background-color: rgb(14, 14, 26);
+    background-color: $grey-color-Lighter;
+  }
+
+  .button-dark {
+    @extend .header-grey;
+    @extend .remark-card;
+    text-transform: none;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+  }
+
+  button:hover {
+    background-color: $grey-color-light;
+  }
+
+  .card {
+
+    @extend .remark-card;
+
+    //.card-text {
+    //  //@extend .test;
+    //  color: $grey-color-darker;
+    //}
+
+    .remark-card-header {
+      @extend .header-grey;
+    }
+
+    .card-d-math-display {
+      margin-left: 1em;
+      //font-size: 1.1rem;
+    }
   }
 
   a:hover {

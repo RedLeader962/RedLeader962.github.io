@@ -50,6 +50,11 @@ a, table.table a {
 
 // Navbar customization
 
+.hover-color {
+  //color: red;
+  color: $grey-color-Lighter;
+}
+
 .logo-img {
   // to black
   filter: invert(1);
@@ -67,33 +72,38 @@ a, table.table a {
 }
 
 .navbar.navbar-light {
-  // Remove link decoration
   a {
+    // Left side Title
     color: $white;
 
     &:hover {
+      @extend .hover-color;
       text-decoration: none;
-      color: $grey-color-darker;
     }
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: $white;
+    // Inactive menu item
+    //color: red;
+    //color: $white;
+    color: $grey-color;
 
     &:hover {
-      color: $grey-color-darker;
+      @extend .hover-color;
     }
   }
 
   .navbar-nav .nav-item.active > .nav-link {
+    // Active menu item
     background-color: inherit;
-    //       color: $theme-color;
-    //       color: darken($theme-color, 70%);
+    //color: $theme-color;
+    //color: darken($theme-color, 70%);
+    //color: red;
     color: $white;
     font-weight: bolder;
 
     &:hover {
-      color: $grey-color-darker;
+      @extend .hover-color;
     }
   }
 
@@ -186,7 +196,7 @@ a, table.table a {
       color: $grey-color-dark;
 
       &:hover {
-        color: $theme-color;
+        @extend .hover-color;
       }
     }
   }
