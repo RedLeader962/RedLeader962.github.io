@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /
+permalink: /about/
 description: Proud veterans from Montreal (Canada), turned <b>computer scientist</b> and passionate about <b>Ai</b>
 
 profile:
