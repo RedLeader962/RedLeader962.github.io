@@ -177,7 +177,10 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         * **RECON** platoon patrolman (4 years)
         * Tactical intelligence operator (1 year)
         * 2 combat tours in ***Afghanistan*** : _Zhari_ District in 2007 and _Panjwai_ District in 2011 
-        * 3 medals for best pistol shooter at the 2013 _5th Canadian Mechanized Brigade Group_ shooting competition 
+        * _5th Canadian Mechanized Brigade Group_ shooting competition:
+            * pistol (2013):  bronze for best shooter, silver for best junior shooter, gold for best team 
+            * assault rifle (2006):  gold for best squad
+        * Basic infantry course **excellence trophy** for best candidate    
      * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
  * Dedicated **ski bump** in the 90's : steep, moguls, backflip, competitive freestyle skiing ...
  * Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._

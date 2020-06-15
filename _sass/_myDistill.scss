@@ -30,8 +30,9 @@
   .header-grey {
     font-size: medium;
     color: $grey-color;
-    //background-color: rgb(14, 14, 26);
-    background-color: $grey-color-Lighter;
+    //background-color: $grey-color-Lighter;
+    background-color: $theme-color;
+    border-color: $theme-color;
   }
 
   .button-dark {
@@ -44,12 +45,16 @@
 
   .button-dark.collapsed {
     background-color: $grey-color-light;
-    color: $grey-color-lighter;
     border-color: $grey-color-Lighter;
+    color: $grey-color-lighter;
   }
 
   button:hover {
+    @extend .remark-card;
+    //border-color: $theme-color;
+    //background-color: $theme-color;
     background-color: $grey-color-light;
+    border-color: $grey-color;
   }
 
   .card {
