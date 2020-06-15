@@ -498,7 +498,7 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
 
 
 <div style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
-        <button class="btn btn-lg btn-block button-dark" style=" margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-lg btn-block button-dark" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="false" aria-controls="collapseExample">
         Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
         </button>
     <div id="quick-refresher" class="collapse show">

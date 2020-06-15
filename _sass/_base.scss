@@ -319,19 +319,20 @@ footer.sticky-bottom {
 
 // Blog
 
-.header-bar {
+.blog-header-bar {
   border-bottom: 1px solid $grey-color-light;
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 4rem;
 
   h1 {
-    //     color: $theme-color;
-    font-size: 4rem;
+         color: $theme-color;
+    font-size: 3rem;
+    font-weight: bolder;
   }
 
   h2 {
-    color: $theme-color;
+    color: $grey-color;
     font-size: 2rem;
   }
 }

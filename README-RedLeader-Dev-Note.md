@@ -31,32 +31,29 @@
 ---
 
 ### Main command
-**Compile major** change to html: change to name, navigation element, ...
-```
+
+```bash
+# Compile major change to html: change to name, navigation element, ...
 $ bundle install
-```
-Start **server for offline dev**
-```
+
+# Start server for offline dev
 $ bundle exec jekyll serve
 ```
-Shortcut
-```
-$ bundle install && bundle exec jekyll serve
-```
+
+or execute script `/bin/compileAndRestartLocalServer.sh`
 
 ---
 
 ## Getting started
 
-#### Note
-
-Possible conflict beetwen _anaconda_ <--> _Ruby_ 
-
-Work around:
-```bash
-$ conda deactivate
-```
-- [ ] todo:investigate
+> **Note**
+> Possible conflict beetwen _anaconda_ <--> _Ruby_ 
+> 
+> Work around:
+> ```bash
+> $ conda deactivate
+> ```
+> - [ ] todo:investigate
 
 ---
 
