@@ -82,6 +82,21 @@ a, table.table a {
     }
   }
 
+  .left-side-title {
+    a {
+      // Left side Title
+      color: $white;
+      //opacity: 50%;
+
+      &:hover {
+        //@extend .hover-color;
+        //text-decoration: none;
+        //opacity: 50%;
+         text-shadow: 0px 0px 7px $white, 0px 0px 60px $white;
+      }
+    }
+  }
+
   .navbar-nav .nav-item .nav-link {
     // Inactive menu item
     //color: red;

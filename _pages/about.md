@@ -62,13 +62,15 @@ Black Live Matter: today, tomorow and every day after that<br>
 
 
 ### Goals 
-- Find a way to explain ideas and concepts in the most intuitive way using drawing and funny example. 
+- Find a way to explain ideas and concepts in the most intuitive way using drawing or funny example. 
 - Develop robust and adaptative algorithms that thrives in adverse condition.
 
 
 ### Skills
 
-##### Language
+<span style="font-size: large; font-weight: bolder; border-bottom: none; margin-right: 0.75em;">
+Language:
+</span>
 I speak French (native tongue) and English and I sometimes dream in _Python, LaTeX, C++_ 
 
 <div style="padding-top: 1em;">
@@ -171,7 +173,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ##### Past:
  * Served with the Canadian army for 12 years:
-     * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) :
+     * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) at Valcartier:
         * **RECON** platoon patrolman (4 years)
         * Tactical intelligence operator (1 year)
         * 2 combat tours in ***Afghanistan*** : _Zhari_ District in 2007 and _Panjwai_ District in 2011 
