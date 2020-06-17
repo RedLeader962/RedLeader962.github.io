@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /about/
-description: Proud veterans from Montreal (Canada), turned <b>computer scientist</b> and passionate about <b>Ai</b>
+description: Proud veteran from Montreal (Canada), turned <b>computer scientist</b> <br>and passionate about <b>A.I.</b>
 
 profile:
   align: right
@@ -19,11 +19,11 @@ Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it
 ### Core values
 
 <dl style="padding-left: 1em; padding-right: 0em;" class="row">
-  <dt class="col-md-3">Ai for good</dt> <dd class="col-xl-9">
+  <dt class="col-md-3">A.I. for good</dt> <dd class="col-xl-9">
      Humanity first, then computer science, not the other way around ! 
   </dd>
-  <dt class="col-md-3">Ethical AI</dt> <dd class="col-xl-9">
-    "Poor data, inexplicable code or rushed deployment can easily lead to AI systems that are not worth celebrating.”
+  <dt class="col-md-3">Ethical A.I.</dt> <dd class="col-xl-9">
+    "Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems that are not worth celebrating.”
     <span style="color: gray">― <a href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a> <!-- at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a> --></span> 
   </dd>
   <dt class="col-md-3 border-md-bottom">Integrity</dt> <dd class="col-xl-9">
@@ -47,14 +47,14 @@ Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it
 
 <!-- 
 <p style="text-align: center" class="font-weight-bold">
-Ethical AI<br>
-Ai for good: Humanity fisrt, then computer science then profit or building cool stuff<br> 
+Ethical A.I.<br>
+A.I. for good: Humanity fisrt, then computer science then profit or building cool stuff<br> 
 Integrity & acountability<br>
 Toward excellence: it's better to set the bar to high and fail then setting it to low and susceed<br>
 Black Live Matter: today, tomorow and every day after that<br>
 </p>
 <blockquote class="text-center">
-<p class="d-md-inline">"Poor data, inexplicable code or rushed deployment can easily lead to AI systems <br> that are not worth celebrating.”</p> 
+<p class="d-md-inline">"Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems <br> that are not worth celebrating.”</p> 
 <footer class="blockquote-footer"><cite title="Source Title"><a href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a></cite> at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a></footer>
 </blockquote>
 ---

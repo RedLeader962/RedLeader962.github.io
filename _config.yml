@@ -58,8 +58,8 @@ google_analytics: UA-XXXXXXXXX # out your google-analytics code
 
 # #Tale of a AI computer scientist, Full disclosure on my AI adventure, A learning journey in the AI world
 
-blog_menu_name: Tales from a computer scientist in the AI world # (!) required. Standard: blog
-blog_name: Tales from a computer scientist in the AI world # (!) your blog must have a name for it to show up in the nav bar
+blog_menu_name: Tales from a computer scientist in the A.I. world # (!) required. Standard: blog
+blog_name: Tales from a computer scientist in the A.I. world # (!) your blog must have a name for it to show up in the nav bar
 blog_description: My journal, my point of vue, my journey with it's ups, downs and full disclosure.
 permalink: /blog/:year/:title/
 
