@@ -512,35 +512,46 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
                 <p class="card-text">
                     The Actor-Critic <b>objective</b> goes like this
                     <d-math block class="card-d-math-display" style="margin-left: 8em">
-                        \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{i, t} | \mathbf{s}_{i, t} ) \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t})
-                    </d-math>
-                    with the <b>advantage</b>
-                    <d-math>
-                        \widehat{A}^\pi(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \, = \, r(\mathbf{s}_{i,t}, \mathbf{a}_{i,t}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{i,t+1}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{i,t})
-                    </d-math>
-                </p>
-                <p class="card-text" style="margin-top: 2em;">
-                    Training the <b>critic</b> <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> is a supervised regression problem that we can define like this:
-                    <d-math block class="card-d-math-display" style="margin-left: 14em; ">
-                        \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}_i \, , \, \mathbf{y}_i \, ) \,  \Big)  \, \Big\} 
+                        \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t}^{_{(i)}} | \mathbf{s}_{t}^{_{(i)}} ) \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}})
                     </d-math>
                     <p class="card-text" style="margin-bottom: 0em;">with</p>
                     <ul class="card-text" style="margin-left: 1.5em">
                         <li>
-                        the <b>input</b> <d-math>\, \mathbf{x}_i \, := \, \mathbf{s}_{i, t} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
+                        the <b>advantage</b>
+                        <d-math>
+                            \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, = \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}})
+                        </d-math>
+                        </li>
+                        <li>
+                        the <b>actor network</b> <d-math>\pi_\theta</d-math> (the one reponsible for making acting decision in the environment)
+                        </li>
+                        <li>
+                        the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> (the one responsible for evaluating if <d-math>\pi_\theta</d-math> is doing a good job)
+                        </li>
+                    </ul>
+                </p>
+                <p class="card-text" style="margin-top: 2em;">
+                    Training the <b>critic</b> part is a supervised regression problem that we can define like this:
+                    <d-math block class="card-d-math-display" style="margin-left: 14em; ">
+                        \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, \mathbf{y}^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
+                    </d-math>
+                    <p class="card-text" style="margin-bottom: 0em;">with</p>
+                    <ul class="card-text" style="margin-left: 1.5em">
+                        <li>
+                        the <b>input</b> <d-math>\, \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t}^{_{(i)}} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
                         </li>
                         <li>
                         and the <b>bootstrap target</b>
                         <d-math>
-                        \, \mathbf{y}_i \, := \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) + \widehat{V}_\phi^\pi(\mathbf{s}_{i, t+1}) \, \approx \, V^\pi(\mathbf{s}_t) 
+                        \, \mathbf{y}^{_{(i)}} \, := \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) + \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, \approx \, V^\pi(\mathbf{s}_t) 
                         </d-math>
                         </li>
                     </ul>
                 </p>
                 <p class="card-text" style="margin-top: 2em;">
-                    <d-math block class="card-d-math-display" style="margin-left: 4em">
-                        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, \middle| \, \mathbf{y}_i  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, t}) \, - \, \left( \, r(\mathbf{s}_{i, t}, \mathbf{a}_{i, t}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{i, \, t+1}) \, \right)  \, \right\|^2 
-                    </d-math></p>
+                 <d-math block class="card-d-math-display" style="margin-left: 10em">
+                        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, \middle| \, \mathbf{y}^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, - \, \mathbf{y}^{_{(i)}}  \, \right\|^2 
+                 </d-math></p>
             </div>
         </div>
     <!-- 
