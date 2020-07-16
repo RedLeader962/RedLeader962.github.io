@@ -1,9 +1,8 @@
 ---
 published: true
 layout: distill
-title: A reflection on design, architecture and implementation details in Deep Reinforcement Learning
-description: 'Lessons learned studing DRL algortihm from a software engineering perspective applied to research. Asking question like:
-<i>Does implementation details realy matters? Which one does, when & why?</i>'
+title: Does implementation details matter in Deep Reinforcement Learning?
+description: 'A reflection on design, architecture and implementation details in DRL from a software engineering perspective applied to research.'
 
 authors:
   - name: Luc Coupal
@@ -35,7 +34,6 @@ _styles: >
         font-size: 0.6rem;
         font-weight: 400;
         line-height: 1.8em;
-        color: rgba(0, 0, 0, 0.5);
         text-transform: uppercase;
         margin: 0rem 0;
         padding: 0rem 0;
@@ -101,13 +99,26 @@ Amiranashvili2018
     </div>
 </div>
 
+<div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Remark </p> 
+        </div>
+        <!-- 
+            Force next columns to break to new line 
+        -->
+        <div class="w-100"></div>
+    </div>
+        A big thank you to my angel <b>Karen Cadet</b> for her support and precious insight on the english language. 
+</div>
+
 <hr class="supervisorDbylineHorizontalRule">
 
 
 A quest for answers
 ===================
 
-While I was finishing an essay on *Deep Reinforcement Learning -
+While I was finishing an essay on *Deep Reinforcement Learning Advantage
 Actor-Critic* method, a part of me felt that some important questions
  linked to the applied part were  unanswered or disregarded.  
 
@@ -115,10 +126,10 @@ Those questions were linked to design & architectural aspects of Deep
 Reinforcement Learning from a software engineering perspective applied
 to research.
 
-<p class="text-center" style="font-weight: bolder;">
+<p class="text-center myLead" >
 Which design & architecture should I choose?<br>
 Which implementation details are impactful or critical?<br>  
-Does it even matter?<br>
+Does it even make a difference?<br>
 </p>
 
 This essay is my journey through that reflection process and the lessons
@@ -130,9 +141,9 @@ decisions and implementation details in Deep Reinforcement Learning
 --------------------------------------
 
 <div class="definition">
-    <dl style="padding-left: 0em;" class="row">
+    <dl style="padding-left: 0em; padding-right: 0em;" class="row">
       <dt class="col-md-3">The setting</dt> 
-      <dd class="col-sm-9 ml-auto">
+      <dd class="col-md-9 ml-auto">
         In this essay, with respect to an algorithm implementation, the term
         "setting" will refer to any outside element like the following:
         <h5>- implementation requirement:</h5>  
@@ -147,7 +158,7 @@ decisions and implementation details in Deep Reinforcement Learning
         available number of cores, RAM capacity…
       </dd>
       <dt class="col-md-3">Architecture (Software)</dt> 
-      <dd class="col-sm-9 ml-auto">
+      <dd class="col-md-9 ml-auto">
         From the <a href="https://en.wikipedia.org/wiki/Software_architecture" target="blank">wikipedia page on Software
         architecture</a>
         <blockquote class="blockquote text-justify">
@@ -162,7 +173,7 @@ decisions and implementation details in Deep Reinforcement Learning
         data handling and algorithm structure.
       </dd>
       <dt class="col-md-3">Design (Software)</dt> 
-      <dd class="col-sm-9 ml-auto">
+      <dd class="col-md-9 ml-auto">
         There are a lot of different definitions and the line between design and
         architectural concern is often not clear. Let’s use the first definition
         stated on the 
@@ -175,30 +186,31 @@ decisions and implementation details in Deep Reinforcement Learning
         components and <b>subject to constraints</b>.
             <footer class="blockquote-footer text-right"> <cite title="Source Title">Ralf & Wand</cite></footer>
         </blockquote>
-        In the ML field, it often refer to choices made regarding improvement
-        technique, hyperparameter, algorithm type, math computation…
+        In the ML field, it often refers to choices made regarding improvement
+        techniques, hyperparameters, algorithm type, math computation…
       </dd>
       <dt class="col-md-3">Implementation details</dt> 
-      <dd class="col-sm-9 ml-auto">
+      <dd class="col-md-9 ml-auto">
         This is a term often a source of confusion in software engineering 
         <d-footnote>I recommend this very good post on the topic of <i>Implementation details</i> by Vladimir Khorikov: <a href="https://enterprisecraftsmanship.com/posts/what-is-implementation-detail/" target="blank">What is an implementation detail?</a></d-footnote>. 
         The
         consensus is the following:
-        <p class="text-center lead" style="padding-top: 0.75em">
-        <b>everything that should not leak outside</b>
-        <b>a public API</b> is an implementation detail.
+        <p class="text-center" style="padding-top: 0.75em;">
+        everything that should not leak outside
+        a public API is an implementation detail.
         </p>
-        <p>So it’s closely linked to the definition & specification of an API but it’s not just code. <b>The meaning feel blurier in the machine learning
-        field as I often have the impression that it’s usage implicitly mean</b> 
+        <p>So it’s closely linked to the definition and specification of an API but it’s not just code. 
+        <b>The meaning feels blurier in the machine learning
+        field as it often gives the impression that it’s usage implicitly means:</b> 
         <blockquote class="blockquote text-justify">
             <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
-            everything that is not part of the math formula or the high-level algorithm is an implementation detail
+            everything that is not part of the math formula or the high-level algorithm is an implementation detail.
         </blockquote>
-        and also that
+        and also that:
         <blockquote class="blockquote text-justify">
-            <div class="lead">
+            <div class="">
             <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
-            <span style="font-weight: bold">those are just</span> implementation details
+            <span style="font-weight: bolder">those are just</span> implementation details.
             </div>
         </blockquote>
         </p>
@@ -219,11 +231,11 @@ On the other hand, studying the applied part has been puzzling. I took
 the habit when I study a new algorithm-related subject, to first
 implement it by myself without any code example. After I’ve done the
 work, I look at other published code examples or different framework
-codebases. This way I get a intimate sense of what’s going on under the
+codebases. This way I get an intimate sense of what’s going on under the
 hood and it makes me appreciate other solutions to problems I have
 encountered that often are very clever. It also helps me to highlight
 details I was not understanding or for which I was not giving enough
-attention. Proceeding this way takes more time, it’s sometimes a reality
+attention. Proceeding this way takes more time, it’s often a reality
 check and a self-confidence shaker, but in the end, I get a deeper
 understanding of the studied subject.  
 
@@ -248,7 +260,7 @@ taking into account what flavour of *Actor-Critic* was the implemented
 subject, but the implementation details were more often than not very
 different. To the point where I had to ask myself if I was missing the
 bigger picture. Was I looking at esthetical choices with no implication,
-at personal touch taken likely or **was I looking at well considered,
+at personal touch taken lightly or **was I looking at well considered,
 deliberate, impactful design & architectural decision**?  
 
 While going down that rabbit hole, the path became even blurrier when I
@@ -261,9 +273,9 @@ Still, a part of me was seeking for a clear choice like some kind of
 pattern*. Which led me to those next questions:
 
 <p class="text-center myLead">
-    <b>Which design & architecture</b> should I choose?<br>  
-    <b>Which implementation details</b> are impactful or critical?<br>  
-    <b>Does it even matter?</b><br>  
+    Which design & architecture should I choose?<br>  
+    Which implementation details are impactful or critical?<br>  
+    Does it even make a difference?<br>  
 </p>
 
 <div id="sec-does-it-even-matter"> </div>
@@ -280,18 +292,19 @@ related to some of their findings.
 
 <div id="subsec-regarding-implementation-details"> </div>
 
-**Regarding implementation details:** One disturbing result they got was on one experiment they conducted on
+#### Regarding implementation details: 
+One disturbing result they got was on one experiment they conducted on
 the performance of a given algorithm across different code base. Their
 goal was “to draw attention to the variance due to implementation
 details across algorithms”. As an example they compared 3 high quality
 implementations of TRPO: OpenAI Baselines<d-cite key="Plappert2017"></d-cite> , OpenAI rllab<d-cite key="Duan2016"></d-cite>  and the
 original TRPO<d-cite key="Schulman2015a"></d-cite> codebase. 
 
-The way I see it, those are all codebase linked to publish paper so they
-were all implemented by experts and they must have been extensively peer
-reviewed. So I would assume that given the same setting (same
+The way I see it, those are all codebase linked to publish papers so they
+were all implemented by experts and must have been extensively peer
+reviewed. So I would assume that given the same settings (same
 hyperparameters, same environment) they would all have similar
-performances. As you can see, that assumption was wrong.
+performances. As you can see, that assumption is wrong.
 
 
 <figure id="trpo-codebase-comparison-henderson-2018" class="l-body-outset">
@@ -307,27 +320,27 @@ performances. As you can see, that assumption was wrong.
 </figure>
 
 
-They also did the same experiment with DDPG and got similar results.
-They found that 
+They also did the same experiment with DDPG and got similar results and this is what they found:
 
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
     <b>... implementation differences which are often not reflected in
     publications can have dramatic impacts on performance</b> ... This
-    (result) demonstrates the necessity that implementation details be
+    [result] demonstrates the necessity that implementation details be
     enumerated, codebases packaged with publications ...
     <footer class="blockquote-footer text-right"> <cite title="Source Title">Henderson et al.</cite></footer>
 </blockquote>
 
 
-This does not answer my question about “Which implementation detail are
-impactful or critical?” but it certainly tells me **that some
-implementation details are impactful or critical** and this is an aspect
+This does not answer my question about “Which implementation details are
+impactful or critical?” however <span style="font-weight: bold;">it certainly tells me that SOME
+implementation details ARE impactful or critical</span> and this is an aspect
 that deserves a lot more attention.
 
 <div id="subsec-regarding-the-setting"></div>
 
-**Regarding the setting:** In another experiment, they examine the impact an environment choice
+#### Regarding the setting:
+ In another experiment, they examined the impact an environment choice
 could have on policy gradient family algorithm performances. They made a
 comparison using 4 different environments with 4 different algorithms. <d-footnote>Environment: Hopper, HalfCheetah, Swimmer and Walker are continuous control task from OpenAI MuJoCo Gym Algorithm: TRPO, PPO, DDPG and ACKTR (Note: DDPG and ACKTR are Actor-Critic class algorithm)</d-footnote>  
 
@@ -343,13 +356,13 @@ Nevertheless, their result showed that:
 </blockquote>
 
 
-That sounds like an important detail to me. If putting an algorithm in a
+To me, that sounds like an important detail. If putting an algorithm in a
 given environment has such a huge impact on its performance, would it
 not be wise to take it into consideration before planning the
-implementation as it could clearly affect the outcome. Otherwise it’s
+implementation as it could clearly affect the outcome. <span style="font-weight: bolder; ">Otherwise it’s
 like expecting a Formula One to perform well in the desert during a
 Paris-Dakar race on the basis that it holds a top speed record of 400
-km/h. They concluded that
+km/h</span>. They concluded that:
 
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
@@ -379,9 +392,10 @@ km/h. They concluded that
 </figure>
 
 
-**Regarding design & architecture:** They have also shown how policy gradient class algorithms can be
+#### Regarding design & architecture: 
+They have also shown how policy gradient class algorithms can be
 affected by choices of network structures, activation functions and
-reward scale. As an example:
+reward scale. Here are a few examples:
 
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
@@ -422,7 +436,7 @@ reward scale. As an example:
     </figcaption>
 </figure>
 
-They make the following conclusion regarding network structure and
+They make the following conclusions regarding network structure and
 activation function:
 
 <blockquote class="blockquote text-justify">
@@ -435,10 +449,11 @@ activation function:
 
 It’s not a surprise that hyperparameter has an effect on the
 performance. To me, the key takeaway is that policy gradient class
-algorithm can be highly sensitive to small change, enough to make it fly
-or fall if not considered properly.
+algorithm can be highly sensitive to small changes, enough to make it fall
+or fly if not considered properly.
 
-**Ok it does matter! What now?** Like I said earlier, the goal of their paper was to highlight problems
+#### Ok it does matter! ... What now?
+Like I said earlier, the goal of their paper was to highlight problems
 regarding reproducibility in DRL publication. As a by-product, they
 clearly establish that DRL algorithm can be very sensitive to change
 like environment choice or network architecture. I think it also showed
@@ -446,7 +461,7 @@ that the applied part of DRL, whether it’s about implementation details
 or design & architectural decisions, play a key role and is detrimental
 to a DRL project success just as much as the mathematic and the theory
 on top of which they are built. By the way, I really liked that part of
-their closing thought:
+their closing thought, which reads as follows:
 
 <blockquote class="blockquote text-justify">
     <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
@@ -466,9 +481,13 @@ performance of an algorithm eg.: how fast it converges to an optimal solution or
  if it converges at all.  
 
 Could it be impactful else where? Like wall clock speed for example or
-memory management. Of course it does, any book on data structure or
-algorithm analysis will say so. On the other end, there is this famous
-say in the computer science community: <i>“early optimization is a sin”</i>.  
+memory management. Of course it could, any book on data structure or
+algorithm analysis support that claim. On the other end, there is this famous
+say in the computer science community :
+<blockquote class="blockquote text-justify">
+    <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+    Early optimization is a sin.
+</blockquote>
 
 Does it apply to the ML/RL field? Anyone that has been waiting for an
 experiment to conclude after a few strikes will say that waiting for
@@ -479,6 +498,63 @@ from your decisions, the faster you can make adjustments towards your
 goals.** So optimizing for speed sooner than later is impactful indeed
 in ML/RL. It’s all about choosing what is a good optimization investment.  
 
+
+<hr class="remarkDbylineHorizontalRule">
+
+<h5 class="remark-header">
+    A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+</h5>
+
+<p class="remark-text" style="margin-bottom: 0em;">
+We need to train two neural network:
+</p>
+<ul class="remark-text" style="margin-left: 1.5em;">
+    <li>
+    the <b>actor network</b> <d-math>\pi_{\theta}</d-math> (the one reponsible for making acting decision in the environment)
+    </li>
+    <li>
+    the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> (the one responsible for evaluating if <d-math>\pi_\theta</d-math> is doing a good job)
+    </li>
+</ul>
+<p class="remark-text" style="margin-top: 1.5em;">The <b>gradient of the Actor-Critic objective</b> goes like this</p>
+
+$$
+    \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t}^{_{(i)}} | \mathbf{s}_{t}^{_{(i)}} ) \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}})
+$$
+
+<p class="remark-text" style="padding-top: 0.5em; margin-bottom: 0em;">
+    with the <b>advantage</b>
+    $
+        \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, = \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}})
+    $
+</p>
+<p class="remark-text" style="margin-top: 2em;">
+    Training the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> part is a supervised regression problem that we can define as:
+</p>
+
+$$
+    \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, y^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
+$$
+
+<p class="remark-text" style="margin-bottom: 0em;">with</p>
+<ul class="remark-text" style="margin-left: 1.5em; padding-bottom: 2em">
+    <li>
+    the <b>input</b> <d-math>\, \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t}^{_{(i)}} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
+    </li>
+    <li>
+    and the <b>bootstrap target</b>
+    $
+    \, y^{_{(i)}} \, := \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) + \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, \approx \, V^\pi(\mathbf{s}_t) 
+    $
+    </li>
+</ul>
+ 
+ $$
+        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, - \, y^{_{(i)}}  \, \right\|^2 
+ $$
+ 
+<hr class="remarkDbylineHorizontalRule">
+
 So we now need to look for 2 types of implementation details: 
  
 <ul class="fa-ul">
@@ -487,89 +563,27 @@ So we now need to look for 2 types of implementation details:
 </ul>
  
 That’s when things get trickier. Take for example the *value estimate* computation of the **critic** 
-$$\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$$ 
+$\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ 
 in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
-I won't dive in the detail here, but keep in mind that in the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the **critic bootstrap target** and
+I won't dive in the details here, but keep in mind that in the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the **critic bootstrap target** and
 the **advantage** at the update stage. 
 Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? 
 Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
-<p class="text-center lead" style="padding-top: 0em; padding-bottom: 0em">Does it even matter?</p>
+<p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Does it even make a difference?</p>
 
 
-<div style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
-        <button class="btn btn-lg btn-block button-dark" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="false" aria-controls="collapseExample">
-        Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
-        </button>
-    <div id="quick-refresher" class="collapse show">
-        <div class="card l-body" style="margin-bottom: 1em; padding-top: 0em; margin-top: 0em; z-index:-10;">
-    <!-- 
-                <div class="card-header remark-card-header">
-                    Quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
-                </div>
-     -->
-            <div class="card-body ">
-                    <p class="card-text" style="margin-bottom: 0em;">
-                    We need to train two neural network:
-                    </p>
-                    <ul class="card-text" style="margin-left: 1.5em;">
-                        <li>
-                        the <b>actor network</b> <d-math>\pi_\theta</d-math> (the one reponsible for making acting decision in the environment)
-                        </li>
-                        <li>
-                        the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> (the one responsible for evaluating if <d-math>\pi_\theta</d-math> is doing a good job)
-                        </li>
-                    </ul>
-                    <p class="card-text" style="margin-top: 1.5em;">The <b>gradient of the Actor-Critic objective</b> goes like this</p>
-                    <d-math block class="card-d-math-display" style="margin-left: 5em; margin-bottom: 1.35em;">
-                        \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t}^{_{(i)}} | \mathbf{s}_{t}^{_{(i)}} ) \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}})
-                    </d-math>
-                    <p class="card-text" style="margin-bottom: 0em;">
-                        with the <b>advantage</b>
-                        <d-math>
-                            \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, = \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}})
-                        </d-math>
-                    </p>
-                <p class="card-text" style="margin-top: 2em;">
-                    Training the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> part is a supervised regression problem that we can define like this:
-                </p>
-                <d-math block class="card-d-math-display" style="margin-left: 11em; margin-bottom: 0.35em;">
-                    \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, y^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
-                </d-math>
-                <p class="card-text" style="margin-bottom: 0em;">with</p>
-                <ul class="card-text" style="margin-left: 1.5em">
-                    <li>
-                    the <b>input</b> <d-math>\, \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t}^{_{(i)}} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
-                    </li>
-                    <li>
-                    and the <b>bootstrap target</b>
-                    <d-math>
-                    \, y^{_{(i)}} \, := \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) + \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, \approx \, V^\pi(\mathbf{s}_t) 
-                    </d-math>
-                    </li>
-                </ul>
-                <p class="card-text" style="margin-top: 2em;">
-                 <d-math block class="card-d-math-display" style="margin-left: 9.5em">
-                        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, - \, y^{_{(i)}}  \, \right\|^2 
-                 </d-math></p>
-            </div>
-        </div>
-    <!-- 
-    -->
-    </div>
-</div>
-
-**Casse 1 - _timestep level_:** Choosing to do this operation at each timestep instead of doing it over
+**Casse 1 - _timestep level_ :** Choosing to do this operation at each timestep instead of doing it over
 a batch might make no difference on a [*CartPole-v1* Gym
 environment](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)
 since you only need to store in RAM at each timestep a 4-digit
-observation and that trajectory length is capped at $200$ steps. So you
+observation and that trajectory length is capped at $200$ steps so you
 end up with relatively small batches size. Even if that design choice
 completely fails to leverage the power of matrix computation framework,
 considering the setting, computing $$\widehat{V}_\phi^\pi$$
 anywhere would be relatively fast anyway.
 
-**Casse 2 - _batch level_:** On the other hand, using the same design in an environment with very
+**Casse 2 - _batch level_ :** On the other hand, using the same design in an environment with very
 high dimensional observation space like the [*PySc2
 Starcraft*](https://github.com/deepmind/pysc2) environment <d-footnote>PySc2 have multiple observation output. As an example, minimap observation is an RGB representation of 7 feature layers with resolution ranging from 32 − 2562<sup>2</sup> where most pixel value give important information on the game state.</d-footnote>, will make
 that same operation slower, potentially to a point where it could become
@@ -577,7 +591,7 @@ a bottleneck that will considerably impair experimentation speed. So
 maybe a design where you compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$
 at *batch level* would make more sense in that setting.
 
-**Casse 3 - _trajectory level_:** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
+**Casse 3 - _trajectory level_ :** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
 Starcraft* game is  $$\sim 40, 000$$ steps long. In order to compute
 $$\widehat{V}_\phi^\pi(\mathbf{s})$$ at batch level, you need to store
 in RAM memory each timestep observation for the full batch, so given the
@@ -589,14 +603,9 @@ matter. So maybe in that case, keeping only observations from the
 current trajectory and computing $$\widehat{V}_\phi^\pi(\mathbf{s})$$
 at trajectory end would be a better design choice.  
 
-What I want to show with this example is that
+What I want to show with this example is that **some implementation details might have no effect in some settings but can be a game changer in others.**  
 
-<p class="text-center myLead">
-    some implementation details might have no effect in some settings<br> 
-    but be a game changer in others.  
-</p>
-
-This means that it’s a **setting sensitive** issue and the real question I need to ask myself is:
+This means that it’s a **setting sensitive** issue and the real question we need to ask myself is:
 
 <p class="text-center myLead">
     How do I recognize <b>when</b> an implementation detail<br> becomes impactful or critical?   

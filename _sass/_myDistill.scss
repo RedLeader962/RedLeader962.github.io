@@ -29,10 +29,11 @@
 
   .header-grey {
     font-size: medium;
-    color: $grey-color;
-    //background-color: $grey-color-Lighter;
-    background-color: $theme-color;
-    border-color: $theme-color;
+    color: $grey-color-darker;
+    background-color: $grey-color-Lighter;
+    border-color: $grey-color-Lighter;
+    //background-color: $theme-color;
+    //border-color: $theme-color;
   }
 
   .button-dark {
@@ -60,20 +61,46 @@
   .card {
     @extend .remark-card;
 
-    //.card-text {
-    //  //@extend .test;
-    //  color: $grey-color-darker;
-    //}
+    .card-text {
+      //@extend .test;
+      color: $grey-color;
+    }
 
     .remark-card-header {
       @extend .header-grey;
     }
 
-    .card-d-math-display {
-      margin-left: 1em;
-      //font-size: 1.1rem;
+    d-math.card-d-math-display {
+      //margin-left: 1em;
+      font-size: larger;
+      //text-align: center;
+      //padding: 8px 0 8px 0;
+      //margin: 0.5em 0 0.5em 1em;
+      display: block;
+      text-align: center;
+      @extend .test;
     }
+
   }
+
+  .remark-header {
+    font-size: larger;
+    color: $grey-color-darker;
+    margin-bottom: 1em
+  }
+  .remark-text {
+    color: $grey-color;
+    //font-size: large;
+  }
+  .remarkDbylineHorizontalRule {
+        //display: block;
+        //margin-top: 1.75em;
+        height:5px;
+        border-width:0;
+        color:rgba(0, 0, 0, 0.1);
+        //background-color:rgba(0, 0, 0, 0.1)
+        background-color: $light-gray;
+    }
 
   a:hover {
     border-bottom-color: $theme-color;
@@ -95,6 +122,15 @@
       padding-bottom: 0.25rem;
       border-bottom: 2px solid $text-color;
       font-size: x-large;
+    }
+
+    h4 {
+      color: $grey-color-dark;
+      //color: red;
+      margin-top: 1.25rem;
+      padding-top: 0.25rem;
+      font-size: medium;
+      border-bottom: 2px dotted lightgray;
     }
 
   }

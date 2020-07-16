@@ -49,12 +49,13 @@ $lighter-gray:      #eee !default;
 // $theme-color:         $yellow-color;
 // $theme-color:         $grey-color-dark;
 //$theme-color:         $grey-color;
-$theme-color:         $blue-color-DARK;
+$theme-color:         $blue-color-DARK !default;
 
 $theme-color-light:    lighten($theme-color, 40%);
 $theme-color-dark:     darken($theme-color, 25%);
 
 $link-color:          $theme-color;
 $text-color:          #111111 !default;
+$title-color-lighter:    lighten($theme-color, 18%);
 
 /******************************************************************************/
