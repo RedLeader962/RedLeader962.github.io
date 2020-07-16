@@ -1,7 +1,7 @@
 ---
 published: true
 layout: distill
-title: Does implementation details matter in Deep Reinforcement Learning?
+title: Do implementation details matter in Deep Reinforcement Learning?
 description: 'A reflection on design, architecture and implementation details in DRL from a software engineering perspective applied to research.'
 
 authors:
@@ -85,13 +85,13 @@ Amiranashvili2018
             Force next columns to break to new line 
         -->
         <div class="w-100"></div>
-        <div class="col">
-            Professor 
+        <div class="col-md-3">
+            Prof. 
                 <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
                   <span class="supervisorThe"> Brahim Chaib-draa </span>
                 </a> 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca" target="blank">
             Université Laval
             </a> 
@@ -102,7 +102,7 @@ Amiranashvili2018
 <div class="container supervisorDbyline">
     <div class="row">
         <div class="col">
-            <p class="supervisorDbylineTitle"> Remark </p> 
+            <p class="supervisorDbylineTitle"> Acknowledgments </p> 
         </div>
         <!-- 
             Force next columns to break to new line 
@@ -498,63 +498,6 @@ from your decisions, the faster you can make adjustments towards your
 goals.** So optimizing for speed sooner than later is impactful indeed
 in ML/RL. It’s all about choosing what is a good optimization investment.  
 
-
-<hr class="remarkDbylineHorizontalRule">
-
-<h5 class="remark-header">
-    A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
-</h5>
-
-<p class="remark-text" style="margin-bottom: 0em;">
-We need to train two neural network:
-</p>
-<ul class="remark-text" style="margin-left: 1.5em;">
-    <li>
-    the <b>actor network</b> <d-math>\pi_{\theta}</d-math> (the one reponsible for making acting decision in the environment)
-    </li>
-    <li>
-    the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> (the one responsible for evaluating if <d-math>\pi_\theta</d-math> is doing a good job)
-    </li>
-</ul>
-<p class="remark-text" style="margin-top: 1.5em;">The <b>gradient of the Actor-Critic objective</b> goes like this</p>
-
-$$
-    \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t}^{_{(i)}} | \mathbf{s}_{t}^{_{(i)}} ) \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}})
-$$
-
-<p class="remark-text" style="padding-top: 0.5em; margin-bottom: 0em;">
-    with the <b>advantage</b>
-    $
-        \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, = \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}})
-    $
-</p>
-<p class="remark-text" style="margin-top: 2em;">
-    Training the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> part is a supervised regression problem that we can define as:
-</p>
-
-$$
-    \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, y^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
-$$
-
-<p class="remark-text" style="margin-bottom: 0em;">with</p>
-<ul class="remark-text" style="margin-left: 1.5em; padding-bottom: 2em">
-    <li>
-    the <b>input</b> <d-math>\, \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t}^{_{(i)}} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
-    </li>
-    <li>
-    and the <b>bootstrap target</b>
-    $
-    \, y^{_{(i)}} \, := \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) + \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, \approx \, V^\pi(\mathbf{s}_t) 
-    $
-    </li>
-</ul>
- 
- $$
-        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, - \, y^{_{(i)}}  \, \right\|^2 
- $$
- 
-<hr class="remarkDbylineHorizontalRule">
-
 So we now need to look for 2 types of implementation details: 
  
 <ul class="fa-ul">
@@ -678,3 +621,81 @@ are maybe sometimes undervalued in the literature at the moment but my
 observation led me to conclude that it probably plays a greater role in
 the success or failure of a DRL project and it’s a must study.
 
+
+---
+
+<!-- 
+<hr class="remarkDbylineHorizontalRule">
+
+<h5 class="remark-header">
+    A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+</h5>
+-->
+
+# A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+    
+<p class="remark-text" style="margin-bottom: 0em;">
+We need to train two neural network:
+</p>
+<ul class="remark-text" style="margin-left: 1.5em;">
+    <li>
+    the <b>actor network</b> <d-math>\pi_{\theta}</d-math> (the one reponsible for making acting decision in the environment)
+    </li>
+    <li>
+    the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> (the one responsible for evaluating if <d-math>\pi_\theta</d-math> is doing a good job)
+    </li>
+</ul>
+<p class="remark-text" style="margin-top: 1.5em;">The <b>gradient of the Actor-Critic objective</b> goes like this</p>
+
+$$
+    \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t}^{_{(i)}} | \mathbf{s}_{t}^{_{(i)}} ) \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}})
+$$
+
+<p class="remark-text" style="padding-top: 0.5em; margin-bottom: 0em;">
+    with the <b>advantage</b>
+    $
+        \widehat{A}^\pi(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, = \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, - \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}})
+    $
+</p>
+<p class="remark-text" style="margin-top: 2em;">
+    Training the <b>critic network</b> <d-math>\widehat{V}_\phi^\pi</d-math> part is a supervised regression problem that we can define as:
+</p>
+ 
+$$
+    \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, y^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
+$$
+
+<p class="remark-text" style="margin-bottom: 0em;">with</p>
+<ul class="remark-text" style="margin-left: 1.5em; padding-bottom: 2em">
+    <li>
+    the <b>input</b> <d-math>\, \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t}^{_{(i)}} \,</d-math> the state <d-math>\mathbf{s}</d-math> at timestep <d-math>t</d-math> of the <d-math>i^e</d-math> sample 
+    </li>
+    <li>
+    and the <b>bootstrap target</b>
+    $
+    \, y^{_{(i)}} \, := \, r(\mathbf{s}_{t}^{_{(i)}}, \mathbf{a}_{t}^{_{(i)}}) + \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \, \approx \, V^\pi(\mathbf{s}_t) 
+    $
+    </li>
+</ul>
+ 
+ $$
+        L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}^{_{(i)}}) \, - \, y^{_{(i)}}  \, \right\|^2 
+ $$
+ 
+ 
+<!-- 
+<hr class="remarkDbylineHorizontalRule">
+-->
+
+---
+##### Cited as:
+```bibtex
+@article{lcoupal2020implementation,
+  author   = {Coupal, Luc},
+  journal  = {redleader962.github.io/blog},
+  title    = {% raw  %}{{Do implementation details matter in Deep Reinforcement Learning?}}{% endraw %},
+  year     = {2019},
+  url      = {https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/},
+  keywords = {Deep reinforcement learning,Reinforcement learning,policy gradient methods,Software engineering}
+}
+```
