@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: distill
 title: TEMPLATE - Collapsable CARD
 description: Quick refresher on Advantage Actor-Critic method with bootstrap target
