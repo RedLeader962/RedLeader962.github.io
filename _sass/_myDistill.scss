@@ -44,7 +44,7 @@
     padding-bottom: 0.25em;
   }
 
-  .button-dark.collapsed {
+  .button-dark-collapsed {
     background-color: whitesmoke;
     border-color: darken(whitesmoke, 10%);
     color: $grey-color;
@@ -84,7 +84,7 @@
     }
 
     button.collapsed {
-      @extend .button-dark, .collapsed;
+      @extend .button-dark-collapsed;
       box-shadow: none;
 
       &:hover {
@@ -178,7 +178,7 @@
       //color: $grey-color-lighter;
     }
 
-    .topic-button-dark.collapsed {
+    .topic-button-dark-collapsed {
       @extend .header-grey;
       @extend .remark-card;
       text-transform: none;
@@ -186,14 +186,14 @@
       padding-bottom: 0.25em;
       //@extend .topic-button-dark;
       //@extend .topic-header-color;
-      @extend .button-dark.collapsed;
+      @extend .button-dark-collapsed;
       //background-color: $grey-color-light;
       //border-color: $grey-color-Lighter;
       //color: $grey-color-lighter;
     }
 
     button.collapse:not(.show) {
-      @extend .topic-button-dark, .collapsed;
+      @extend .topic-button-dark-collapsed;
       display: none;
     }
 
@@ -202,7 +202,7 @@
     }
 
     //button.collapsed {
-    //  @extend .topic-button-dark.collapsed;
+    //  @extend .topic-button-dark-collapsed;
     //}
 
     button:hover {
@@ -271,7 +271,7 @@
       //color: $grey-color-lighter;
     }
 
-    .topic-button-dark.collapsed {
+    .topic-button-dark-collapsed {
       @extend .header-grey;
       @extend .remark-card;
       text-transform: none;
@@ -279,14 +279,14 @@
       padding-bottom: 0.25em;
       //@extend .topic-button-dark;
       //@extend .topic-header-color;
-      @extend .button-dark.collapsed;
+      @extend .button-dark-collapsed;
       //background-color: $grey-color-light;
       //border-color: $grey-color-Lighter;
       //color: $grey-color-lighter;
     }
 
     button.collapse:not(.show) {
-      @extend .topic-button-dark, .collapsed;
+      @extend .topic-button-dark-collapsed;
       display: none;
     }
 
@@ -295,7 +295,7 @@
     }
 
     //button.collapsed {
-    //  @extend .topic-button-dark.collapsed;
+    //  @extend .topic-button-dark-collapsed;
     //}
 
     button:hover {
