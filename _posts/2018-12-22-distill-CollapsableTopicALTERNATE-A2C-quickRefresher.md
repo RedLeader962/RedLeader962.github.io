@@ -1,7 +1,7 @@
 ---
 published: false
 layout: distill
-title: TEMPLATE - Collapsable TOPIC
+title: TEMPLATE - Collapsable TOPIC ALT
 description: Quick refresher on Advantage Actor-Critic method with bootstrap target
 date: 2018-12-22
 
@@ -62,12 +62,12 @@ the **advantage** at the update stage.
 Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? 
 Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
-<p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Collapsable TOPIC</p>
+<p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Collapsable TOPIC ALTERNATE version</p>
 
 
-<!----- Collapsable topic --------------------------------------------------------------------------------------------->
+<!------ Collapsable topic ALTERNATE version -------------------------------------------------------------------------->
 
-<div class="collapsable-topic l-body">
+<div class="collapsable-topic-alternate">
     <button class="btn btn-lg btn-block" type="button" data-toggle="collapse" data-target="#quickRefresher" aria-expanded="false" aria-controls="quickRefresher">
     A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
     </button>
@@ -126,7 +126,9 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
     -->
 </div>
 
-<!------------------------------------------------------------------------------------- Collapsable topic ---(end)----->
+<!-- --------------------------------------------------------------- Collapsable topic ALTERNATE version ---(end)--- -->
+
+
 
 
 
