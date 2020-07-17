@@ -4,6 +4,19 @@ layout: default
 
 <div class="post about-me">
 
+    <!--
+    <div class="row justify-content-sm-center" style="grid-column: screen;">
+        <div class="col-sm-0 mt-0 mt-md-0">
+            <img class="img-fluid rounded z-depth-1" src="{{ '/assets/img/6.jpg' | relative_url }}" alt=""
+                 title="example image"/>
+        </div>
+    </div>
+
+    <div class="grid-item" style="grid-column: screen;">
+        <img class="img-fluid z-depth-1 rounded"
+             src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+    </div>
+    -->
     <header class="post-header" align="center">
 
         <!--        {% assign name = site.title | split: ' ' %}-->
@@ -21,10 +34,12 @@ layout: default
 
         <p>
             {% if page.profile %}
-            <!--        <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">-->
+            <!--                    <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">-->
             {% if page.profile.image %}
+            <!--                    <div class="container-fluid">-->
             <img class="img-fluid z-depth-1 rounded"
                  src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+            <!--                    </div>-->
             {% endif %}
             {% if page.profile.address %}
         <div class="address" align="center">
@@ -92,12 +107,12 @@ layout: default
     </div>
 
 
-        {% if page.social %}
-        <div class="social about-social">
-            {% include social.html %}
-            <div class="contact-note">{{ site.contact_note }}</div>
-        </div>
-        {% endif %}
+    {% if page.social %}
+    <div class="social about-social">
+        {% include social.html %}
+        <div class="contact-note">{{ site.contact_note }}</div>
+    </div>
+    {% endif %}
 
 
 </div>

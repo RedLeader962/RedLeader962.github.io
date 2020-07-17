@@ -6,12 +6,13 @@ description: Proud veteran from Montreal (Canada), turned <b>computer scientist<
 
 profile:
   align: right
-  image: prof_pic_wide.jpeg
+  image: IMG_0108.JPG
   address:
 
 news: false
 social: true
 ---
+
 
 ### Main interests
 Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it hurts, perpetually seeking breathtaking views and tought-provoking ideas. 

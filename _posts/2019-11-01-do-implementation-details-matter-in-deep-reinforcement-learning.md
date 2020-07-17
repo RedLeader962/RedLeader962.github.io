@@ -567,9 +567,15 @@ in ML/RL. It’s all about choosing what is a good optimization investment.
                             </li>
                         </ul>
                         and the lost function
-                            <d-math block class="card-d-math-display" style="margin-top: 0em; margin-bottom: -1em">
-                            L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, - \, y^{_{(i)}}  \, \right\|^2 
-                            </d-math>
+                            <!-- 
+                            <div class="center">
+                            -->
+                                <d-math block class="card-d-math-display" style="margin-top: 0em; margin-bottom: -1em;">
+                                    L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, - \, y^{_{(i)}}  \, \right\|^2 
+                                </d-math>
+                            <!-- 
+                            </div>
+                            -->
                     </p>
                 </div>
             </div>

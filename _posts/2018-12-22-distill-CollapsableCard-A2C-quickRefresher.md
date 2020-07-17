@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: distill
 title: TEMPLATE - Collapsable CARD
 description: Quick refresher on Advantage Actor-Critic method with bootstrap target
@@ -69,13 +69,16 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
 <!---- Collapsable card ----------------------------------------------------------------------------------------------->
 <div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
     <div class="card-shadow">
+        <!-- 
         <button class="btn btn-lg btn-block close-icon collapsed shadow-none" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="true" aria-controls="collapseExample">
         A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
         </button>
-        <!-- 
-        <div id="quick-refresher" class="collapse show">
-        -->
         <div id="quick-refresher" class="collapse">
+        -->
+        <button class="btn btn-lg btn-block close-icon shadow-none" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="true" aria-controls="collapseExample">
+        A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+        </button>
+        <div id="quick-refresher" class="collapse show">
             <div class="card shadow-none">
                 <div class="card-body">
                     <p> We need to train two neural network: 
@@ -95,7 +98,7 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
                     </d-math>
                     with the <b>advantage</b>
                     <d-math block class="card-d-math-display">
-                        \:\: \widehat{A}^\pi\left(\mathbf{s}_{t}, r_{t}^{_{(i)}}, \mathbf{s}_{t+1}^{_{(i)}}\right) \:\: = \:\: r_{t+1}^{_{(i)}} \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{t})
+                    \widehat{A}^\pi\left(\mathbf{s}_{t}, r_{t}^{_{(i)}}, \mathbf{s}_{t+1}^{_{(i)}}\right) \:\: = \:\: r_{t+1}^{_{(i)}} \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{t})
                     </d-math>
                     <span class="comment">
                         Note : <d-math>\mathbf{s}_t</d-math> is the current state at timestep <d-math>t</d-math> and was sampled at the previous iteration. On the other hand, both <d-math>r_{t+1}^{_{(i)}}</d-math> and <d-math>\mathbf{s}_{t+1}^{_{(i)}}</d-math> are sampled from the environnement by trying the policy <d-math>\widehat{\pi}_\theta (\mathbf{a}_{t} | \mathbf{s}_{t} ) </d-math> on the current state <d-math>\mathbf{s}_t</d-math> and seeing where it land. 
@@ -110,29 +113,18 @@ Is it at *timestep level* close to the *collect process* or at *batch level* clo
                         <ul class="fa-ul" style="margin-left: 3.5em; margin-top: -2.9em; padding-top: -2.9em;">
                             <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>
                             the <d-math>i^e</d-math> <b>input</b> <d-math>\:\: \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t} \:\:</d-math> 
-                             <!-- 
-                             <br>
-                             <span class="comment">Note: <d-math>\mathbf{s}_t</d-math> is the current state at timestep <d-math>t</d-math></span>
-                             -->
                             </li>
                             <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>
                             and the <b>bootstrap target</b>
                                 <d-math>
                                 \:\: y^{_{(i)}} \: := \: r_{t+1}^{_{(i)}} \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) 
-                                <!-- 
-                                \: \approx \: V^\pi(\mathbf{s}_t)
-                                --> 
                                 </d-math>
-                                <!-- 
-                                <br>
-                                <span class="comment">Note: <d-math>r_{t+1}^{_{(i)}}</d-math>  and <d-math>\mathbf{s}_{t+1}^{_{(i)}}</d-math> are both sampled from the environnement by trying the policy <d-math>\widehat{\pi}_\theta</d-math> at the current state <d-math>\mathbf{s}_t</d-math> and seeing where it land. </span>
-                                -->
                             </li>
                         </ul>
                         and the lost function
-                            <d-math block class="card-d-math-display" style="margin-top: 0em; margin-bottom: -1em">
+                        <d-math block class="card-d-math-display" style="margin-top: 0em; margin-bottom: -1em;">
                             L\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, - \, y^{_{(i)}}  \, \right\|^2 
-                            </d-math>
+                        </d-math>
                     </p>
                 </div>
             </div>

@@ -63,7 +63,7 @@
     $collapsable-card-bg-color: $grey-color-Dark;
 
     .card-shadow {
-      box-shadow: 9px 9px 10px  lighten($grey-color, 35%); //none
+      box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
     }
 
     button {
@@ -134,12 +134,24 @@
       p {
       }
 
-      d-math.card-d-math-display {
-        //font-size: larger;
-        //text-align: center;
-        padding: 4px 0 4px 0;
-        margin: 0.3em 0em 0.5em 1em;
+      .force-center-d-math-block {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        //background-color: red;
+      }
+
+      .card-d-math-display {
         //@extend .test;
+        //font-size: larger;
+        //padding: 4px 0px 4px 0px;
+        //margin: 0.3em 0em 0.5em 0em;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-right: 1em;
+        @extend .force-center-d-math-block;
       }
 
       .comment {
