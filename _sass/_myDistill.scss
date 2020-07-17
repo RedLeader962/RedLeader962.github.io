@@ -84,7 +84,7 @@
     }
 
     button.collapsed {
-      @extend .button-dark.collapsed;
+      @extend .button-dark, .collapsed;
       box-shadow: none;
 
       &:hover {
@@ -193,7 +193,7 @@
     }
 
     button.collapse:not(.show) {
-      @extend .topic-button-dark.collapsed;
+      @extend .topic-button-dark, .collapsed;
       display: none;
     }
 
@@ -286,7 +286,7 @@
     }
 
     button.collapse:not(.show) {
-      @extend .topic-button-dark.collapsed;
+      @extend .topic-button-dark, .collapsed;
       display: none;
     }
 
