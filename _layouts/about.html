@@ -24,19 +24,20 @@ layout: default
             <!--                    <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">-->
             {% if page.profile.image %}
             <!--        <div class="container-fluid">-->
-            <!--        <div class="flex flex-col flex-1 md:justify-center w-full" style="max-width: max-content;">-->
-            <!--            <img class=" z-depth-1 rounded"-->
-            <!--                 src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">-->
-            <!--        </div>-->
+                    <div class="flex flex-col flex-1 md:justify-center w-full" style="max-width: max-content;">
+                        <img class=" z-depth-1 rounded"
+                             src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+                    </div>
+        <!--
         <div id="carouselRedLeaderPictSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" >
                 <div class="carousel-item active" data-interval="6000">
                     <img class="d-block w-100"
-                             src="{{ 'IMG_0108.JPG' | prepend: '/assets/img/' | relative_url }}">
+                             src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
                 </div>
                 <div class="carousel-item " data-interval="6000">
                     <img class="d-block w-100"
-                             src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+                             src="{{ 'prof_pic_wide.jpeg' | prepend: '/assets/img/' | relative_url }}">
                 </div>
                 <div class="carousel-item " data-interval="6000">
                     <img class="d-block w-100"
@@ -56,6 +57,7 @@ layout: default
                 </div>
             </div>
         </div>
+        -->
         {% endif %}
         {% if page.profile.address %}
         <div class="address" align="center">

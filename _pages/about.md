@@ -6,7 +6,7 @@ description: Proud veteran from Montreal Canada, turned <b>computer scientist</b
 
 profile:
   align: right
-  image: prof_pic_wide.jpeg
+  image: ChicChoc.JPG
   address:
 
 news: false
