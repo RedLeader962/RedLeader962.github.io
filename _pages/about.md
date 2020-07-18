@@ -174,6 +174,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ##### Past:
  * Served with the Canadian army for 12 years:
+     * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
      * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) at Valcartier:
         * **RECON** platoon patrolman (4 years)
         * Tactical intelligence operator (1 year)
@@ -182,7 +183,6 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             * pistol (2013):  bronze for best shooter, silver for best junior shooter, gold for best team 
             * assault rifle (2006):  gold for best squad
         * Basic infantry course **excellence trophy** for best candidate    
-     * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
  * Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing ...
  * Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._
  * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
