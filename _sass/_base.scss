@@ -333,7 +333,7 @@ footer.sticky-bottom {
 
   .container {
     max-width: available;
-      grid-column: screen;
+    grid-column: screen;
   }
 
   header {
@@ -367,6 +367,16 @@ footer.sticky-bottom {
       //left: 0;
       //right: 0;
       //top: 0;
+    }
+
+    .carousel {
+      max-height: 310px;
+      overflow: hidden;
+
+      .item img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 

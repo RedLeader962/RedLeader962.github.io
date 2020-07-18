@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /about/
-description: Proud veteran from Montreal (Canada), turned <b>computer scientist</b> <br>and passionate about <b>A.I.</b>
+description: Proud veteran from Montreal Canada, turned <b>computer scientist</b> <br>and passionate about <b>A.I.</b>
 
 profile:
   align: right
-  image: IMG_0108.JPG
+  image: prof_pic_wide.jpeg
   address:
 
 news: false
@@ -21,7 +21,7 @@ Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it
 
 <dl style="padding-left: 1em; padding-right: 0em;" class="row">
   <dt class="col-md-3">A.I. for good</dt> <dd class="col-xl-9">
-     Humanity first, then computer science, not the other way around ! 
+     Humanity first, then computer science. Not the other way around ! 
   </dd>
   <dt class="col-md-3">Ethical A.I.</dt> <dd class="col-xl-9">
     "Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems that are not worth celebrating.”
@@ -183,7 +183,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             * assault rifle (2006):  gold for best squad
         * Basic infantry course **excellence trophy** for best candidate    
      * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
- * Dedicated **ski bump** in the 90's : steep, moguls, backflip, competitive freestyle skiing ...
+ * Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing ...
  * Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._
  * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
  * Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
