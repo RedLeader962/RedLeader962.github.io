@@ -206,10 +206,12 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             <img class="d-block w-100"
                      src="{{ 'barbel_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
+        <!-- 
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'afgh_pistol_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
+        -->
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
