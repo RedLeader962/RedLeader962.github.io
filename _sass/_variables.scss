@@ -55,6 +55,7 @@ $theme-color-light:    lighten($theme-color, 40%);
 $theme-color-dark:     darken($theme-color, 25%);
 
 $link-color:          $theme-color;
+$link-color-hover:    $grey-color-lighter;
 $text-color:          #111111 !default;
 $title-color-lighter:    lighten($theme-color, 18%);
 

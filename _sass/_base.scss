@@ -430,6 +430,10 @@ footer.sticky-bottom {
     padding-top: 2rem;
     padding-bottom: 2rem;
 
+    //h3 {
+    //    color: red;
+    //  }
+
     .post-meta {
       color: $grey-color;
       font-size: 0.875rem;
@@ -439,9 +443,10 @@ footer.sticky-bottom {
     a {
       color: black;
       text-decoration: none;
+      font-weight: bolder;
 
       &:hover {
-        color: $theme-color;
+        color: $link-color-hover;
       }
     }
   }
