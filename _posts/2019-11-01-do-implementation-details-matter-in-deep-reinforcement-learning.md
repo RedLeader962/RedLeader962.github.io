@@ -715,7 +715,7 @@ the success or failure of a DRL project and it’s a must study.
 ---
 ##### Cited as:
 ```bibtex
-@article{lcoupal2020implementation,
+@article{lcoupal2019implementation,
   author   = {Coupal, Luc},
   journal  = {redleader962.github.io/blog},
   title    = {% raw  %}{{Do implementation details matter in Deep Reinforcement Learning?}}{% endraw %},
