@@ -298,43 +298,18 @@ footer.sticky-bottom {
   }
 }
 
+.full-width {
+  // Source: https://css-tricks.com/full-width-containers-limited-width-parents/
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 // About page
 .about-me {
-  //img {
-  //  width: available;
-  //  /* Full height */
-  //  //height: 50%;
-  //  //max-width: 140%;
-  //
-  //  /* Center and scale the image nicely */
-  //  //background-position: center;
-  //  //background-repeat: no-repeat;
-  //  //background-size: cover;
-  //}
-
-  .force-center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    //display: flex;
-    display: block;
-    //justify-content: center;
-    background-color: red;
-  }
-
-  //img {
-  //  display: block;
-  //  //margin-left: auto;
-  //  //margin-right: auto;
-  //  //width: max-content;
-  //  position: page;
-  //  //@extend .force-center;
-  //}
-
-  .container {
-    max-width: available;
-    grid-column: screen;
-  }
 
   header {
     padding-bottom: 1rem;
@@ -369,15 +344,6 @@ footer.sticky-bottom {
       //top: 0;
     }
 
-    .carousel {
-      max-height: 310px;
-      overflow: hidden;
-
-      .item img {
-        width: 100%;
-        height: auto;
-      }
-    }
   }
 
   .about-newsfeed {
@@ -390,13 +356,25 @@ footer.sticky-bottom {
     padding-bottom: 30px;
   }
 
-  article h3 {
-    border-bottom: 1px solid $text-color;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1.25rem;
-  }
+  article {
+    h3 {
+      border-bottom: 1px solid $text-color;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1.25rem;
+    }
 
+    .carousel {
+      //overflow: hidden;
+      //max-height: 360px;
+
+
+      .item img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
 
 // Blog
@@ -430,9 +408,6 @@ footer.sticky-bottom {
     padding-top: 2rem;
     padding-bottom: 2rem;
 
-    //h3 {
-    //    color: red;
-    //  }
 
     .post-meta {
       color: $grey-color;

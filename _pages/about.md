@@ -188,5 +188,56 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
  * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
  * Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
  
-
+<div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
+    <div class="carousel-inner" >
+        <div class="carousel-item active" >
+            <img class="d-block w-100"
+                     src="{{ 'luc_work.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'chinook_landing.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'barbel_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'afgh_pistol_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'op_extract.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'max_mag.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'ski_bum_whistler.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'guitar_shredder.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'jujitsu_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+        <div class="carousel-item ">
+            <img class="d-block w-100"
+                     src="{{ 'valle_du_bras_du_nord.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
+        </div>
+    </div>
+</div>
 
