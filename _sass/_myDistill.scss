@@ -61,7 +61,8 @@
 
   // ❯❯❯..Collapsable Card... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
   .collapsable-card {
-    $collapsable-card-bg-color: $grey-color-Dark;
+    //$collapsable-card-bg-color: $theme-color !default;
+    $collapsable-card-bg-color: $blue-color-Dark !default;
 
     .card-shadow {
       box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
@@ -77,10 +78,14 @@
       text-align: left;
       padding-left: 1em;
 
+
       &:hover {
-        background-color: lighten($grey-color-Dark, 20%);
-        //border-color: lighten($theme-color, 20%);
-        color: white;
+        //background-color: lighten($grey-color-Dark, 20%);
+        //color: white;
+        background-color: darken(white, 0%);
+        border-color: $grey-color-darker;
+        border-width: 1px;
+        color: $collapsable-card-bg-color;
       }
     }
 

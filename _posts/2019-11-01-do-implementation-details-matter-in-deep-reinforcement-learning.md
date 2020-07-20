@@ -503,16 +503,16 @@ in ML/RL. It’s all about choosing what is a good optimization investment.
 <!---- Collapsable card ----------------------------------------------------------------------------------------------->
 <div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
     <div class="card-shadow">
-        <!-- 
-        <button class="btn btn-lg btn-block close-icon collapsed shadow-none" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="true" aria-controls="collapseExample">
-        A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
-        </button>
-        <div id="quick-refresher" class="collapse">
-        -->
         <button class="btn btn-lg btn-block close-icon shadow-none" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="true" aria-controls="collapseExample">
         A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
         </button>
         <div id="quick-refresher" class="collapse show">
+        <!-- 
+            <button class="btn btn-lg btn-block close-icon collapsed shadow-none" style="margin-bottom: -0.3em;" type="button" data-toggle="collapse" data-target="#quick-refresher" aria-expanded="true" aria-controls="collapseExample">
+            A quick refresher on <b>Advantage Actor-Critic</b> method with <b>bootstrap target</b>
+            </button>
+            <div id="quick-refresher" class="collapse">
+        -->
             <div class="card shadow-none">
                 <div class="card-body">
                     <p> We need to train two neural network: 
