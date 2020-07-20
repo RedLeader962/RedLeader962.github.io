@@ -59,152 +59,165 @@ a, table.table a {
 }
 
 
-// Navbar customization
 
-.hover-color {
-  //color: red;
-  color: $grey-color-Lighter;
-}
-
-.logo-img {
-  // to black
-  filter: invert(1);
-  // or to blue
-  // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
-}
-
-.navbar {
-  box-shadow: 5px 10px 18px #888888; //none
-  border-bottom: 1px solid $theme-color-dark;
-  //   background-color: $white;
-  //background-color: $grey-color-dark;
-  background-color: $theme-color;
-  opacity: 0.95;
-}
-
-.navbar.navbar-light {
-  a {
-    // Left side Title
-    color: $white;
-
-    &:hover {
-      @extend .hover-color;
-      text-decoration: none;
-    }
+// ❯❯...Navbar customization............................................................................................
+header {
+  .hover-color {
+    //color: red;
+    color: $grey-color-Lighter;
   }
 
-  .left-side-title {
+  .logo-img {
+    // to black
+    filter: invert(1);
+    // or to blue
+    // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+  }
+
+  .navbar-azure-blue {
+    box-shadow: 5px 10px 18px #888888;
+    border-bottom: 1px solid $theme-color-dark;
+    background-color: $theme-color;
+    opacity: 0.95;
+  }
+
+  .navbar-azure-blue-white-border {
+    //box-shadow:  0px -10px 35px 5px black inset;
+    box-shadow: 0px 5px 27px -10px $grey-color-dark;
+    border-bottom: 2.25px solid $grey-color-Lighter;
+    //background-color: $grey-color-Dark;
+    background-color: $theme-color;
+    opacity: 0.95;
+  }
+
+  .navbar {
+    //@extend .navbar-azure-blue;
+    @extend .navbar-azure-blue-white-border;
+  }
+
+  .navbar.navbar-light {
     a {
       // Left side Title
       color: $white;
-      //opacity: 50%;
 
       &:hover {
-        //@extend .hover-color;
-        //text-decoration: none;
+        @extend .hover-color;
+        text-decoration: none;
+      }
+    }
+
+    .left-side-title {
+      a {
+        // Left side Title
+        color: $white;
         //opacity: 50%;
-        text-shadow: 0px 0px 7px $white, 0px 0px 60px $white;
+
+        &:hover {
+          //@extend .hover-color;
+          //text-decoration: none;
+          //opacity: 50%;
+          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white;
+        }
       }
     }
-  }
 
-  .navbar-nav .nav-item .nav-link {
-    // Inactive menu item
-    //color: red;
-    //color: $white;
-    color: $grey-color;
-
-    &:hover {
-      @extend .hover-color;
-    }
-  }
-
-  .navbar-nav .nav-item.active > .nav-link {
-    // Active menu item
-    background-color: inherit;
-    //color: $theme-color;
-    //color: darken($theme-color, 70%);
-    //color: red;
-    color: $white;
-    font-weight: bolder;
-
-    &:hover {
-      @extend .hover-color;
-    }
-  }
-
-  //   .navbar-brand {
-  // //     color: $white;
-  //     font-weight-lighter
-  //       &:hover {
-  //         color: $theme-color;
-  //       }
-  //   }
-  .contact-icon {
-    font-size: 1.25rem;
-
-    a {
-      //       color: lighten($grey-color, 43%);
-      color: lighten($grey-color-dark, 7%);
+    .navbar-nav .nav-item .nav-link {
+      // Inactive menu item
+      //color: red;
+      //color: $white;
+      color: $grey-color;
 
       &:hover {
-        color: $grey-color-lighter;
+        @extend .hover-color;
+      }
+    }
+
+    .navbar-nav .nav-item.active > .nav-link {
+      // Active menu item
+      background-color: inherit;
+      //color: $theme-color;
+      //color: darken($theme-color, 70%);
+      //color: red;
+      color: $white;
+      font-weight: bolder;
+
+      &:hover {
+        @extend .hover-color;
+      }
+    }
+
+    //   .navbar-brand {
+    // //     color: $white;
+    //     font-weight-lighter
+    //       &:hover {
+    //         color: $theme-color;
+    //       }
+    //   }
+    .contact-icon {
+      font-size: 1.25rem;
+
+      a {
+        //       color: lighten($grey-color, 43%);
+        color: lighten($grey-color-dark, 7%);
+
+        &:hover {
+          color: $grey-color-lighter;
+        }
       }
     }
   }
-}
 
-.navbar-toggler {
-  .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    //     background-color: $grey-color-dark;
-    background-color: $white;
+  .navbar-toggler {
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      //     background-color: $grey-color-dark;
+      background-color: $white;
 
-    &:hover {
-      //         background-color: $theme-color;
-      background-color: darken($theme-color, 20%);
-      //         background-color: $white;
+      &:hover {
+        //         background-color: $theme-color;
+        background-color: darken($theme-color, 20%);
+        //         background-color: $white;
+      }
+
+      border-radius: 1px;
+      margin-bottom: 4px;
+      transition: all 0.2s;
     }
 
-    border-radius: 1px;
-    margin-bottom: 4px;
-    transition: all 0.2s;
+    .top-bar {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+
+    .middle-bar {
+      opacity: 0;
+    }
+
+    .bottom-bar {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
   }
 
-  .top-bar {
-    transform: rotate(45deg);
-    transform-origin: 10% 10%;
-  }
+  .navbar-toggler.collapsed {
+    .top-bar {
+      transform: rotate(0);
+    }
 
-  .middle-bar {
-    opacity: 0;
-  }
+    .middle-bar {
+      opacity: 1;
+    }
 
-  .bottom-bar {
-    transform: rotate(-45deg);
-    transform-origin: 10% 90%;
-  }
-}
-
-.navbar-toggler.collapsed {
-  .top-bar {
-    transform: rotate(0);
-  }
-
-  .middle-bar {
-    opacity: 1;
-  }
-
-  .bottom-bar {
-    transform: rotate(0);
+    .bottom-bar {
+      transform: rotate(0);
+    }
   }
 }
 
-
+// ........................................................................................ .....Navbar customization...❮❮
 // News
-
 .news table td {
   font-size: 1rem;
 }
