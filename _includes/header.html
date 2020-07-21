@@ -2,7 +2,7 @@
 
     <!-- Nav Bar -->
     <nav id="navbar"
-         class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
+         class="navbar navbar-dark navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
         <div class="container">
             {% assign name = site.title | split: ' ' %}
             <div class="left-side-title">
@@ -60,7 +60,7 @@
                     <!-- About -->
                     <li class="nav-item {% if page.title == 'about' %}active{% endif %}">
                         <a class="nav-link" href="{{ '/about/' | relative_url }}">
-                            About me
+                            About
                             {% if page.title == "about" %}
                             <span class="sr-only">(current)</span>
                             {% endif %}

@@ -14,7 +14,6 @@ https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
 }
 
 // Typography
-
 a, table.table a {
   color: $theme-color;
 
@@ -29,14 +28,12 @@ a, table.table a {
 }
 
 // Math
-
 .equation {
   margin-bottom: 1rem;
   text-align: center;
 }
 
 // Caption
-
 .caption {
   font-size: 0.875rem;
   margin-top: 0.75rem;
@@ -46,7 +43,6 @@ a, table.table a {
 
 
 // Profile
-
 .profile {
   .address {
     font-family: monospace;
@@ -58,20 +54,21 @@ a, table.table a {
   }
 }
 
+// Post
+.post .post-header .post-description {
+  font-style: italic;
+}
+
 
 // ❯❯...Navbar customization............................................................................................
 header {
-  .hover-color {
-    //color: red;
-    color: $grey-color-Lighter;
-  }
 
-  .logo-img {
-    // to black
-    filter: invert(1);
-    // or to blue
-    // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
-  }
+  //.logo-img {
+  //  // to black
+  //  filter: invert(1);
+  //  // or to blue
+  //  // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+  //}
 
   .navbar-azure-blue {
     box-shadow: 5px 10px 18px #888888;
@@ -83,40 +80,50 @@ header {
   .navbar-azure-blue-white-border {
     //box-shadow:  0px -10px 35px 5px black inset;
     //box-shadow: 0px 5px 27px -10px $grey-color-dark;
-    box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+    box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
     border-bottom: 2.25px solid $grey-color-Lighter;
-    //background-color: $grey-color-Dark;
     background-color: $theme-color;
     opacity: 90%;
   }
 
-  .navbar {
-    //@extend .navbar-azure-blue;
-    @extend .navbar-azure-blue-white-border;
+  .navbar-photo-bg { // todo: experiment
+    //box-shadow:  0px -10px 35px 5px black inset;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+    //box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+    border-bottom: 2.25px solid $grey-color-Lighter;
+    //background-color: $theme-color;
+    //opacity: 90%;
   }
 
-  .navbar.navbar-light {
+
+  .navbar.navbar-dark {
+    //@extend .navbar-azure-blue;
+    //@extend .navbar-photo-bg;
+    @extend .navbar-azure-blue-white-border;
+
     a {
       // Left side Title
-      color: $white;
+      color: $nav-bar-active;
 
       &:hover {
-        @extend .hover-color;
+        color: $nav-bar-hover;
         text-decoration: none;
       }
     }
 
     .left-side-title {
       a {
-        // Left side Title
-        color: $white;
+        // Left side Title: Luc Coupal
+        color: $nav-bar-active;
         //opacity: 50%;
 
         &:hover {
-          //@extend .hover-color;
+          //color: $nav-bar-hover;
           //text-decoration: none;
           //opacity: 50%;
-          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white;
+          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
         }
       }
     }
@@ -125,10 +132,10 @@ header {
       // Inactive menu item
       //color: red;
       //color: $white;
-      color: $grey-color;
+      color: $nav-bar-link;
 
       &:hover {
-        @extend .hover-color;
+        color: $nav-bar-hover;
       }
     }
 
@@ -138,11 +145,11 @@ header {
       //color: $theme-color;
       //color: darken($theme-color, 70%);
       //color: red;
-      color: $white;
+      color: $nav-bar-active;
       font-weight: bolder;
 
       &:hover {
-        @extend .hover-color;
+        color: $nav-bar-hover;
       }
     }
 
@@ -153,12 +160,15 @@ header {
     //         color: $theme-color;
     //       }
     //   }
+
     .contact-icon {
       font-size: 1.25rem;
 
       a {
         //       color: lighten($grey-color, 43%);
-        color: lighten($grey-color-dark, 7%);
+        //color: lighten($grey-color-Dark, 7%);
+        color: darken($nav-bar-link, 10%);
+        margin-left: 0.2em;
 
         &:hover {
           color: $grey-color-lighter;
@@ -173,7 +183,8 @@ header {
       width: 22px;
       height: 2px;
       //     background-color: $grey-color-dark;
-      background-color: $white;
+      //background-color: $white;
+      background-color: $nav-bar-link;
 
       &:hover {
         //         background-color: $theme-color;
@@ -216,15 +227,18 @@ header {
   }
 }
 
-// ........................................................................................ .....Navbar customization...❮❮
-// News
+// ............................................................................................Navbar customization...❮❮
+
+
+// ❯❯❯..News... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .news table td {
   font-size: 1rem;
 }
 
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...News..❮❮❮
 
-// Social (bottom)
 
+// ❯❯❯..Social (bottom)... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
 .social {
   text-align: center;
 
@@ -233,9 +247,10 @@ header {
 
     a {
       color: $grey-color-dark;
+      margin-left: 0.2em;
 
       &:hover {
-        @extend .hover-color;
+        color: $nav-bar-hover;
       }
     }
   }
@@ -245,9 +260,10 @@ header {
   }
 }
 
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Social (bottom)..❮❮❮
 
-// Footer
 
+// ❯❯❯..Footer... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 footer.fixed-bottom {
   color: lighten($grey-color, 25%);
   background-color: $grey-color-dark;
@@ -273,7 +289,6 @@ footer.fixed-bottom {
     }
   }
 }
-
 
 footer.sticky-bottom {
   border-top: 1px solid $grey-color-light;
@@ -311,6 +326,9 @@ footer.sticky-bottom {
   }
 }
 
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Footer..❮❮❮
+
+
 .full-width {
   // Source: https://css-tricks.com/full-width-containers-limited-width-parents/
   width: 100vw;
@@ -321,7 +339,8 @@ footer.sticky-bottom {
   margin-right: -50vw;
 }
 
-// About page
+// ❯❯❯..About page... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
+
 .about-me {
 
   header {
@@ -389,7 +408,7 @@ footer.sticky-bottom {
       .carousel-caption {
         bottom: auto;
         bottom: -1.5em;
-        left:auto;
+        left: auto;
         right: 2em;
 
         p {
@@ -403,8 +422,10 @@ footer.sticky-bottom {
   }
 }
 
-// Blog
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...About page..❮❮❮
 
+
+// ❯❯❯..Blog... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .blog-header-bar {
   border-bottom: 1px solid $grey-color-light;
   text-align: center;
@@ -461,9 +482,10 @@ footer.sticky-bottom {
   }
 }
 
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Blog..❮❮❮
 
-// Projects
 
+// ❯❯❯..Projects... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .projects {
   .grid-item {
     //     width: 250px;
@@ -485,15 +507,10 @@ footer.sticky-bottom {
   }
 }
 
-// Post
-
-.post .post-header .post-description {
-  font-style: italic;
-}
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Projects..❮❮❮
 
 
-// Publications
-
+// ❯❯❯..Publications... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .publications {
   margin-top: 2rem;
 
@@ -602,3 +619,6 @@ footer.sticky-bottom {
     }
   }
 }
+
+// .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Publications..❮❮❮
+

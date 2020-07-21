@@ -11,6 +11,7 @@ $max-content-width: 800px;
 $red-color:           #FF3636 !default;
 $red-color-dark:      #B71C1C !default;
 $orange-color:        #F29105 !default;
+$yellow-color:        #efcc00 !default;
 $blue-color:          #0076df !default;
 $blue-color-myLaTeX:  #4d79ff !default;
 $blue-color-dark:     #00369f !default;
@@ -19,16 +20,6 @@ $blue-color-dark:     #00369f !default;
 $blue-color-DARK:     rgb(0,0,20) !default;
 //$blue-color-Dark:     #2d4052 !default;
 $blue-color-Dark:     lighten($blue-color-DARK, 05%);
-$cyan-color:          #2698BA !default;
-$green-color:         #00ab37 !default;
-$green-color-lime:    #B7D12A !default;
-$green-color-dark:    #009f06 !default;
-$green-color-light:   #ddffdd !default;
-$green-color-bright:  #11D68B !default;
-$purple-color:        #B509AC !default;
-$pink-color:          #f92080 !default;
-$pink-color-light:    #ffdddd !default;
-$yellow-color:        #efcc00 !default;
 
 $grey-color:          #828282 !default;
 $grey-color-light:    lighten($grey-color, 40%);
@@ -59,6 +50,9 @@ $theme-color-dark:     darken($theme-color, 25%);
 
 $link-color:          $theme-color;
 $link-color-hover:    $grey-color-lighter;
+$nav-bar-link:        $grey-color;
+$nav-bar-hover:        $grey-color-Lighter;
+$nav-bar-active:        white;
 $text-color:          #111111 !default;
 $title-color-lighter:    lighten($theme-color, 18%);
 
