@@ -12,391 +12,33 @@
     color: red;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    //color: $theme-color;
-    color: $theme-color-no-opacity;
-  }
-
-d-article {
-  .remark-card {
-    border-color: $grey-color-Lighter;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  .header-grey {
-    font-size: medium;
-    color: $grey-color;
-    //background-color: $grey-color-Lighter;
-    //border-color: $grey-color-Lighter;
-    background-color: $theme-color;
-    border-color: $theme-color;
-  }
-
-  .button-dark {
-    @extend .header-grey;
-    @extend .remark-card;
-    text-transform: none;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-  }
-
-  .button-dark-collapsed {
-    background-color: whitesmoke;
-    border-color: darken(whitesmoke, 10%);
-    color: $grey-color;
-  }
-
-  button:hover {
-    @extend .remark-card;
-    //border-color: $theme-color;
-    //background-color: $theme-color;
-    background-color: $grey-color-light;
-    border-color: $grey-color;
-  }
-
-  // ❯❯❯..Collapsable Card... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
-  .collapsable-card {
-    //$collapsable-card-bg-color: $theme-color !default;
-    $collapsable-card-bg-color: $theme-color-no-opacity !default;
-
-    .card-shadow {
-      box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
+  d-title {
+    h1 {
+      //color: $theme-color;
+      //color: red;
+      color: $theme-color-no-opacity;
     }
+  }
 
-    button {
-      @extend .button-dark;
-      background-color: $collapsable-card-bg-color;
-      color: $grey-color-light;
-      border-color: $collapsable-card-bg-color;
-      border-style: solid;
-      border-width: 1px;
-      text-align: left;
-      padding-left: 1em;
-
-
-      &:hover {
-        //background-color: lighten($grey-color-Dark, 20%);
-        //color: white;
-        background-color: darken(white, 0%);
-        border-color: $grey-color-darker;
-        border-width: 1px;
-        color: $collapsable-card-bg-color;
-      }
-    }
-
-    button.collapsed {
-      @extend .button-dark-collapsed;
-      box-shadow: none;
-
-      &:hover {
-        background-color: darken(white, 0%);
-        border-color: $grey-color-darker;
-        border-width: 1px;
-        color: $collapsable-card-bg-color;
-      }
-    }
-
-    .close-icon[aria-expanded="true"]:before {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f146";
-      margin-right: 1em;
-    }
-
-    .close-icon:before {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f0fe";
-      margin-right: 1em;
-    }
-
-    .card {
-      @extend .remark-card;
-      z-index: -10;
+  d-appendix {
+    h1, h2, h3, h4, h5, h6 {
+      //color: red;
       color: $grey-color;
-
-      .text {
-        //@extend .test;
-        color: $grey-color-dark;
-        //color: black;
-        font-size: 90%;
-        font-weight: 300;
-      }
-
-      .card-body {
-        @extend .text;
-      }
-
-      ul {
-        //@extend .text;
-        margin-left: 2em;
-      }
-
-      p {
-      }
-
-      .force-center-d-math-block {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        //background-color: red;
-      }
-
-      .card-d-math-display {
-        //@extend .test;
-        //font-size: larger;
-        //padding: 4px 0px 4px 0px;
-        //margin: 0.3em 0em 0.5em 0em;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-right: 1em;
-        @extend .force-center-d-math-block;
-      }
-
-      .comment {
-        color: $grey-color;
-
-        d-math {
-          opacity: 75%;
-        }
-      }
     }
   }
 
-  // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Collapsable Card..❮❮❮
 
-
-  // ❯❯❯..Collapsable Topic... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
-  .collapsable-topic {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-top: 1em;
-    padding-bottom: 3em;
-
-    .topic-header-color {
-      @extend .header-grey;
-      //font-size: medium;
-      color: $grey-color-Lighter;
-      background-color: $grey-color-darker;
-      //border-color: $grey-color-Lighter;
-      //background-color: $theme-color;
-      //border-color: $theme-color;
-    }
-
-    .topic-button-dark {
-      @extend .button-dark;
-      @extend .topic-header-color;
-      //color: $grey-color-lighter;
-    }
-
-    .topic-button-dark-collapsed {
-      @extend .header-grey;
-      @extend .remark-card;
-      text-transform: none;
-      padding-top: 0.25em;
-      padding-bottom: 0.25em;
-      //@extend .topic-button-dark;
-      //@extend .topic-header-color;
-      @extend .button-dark-collapsed;
-      //background-color: $grey-color-light;
-      //border-color: $grey-color-Lighter;
-      //color: $grey-color-lighter;
-    }
-
-    button.collapse:not(.show) {
-      @extend .topic-button-dark-collapsed;
-      display: none;
-    }
-
-    button {
-      @extend .topic-button-dark;
-    }
-
-    //button.collapsed {
-    //  @extend .topic-button-dark-collapsed;
+  d-article {
+    //h2, h3, h4, h5, h6 {
+    //  //color: $theme-color;
+    //  color: $theme-color-no-opacity;
+    //  //color: red;
     //}
-
-    button:hover {
-      @extend .remark-card;
-      //border-color: $theme-color;
-      //background-color: $theme-color;
-      //background-color: $grey-color-light;
-      //border-color: $grey-color-darker;
-      //color: $grey-color-lighter;
-    }
-
-    .topic-body {
-      z-index: -10;
-      //@extend .test;
-      color: $grey-color;
-    }
-
-    ul {
-      margin-left: 2em;
-    }
-
-    d-math.card-d-math-display {
-      //margin-left: 1em;
-      font-size: larger;
-      padding: 8px 0 8px 0;
-      margin: 0.5em 0 0.5em 1em;
-      //display: block;
-      //alignment: center;
-      //text-align: center;
-      //@extend .test;
-    }
-
-    .topicDbylineHorizontalRule {
-      @extend .topic-button-dark;
-      //display: block;
-      //margin-top: 1.75em;
-      height: 20px;
-      //border-width:0;
-      border-radius: 3px;
-    }
-  }
-
-  // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Collapsable Topic..❮❮❮
-
-
-  // ❯❯❯..Collapsable Topic Alternate... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
-  .collapsable-topic-alternate {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-top: 1em;
-    padding-bottom: 3em;
-
-    .topic-header-color {
-      @extend .header-grey;
-      //font-size: medium;
-      color: $grey-color-Lighter;
-      background-color: $grey-color-darker;
-      //border-color: $grey-color-Lighter;
-      //background-color: $theme-color;
-      //border-color: $theme-color;
-    }
-
-    .topic-button-dark {
-      @extend .button-dark;
-      @extend .topic-header-color;
-      //color: $grey-color-lighter;
-    }
-
-    .topic-button-dark-collapsed {
-      @extend .header-grey;
-      @extend .remark-card;
-      text-transform: none;
-      padding-top: 0.25em;
-      padding-bottom: 0.25em;
-      //@extend .topic-button-dark;
-      //@extend .topic-header-color;
-      @extend .button-dark-collapsed;
-      //background-color: $grey-color-light;
-      //border-color: $grey-color-Lighter;
-      //color: $grey-color-lighter;
-    }
-
-    button.collapse:not(.show) {
-      @extend .topic-button-dark-collapsed;
-      display: none;
-    }
-
-    button {
-      @extend .topic-button-dark;
-    }
-
-    //button.collapsed {
-    //  @extend .topic-button-dark-collapsed;
-    //}
-
-    button:hover {
-      @extend .remark-card;
-      //border-color: $theme-color;
-      //background-color: $theme-color;
-      //background-color: $grey-color-light;
-      //border-color: $grey-color-darker;
-      //color: $grey-color-lighter;
-    }
-
-    .topic-body {
-      z-index: -10;
-      //@extend .test;
-      color: $grey-color;
-    }
-
-    ul {
-      margin-left: 2em;
-    }
-
-    d-math.card-d-math-display {
-      //margin-left: 1em;
-      font-size: larger;
-      padding: 8px 0 8px 0;
-      margin: 0.5em 0 0.5em 1em;
-      //display: block;
-      //alignment: center;
-      //text-align: center;
-      //@extend .test;
-    }
-
-    .topicDbylineHorizontalRule {
-      @extend .topic-button-dark;
-      //display: block;
-      //margin-top: 1.75em;
-      height: 20px;
-      //border-width:0;
-      border-radius: 3px;
-    }
-  }
-
-  // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....collapsable topic alternate..❮❮❮
-
-
-  // ❯❯❯..Style for note or comment... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
-  // Todo: assess usefuleness
-  .remark-header {
-    font-size: larger;
-    color: $grey-color-darker;
-    margin-bottom: 1em
-  }
-
-  .remark-text {
-    color: $grey-color;
-    //font-size: large;
-  }
-
-  .remarkDbylineHorizontalRule {
-    //display: block;
-    //margin-top: 1.75em;
-    height: 5px;
-    border-width: 0;
-    color: rgba(0, 0, 0, 0.1);
-    //background-color:rgba(0, 0, 0, 0.1)
-    background-color: $light-gray;
-  }
-
-  // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Style for note or comment..❮❮❮
-
-
-
-    a{
-      color: $link-color;
-      border-bottom-color: $link-color-hover;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: $link-color-hover;
-      border-bottom-color: lighten($link-color-hover, 20%);
-      text-decoration: none;
-    }
 
 
     h2 {
       //color: red;
+      color: $theme-color-no-opacity;
       margin-bottom: 1.25rem;
       padding-bottom: 0.25rem;
       border-bottom: 2px solid $text-color;
@@ -404,6 +46,7 @@ d-article {
 
     h3 {
       //color: red;
+      color: $theme-color-no-opacity;
       margin-bottom: 1.25rem;
       padding-bottom: 0.25rem;
       border-bottom: 2px solid $text-color;
@@ -418,6 +61,380 @@ d-article {
       font-size: medium;
       border-bottom: 2px dotted lightgray;
     }
+
+    a {
+      color: $link-color;
+      border-bottom-color: $link-color-hover;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $link-color-hover;
+      border-bottom-color: lighten($link-color-hover, 20%);
+      text-decoration: none;
+    }
+
+    .remark-card {
+      border-color: $grey-color-Lighter;
+      border-style: solid;
+      border-width: 1px;
+    }
+
+    .header-grey {
+      font-size: medium;
+      color: $grey-color;
+      //background-color: $grey-color-Lighter;
+      //border-color: $grey-color-Lighter;
+      background-color: $theme-color;
+      border-color: $theme-color;
+    }
+
+    .button-dark {
+      @extend .header-grey;
+      @extend .remark-card;
+      text-transform: none;
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+    }
+
+    .button-dark-collapsed {
+      background-color: whitesmoke;
+      border-color: darken(whitesmoke, 10%);
+      color: $grey-color;
+    }
+
+    button:hover {
+      @extend .remark-card;
+      //border-color: $theme-color;
+      //background-color: $theme-color;
+      background-color: $grey-color-light;
+      border-color: $grey-color;
+    }
+
+    // ❯❯❯..Collapsable Card... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
+    .collapsable-card {
+      //$collapsable-card-bg-color: $theme-color !default;
+      $collapsable-card-bg-color: $theme-color-no-opacity !default;
+
+      .card-shadow {
+        box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
+      }
+
+      button {
+        @extend .button-dark;
+        background-color: $collapsable-card-bg-color;
+        color: $grey-color-light;
+        border-color: $collapsable-card-bg-color;
+        border-style: solid;
+        border-width: 1px;
+        text-align: left;
+        padding-left: 1em;
+
+
+        &:hover {
+          //background-color: lighten($grey-color-Dark, 20%);
+          //color: white;
+          background-color: darken(white, 0%);
+          border-color: $grey-color-darker;
+          border-width: 1px;
+          color: $collapsable-card-bg-color;
+        }
+      }
+
+      button.collapsed {
+        @extend .button-dark-collapsed;
+        box-shadow: none;
+
+        &:hover {
+          background-color: darken(white, 0%);
+          border-color: $grey-color-darker;
+          border-width: 1px;
+          color: $collapsable-card-bg-color;
+        }
+      }
+
+      .close-icon[aria-expanded="true"]:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f146";
+        margin-right: 1em;
+      }
+
+      .close-icon:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f0fe";
+        margin-right: 1em;
+      }
+
+      .card {
+        @extend .remark-card;
+        z-index: -10;
+        color: $grey-color;
+
+        .text {
+          //@extend .test;
+          color: $grey-color-dark;
+          //color: black;
+          font-size: 90%;
+          font-weight: 300;
+        }
+
+        .card-body {
+          @extend .text;
+        }
+
+        ul {
+          //@extend .text;
+          margin-left: 2em;
+        }
+
+        p {
+        }
+
+        .force-center-d-math-block {
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          //background-color: red;
+        }
+
+        .card-d-math-display {
+          //@extend .test;
+          //font-size: larger;
+          //padding: 4px 0px 4px 0px;
+          //margin: 0.3em 0em 0.5em 0em;
+          padding-top: 4px;
+          padding-bottom: 4px;
+          padding-right: 1em;
+          @extend .force-center-d-math-block;
+        }
+
+        .comment {
+          color: $grey-color;
+
+          d-math {
+            opacity: 75%;
+          }
+        }
+      }
+    }
+
+    // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Collapsable Card..❮❮❮
+
+
+    // ❯❯❯..Collapsable Topic... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
+    .collapsable-topic {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      padding-bottom: 3em;
+
+      .topic-header-color {
+        @extend .header-grey;
+        //font-size: medium;
+        color: $grey-color-Lighter;
+        background-color: $grey-color-darker;
+        //border-color: $grey-color-Lighter;
+        //background-color: $theme-color;
+        //border-color: $theme-color;
+      }
+
+      .topic-button-dark {
+        @extend .button-dark;
+        @extend .topic-header-color;
+        //color: $grey-color-lighter;
+      }
+
+      .topic-button-dark-collapsed {
+        @extend .header-grey;
+        @extend .remark-card;
+        text-transform: none;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        //@extend .topic-button-dark;
+        //@extend .topic-header-color;
+        @extend .button-dark-collapsed;
+        //background-color: $grey-color-light;
+        //border-color: $grey-color-Lighter;
+        //color: $grey-color-lighter;
+      }
+
+      button.collapse:not(.show) {
+        @extend .topic-button-dark-collapsed;
+        display: none;
+      }
+
+      button {
+        @extend .topic-button-dark;
+      }
+
+      //button.collapsed {
+      //  @extend .topic-button-dark-collapsed;
+      //}
+
+      button:hover {
+        @extend .remark-card;
+        //border-color: $theme-color;
+        //background-color: $theme-color;
+        //background-color: $grey-color-light;
+        //border-color: $grey-color-darker;
+        //color: $grey-color-lighter;
+      }
+
+      .topic-body {
+        z-index: -10;
+        //@extend .test;
+        color: $grey-color;
+      }
+
+      ul {
+        margin-left: 2em;
+      }
+
+      d-math.card-d-math-display {
+        //margin-left: 1em;
+        font-size: larger;
+        padding: 8px 0 8px 0;
+        margin: 0.5em 0 0.5em 1em;
+        //display: block;
+        //alignment: center;
+        //text-align: center;
+        //@extend .test;
+      }
+
+      .topicDbylineHorizontalRule {
+        @extend .topic-button-dark;
+        //display: block;
+        //margin-top: 1.75em;
+        height: 20px;
+        //border-width:0;
+        border-radius: 3px;
+      }
+    }
+
+    // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Collapsable Topic..❮❮❮
+
+
+    // ❯❯❯..Collapsable Topic Alternate... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
+    .collapsable-topic-alternate {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      padding-bottom: 3em;
+
+      .topic-header-color {
+        @extend .header-grey;
+        //font-size: medium;
+        color: $grey-color-Lighter;
+        background-color: $grey-color-darker;
+        //border-color: $grey-color-Lighter;
+        //background-color: $theme-color;
+        //border-color: $theme-color;
+      }
+
+      .topic-button-dark {
+        @extend .button-dark;
+        @extend .topic-header-color;
+        //color: $grey-color-lighter;
+      }
+
+      .topic-button-dark-collapsed {
+        @extend .header-grey;
+        @extend .remark-card;
+        text-transform: none;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        //@extend .topic-button-dark;
+        //@extend .topic-header-color;
+        @extend .button-dark-collapsed;
+        //background-color: $grey-color-light;
+        //border-color: $grey-color-Lighter;
+        //color: $grey-color-lighter;
+      }
+
+      button.collapse:not(.show) {
+        @extend .topic-button-dark-collapsed;
+        display: none;
+      }
+
+      button {
+        @extend .topic-button-dark;
+      }
+
+      //button.collapsed {
+      //  @extend .topic-button-dark-collapsed;
+      //}
+
+      button:hover {
+        @extend .remark-card;
+        //border-color: $theme-color;
+        //background-color: $theme-color;
+        //background-color: $grey-color-light;
+        //border-color: $grey-color-darker;
+        //color: $grey-color-lighter;
+      }
+
+      .topic-body {
+        z-index: -10;
+        //@extend .test;
+        color: $grey-color;
+      }
+
+      ul {
+        margin-left: 2em;
+      }
+
+      d-math.card-d-math-display {
+        //margin-left: 1em;
+        font-size: larger;
+        padding: 8px 0 8px 0;
+        margin: 0.5em 0 0.5em 1em;
+        //display: block;
+        //alignment: center;
+        //text-align: center;
+        //@extend .test;
+      }
+
+      .topicDbylineHorizontalRule {
+        @extend .topic-button-dark;
+        //display: block;
+        //margin-top: 1.75em;
+        height: 20px;
+        //border-width:0;
+        border-radius: 3px;
+      }
+    }
+
+    // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....collapsable topic alternate..❮❮❮
+
+
+    // ❯❯❯..Style for note or comment... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
+    // Todo: assess usefuleness
+    .remark-header {
+      font-size: larger;
+      color: $grey-color-darker;
+      margin-bottom: 1em
+    }
+
+    .remark-text {
+      color: $grey-color;
+      //font-size: large;
+    }
+
+    .remarkDbylineHorizontalRule {
+      //display: block;
+      //margin-top: 1.75em;
+      height: 5px;
+      border-width: 0;
+      color: rgba(0, 0, 0, 0.1);
+      //background-color:rgba(0, 0, 0, 0.1)
+      background-color: $light-gray;
+    }
+
+    // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Style for note or comment..❮❮❮
 
 
     .definition {
