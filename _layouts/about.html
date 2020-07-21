@@ -7,6 +7,11 @@ layout: default
 
     <header class="post-header" align="center">
 
+        <div class="full-width " style="margin-top: -3em; margin-bottom: 1em; ">
+            <img class=" z-depth-1 rounded shadow-none"
+                 src="{{ 'ChicChocCloud.jpeg' | prepend: '/assets/img/' | relative_url }}">
+        </div>
+
         <!--        {% assign name = site.title | split: ' ' %}-->
         <!--        original line-->
         <!--    <h1 class="post-title"><span class="font-weight-bold">{{ name | first }}</span> {{ name | last }}</h1>-->
@@ -18,24 +23,25 @@ layout: default
         <!--        </h1>-->
         <!--        end modification-->
 
+
         <p class="post-description">{{ page.description }}</p>
 
         <p>
             {% if page.profile %}
             <!--                    <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">-->
             {% if page.profile.image %}
-            <div class=" full-width">
-                <img class=" z-depth-1 rounded"
-                     src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
-            </div>
-            {% endif %}
-            {% if page.profile.address %}
-            <div class="address" align="center">
-                {{ page.profile.address }}
-            </div>
-            {% endif %}
-            <!--        </div>-->
-            {% endif %}
+        <div class="full-width">
+            <img class=" z-depth-1 rounded shadow-none"
+                 src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+        </div>
+        {% endif %}
+        {% if page.profile.address %}
+        <div class="address" align="center">
+            {{ page.profile.address }}
+        </div>
+        {% endif %}
+        <!--        </div>-->
+        {% endif %}
         </p>
 
         <!--        <div class="row justify-content-sm-center">-->

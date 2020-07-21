@@ -183,18 +183,18 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             * pistol (2013):  bronze for best shooter, silver for best junior shooter, gold for best team 
             * assault rifle (2006):  gold for best squad
         * Basic infantry course **excellence trophy** for best candidate    
- * Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing ...
+ * Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing, ...
  * Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._
  * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
  * Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
  
 <div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
-    <div class="carousel-inner" >
-        <div class="carousel-item ">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
             <img class="d-block w-100"
                      src="{{ 'luc_work.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
-        <div class="carousel-item active">
+        <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
