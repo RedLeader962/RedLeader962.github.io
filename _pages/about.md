@@ -190,11 +190,11 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
  
 <div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
     <div class="carousel-inner" >
-        <div class="carousel-item " >
+        <div class="carousel-item active" >
             <img class="d-block w-100"
                      src="{{ 'luc_work.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
-        <div class="carousel-item active">
+        <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block">
