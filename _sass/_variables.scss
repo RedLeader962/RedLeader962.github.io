@@ -45,11 +45,12 @@ $lighter-gray:      #eee !default;
 // $theme-color:         $grey-color-dark;
 //$theme-color:         $grey-color;
 $theme-color:         $blue-color-DARK !default;
+$theme-color-no-opacity:         $blue-color-Dark !default;
 
 $theme-color-light:    lighten($theme-color, 40%);
 $theme-color-dark:     darken($theme-color, 25%);
 
-$link-color:          $theme-color;
+$link-color:          $blue-color-Dark;
 $link-color-hover:    $grey-color-lighter;
 $nav-bar-link:        $grey-color;
 $nav-bar-hover:        $grey-color-Lighter;

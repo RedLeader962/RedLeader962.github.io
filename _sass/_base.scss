@@ -25,6 +25,12 @@ a, table.table a {
   &:hover:after {
     width: 100%;
   }
+
+  &:active {
+    color: $theme-color;
+    text-decoration: underline;
+  }
+
 }
 
 // Math
@@ -111,6 +117,11 @@ header {
         color: $nav-bar-hover;
         text-decoration: none;
       }
+
+      &:active {
+        color: $nav-bar-hover;
+        text-decoration: none;
+      }
     }
 
     .left-side-title {
@@ -120,9 +131,10 @@ header {
         //opacity: 50%;
 
         &:hover {
-          //color: $nav-bar-hover;
-          //text-decoration: none;
-          //opacity: 50%;
+          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
+        }
+
+        &:active {
           text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
         }
       }
@@ -137,6 +149,10 @@ header {
       &:hover {
         color: $nav-bar-hover;
       }
+
+      &:active {
+        color: $nav-bar-hover;
+      }
     }
 
     .navbar-nav .nav-item.active > .nav-link {
@@ -149,6 +165,10 @@ header {
       font-weight: bolder;
 
       &:hover {
+        color: $nav-bar-hover;
+      }
+
+      &:active {
         color: $nav-bar-hover;
       }
     }
@@ -171,6 +191,10 @@ header {
         margin-left: 0.2em;
 
         &:hover {
+          color: $grey-color-lighter;
+        }
+
+        &:active {
           color: $grey-color-lighter;
         }
       }
@@ -318,9 +342,9 @@ footer.sticky-bottom {
 
   a {
     color: darken($grey-color, 20%);
-    //     color: white;
+
     &:hover {
-      color: lighten($theme-color, 25%);
+      color: $link-color-hover;
       text-decoration: none;
     }
   }
@@ -490,6 +514,10 @@ footer.sticky-bottom {
         color: $link-color-hover;
       }
 
+      &:active {
+        color: $link-color-hover;
+      }
+
       .post-title {
         font-weight: bolder;
       }
@@ -510,7 +538,6 @@ footer.sticky-bottom {
         margin-right: 0.25em;
       }
 
-
     }
   }
 }
@@ -519,6 +546,10 @@ footer.sticky-bottom {
   background-color: $theme-color;
 
   &:hover {
+    background-color: $theme-color;
+  }
+
+  &:active {
     background-color: $theme-color;
   }
 }
@@ -538,6 +569,10 @@ footer.sticky-bottom {
       text-decoration: none;
 
       &:hover {
+        color: $theme-color;
+      }
+
+      &:active {
         color: $theme-color;
       }
     }
@@ -597,6 +632,11 @@ footer.sticky-bottom {
           border-bottom: 1px dashed $theme-color;
 
           &:hover {
+            border-bottom-style: solid;
+            text-decoration: none;
+          }
+
+          &:active {
             border-bottom-style: solid;
             text-decoration: none;
           }

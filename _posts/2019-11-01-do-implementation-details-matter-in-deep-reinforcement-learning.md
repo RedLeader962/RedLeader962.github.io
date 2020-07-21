@@ -713,7 +713,8 @@ the success or failure of a DRL project and it’s a must study.
 
 
 ---
-##### Cited as:
+##### Cite as:
+
 ```bibtex
 @article{lcoupal2019implementation,
   author   = {Coupal, Luc},

@@ -7,21 +7,17 @@
 
 .distill {
 
-  //hr {
-  //  border-top: 1px solid red;
-  //  margin: 2.25rem;
-  //}
-
   .test {
     background-color: cyan;
     color: red;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: $theme-color;
+    //color: $theme-color;
+    color: $theme-color-no-opacity;
   }
 
-
+d-article {
   .remark-card {
     border-color: $grey-color-Lighter;
     border-style: solid;
@@ -62,7 +58,7 @@
   // ❯❯❯..Collapsable Card... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
   .collapsable-card {
     //$collapsable-card-bg-color: $theme-color !default;
-    $collapsable-card-bg-color: $blue-color-Dark !default;
+    $collapsable-card-bg-color: $theme-color-no-opacity !default;
 
     .card-shadow {
       box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
@@ -385,12 +381,19 @@
   // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Style for note or comment..❮❮❮
 
 
-  a:hover {
-    border-bottom-color: $theme-color;
-    text-decoration: none;
-  }
 
-  d-article {
+    a{
+      color: $link-color;
+      border-bottom-color: $link-color-hover;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $link-color-hover;
+      border-bottom-color: lighten($link-color-hover, 20%);
+      text-decoration: none;
+    }
+
 
     h2 {
       //color: red;
@@ -415,70 +418,73 @@
       font-size: medium;
       border-bottom: 2px dotted lightgray;
     }
-  }
-
-  .definition h5 {
-    padding-top: 1em;
-    padding-bottom: 0em;
-    margin-bottom: 0em;
-    font-size: 0.9em;
-    font-weight: bold;
-    text-transform: none;
-    color: #666;
-  }
-
-  .definition dt {
-    padding-top: 2em;
-  }
-
-  .definition dd {
-    padding-top: 2em;
-  }
 
 
-  .definition blockquote {
-    font-size: inherit;
-    margin: 0.5em;
-    margin-bottom: 0em;
-    border-left: none;
+    .definition {
+      & h5 {
+        padding-top: 1em;
+        padding-bottom: 0em;
+        margin-bottom: 0em;
+        font-size: 0.9em;
+        font-weight: bold;
+        text-transform: none;
+        color: #666;
+      }
+
+      & dt {
+        padding-top: 2em;
+      }
+
+      & dd {
+        padding-top: 2em;
+      }
+
+      & blockquote {
+        font-size: inherit;
+        margin: 0.5em;
+        margin-bottom: 0em;
+        border-left: none;
+      }
+    }
+
+    .myLead {
+      font-size: larger;
+      font-weight: bolder;
+    }
+
+    figcaption {
+      padding-top: 1em;
+      text-align: center;
+    }
+
+    figcaption strong {
+      font-size: larger;
+    }
+
+    figure {
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    blockquote.blockquote {
+      margin: 0.5em;
+      margin-bottom: 1em;
+      font-size: inherit;
+      border-left: none;
+    }
+
+    blockquote i {
+      color: #ccc;
+    }
+
+    ul li {
+      margin-left: 1em;
+      margin-bottom: 0.25em;
+    }
+
+    .mainH1 {
+      margin-top: 1em;
+    }
   }
 
-  .myLead {
-    font-size: larger;
-    font-weight: bolder;
-  }
-
-  figcaption {
-    padding-top: 1em;
-    text-align: center;
-  }
-
-  figcaption strong {
-    font-size: larger;
-  }
-
-  figure {
-    padding-top: 1em;
-    padding-bottom: 2em;
-  }
-
-  blockquote.blockquote {
-    margin: 0.5em;
-    margin-bottom: 1em;
-    font-size: inherit;
-    border-left: none;
-  }
-
-  blockquote i {
-    color: #ccc;
-  }
-
-  ul li {
-    margin-left: 1em;
-    margin-bottom: 0.25em;
-  }
-
-  .mainH1 {
-    margin-top: 1em;
-  }
 }
