@@ -197,14 +197,14 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Chic-Chocs 2020</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'chinook_landing.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block " >
+            <div class="carousel-caption d-none d-sm-block " >
                 <p style="opacity: 80%;">
                 Afghanistan 2011</p>
             </div>
@@ -212,7 +212,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'barbel_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
@@ -225,14 +225,14 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'op_extract.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
@@ -243,28 +243,28 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'ski_bum_whistler.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block aligh-left" >
+            <div class="carousel-caption d-none d-sm-block aligh-left" >
                 <p>Whistler Blackcomb Glacier summer 1998</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'guitar_shredder.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Jam session with bassist Martin DeGrace 1992</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'jujitsu_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>Ju-jitsu 2002</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'valle_du_bras_du_nord.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block ">
+            <div class="carousel-caption d-none d-sm-block ">
                 <p>"Bras-du-Nord" vale 2010</p>
             </div>
         </div>
