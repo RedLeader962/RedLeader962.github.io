@@ -8,7 +8,7 @@ layout: default
     <header class="post-header" align="center">
 
         <div class="full-width " style="margin-top: -3em; margin-bottom: 1em; ">
-            <img class=" z-depth-1 rounded shadow-none"
+            <img class="z-depth-0"
                  src="{{ 'ChicChocCloud.jpeg' | prepend: '/assets/img/' | relative_url }}">
         </div>
 
@@ -31,7 +31,7 @@ layout: default
             <!--                    <div class="profile col-4 {% if page.profile.align == 'left' %}order-first{% endif %}">-->
             {% if page.profile.image %}
         <div class="full-width">
-            <img class=" z-depth-1 rounded shadow-none"
+            <img class="z-depth-1"
                  src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
         </div>
         {% endif %}

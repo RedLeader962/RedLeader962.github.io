@@ -353,16 +353,16 @@ footer.sticky-bottom {
       font-weight: bolder;
     }
 
-    .container-fluid {
-      //@extend .force-center;
-      //padding: 0;
-      //margin: 0;
-      //width: -moz-max-content;
-      //position: absolute;
-      //left: 0;
-      //right: 0;
-      //float: left;
-    }
+    //.container-fluid {
+    //  //@extend .force-center;
+    //  //padding: 0;
+    //  //margin: 0;
+    //  //width: -moz-max-content;
+    //  //position: absolute;
+    //  //left: 0;
+    //  //right: 0;
+    //  //float: left;
+    //}
 
     img {
       //width: max-content;
@@ -431,7 +431,7 @@ footer.sticky-bottom {
         p {
           font-size: smaller;
           font-weight: bolder;
-          color: darken(lightgray, 32%);
+          color: darken(lightgray, 15%);
           background-color: $theme-color;
           opacity: 70%;
           padding-top: 0.25em;
@@ -454,10 +454,10 @@ footer.sticky-bottom {
 
 // ❯❯❯..Blog... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .blog-header-bar {
-  border-bottom: 1px solid $grey-color-light;
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 4rem;
+  border-bottom: 1px solid $grey-color-light;
 
   h1 {
     color: $theme-color;
@@ -473,30 +473,41 @@ footer.sticky-bottom {
 
 .post-list {
   margin: 0;
-  margin-bottom: 40px;
   padding: 0;
 
   li {
-    border-bottom: 1px solid $grey-color-light;
     list-style: none;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-
-
-    .post-meta {
-      color: $grey-color;
-      font-size: 0.875rem;
-      margin-bottom: 0;
-    }
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $grey-color-light;
 
     a {
-      color: black;
       text-decoration: none;
-      font-weight: bolder;
 
       &:hover {
         color: $link-color-hover;
       }
+
+      .post-title {
+        font-weight: bolder;
+      }
+
+      .post-meta {
+        font-size: 0.875rem;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        //color: $grey-color;
+        opacity: 50%;
+      }
+
+      .post-description {
+        margin-bottom: 1.5em;
+      }
+
+
+
     }
   }
 }

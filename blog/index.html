@@ -22,10 +22,14 @@ pagination:
 
   <ul class="post-list">
     {% for post in paginator.posts %}
+<!--      <li class="z-depth-1 rounded">-->
       <li>
-        <h3><a class="post-title" href="{{ post.url | prepend: site.baseurl }}"><i class="fas fa-feather-alt"></i> {{ post.title }}</a></h3>
+<!--        <h3><a class="post-title" href="{{ post.url | prepend: site.baseurl }}"><i class="fas fa-feather-alt"></i> {{ post.title }}</a></h3>-->
+        <a  href="{{ post.url | prepend: site.baseurl }}">
+        <h3 class="post-title"><i class="fas fa-feather-alt"></i> {{ post.title }}</h3>
         <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }}</p>
-        <p>{{ post.description }}</p>
+        <p class="post-description">{{ post.description }}</p>
+        </a>
       </li>
     {% endfor %}
   </ul>

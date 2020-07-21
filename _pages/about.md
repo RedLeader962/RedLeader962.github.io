@@ -188,21 +188,21 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
  * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
  * Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
  
-<div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
-    <div class="carousel-inner">
+<div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade " data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
+    <div class="carousel-inner z-depth-1">
         <div class="carousel-item active">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'luc_work.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Chic-Chocs 2020</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'chinook_landing.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block " >
                 <p style="opacity: 80%;">
@@ -210,7 +210,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'barbel_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
@@ -218,51 +218,51 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         </div>
         <!-- 
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'afgh_pistol_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
         -->
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'op_extract.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'max_mag.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'ski_bum_whistler.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block aligh-left" >
                 <p>Whistler Blackcomb Glacier summer 1998</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'guitar_shredder.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Jam session with bassist Martin DeGrace 1992</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'jujitsu_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>Ju-jitsu 2002</p>
             </div>
         </div>
         <div class="carousel-item ">
-            <img class="d-block w-100"
+            <img class="d-block w-100 rounded"
                      src="{{ 'valle_du_bras_du_nord.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
             <div class="carousel-caption d-none d-md-block ">
                 <p>"Bras-du-Nord" vale 2010</p>
