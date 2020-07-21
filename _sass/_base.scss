@@ -405,17 +405,43 @@ footer.sticky-bottom {
         height: auto;
       }
 
+      .caption-on-light-bg {
+        color: $grey-color-Dark;
+        text-shadow: none;
+      }
+
+      .caption-on-mix-bg {
+        color: white;
+        text-shadow: -1px -1px 1px black, 1px 1px 1px black;
+      }
+
+      .caption-on-dark-bg {
+        color: $grey-color-lighter;
+        text-shadow: none;
+      }
+
       .carousel-caption {
-        bottom: auto;
-        bottom: -1.5em;
+        top: auto;
+        bottom: 0em;
+        padding-bottom: 0em;
         left: auto;
-        right: 2em;
+        right: 0em;
 
         p {
-          color: $grey-color-light;
-          //font-weight: bolder;
           font-size: smaller;
-          text-shadow: -1.5px -1.5px 3px $grey-color-dark, 1.5px 1.5px 3px $grey-color-dark;
+          font-weight: bolder;
+          color: darken(lightgray, 32%);
+          background-color: $theme-color;
+          opacity: 70%;
+          padding-top: 0.25em;
+          padding-bottom: 0.25em;
+          padding-right: 1.5em;
+          padding-left: 1.5em;
+        }
+
+        &.aligh-left {
+          left: 0em;
+          right: auto;
         }
       }
     }

@@ -190,28 +190,29 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
  
 <div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade" data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
     <div class="carousel-inner" >
-        <div class="carousel-item active" >
+        <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'luc_work.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
-        <div class="carousel-item ">
+        <div class="carousel-item active">
             <img class="d-block w-100"
                      src="{{ 'chicChoc_w_karen.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Chic-Chocs 2020</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'chinook_landing.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
-                <p>Afghanistan 2011</p>
+            <div class="carousel-caption d-none d-md-block " >
+                <p style="opacity: 80%;">
+                Afghanistan 2011</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'barbel_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
@@ -224,14 +225,14 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'op_extract.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Afghanistan 2011</p>
             </div>
         </div>
@@ -242,29 +243,29 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'ski_bum_whistler.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block aligh-left" >
                 <p>Whistler Blackcomb Glacier summer 1998</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'guitar_shredder.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Jam session with bassist Martin DeGrace 1992</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'jujitsu_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block ">
                 <p>Ju-jitsu 2002</p>
             </div>
         </div>
         <div class="carousel-item ">
             <img class="d-block w-100"
                      src="{{ 'valle_du_bras_du_nord.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
-            <div class="carousel-caption d-none d-md-block">
-                <p>Vallée Bras-du-Nord 2010</p>
+            <div class="carousel-caption d-none d-md-block ">
+                <p>"Bras-du-Nord" vale 2010</p>
             </div>
         </div>
     </div>
