@@ -2,6 +2,11 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+.test {
+  background-color: cyan;
+  color: red;
+}
+
 /* Font awesome: Common Properties: All required to make icons render reliably
 https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
 */
@@ -109,32 +114,39 @@ header {
     //@extend .navbar-photo-bg;
     @extend .navbar-azure-blue-white-border;
 
+    // Left side Title
     a {
-      // Left side Title
-      color: $nav-bar-active;
-
       &:hover {
         color: $nav-bar-hover;
         text-decoration: none;
       }
 
       &:active {
-        color: $nav-bar-hover;
+        color: $nav-bar-active;
         text-decoration: none;
       }
     }
 
-    .left-side-title {
+    .navbar-brand-glow { // Logo + Luc Coupal
       a {
-        // Left side Title: Luc Coupal
-        color: $nav-bar-active;
-        //opacity: 50%;
+        text-shadow: 0px 0px 0px $white, 0px 0px 0px $white; // glow effect
+        transition: .5s;
 
-        &:hover {
-          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
+        &:before {
+          //content: '';
+          transition: .5s;
+          transform: scale(.9);
+          z-index: -1;
         }
 
-        &:active {
+        &:hover:before {
+          transform: scale(1.2);
+          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
+          filter: blur(3px);
+        }
+
+        &:hover {
+          color: white;
           text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
         }
       }
@@ -173,13 +185,6 @@ header {
       }
     }
 
-    //   .navbar-brand {
-    // //     color: $white;
-    //     font-weight-lighter
-    //       &:hover {
-    //         color: $theme-color;
-    //       }
-    //   }
 
     .contact-icon {
       font-size: 1.25rem;
@@ -202,7 +207,8 @@ header {
   }
 
   .navbar-toggler {
-    .icon-bar {
+
+    & .icon-bar {
       display: block;
       width: 22px;
       height: 2px;
@@ -210,16 +216,26 @@ header {
       //background-color: $white;
       background-color: $nav-bar-link;
 
-      &:hover {
-        //         background-color: $theme-color;
-        background-color: darken($theme-color, 20%);
-        //         background-color: $white;
-      }
-
       border-radius: 1px;
       margin-bottom: 4px;
       transition: all 0.2s;
     }
+
+    &:hover {
+      .icon-bar {
+        //background-color: $white;
+        background-color: $nav-bar-hover;
+        //background-color: red;
+      }
+    }
+
+    &:active {
+      .icon-bar {
+        //background-color: $white;
+        background-color: red;
+      }
+    }
+
 
     .top-bar {
       transform: rotate(45deg);
@@ -371,8 +387,8 @@ footer.sticky-bottom {
     padding-bottom: 1rem;
 
     .post-description {
-      padding-top: 1em;
-      padding-bottom: 1em;
+      padding-top: 0.25em;
+      padding-bottom: 2em;
       font-size: larger;
       font-weight: bolder;
     }

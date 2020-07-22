@@ -5,20 +5,20 @@
          class="navbar navbar-dark navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
         <div class="container">
             {% assign name = site.title | split: ' ' %}
-            <div class="left-side-title">
+            <div class="navbar-brand-glow button-glow">
                 <a class="navbar-brand title" href="{{ '/about/' | prepend: site.url }}">
-                <span class="font-weight-bold">
-                    <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}"
-                         width="20" , style="filter: invert(1);"/>
-                    {{ name | first }}
-                </span>
-                    {{ name | last }}
+                    <span class="font-weight-bold ">
+                        <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}"
+                             width="20" , style="filter: invert(1);"/>
+                        {{ name | first }}
+                    </span>
+                        {{ name | last }}
                 </a>
             </div>
             {% if site.show_social_icons %}
-            <div class="row ml-1 ml-sm-0">
-                {% include social.html %}
-            </div>
+                <div class="row ml-1 ml-sm-0">
+                    {% include social.html %}
+                </div>
             {% endif %}
             <!-- Navbar Toogle -->
             <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse"

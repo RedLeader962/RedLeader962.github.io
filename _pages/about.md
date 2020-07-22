@@ -2,12 +2,7 @@
 layout: about
 title: about
 permalink: /about/
-description: Proud veteran from Montreal Canada, turned <b>computer scientist</b> <br>and passionate about <b>A.I.</b>
-
-profile:
-  align: right
-  image: ChicChoc.JPG
-  address:
+description: Proud veteran from Montreal Canada, turned <b>computer scientist</b> and passionate about <b>A.I.</b>
 
 news: false
 social: true
@@ -25,7 +20,9 @@ Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it
   </dd>
   <dt class="col-md-3">Ethical A.I.</dt> <dd class="col-xl-9">
     "Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems that are not worth celebrating.”
-    <span style="color: gray">― <a href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a> <!-- at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a> --></span> 
+    <span style="color: gray">― <a style="color: gray" href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a> 
+    <!-- at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a> -->
+    </span> 
   </dd>
   <dt class="col-md-3 border-md-bottom">Integrity</dt> <dd class="col-xl-9">
         ... without compromise.
@@ -81,63 +78,25 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         </div>
         <div class="card-body text-dark">
             <div class="container card-text">
-                <div class="row">
-                    <div class="col text-center">
+                <div class="row ">
+                    <div class="col text-sm-center">
                         <i><b>Python</b> [ TensorFlow, Numpy, Matplotlib ]</i> <br>
                         <i><b>LaTeX</b> [ TikZ/PGF, Beamer, Algorithm2e ]</i> <br><br>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <!-- 
-                        <i><b>Python</b> [ TensorFlow, Numpy, Matplotlib ]</i> <br><br>
-                        -->
-                        <b>Test-Driven-Developement</b> : <i>Pytest, Mock</i> <br>
-                        <b>Continuous Integration</b>: <i>TeamCity</i> <br>
-                        <b>Parallel/distributed computing</b>: <i>Ray [ RLlib, tune ]</i><br>
-                    </div>
-                    <div class="col">
-                        <!-- 
-                        <i><b>LaTeX</b> [TikZ/PGF, Beamer, Algorithm2e]</i> <br><br>
-                        -->
-                        <b>Project planning & control</b>: <i>YouTrack, Trello</i> <br>
-                        Methodology <i><b>Scrumm</b></i> and <i><b>Agile</b></i> <br>
-                        <b>Semantic database</b>: <i>SPARQL, RDF, OWL</i> <br>
-                    </div>
+                <div class="row justify-content-center ">
+                    <div class="col-md-6"> <b>Test-Driven-Developement</b> : <i>Pytest, Mock</i> </div>
+                    <div class="col-md-6"> <b>Continuous Integration</b>: <i>TeamCity</i> </div>
+                    <div class="col-md-6"> <b>Parallel/distributed computing</b>: <i>Ray [ RLlib, tune ]</i></div>
+                    <div class="col-md-6"> <b>Project planning & control</b>: <i>YouTrack, Trello</i> </div>
+                    <div class="col-md-6"> Methodology <i><b>Scrumm</b></i> and <i><b>Agile</b></i> </div>
+                    <div class="col-md-6"> <b>Semantic database</b>: <i>SPARQL, RDF, OWL</i> </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 
-<div style="padding-top: 1em; padding-bottom: 0em">
-<div class="card border-dark mb-3">
-  <div class="card-header" style="font-size: larger;">Skills</div>
-  <div class="card-body text-dark">
-    <h5 class="card-title">Language</h5>
-    <p style="margin-left: 1em" class="card-text">Speak english and french <br> Dream sometime in Python, LaTeX, C++</p>
-    <h5 class="card-title">Software enginering</h5>
-    <div class="container card-text">
-    <div class="row justify-content-center">
-        <div class="col">
-            <b>Python</b> [TensorFlow, Numpy, Matplotlib] <br>
-            <b>Test-Driven-Developement</b>: Pytest, Mock <br>
-            <b>Continuous Integration</b>: TeamCity <br>
-            <b>Parallel/distributed computing</b>: Ray[RLlib, tune]<br>
-        </div>
-        <div class="col">
-            <b>LaTeX</b> [TikZ/PGF, Beamer, Algorithm2e] <br>
-            <b>Project planning & control</b>: YouTrack, Trello <br>
-            Methodology <b>Scrumm</b> and <b>Agile</b> <br>
-            <b>Semantic database</b>: SPARQL, RDF, OWL <br>
-        </div>
-    </div>
-    </div>
-  </div>
-</div>
-</div>
--->
 
 <div style="padding-top: 1em;">
     <div class="card border-dark mb-3">
@@ -147,18 +106,14 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="card-body text-dark">
             <div class="container card-text" style="font-weight: bold">
                 <div class="row justify-content-center">
-                    <div class="col">
-                        Decision-making under uncertainty<br>
-                        Classical Reinforcement Learning<br>
-                        Deep Reinforcement Learning<br>
-                        Maximum Entropy RL<br>
-                    </div>
-                    <div class="col">
-                        Probability theory<br>
-                        Combinatorial optimization algorithm<br>
-                        Semantic<br>
-                        Formal verification<br>
-                    </div>
+                        <div class="col-md-6">Decision-making under uncertainty<br></div>
+                        <div class="col-md-6"> Classical Reinforcement Learning </div>
+                        <div class="col-md-6"> Deep Reinforcement Learning </div>
+                        <div class="col-md-6"> Maximum Entropy RL </div>
+                        <div class="col-md-6"> Probability theory </div>
+                        <div class="col-md-6"> Combinatorial optimization algorithm </div>
+                        <div class="col-md-6"> Semantic </div>
+                        <div class="col-md-6"> Formal verification </div>
                 </div>
             </div>
         </div>
