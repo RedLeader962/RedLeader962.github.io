@@ -114,32 +114,18 @@ header {
     //@extend .navbar-photo-bg;
     @extend .navbar-azure-blue-white-border;
 
-    // Left side Title
-    a {
-      //transition: .9s;
-
-      &:hover {
-        color: $nav-bar-hover;
-        //color: red;
-        text-decoration: none;
-        //transition: .9s;
-      }
-
-      //&:active {
-      //  color: $nav-bar-active;
-      //  text-decoration: none;
-      //}
-    }
+    $glow-color-primary: $grey-color-light;
+    $glow-color-secondary: $grey-color-light;
 
     .navbar-glow { // Logo + Luc Coupal
       a.navbar-brand {
-        text-shadow: -600px -0px 200px $nav-bar-link, 600px 0px 200px $nav-bar-link; // glow effect
+        text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link; // glow effect
         transition: .7s;
         z-index: 0;
 
         &:hover {
           //transform: scale(1.01);
-          text-shadow: 0px 0px 0px $grey-color-Lighter, 0px 0px 0px white; // glow effect
+          text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
           transition: .3s;
         }
       }
@@ -153,25 +139,27 @@ header {
           &:hover {
             //color: white;
             //transform: scale(1.01);
-            text-shadow: 0px 0px 1.5px $grey-color, 0px 0px 0px white; // glow effect
+            text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 1.5px $glow-color-secondary; // glow effect
             transition: .3s;
           }
         }
       }
 
-      a.nav-link {
-        //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
-        //transition: 1.9s;
-        text-shadow: -600px -0px 50px $nav-bar-link, 600px 0px 50px $nav-bar-link; // glow effect
-        transition: 2.3s;
-        z-index: 0;
+      .nav-link-glow {
+        a.nav-link {
+          //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
+          //transition: 1.9s;
+          text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link; // glow effect
+          transition: 0.9s;
+          z-index: 0;
+          text-decoration: none;
 
-        &:hover {
-          //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
-          //text-shadow: 0px 0px 60px white; // glow effect
-          //transition: .9s;
-          text-shadow: 0px 0px 0px $link-color-hover, 0px 0px 0px $link-color-hover; // glow effect
-          transition: .2s;
+          &:hover {
+            //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+            //text-shadow: 0px 0px 60px white; // glow effect
+            text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+            transition: .3s;
+          }
         }
       }
 
@@ -180,7 +168,6 @@ header {
     .navbar-nav .nav-item .nav-link {
       // Inactive menu item
       //color: red;
-      //color: $white;
       color: $nav-bar-link;
 
       &:hover {
@@ -195,21 +182,18 @@ header {
     .navbar-nav .nav-item.active > .nav-link {
       // Active menu item
       background-color: inherit;
-      //color: $theme-color;
-      //color: darken($theme-color, 70%);
       //color: red;
       color: $nav-bar-active;
       font-weight: bolder;
 
-      &:hover {
-        color: $nav-bar-hover;
-      }
-
-      &:active {
-        color: $nav-bar-hover;
-      }
+      //&:hover {
+      //  color: $nav-bar-hover;
+      //}
+      //
+      //&:active {
+      //  color: $nav-bar-hover;
+      //}
     }
-
 
     .contact-icon {
       font-size: 1.25rem;
