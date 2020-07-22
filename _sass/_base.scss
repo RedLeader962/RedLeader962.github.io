@@ -130,7 +130,8 @@ header {
     $glow-color-primary: $grey-color-light;
     $glow-color-secondary: $grey-color-light;
     $shadow-color-primary: darken($grey-color, 30%);
-    $shadow-color-secondary: darken($grey-color, 10%);
+    //$shadow-color-secondary: darken($grey-color, 10%);
+    $shadow-color-secondary: darken(red, 10%);
 
     .navbar-glow { // Logo + Luc Coupal
       a.navbar-brand {
