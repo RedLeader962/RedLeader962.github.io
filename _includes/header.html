@@ -3,9 +3,9 @@
     <!-- Nav Bar -->
     <nav id="navbar"
          class="navbar navbar-dark navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
-        <div class="container">
+        <div class="container navbar-glow">
             {% assign name = site.title | split: ' ' %}
-            <div class="navbar-brand-glow button-glow">
+<!--            <div class="navbar-glow">-->
                 <a class="navbar-brand title" href="{{ '/about/' | prepend: site.url }}">
                     <span class="font-weight-bold ">
                         <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}"
@@ -14,9 +14,9 @@
                     </span>
                         {{ name | last }}
                 </a>
-            </div>
+<!--            </div>-->
             {% if site.show_social_icons %}
-                <div class="row ml-1 ml-sm-0">
+                <div class="row ml-1 ml-sm-0 social-icon-glow">
                     {% include social.html %}
                 </div>
             {% endif %}

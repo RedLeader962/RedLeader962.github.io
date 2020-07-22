@@ -116,40 +116,65 @@ header {
 
     // Left side Title
     a {
+      //transition: .9s;
+
       &:hover {
         color: $nav-bar-hover;
+        //color: red;
         text-decoration: none;
+        //transition: .9s;
       }
 
-      &:active {
-        color: $nav-bar-active;
-        text-decoration: none;
-      }
+      //&:active {
+      //  color: $nav-bar-active;
+      //  text-decoration: none;
+      //}
     }
 
-    .navbar-brand-glow { // Logo + Luc Coupal
-      a {
-        text-shadow: 0px 0px 0px $white, 0px 0px 0px $white; // glow effect
-        transition: .5s;
-
-        &:before {
-          //content: '';
-          transition: .5s;
-          transform: scale(.9);
-          z-index: -1;
-        }
-
-        &:hover:before {
-          transform: scale(1.2);
-          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
-          filter: blur(3px);
-        }
+    .navbar-glow { // Logo + Luc Coupal
+      a.navbar-brand {
+        text-shadow: -600px -0px 200px $nav-bar-link, 600px 0px 200px $nav-bar-link; // glow effect
+        transition: .7s;
+        z-index: 0;
 
         &:hover {
-          color: white;
-          text-shadow: 0px 0px 7px $white, 0px 0px 60px $white; // glow effect
+          //transform: scale(1.01);
+          text-shadow: 0px 0px 0px $grey-color-Lighter, 0px 0px 0px white; // glow effect
+          transition: .3s;
         }
       }
+
+      .social-icon-glow {
+        a {
+          text-shadow: 0px 0px 0px $nav-bar-link, 0px 0px 100px $nav-bar-link; // glow effect
+          transition: .9s;
+          z-index: 0;
+
+          &:hover {
+            //color: white;
+            //transform: scale(1.01);
+            text-shadow: 0px 0px 1.5px $grey-color, 0px 0px 0px white; // glow effect
+            transition: .3s;
+          }
+        }
+      }
+
+      a.nav-link {
+        //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
+        //transition: 1.9s;
+        text-shadow: -600px -0px 50px $nav-bar-link, 600px 0px 50px $nav-bar-link; // glow effect
+        transition: 2.3s;
+        z-index: 0;
+
+        &:hover {
+          //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+          //text-shadow: 0px 0px 60px white; // glow effect
+          //transition: .9s;
+          text-shadow: 0px 0px 0px $link-color-hover, 0px 0px 0px $link-color-hover; // glow effect
+          transition: .2s;
+        }
+      }
+
     }
 
     .navbar-nav .nav-item .nav-link {
