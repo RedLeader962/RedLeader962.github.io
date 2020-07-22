@@ -280,7 +280,7 @@ pattern*. Which led me to those next questions:
 
 <div id="sec-does-it-even-matter"> </div>
 
-### <i class="fas fa-th"></i> Does it even matter?
+### <i class="fas fa-th"></i> Does it even make a difference?
 
 Apparently, it does a great deal as Henderson, P. et al. demonstrated in
 their paper *Deep reinforcement learning that matters* <d-cite key="Henderson2018"></d-cite>  (from McGill’s
