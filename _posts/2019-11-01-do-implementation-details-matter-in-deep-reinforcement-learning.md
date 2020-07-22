@@ -669,7 +669,7 @@ by TD methods.
     <footer class="blockquote-footer text-right">  <cite title="Source Title">Amiranashvili et al.</cite></footer>
 </blockquote>
 
-We also saw earlier that there was no clear winner in policy gradient class algorithms <d-footnote>Refer to the 
+We also saw earlier that there was no clear winner amongst policy gradient class algorithms <d-footnote>Refer to the 
 subsection: <a href="#subsec-regarding-the-setting">Regarding the setting</a></d-footnote>. 
 So we can safely say that performance of DRL algorithm can be significantly affected by the setting in wich they are trained.
 It’s also clear now that for a given type of algorithm and with respect to certain settings, implementation details, design decisions and
