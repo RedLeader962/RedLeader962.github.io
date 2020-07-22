@@ -128,12 +128,13 @@ header {
     border-bottom: 2.25px solid $grey-color-Lighter;
     //background-color: $theme-color;
     opacity: 90%;
-    animation: navbar-bg linear 6s infinite alternate;
-    -webkit-animation: navbar-bg linear 6s infinite alternate;
+    animation: navbar-bg 10s ease-in-out infinite alternate;
+    -webkit-animation: navbar-bg 10s ease-in-out infinite alternate;
   }
 
   //$navbar-bg-animated-intermediate: darken(rgb(35, 39, 43), 10%); // YouTrack dark gray
-  $navbar-bg-animated-intermediate: rgb(7,7,17);
+  //$navbar-bg-animated-intermediate: rgb(7,7,17);
+  $navbar-bg-animated-intermediate: rgb(3,3,20);
 
   @keyframes navbar-bg {
     0%     {background-color: $theme-color;}
