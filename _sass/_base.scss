@@ -153,11 +153,7 @@ header {
         z-index: 0;
 
 
-        &:hover {
-          @extend .brand-glow;
-        }
-
-        &:focus {
+        &:hover, &:active {
           @extend .brand-glow;
         }
       }
