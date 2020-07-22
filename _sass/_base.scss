@@ -108,18 +108,33 @@ header {
     //opacity: 90%;
   }
 
+  .navbar-darkgrey {
+    //box-shadow:  0px -10px 35px 5px black inset;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+    box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+    border-bottom: 2.25px solid $grey-color-Lighter;
+    //background-color: rgb(40, 53, 61); // YouTrack gray
+    background-color: rgb(35, 39, 43); // YouTrack dark gray
+    //background-color: rgb(51, 0, 0); // YouTrack dark gray
+    opacity: 90%;
+  }
+
 
   .navbar.navbar-dark {
-    //@extend .navbar-azure-blue;
     //@extend .navbar-photo-bg;
+    //@extend .navbar-azure-blue;
+    //@extend .navbar-darkgrey;
     @extend .navbar-azure-blue-white-border;
 
     $glow-color-primary: $grey-color-light;
     $glow-color-secondary: $grey-color-light;
+    $shadow-color-primary: darken($grey-color, 30%);
+    $shadow-color-secondary: darken($grey-color, 10%);
 
     .navbar-glow { // Logo + Luc Coupal
       a.navbar-brand {
-        text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
+        text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
         -webkit-transition: .7s;
         -moz-transition: .7s;
         -o-transition: .7s;
@@ -128,7 +143,8 @@ header {
 
         &:hover {
           //transform: scale(1.01);
-          text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, 3px 3px 7px red; // glow effect
+          //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -2px 5px 5px $theme-color-light, 4px 2px 3px $red-color-dark; // glow effect
+          text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary; // glow effect
           -webkit-transition: .3s;
           -moz-transition: .3s;
           -o-transition: .3s;
@@ -161,6 +177,7 @@ header {
         a.nav-link {
           //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
           //transition: 1.9s;
+          //text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
           text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link; // glow effect
           -webkit-transition: .9s;
           -moz-transition: .9s;
@@ -172,6 +189,8 @@ header {
           &:hover {
             //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
             //text-shadow: 0px 0px 60px white; // glow effect
+            //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+            //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 6px 3px $shadow-color-primary, 4px -7px 2px $shadow-color-primary, 5px 2px 2.5px $shadow-color-secondary; // glow effect
             text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
             -webkit-transition: .3s;
             -moz-transition: .3s;
@@ -204,6 +223,17 @@ header {
       color: $nav-bar-active;
       font-weight: bolder;
 
+      &:hover {
+            //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+            //text-shadow: 0px 0px 60px white; // glow effect
+            //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+            text-shadow: none; // glow effect
+            -webkit-transition: 0s;
+            -moz-transition: 0s;
+            -o-transition: 0s;
+            transition: 0s;
+          }
+
       //&:hover {
       //  color: $nav-bar-hover;
       //}
@@ -211,6 +241,7 @@ header {
       //&:active {
       //  color: $nav-bar-hover;
       //}
+
     }
 
     .contact-icon {
