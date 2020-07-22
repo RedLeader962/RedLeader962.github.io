@@ -116,34 +116,66 @@ header {
     border-bottom: 2.25px solid $grey-color-Lighter;
     //background-color: rgb(40, 53, 61); // YouTrack gray
     background-color: rgb(35, 39, 43); // YouTrack dark gray
-    //background-color: rgb(51, 0, 0); // YouTrack dark gray
+    //background-color: rgb(51, 0, 0);
     opacity: 90%;
   }
 
+  .navbar-azure-blue-white-border-anim {
+    //box-shadow:  0px -10px 35px 5px black inset;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+    box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+    border-bottom: 2.25px solid $grey-color-Lighter;
+    //background-color: $theme-color;
+    opacity: 90%;
+    animation: navbar-bg linear 6s infinite alternate;
+    -webkit-animation: navbar-bg linear 6s infinite alternate;
+  }
+
+  //$navbar-bg-animated-intermediate: darken(rgb(35, 39, 43), 10%); // YouTrack dark gray
+  $navbar-bg-animated-intermediate: rgb(7,7,17);
+
+  @keyframes navbar-bg {
+    0%     {background-color: $theme-color;}
+    100.0%  {background-color: $navbar-bg-animated-intermediate;}
+    //100.0%  {background-color: red;}
+  }
+
+  @-webkit-keyframes animation {
+    0%     {background-color: $theme-color;}
+    100.0%  {background-color: $navbar-bg-animated-intermediate;}
+    //100.0%  {background-color: red;}
+  }
 
   .navbar.navbar-dark {
     //@extend .navbar-photo-bg;
     //@extend .navbar-azure-blue;
     //@extend .navbar-darkgrey;
-    @extend .navbar-azure-blue-white-border;
+    //@extend .navbar-azure-blue-white-border;
+    @extend .navbar-azure-blue-white-border-anim;
 
+    //$glow-color-init: $theme-color;
+    $glow-color-init: $grey-color-Dark;
     $glow-color-primary: $grey-color-light;
     $glow-color-secondary: $grey-color-light;
     $shadow-color-primary: darken($grey-color, 20%);
     //$shadow-color-secondary: darken($grey-color, 10%);
     $shadow-color-secondary: darken(red, 15%);
+    $glow-start-offset: 200px;
+    $glow-blur-init: 50px;
 
     .navbar-glow { // Logo + Luc Coupal
 
       a.navbar-brand {
-        text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link;
+        text-shadow: -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init;
         -webkit-transition: .7s;
         -moz-transition: .7s;
         -o-transition: .7s;
         transition: .7s;
         z-index: 0;
 
-        &:hover, &:active {
+        //&:hover, &:active {
+        &:hover {
           //transform: scale(1.01);
           //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -2px 5px 5px $theme-color-light, 4px 2px 3px $red-color-dark; // glow effect
           text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary; // glow effect
@@ -164,7 +196,7 @@ header {
 
       .social-icon-glow {
         a {
-          text-shadow: 0px 0px 0px $nav-bar-link, 0px 0px 100px $nav-bar-link; // glow effect
+          text-shadow: 0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
           -webkit-transition: .9s;
           -moz-transition: .9s;
           -o-transition: .9s;
@@ -188,7 +220,7 @@ header {
           //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
           //transition: 1.9s;
           //text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
-          text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link; // glow effect
+          text-shadow: -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
           -webkit-transition: .9s;
           -moz-transition: .9s;
           -o-transition: .9s;
