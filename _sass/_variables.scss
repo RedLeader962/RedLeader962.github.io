@@ -1,61 +1,99 @@
-/*******************************************************************************
- * Variables used throughout the theme.
- * To adjust anything, simply edit the variables below and rebuild the theme.
- ******************************************************************************/
-
-// Dimensions
+// ❯❯❯❯❯ General dimensions ❯❯❯❯❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯
 
 //$max-content-width: 780px; // defaut: 800px
-$max-content-width: 800px;
+$max-content-width:               800px;
 
-// Colors
-$red-color:           #FF3636 !default;
-$red-color-dark:      #B71C1C !default;
-$orange-color:        #F29105 !default;
-$yellow-color:        #efcc00 !default;
-$blue-color:          #0076df !default;
-$blue-color-myLaTeX:  #4d79ff !default;
-$blue-color-dark:     #00369f !default;
+// ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮❮❮❮❮ General dimensions ❮❮❮❮❮
+
+
+// ❯❯❯❯❯ General colors ❯❯❯❯❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯
+
+$red-color:                       #FF3636 !default;
+$red-color-dark:                  #B71C1C !default;
+$orange-color:                    #F29105 !default;
+$yellow-color:                    #efcc00 !default;
+$blue-color:                      #0076df !default;
+$blue-color-myLaTeX:              #4d79ff !default;
+$blue-color-dark:                 #00369f !default;
 //$blue-color-DARK:     rgb(14, 14, 26) !default;
 //$blue-color-DARK:     rgb(08, 14, 29) !default;
-$blue-color-DARK:     rgb(0,0,20) !default;
+$blue-color-DARK:                 rgb(0, 0, 20) !default;
 //$blue-color-Dark:     #2d4052 !default;
-$blue-color-Dark:     lighten($blue-color-DARK, 05%);
+$blue-color-Dark:                 lighten($blue-color-DARK, 05%);
 
-$grey-color:          #828282 !default;
-$grey-color-light:    lighten($grey-color, 40%);
-$grey-color-Lighter:    lighten($grey-color, 30%);
-$grey-color-lighter:    lighten($grey-color, 15%);
-$grey-color-darker:     darken($grey-color, 17%);
-$grey-color-dark:     darken($grey-color, 25%);
-$grey-color-Dark:     darken($grey-color, 35%);
+$grey-color:                      #828282 !default;
+$grey-color-light:                lighten($grey-color, 40%);
+$grey-color-Lighter:              lighten($grey-color, 30%);
+$grey-color-lighter:              lighten($grey-color, 15%);
+$grey-color-darker:               darken($grey-color, 17%);
+$grey-color-dark:                 darken($grey-color, 25%);
+$grey-color-Dark:                 darken($grey-color, 35%);
 
-$white:             #fff !default;
-$dark-gray:         #333 !default;
-$mid-gray:          #666 !default;
-$light-gray:        #ccc !default;
-$lighter-gray:      #eee !default;
+$white:                           #fff !default;
+$dark-gray:                       #333 !default;
+$mid-gray:                        #666 !default;
+$light-gray:                      #ccc !default;
+$lighter-gray:                    #eee !default;
 
 
-/* Set theme colors *************************/
 // $theme-color:         $red-color;
 // $theme-color:         $red-color-dark;
 // $theme-color:         $orange-color;
 // $theme-color:         $yellow-color;
 // $theme-color:         $grey-color-dark;
 //$theme-color:         $grey-color;
-$theme-color:         $blue-color-DARK !default;
-$theme-color-no-opacity:         $blue-color-Dark !default;
+$theme-color:                     $blue-color-DARK !default;
+$theme-color-no-opacity:          $blue-color-Dark !default;
+$theme-color-light:               lighten($theme-color, 40%);
+$theme-color-dark:                darken($theme-color, 25%);
 
-$theme-color-light:    lighten($theme-color, 40%);
-$theme-color-dark:     darken($theme-color, 25%);
+$link-color:                      $blue-color-Dark;
+$link-color-hover:                $grey-color-lighter;
+$text-color:                      #111111 !default;
+$title-color-lighter:             lighten($theme-color, 18%);
 
-$link-color:          $blue-color-Dark;
-$link-color-hover:    $grey-color-lighter;
-$nav-bar-link:        $grey-color;
-$nav-bar-hover:        $grey-color-Lighter;
-$nav-bar-active:        white;
-$text-color:          #111111 !default;
-$title-color-lighter:    lighten($theme-color, 18%);
+// ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮❮❮❮❮❮❮ General colors ❮❮❮❮❮
 
-/******************************************************************************/
+
+// ❯❯❯❯❯ Nav-bar ❯❯❯❯❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯
+
+$nav-bar-link:                    $grey-color;
+$nav-bar-hover:                   $grey-color-Lighter;
+$nav-bar-active:                  white;
+
+
+// ❯❯❯❯❯ Nav-brand ❯❯❯❯❯.................................................................................................
+
+$glow-start-offset:               200px;
+$glow-blur-init:                  50px;
+
+//$glow-color-init:               $theme-color;
+$glow-color-init:                 $grey-color-Dark;
+$glow-color-primary:              $grey-color-light;
+$glow-color-secondary:            $grey-color-light;
+$shadow-color-primary:            darken($grey-color, 20%);
+//$shadow-color-secondary:        darken($grey-color, 10%);
+$shadow-color-secondary:          darken(red, 0%);
+$shadow-color-third:              lighten($theme-color, 60%);
+
+// .................................................................................................❮❮❮❮❮ Nav-brand ❮❮❮❮❮
+
+
+// ❯❯❯....Nav-bar animated background.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
+
+//$navbar-bg-animated-intermediate: darken(rgb(35, 39, 43), 10%); // YouTrack dark gray
+//$navbar-bg-animated-intermediate: rgb(7,7,17);
+$navbar-bg-animated-intermediate: rgb(3, 3, 20);
+
+// ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Nav-bar animated background....❮❮❮
+
+
+// ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮ ❮❮❮❮❮ Nav-bar ❮❮❮❮❮
+
+
+
+
+
+
+
+
