@@ -37,6 +37,7 @@ _styles: >
         text-transform: uppercase;
         margin: 0rem 0;
         padding: 0rem 0;
+        color: #888;
       }
     .supervisorDbyline a {
         color: rgba(0, 0, 0, 0.8);
@@ -50,6 +51,15 @@ _styles: >
      }
     .supervisorThe {
         font-weight: 500;
+        color:       #333;
+    }
+    .supervisorThe:hover {
+        color:           #333;
+        border-bottom:   1px solid #333;
+    }
+    .acknowledgments{
+        font-weight: 500;
+        color:       #333;
     }
     .supervisorDbylineHorizontalRule {
         display: block;
@@ -109,7 +119,7 @@ Amiranashvili2018
         -->
         <div class="w-100"></div>
     </div>
-        A big thank you to my angel <b>Karen Cadet</b> for her support and precious insight on the english language. 
+        A big thank you to my angel <span class="acknowledgments"> Karen Cadet </span> for her support and precious insight on the english language. 
 </div>
 
 <hr class="supervisorDbylineHorizontalRule">
