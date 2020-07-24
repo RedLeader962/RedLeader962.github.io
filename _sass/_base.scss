@@ -209,8 +209,11 @@ header {
                 //    }
 
                 &.active {
-                    animation         : navbar-brand-anim-kf .3s forwards;
-                    -webkit-animation : navbar-brand-anim-kf .3s forwards;
+                    -moz-animation    : navbar-brand-anim-kf .3s ease-in-out forwards;
+                    -ms-animation     : navbar-brand-anim-kf .3s ease-in-out forwards;
+                    -o-animation      : navbar-brand-anim-kf .3s ease-in-out forwards;
+                    -webkit-animation : navbar-brand-anim-kf .3s ease-in-out forwards;
+                    animation         : navbar-brand-anim-kf .3s ease-in-out forwards;
                     }
                 }
 
@@ -245,20 +248,20 @@ header {
             .social-icon-glow {
                 a {
                     text-shadow        : 0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
-                    -webkit-transition : text-shadow .9s;
-                    -moz-transition    : text-shadow .9s;
-                    -o-transition      : text-shadow .9s;
-                    transition         : text-shadow .9s;
+                    -webkit-transition : text-shadow .9s ;
+                    -moz-transition    : text-shadow .9s ;
+                    -o-transition      : text-shadow .9s ;
+                    transition         : text-shadow .9s ;
                     z-index            : 0;
 
                     &:hover {
                         //color: white;
                         //transform: scale(1.01);
                         text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 1.5px $glow-color-secondary; // glow effect
-                        -webkit-transition : text-shadow .3s;
-                        -moz-transition    : text-shadow .3s;
-                        -o-transition      : text-shadow .3s;
-                        transition         : text-shadow .3s;
+                        -webkit-transition : text-shadow .3s ;
+                        -moz-transition    : text-shadow .3s ;
+                        -o-transition      : text-shadow .3s ;
+                        transition         : text-shadow .3s ;
                         }
                     }
                 }
@@ -269,10 +272,10 @@ header {
                     //transition: 1.9s;
                     //text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
                     text-shadow        : -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
-                    -webkit-transition : text-shadow .9s;
-                    -moz-transition    : text-shadow .9s;
-                    -o-transition      : text-shadow .9s;
-                    transition         : text-shadow .9s;
+                    -webkit-transition : text-shadow .12s ease-in-out;
+                    -moz-transition    : text-shadow .12s ease-in-out;
+                    -o-transition      : text-shadow .12s ease-in-out;
+                    transition         : text-shadow .12s ease-in-out;
                     z-index            : 0;
                     text-decoration    : none;
 
@@ -282,10 +285,10 @@ header {
                         //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
                         //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 6px 3px $shadow-color-primary, 4px -7px 2px $shadow-color-primary, 5px 2px 2.5px $shadow-color-secondary; // glow effect
                         text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
-                        -webkit-transition : text-shadow .3s;
-                        -moz-transition    : text-shadow .3s;
-                        -o-transition      : text-shadow .3s;
-                        transition         : text-shadow .3s;
+                        -webkit-transition : text-shadow .3s ease-in-out;
+                        -moz-transition    : text-shadow .3s ease-in-out;
+                        -o-transition      : text-shadow .3s ease-in-out;
+                        transition         : text-shadow .3s ease-in-out;
                         }
                     }
                 }
