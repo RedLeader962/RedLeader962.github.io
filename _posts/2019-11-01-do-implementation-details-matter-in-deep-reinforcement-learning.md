@@ -2,7 +2,7 @@
 published: true
 layout: distill
 title: Do implementation details matter in Deep Reinforcement Learning?
-description: 'A reflection on design, architecture and implementation details in DRL from a software engineering perspective applied to research.'
+description: 'A reflection on design, architecture and implementation of DRL algorithms from a software engineering perspective applied to research.'
 
 authors:
   - name: Luc Coupal
@@ -132,9 +132,11 @@ While I was finishing an essay on *Deep Reinforcement Learning Advantage
 Actor-Critic* method, a part of me felt that some important questions
  linked to the applied part were  unanswered or disregarded.  
 
+<!-- 
 Those questions were linked to design & architectural aspects of Deep
 Reinforcement Learning from a software engineering perspective applied
 to research.
+-->
 
 <p class="text-center myLead" >
 Which design & architecture should I choose?<br>
@@ -205,10 +207,16 @@ decisions and implementation details in Deep Reinforcement Learning
         <d-footnote>I recommend this very good post on the topic of <i>Implementation details</i> by Vladimir Khorikov: <a href="https://enterprisecraftsmanship.com/posts/what-is-implementation-detail/" target="blank">What is an implementation detail?</a></d-footnote>. 
         The
         consensus is the following:
+        <!-- 
         <p class="text-center" style="padding-top: 0.75em;">
         everything that should not leak outside
         a public API is an implementation detail.
         </p>
+        -->
+        <blockquote class="blockquote text-justify">
+            <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+            everything that should not leak outside a public API is an implementation detail.
+        </blockquote>
         <p>So it’s closely linked to the definition and specification of an API but it’s not just code. 
         <b>The meaning feels blurier in the machine learning
         field as it often gives the impression that it’s usage implicitly means:</b> 

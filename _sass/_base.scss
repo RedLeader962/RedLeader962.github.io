@@ -3,807 +3,860 @@
  ******************************************************************************/
 
 .test {
-  background-color: cyan;
-  color:            red;
-  }
+    background-color : cyan;
+    color            : red;
+    }
 
 /* Font awesome: Common Properties: All required to make icons render reliably
 https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
 */
 .icon::before {
-  display:                inline-block;
-  font-style:             normal;
-  font-variant:           normal;
-  text-rendering:         auto;
-  -webkit-font-smoothing: antialiased;
-  }
+    display                : inline-block;
+    font-style             : normal;
+    font-variant           : normal;
+    text-rendering         : auto;
+    -webkit-font-smoothing : antialiased;
+    }
 
 // Typography
 a, table.table a {
-  color: $theme-color;
+    color : $theme-color;
 
-  &:hover {
-    color:           $theme-color;
-    text-decoration: underline;
+    &:hover {
+        color           : $theme-color;
+        text-decoration : underline;
+        }
+
+    &:hover:after {
+        width : 100%;
+        }
+
+    &:active {
+        color           : $theme-color;
+        text-decoration : underline;
+        }
+
     }
-
-  &:hover:after {
-    width: 100%;
-    }
-
-  &:active {
-    color:           $theme-color;
-    text-decoration: underline;
-    }
-
-  }
 
 // Math
 .equation {
-  margin-bottom: 1rem;
-  text-align:    center;
-  }
+    margin-bottom : 1rem;
+    text-align    : center;
+    }
 
 // Caption
 .caption {
-  font-size:     0.875rem;
-  margin-top:    0.75rem;
-  margin-bottom: 1.5rem;
-  text-align:    center;
-  }
+    font-size     : 0.875rem;
+    margin-top    : 0.75rem;
+    margin-bottom : 1.5rem;
+    text-align    : center;
+    }
 
 
 // Profile
 .profile {
-  .address {
-    font-family: monospace;
-    font-size:   1.2rem;
+    .address {
+        font-family : monospace;
+        font-size   : 1.2rem;
 
-    p {
-      margin: 0;
-      }
+        p {
+            margin : 0;
+            }
+        }
     }
-  }
 
 // Post
 .post .post-header .post-description {
-  font-style: italic;
-  }
+    font-style : italic;
+    }
 
 
 // ❯❯...Navbar customization............................................................................................
 header {
 
-  //.logo-img {
-  //  // to black
-  //  filter: invert(1);
-  //  // or to blue
-  //  // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
-  //}
+    //.logo-img {
+    //  // to black
+    //  filter: invert(1);
+    //  // or to blue
+    //  // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+    //}
 
-  .navbar-azure-blue {
-    box-shadow:       5px 10px 18px #888888;
-    border-bottom:    1px solid $theme-color-dark;
-    background-color: $theme-color;
-    opacity:          95%;
-    }
-
-  .navbar-azure-blue-white-border {
-    //box-shadow:  0px -10px 35px 5px black inset;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
-    box-shadow:       0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
-    border-bottom:    2.25px solid $grey-color-Lighter;
-    background-color: $theme-color;
-    opacity:          90%;
-    }
-
-  .navbar-photo-bg { // todo: experiment
-    //box-shadow:  0px -10px 35px 5px black inset;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
-    //box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
-    border-bottom: 2.25px solid $grey-color-Lighter;
-    //background-color: $theme-color;
-    //opacity: 90%;
-    }
-
-  .navbar-darkgrey {
-    //box-shadow:  0px -10px 35px 5px black inset;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
-    box-shadow:       0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
-    border-bottom:    2.25px solid $grey-color-Lighter;
-    //background-color: rgb(40, 53, 61); // YouTrack gray
-    background-color: rgb(35, 39, 43); // YouTrack dark gray
-    //background-color: rgb(51, 0, 0);
-    opacity:          90%;
-    }
-
-  .navbar-azure-blue-white-border-anim {
-    //box-shadow:  0px -10px 35px 5px black inset;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark;
-    //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
-    box-shadow:        0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
-    border-bottom:     2.25px solid $grey-color-Lighter;
-    opacity:           90%;
-    animation:         navbar-bg 10s ease-in-out infinite alternate;
-    -webkit-animation: wk-navbar-bg 10s ease-in-out infinite alternate;
-    }
-
-
-  @keyframes navbar-bg {
-    0% { background-color: $theme-color; }
-    100.0% { background-color: $navbar-bg-animated-intermediate; }
-    //100.0%  {background-color: red;}
-    }
-
-  @-webkit-keyframes wk-navbar-bg {
-    0% { background-color: $theme-color; }
-    100.0% { background-color: $navbar-bg-animated-intermediate; }
-    //100.0%  {background-color: red;}
-    }
-
-  .navbar-azure-blue-white-border-gradient {
-    box-shadow:       0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
-    border-bottom:    2.25px solid $grey-color-Lighter;
-    background-image: linear-gradient(28deg, $theme-color-dark, $theme-color, $theme-color-no-opacity, rgb(20, 20, 30));
-    opacity:          90%;
-    }
-
-  .navbar.navbar-dark {
-    //@extend .navbar-photo-bg;
-    //@extend .navbar-azure-blue;
-    //@extend .navbar-darkgrey;
-    //@extend .navbar-azure-blue-white-border;
-    //@extend .navbar-azure-blue-white-border-anim;
-    @extend .navbar-azure-blue-white-border-gradient;
-
-
-    .navbar-glow { // Logo + Luc Coupal
-
-      a.navbar-brand {
-        text-shadow:        -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init;
-        -webkit-transition: .7s;
-        -moz-transition:    .7s;
-        -o-transition:      .7s;
-        transition:         .7s;
-        z-index:            0;
-
-        &:hover, &:active, &.active {
-          //transform: scale(1.01);
-          //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -2px 5px 5px $theme-color-light, 4px 2px 3px $red-color-dark; // glow effect
-          text-shadow:        0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary, 12px -1px 3px $shadow-color-third; // glow effect
-          -webkit-transition: .3s;
-          -moz-transition:    .3s;
-          -o-transition:      .3s;
-          transition:         .3s;
-          }
-
-        //&.active {
-        //  text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary, 8px 3px 3px $shadow-color-third; // glow effect
-        //  -webkit-transition: .3s;
-        //  -moz-transition: .3s;
-        //  -o-transition: .3s;
-        //  transition: .3s;
-        //}
+    .navbar-azure-blue {
+        box-shadow       : 5px 10px 18px #888888;
+        border-bottom    : 1px solid $theme-color-dark;
+        background-color : $theme-color;
+        opacity          : 95%;
         }
 
-      .social-icon-glow {
-        a {
-          text-shadow:        0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
-          -webkit-transition: .9s;
-          -moz-transition:    .9s;
-          -o-transition:      .9s;
-          transition:         .9s;
-          z-index:            0;
+    .navbar-azure-blue-white-border {
+        //box-shadow:  0px -10px 35px 5px black inset;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+        box-shadow       : 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+        border-bottom    : 2.25px solid $grey-color-Lighter;
+        background-color : $theme-color;
+        opacity          : 90%;
+        }
 
-          &:hover {
-            //color: white;
-            //transform: scale(1.01);
-            text-shadow:        0px 0px 0px $glow-color-primary, 0px 0px 1.5px $glow-color-secondary; // glow effect
-            -webkit-transition: .3s;
-            -moz-transition:    .3s;
-            -o-transition:      .3s;
-            transition:         .3s;
+    .navbar-photo-bg { // todo: experiment
+        //box-shadow:  0px -10px 35px 5px black inset;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+        //box-shadow: 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+        border-bottom : 2.25px solid $grey-color-Lighter;
+        //background-color: $theme-color;
+        //opacity: 90%;
+        }
+
+    .navbar-darkgrey {
+        //box-shadow:  0px -10px 35px 5px black inset;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+        box-shadow       : 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+        border-bottom    : 2.25px solid $grey-color-Lighter;
+        //background-color: rgb(40, 53, 61); // YouTrack gray
+        background-color : rgb(35, 39, 43); // YouTrack dark gray
+        //background-color: rgb(51, 0, 0);
+        opacity          : 90%;
+        }
+
+    .navbar-azure-blue-white-border-anim {
+        //box-shadow:  0px -10px 35px 5px black inset;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark;
+        //box-shadow: 0px 5px 27px -10px $grey-color-dark, 0px 20px 20px -12px black inset;
+        box-shadow        : 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+        border-bottom     : 2.25px solid $grey-color-Lighter;
+        opacity           : 90%;
+        animation         : navbar-bg 10s ease-in-out infinite alternate;
+        -webkit-animation : wk-navbar-bg 10s ease-in-out infinite alternate;
+        }
+
+
+    @keyframes navbar-bg {
+        0% { background-color : $theme-color; }
+        100.0% { background-color : $navbar-bg-animated-intermediate; }
+        //100.0%  {background-color: red;}
+        }
+
+    @-webkit-keyframes wk-navbar-bg {
+        0% { background-color : $theme-color; }
+        100.0% { background-color : $navbar-bg-animated-intermediate; }
+        //100.0%  {background-color: red;}
+        }
+
+    .navbar-azure-blue-white-border-gradient {
+        box-shadow       : 0px 5px 27px -5px $grey-color-dark, 0px 30px 20px -22px black inset;
+        border-bottom    : 2.25px solid $grey-color-Lighter;
+        background-image : linear-gradient(28deg, $theme-color-dark, $theme-color, $theme-color-no-opacity, rgb(20, 20, 30));
+        opacity          : 90%;
+        }
+
+    .navbar.navbar-dark {
+        //@extend .navbar-photo-bg;
+        //@extend .navbar-azure-blue;
+        //@extend .navbar-darkgrey;
+        //@extend .navbar-azure-blue-white-border;
+        //@extend .navbar-azure-blue-white-border-anim;
+        @extend .navbar-azure-blue-white-border-gradient;
+
+
+        .navbar-glow { // Logo + Luc Coupal
+
+            .brand-anim-start {
+                text-shadow        : -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init;
+                -webkit-transition : text-shadow .7s;
+                -moz-transition    : text-shadow .7s;
+                -o-transition      : text-shadow .7s;
+                transition         : text-shadow .7s;
+                }
+
+            .brand-anim-end {
+                //transform: scale(1.01);
+                text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary, 12px -1px 3px $shadow-color-third; // glow effect
+                -webkit-transition : text-shadow .3s;
+                -moz-transition    : text-shadow .3s;
+                -o-transition      : text-shadow .3s;
+                transition         : text-shadow .3s;
+                }
+
+            //a.navbar-brand {
+            //    @extend .brand-anim-start;
+            //    z-index : 0;
+            //
+            //    //&:hover, &:active {
+            //    //    @extend .brand-anim-end;
+            //    //    }
+            //
+            //    &.active {
+            //        @extend .brand-anim-end;
+            //        }
+            //    }
+
+
+            a.navbar-brand {
+                //text-shadow        : 0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
+                //-webkit-transition : text-shadow .9s;
+                //-moz-transition    : text-shadow .9s;
+                //-o-transition      : text-shadow .9s;
+                //transition         : text-shadow .9s;
+                //
+                //&:hover {
+                //    text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 1.5px $glow-color-secondary; // glow effect
+                //    -webkit-transition : text-shadow .3s;
+                //    -moz-transition    : text-shadow .3s;
+                //    -o-transition      : text-shadow .3s;
+                //    transition         : text-shadow .3s;
+                //    }
+
+                &.active {
+                    animation         : navbar-brand-anim-kf .3s forwards;
+                    -webkit-animation : navbar-brand-anim-kf .3s forwards;
+                    }
+                }
+
+            @keyframes navbar-brand-anim-kf {
+                0% {
+                    text-shadow : -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init;
+                    }
+                100% {
+                    text-shadow : 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary, 12px -1px 3px $shadow-color-third; // glow effect
+                    }
+                }
+
+            //@keyframes brand-anim {
+            //    0% {
+            //        text-shadow        : -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init, 0px 0px 0px $glow-color-init;
+            //        }
+            //    100% {
+            //        text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary, 2px -5px 5px $shadow-color-primary, 5px 3px 3px $shadow-color-secondary, 12px -1px 3px $shadow-color-third; // glow effect
+            //        }
+            //    }
+            //
+            //div.navbar-brand {
+            //    //@extend .brand-anim-start;
+            //    z-index : 0;
+            //
+            //    &.active {
+            //        //@extend .brand-anim-end;
+            //        animation: 1s ease-out 0s 1 brand-anim;
+            //        }
+            //    }
+
+            .social-icon-glow {
+                a {
+                    text-shadow        : 0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
+                    -webkit-transition : text-shadow .9s;
+                    -moz-transition    : text-shadow .9s;
+                    -o-transition      : text-shadow .9s;
+                    transition         : text-shadow .9s;
+                    z-index            : 0;
+
+                    &:hover {
+                        //color: white;
+                        //transform: scale(1.01);
+                        text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 1.5px $glow-color-secondary; // glow effect
+                        -webkit-transition : text-shadow .3s;
+                        -moz-transition    : text-shadow .3s;
+                        -o-transition      : text-shadow .3s;
+                        transition         : text-shadow .3s;
+                        }
+                    }
+                }
+
+            .nav-link-glow {
+                a.nav-link {
+                    //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
+                    //transition: 1.9s;
+                    //text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
+                    text-shadow        : -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
+                    -webkit-transition : text-shadow .9s;
+                    -moz-transition    : text-shadow .9s;
+                    -o-transition      : text-shadow .9s;
+                    transition         : text-shadow .9s;
+                    z-index            : 0;
+                    text-decoration    : none;
+
+                    &:hover {
+                        //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+                        //text-shadow: 0px 0px 60px white; // glow effect
+                        //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+                        //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 6px 3px $shadow-color-primary, 4px -7px 2px $shadow-color-primary, 5px 2px 2.5px $shadow-color-secondary; // glow effect
+                        text-shadow        : 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+                        -webkit-transition : text-shadow .3s;
+                        -moz-transition    : text-shadow .3s;
+                        -o-transition      : text-shadow .3s;
+                        transition         : text-shadow .3s;
+                        }
+                    }
+                }
+
             }
-          }
-        }
 
-      .nav-link-glow {
-        a.nav-link {
-          //text-shadow: 0px 0px 0px $nav-bar-link; // glow effect
-          //transition: 1.9s;
-          //text-shadow: -600px -0px 100px $nav-bar-link, 600px 0px 100px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link, 0px 0px 0px $nav-bar-link; // glow effect
-          text-shadow:        -$glow-start-offset -0px $glow-blur-init $glow-color-init, $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
-          -webkit-transition: .9s;
-          -moz-transition:    .9s;
-          -o-transition:      .9s;
-          transition:         0.9s;
-          z-index:            0;
-          text-decoration:    none;
 
-          &:hover {
-            //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
-            //text-shadow: 0px 0px 60px white; // glow effect
-            //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
-            //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary, -3px 6px 3px $shadow-color-primary, 4px -7px 2px $shadow-color-primary, 5px 2px 2.5px $shadow-color-secondary; // glow effect
-            text-shadow:        0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
-            -webkit-transition: .3s;
-            -moz-transition:    .3s;
-            -o-transition:      .3s;
-            transition:         .3s;
+        .navbar-nav .nav-item .nav-link {
+            // Inactive menu item
+            //color: red;
+            color : $nav-bar-link;
+
+            &:hover {
+                color : $nav-bar-hover;
+                }
+
+            &:active {
+                color : $nav-bar-hover;
+                }
             }
-          }
+
+        .navbar-nav .nav-item.active > .nav-link {
+            // Active menu item
+            background-color : inherit;
+            //color: red;
+            color            : $nav-bar-active;
+            font-weight      : bolder;
+
+            &:hover {
+                //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+                //text-shadow: 0px 0px 60px white; // glow effect
+                //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
+                text-shadow        : none; // glow effect
+                -webkit-transition : text-shadow 0s;
+                -moz-transition    : text-shadow 0s;
+                -o-transition      : text-shadow 0s;
+                transition         : text-shadow 0s;
+                }
+
+            }
+
+        .contact-icon {
+            font-size : 1.25rem;
+
+            a {
+                //       color: lighten($grey-color, 43%);
+                //color: lighten($grey-color-Dark, 7%);
+                color       : darken($nav-bar-link, 10%);
+                margin-left : 0.2em;
+
+                &:hover {
+                    color : $grey-color-lighter;
+                    }
+
+                &:active {
+                    color : $grey-color-lighter;
+                    }
+                }
+            }
         }
 
-      }
+    .navbar-toggler {
 
+        & .icon-bar {
+            display          : block;
+            width            : 22px;
+            height           : 2px;
+            //     background-color: $grey-color-dark;
+            //background-color: $white;
+            background-color : $nav-bar-link;
 
-    .navbar-nav .nav-item .nav-link {
-      // Inactive menu item
-      //color: red;
-      color: $nav-bar-link;
-
-      &:hover {
-        color: $nav-bar-hover;
-        }
-
-      &:active {
-        color: $nav-bar-hover;
-        }
-      }
-
-    .navbar-nav .nav-item.active > .nav-link {
-      // Active menu item
-      background-color: inherit;
-      //color: red;
-      color:            $nav-bar-active;
-      font-weight:      bolder;
-
-      &:hover {
-        //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
-        //text-shadow: 0px 0px 60px white; // glow effect
-        //text-shadow: 0px 0px 0px $glow-color-primary, 0px 0px 0px $glow-color-secondary; // glow effect
-        text-shadow:        none; // glow effect
-        -webkit-transition: 0s;
-        -moz-transition:    0s;
-        -o-transition:      0s;
-        transition:         0s;
-        }
-
-      }
-
-    .contact-icon {
-      font-size: 1.25rem;
-
-      a {
-        //       color: lighten($grey-color, 43%);
-        //color: lighten($grey-color-Dark, 7%);
-        color:       darken($nav-bar-link, 10%);
-        margin-left: 0.2em;
+            border-radius    : 1px;
+            margin-bottom    : 4px;
+            transition       : all 0.2s;
+            }
 
         &:hover {
-          color: $grey-color-lighter;
-          }
+            .icon-bar {
+                //background-color: $white;
+                background-color : $nav-bar-hover;
+                //background-color: red;
+                }
+            }
 
         &:active {
-          color: $grey-color-lighter;
-          }
+            .icon-bar {
+                background-color : $white;
+                //background-color: red;
+                }
+            }
+
+
+        .top-bar {
+            transform        : rotate(45deg);
+            transform-origin : 10% 10%;
+            }
+
+        .middle-bar {
+            opacity : 0;
+            }
+
+        .bottom-bar {
+            transform        : rotate(-45deg);
+            transform-origin : 10% 90%;
+            }
         }
-      }
-    }
 
-  .navbar-toggler {
+    .navbar-toggler.collapsed {
+        .top-bar {
+            transform : rotate(0);
+            }
 
-    & .icon-bar {
-      display:          block;
-      width:            22px;
-      height:           2px;
-      //     background-color: $grey-color-dark;
-      //background-color: $white;
-      background-color: $nav-bar-link;
+        .middle-bar {
+            opacity : 1;
+            }
 
-      border-radius:    1px;
-      margin-bottom:    4px;
-      transition:       all 0.2s;
-      }
-
-    &:hover {
-      .icon-bar {
-        //background-color: $white;
-        background-color: $nav-bar-hover;
-        //background-color: red;
+        .bottom-bar {
+            transform : rotate(0);
+            }
         }
-      }
-
-    &:active {
-      .icon-bar {
-        background-color: $white;
-        //background-color: red;
-        }
-      }
-
-
-    .top-bar {
-      transform:        rotate(45deg);
-      transform-origin: 10% 10%;
-      }
-
-    .middle-bar {
-      opacity: 0;
-      }
-
-    .bottom-bar {
-      transform:        rotate(-45deg);
-      transform-origin: 10% 90%;
-      }
     }
-
-  .navbar-toggler.collapsed {
-    .top-bar {
-      transform: rotate(0);
-      }
-
-    .middle-bar {
-      opacity: 1;
-      }
-
-    .bottom-bar {
-      transform: rotate(0);
-      }
-    }
-  }
 
 // ............................................................................................Navbar customization...❮❮
 
 
 // ❯❯❯..News... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .news table td {
-  font-size: 1rem;
-  }
+    font-size : 1rem;
+    }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...News..❮❮❮
 
 
 // ❯❯❯..Social (bottom)... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
 .social {
-  text-align: center;
+    text-align : center;
 
-  .contact-icon {
-    font-size: 2rem;
+    .contact-icon {
+        font-size : 2rem;
 
-    a {
-      color:       $grey-color-dark;
-      margin-left: 0.2em;
+        a {
+            color       : $grey-color-dark;
+            margin-left : 0.2em;
 
-      &:hover {
-        color: $nav-bar-hover;
+            &:hover {
+                color : $nav-bar-hover;
+                }
+            }
         }
-      }
-    }
 
-  .contact-note {
-    font-size: 0.8rem;
+    .contact-note {
+        font-size : 0.8rem;
+        }
     }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Social (bottom)..❮❮❮
 
 
 // ❯❯❯..Footer... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 footer.fixed-bottom {
-  color:            lighten($grey-color, 25%);
-  background-color: $grey-color-dark;
-  font-size:        0.75rem;
+    color            : lighten($grey-color, 25%);
+    background-color : $grey-color-dark;
+    font-size        : 0.75rem;
 
-  .container {
-    padding-top:    11px;
-    padding-bottom: 10px;
-    text-align:     center;
+    .container {
+        padding-top    : 11px;
+        padding-bottom : 10px;
+        text-align     : center;
+        }
+
+    h1 {
+        color     : $white;
+        font-size : 1.25rem;
+        }
+
+    a {
+        color : white;
+
+        &:hover {
+            color           : lighten($theme-color, 25%);
+            text-decoration : none;
+            }
+        }
     }
-
-  h1 {
-    color:     $white;
-    font-size: 1.25rem;
-    }
-
-  a {
-    color: white;
-
-    &:hover {
-      color:           lighten($theme-color, 25%);
-      text-decoration: none;
-      }
-    }
-  }
 
 footer.sticky-bottom {
-  border-top: 1px solid $grey-color-light;
-  color:      $grey-color;
-  font-size:  0.75rem;
+    border-top : 1px solid $grey-color-light;
+    color      : $grey-color;
+    font-size  : 0.75rem;
 
-  .container {
-    padding-top:    30px;
-    padding-bottom: 30px;
-    text-align:     center;
+    .container {
+        padding-top    : 30px;
+        padding-bottom : 30px;
+        text-align     : center;
+        }
+
+    .row {
+        margin-right : 0;
+        margin-left  : 0;
+        }
+
+    .col, [class*="col-"] {
+        padding-right : 5px;
+        padding-left  : 5px;
+        }
+
+    h1 {
+        color     : $white;
+        font-size : 1.25rem;
+        }
+
+    a {
+        color : darken($grey-color, 20%);
+
+        &:hover {
+            color           : $link-color-hover;
+            text-decoration : none;
+            }
+        }
     }
-
-  .row {
-    margin-right: 0;
-    margin-left:  0;
-    }
-
-  .col, [class*="col-"] {
-    padding-right: 5px;
-    padding-left:  5px;
-    }
-
-  h1 {
-    color:     $white;
-    font-size: 1.25rem;
-    }
-
-  a {
-    color: darken($grey-color, 20%);
-
-    &:hover {
-      color:           $link-color-hover;
-      text-decoration: none;
-      }
-    }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Footer..❮❮❮
 
 
 .full-width {
-  // Source: https://css-tricks.com/full-width-containers-limited-width-parents/
-  width:        100vw;
-  position:     relative;
-  left:         50%;
-  right:        50%;
-  margin-left:  -50vw;
-  margin-right: -50vw;
-  }
+    // Source: https://css-tricks.com/full-width-containers-limited-width-parents/
+    width        : 100vw;
+    position     : relative;
+    left         : 50%;
+    right        : 50%;
+    margin-left  : -50vw;
+    margin-right : -50vw;
+    }
 
 // ❯❯❯..About page... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 
 .about-me {
 
-  header {
-    padding-bottom: 1rem;
+    header {
+        padding-bottom : 1rem;
 
-    .post-description {
-      padding-top:    0.25em;
-      padding-bottom: 2em;
-      font-size:      larger;
-      font-weight:    bolder;
-      }
+        .post-description {
+            padding-top    : 0.25em;
+            padding-bottom : 2em;
+            font-size      : larger;
+            font-weight    : bolder;
+            }
 
-    //.container-fluid {
-    //  //@extend .force-center;
-    //  //padding: 0;
-    //  //margin: 0;
-    //  //width: -moz-max-content;
-    //  //position: absolute;
-    //  //left: 0;
-    //  //right: 0;
-    //  //float: left;
-    //}
+        //.container-fluid {
+        //  //@extend .force-center;
+        //  //padding: 0;
+        //  //margin: 0;
+        //  //width: -moz-max-content;
+        //  //position: absolute;
+        //  //left: 0;
+        //  //right: 0;
+        //  //float: left;
+        //}
 
-    img {
-      //width: max-content;
-      //border-color: lawngreen;
-      //border-width: 4px;
-      //border-style: solid;
-      width:  100%;
-      height: auto;
-      //position: page;
-      //left: 0;
-      //right: 0;
-      //top: 0;
-      }
+        img {
+            //width: max-content;
+            //border-color: lawngreen;
+            //border-width: 4px;
+            //border-style: solid;
+            width  : 100%;
+            height : auto;
+            //position: page;
+            //left: 0;
+            //right: 0;
+            //top: 0;
+            }
 
+        }
+
+    .about-newsfeed {
+        padding-top    : 30px;
+        padding-bottom : 30px;
+        }
+
+    .about-social {
+        padding-top    : 30px;
+        padding-bottom : 30px;
+        }
+
+    article {
+        h3 {
+            border-bottom : 1px solid $text-color;
+            padding-top   : 1rem;
+            margin-top    : 1rem;
+            margin-bottom : 1.25rem;
+            }
+
+        .carousel {
+            //overflow: hidden;
+            //max-height: 360px;
+
+            .item img {
+                width  : 100%;
+                height : auto;
+                }
+
+            .caption-on-light-bg {
+                color       : $grey-color-Dark;
+                text-shadow : none;
+                }
+
+            .caption-on-mix-bg {
+                color       : white;
+                text-shadow : -1px -1px 1px black, 1px 1px 1px black;
+                }
+
+            .caption-on-dark-bg {
+                color       : $grey-color-lighter;
+                text-shadow : none;
+                }
+
+            .carousel-caption {
+                top            : auto;
+                bottom         : 0em;
+                padding-bottom : 0em;
+                left           : auto;
+                right          : 0em;
+
+                p {
+                    font-size        : smaller;
+                    font-weight      : bolder;
+                    color            : darken(lightgray, 15%);
+                    background-color : $theme-color;
+                    opacity          : 70%;
+                    padding-top      : 0.25em;
+                    padding-bottom   : 0.25em;
+                    padding-right    : 1.5em;
+                    padding-left     : 1.5em;
+                    }
+
+                &.aligh-left {
+                    left  : 0em;
+                    right : auto;
+                    }
+                }
+            }
+        }
     }
-
-  .about-newsfeed {
-    padding-top:    30px;
-    padding-bottom: 30px;
-    }
-
-  .about-social {
-    padding-top:    30px;
-    padding-bottom: 30px;
-    }
-
-  article {
-    h3 {
-      border-bottom: 1px solid $text-color;
-      padding-top:   1rem;
-      margin-top:    1rem;
-      margin-bottom: 1.25rem;
-      }
-
-    .carousel {
-      //overflow: hidden;
-      //max-height: 360px;
-
-      .item img {
-        width:  100%;
-        height: auto;
-        }
-
-      .caption-on-light-bg {
-        color:       $grey-color-Dark;
-        text-shadow: none;
-        }
-
-      .caption-on-mix-bg {
-        color:       white;
-        text-shadow: -1px -1px 1px black, 1px 1px 1px black;
-        }
-
-      .caption-on-dark-bg {
-        color:       $grey-color-lighter;
-        text-shadow: none;
-        }
-
-      .carousel-caption {
-        top:            auto;
-        bottom:         0em;
-        padding-bottom: 0em;
-        left:           auto;
-        right:          0em;
-
-        p {
-          font-size:        smaller;
-          font-weight:      bolder;
-          color:            darken(lightgray, 15%);
-          background-color: $theme-color;
-          opacity:          70%;
-          padding-top:      0.25em;
-          padding-bottom:   0.25em;
-          padding-right:    1.5em;
-          padding-left:     1.5em;
-          }
-
-        &.aligh-left {
-          left:  0em;
-          right: auto;
-          }
-        }
-      }
-    }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...About page..❮❮❮
 
 
 // ❯❯❯..Blog... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .blog-header-bar {
-  text-align:     center;
-  padding-top:    1rem;
-  padding-bottom: 4rem;
-  border-bottom:  1px solid $grey-color-light;
+    text-align     : center;
+    padding-top    : 1rem;
+    padding-bottom : 4rem;
+    border-bottom  : 1px solid $grey-color-light;
 
-  h1 {
-    color:       $theme-color;
-    font-size:   3.35rem;
-    font-weight: bolder;
-    }
+    h1 {
+        color       : $theme-color;
+        font-size   : 3.35rem;
+        font-weight : bolder;
+        }
 
-  h2 {
-    color:     $grey-color;
-    font-size: 1.40rem;
+    h2 {
+        color     : $grey-color;
+        font-size : 1.40rem;
+        }
     }
-  }
 
 .post-list {
-  margin:  0;
-  padding: 0;
+    margin  : 0;
+    padding : 0;
 
-  li {
-    list-style:     none;
-    margin-top:     1.5rem;
-    margin-bottom:  1.5rem;
-    padding-top:    1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom:  1px solid $grey-color-light;
+    li {
+        list-style     : none;
+        margin-top     : 1.5rem;
+        margin-bottom  : 1.5rem;
+        padding-top    : 1.5rem;
+        padding-bottom : 1.5rem;
+        border-bottom  : 1px solid $grey-color-light;
 
-    a {
-      text-decoration: none;
+        a {
+            text-decoration : none;
 
-      &:hover {
-        color: $link-color-hover;
+            &:hover {
+                color : $link-color-hover;
+                }
+
+            &:active {
+                color : $link-color-hover;
+                }
+
+            .post-title {
+                font-weight : bolder;
+                }
+
+            .post-meta {
+                font-size     : 0.875rem;
+                margin-top    : 0.5em;
+                margin-bottom : 0.5em;
+                //color: $grey-color;
+                opacity       : 50%;
+                }
+
+            .post-description {
+                margin-bottom : 1.5em;
+                }
+
+            i {
+                margin-right : 0.25em;
+                }
+
+            }
         }
-
-      &:active {
-        color: $link-color-hover;
-        }
-
-      .post-title {
-        font-weight: bolder;
-        }
-
-      .post-meta {
-        font-size:     0.875rem;
-        margin-top:    0.5em;
-        margin-bottom: 0.5em;
-        //color: $grey-color;
-        opacity:       50%;
-        }
-
-      .post-description {
-        margin-bottom: 1.5em;
-        }
-
-      i {
-        margin-right: 0.25em;
-        }
-
-      }
     }
-  }
 
 .pagination .page-item.active .page-link {
-  background-color: $theme-color;
+    background-color : $theme-color;
 
-  &:hover {
-    background-color: $theme-color;
-    }
+    &:hover {
+        background-color : $theme-color;
+        }
 
-  &:active {
-    background-color: $theme-color;
+    &:active {
+        background-color : $theme-color;
+        }
     }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Blog..❮❮❮
 
 
 // ❯❯❯..Projects... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .projects {
-  .grid-item {
-    //     width: 250px;
-    width:         350px;
-    margin-bottom: 10px;
+    .grid-item {
+        //     width: 250px;
+        width         : 350px;
+        margin-bottom : 10px;
 
-    a {
-      color:           black;
-      text-decoration: none;
+        a {
+            color           : black;
+            text-decoration : none;
 
-      &:hover {
-        color: $theme-color;
+            &:hover {
+                color : $theme-color;
+                }
+
+            &:active {
+                color : $theme-color;
+                }
+            }
         }
 
-      &:active {
-        color: $theme-color;
+    .card img {
+        width : 100%;
         }
-      }
     }
-
-  .card img {
-    width: 100%;
-    }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Projects..❮❮❮
 
 
 // ❯❯❯..Publications... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .publications {
-  margin-top: 2rem;
+    margin-top : 2rem;
 
-  h2.year {
-    color:         $grey-color-light;
-    border-top:    1px solid $grey-color-light;
-    padding-top:   1rem;
-    margin-top:    2rem;
-    margin-bottom: -2rem;
-    text-align:    right;
-    }
-
-  ol.bibliography {
-    list-style: none;
-    padding:    0;
-    margin-top: 0;
-
-    li {
-      margin-bottom: 1rem;
-
-      .abbr {
-        height:        2rem;
-        margin-bottom: 0.5rem;
-
-        abbr {
-          display:          inline-block;
-          background-color: $theme-color;
-          padding-left:     1rem;
-          padding-right:    1rem;
-          }
+    h2.year {
+        color         : $grey-color-light;
+        border-top    : 1px solid $grey-color-light;
+        padding-top   : 1rem;
+        margin-top    : 2rem;
+        margin-bottom : -2rem;
+        text-align    : right;
         }
 
-      span {
-        display: block;
-        }
+    ol.bibliography {
+        list-style : none;
+        padding    : 0;
+        margin-top : 0;
 
-      .title {
-        font-weight: bolder;
-        }
+        li {
+            margin-bottom : 1rem;
 
-      .author {
-        a {
-          border-bottom: 1px dashed $theme-color;
+            .abbr {
+                height        : 2rem;
+                margin-bottom : 0.5rem;
 
-          &:hover {
-            border-bottom-style: solid;
-            text-decoration:     none;
+                abbr {
+                    display          : inline-block;
+                    background-color : $theme-color;
+                    padding-left     : 1rem;
+                    padding-right    : 1rem;
+                    }
+                }
+
+            span {
+                display : block;
+                }
+
+            .title {
+                font-weight : bolder;
+                }
+
+            .author {
+                a {
+                    border-bottom : 1px dashed $theme-color;
+
+                    &:hover {
+                        border-bottom-style : solid;
+                        text-decoration     : none;
+                        }
+
+                    &:active {
+                        border-bottom-style : solid;
+                        text-decoration     : none;
+                        }
+                    }
+
+                > em {
+                    border-bottom : 1px solid;
+                    font-style    : normal;
+                    }
+                }
+
+            em.star {
+                border-bottom : none;
+                color         : $theme-color;
+                font-style    : normal;
+                }
+
+            a.abstract, a.bibtex {
+                cursor : pointer;
+                }
+
+            .hidden {
+                font-size          : 0.875rem;
+                max-height         : 0px;
+                overflow           : hidden;
+                text-align         : justify;
+                -webkit-transition : 0.15s ease;
+                -moz-transition    : 0.15s ease;
+                -ms-transition     : 0.15s ease;
+                -o-transition      : 0.15s ease;
+                transition         : all 0.15s ease;
+
+                p {
+                    line-height : 1.4em;
+                    margin      : 10px;
+                    }
+
+                pre {
+                    font-size   : 1em;
+                    line-height : 1.4em;
+                    padding     : 10px;
+                    }
+                }
+
+            .hidden.open {
+                max-height         : 100em;
+                -webkit-transition : 0.15s ease;
+                -moz-transition    : 0.15s ease;
+                -ms-transition     : 0.15s ease;
+                -o-transition      : 0.15s ease;
+                transition         : all 0.15s ease;
+                }
+
+            span.abstract.hidden {
+                border : dashed 1px white;
+                }
+
+            span.abstract.hidden.open {
+                border-color : $grey-color;
+                }
             }
-
-          &:active {
-            border-bottom-style: solid;
-            text-decoration:     none;
-            }
-          }
-
-        > em {
-          border-bottom: 1px solid;
-          font-style:    normal;
-          }
         }
-
-      em.star {
-        border-bottom: none;
-        color:         $theme-color;
-        font-style:    normal;
-        }
-
-      a.abstract, a.bibtex {
-        cursor: pointer;
-        }
-
-      .hidden {
-        font-size:          0.875rem;
-        max-height:         0px;
-        overflow:           hidden;
-        text-align:         justify;
-        -webkit-transition: 0.15s ease;
-        -moz-transition:    0.15s ease;
-        -ms-transition:     0.15s ease;
-        -o-transition:      0.15s ease;
-        transition:         all 0.15s ease;
-
-        p {
-          line-height: 1.4em;
-          margin:      10px;
-          }
-
-        pre {
-          font-size:   1em;
-          line-height: 1.4em;
-          padding:     10px;
-          }
-        }
-
-      .hidden.open {
-        max-height:         100em;
-        -webkit-transition: 0.15s ease;
-        -moz-transition:    0.15s ease;
-        -ms-transition:     0.15s ease;
-        -o-transition:      0.15s ease;
-        transition:         all 0.15s ease;
-        }
-
-      span.abstract.hidden {
-        border: dashed 1px white;
-        }
-
-      span.abstract.hidden.open {
-        border-color: $grey-color;
-        }
-      }
     }
-  }
 
 // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Publications..❮❮❮
 
