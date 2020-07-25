@@ -181,7 +181,7 @@ header {
             //                 12px -1px 3px $shadow-color-third; // glow effect
             //    @include multi-prefix-transition(text-shadow .3s);
             //}
-
+            //
             //a.navbar-brand {
             //    @extend %brand-anim-start;
             //    z-index : 0;
@@ -250,61 +250,160 @@ header {
                 }
             }
 
-            .navbar-nav.nav-link-glow {
-                a.nav-link {
-                    //transition:      1.9s;
-                    //text-shadow:     0px 0px 0px $nav-bar-link; // glow effect
-                    //text-shadow:     -600px -0px 100px $nav-bar-link,
-                    //                 600px 0px 100px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link; // glow effect
-                    text-shadow:     -$glow-start-offset -0px $glow-blur-init $glow-color-init,
-                                     $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
-                    @include multi-prefix-transition(text-shadow .12s ease-in-out);
-                    z-index:         0;
-                    text-decoration: none;
+            // ❯❯❯....Navbar right side menu GLOW.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
+            //.navbar-nav.nav-link-glow {
+            //    a.nav-link {
+            //        //transition:      1.9s;
+            //        //text-shadow:     0px 0px 0px $nav-bar-link; // glow effect
+            //        //text-shadow:     -600px -0px 100px $nav-bar-link,
+            //        //                 600px 0px 100px $nav-bar-link,
+            //        //                 0px 0px 0px $nav-bar-link,
+            //        //                 0px 0px 0px $nav-bar-link,
+            //        //                 0px 0px 0px $nav-bar-link; // glow effect
+            //        text-shadow:     -$glow-start-offset -0px $glow-blur-init $glow-color-init,
+            //                         $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
+            //        @include multi-prefix-transition(text-shadow .12s ease-in-out);
+            //        z-index:         0;
+            //        text-decoration: none;
+            //
+            //        &:hover {
+            //            //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+            //            //text-shadow: 0px 0px 60px white; // glow effect
+            //            //text-shadow: 0px 0px 0px $glow-color-primary,
+            //            //             0px 0px 0px $glow-color-secondary; // glow effect
+            //            //text-shadow: 0px 0px 0px $glow-color-primary,
+            //            //             0px 0px 0px $glow-color-secondary,
+            //            //             -3px 6px 3px $shadow-color-primary,
+            //            //             4px -7px 2px $shadow-color-primary,
+            //            //             5px 2px 2.5px $shadow-color-secondary; // glow effect
+            //            text-shadow: 0px 0px 0px $glow-color-primary,
+            //                         0px 0px 0px $glow-color-secondary; // glow effect
+            //            @include multi-prefix-transition(text-shadow .3s ease-in-out);
+            //        }
+            //    }
+            //}
+            // ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Navbar right side menu GLOW....❮❮❮
 
-                    &:hover {
-                        //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
-                        //text-shadow: 0px 0px 60px white; // glow effect
-                        //text-shadow: 0px 0px 0px $glow-color-primary,
-                        //             0px 0px 0px $glow-color-secondary; // glow effect
-                        //text-shadow: 0px 0px 0px $glow-color-primary,
-                        //             0px 0px 0px $glow-color-secondary,
-                        //             -3px 6px 3px $shadow-color-primary,
-                        //             4px -7px 2px $shadow-color-primary,
-                        //             5px 2px 2.5px $shadow-color-secondary; // glow effect
-                        text-shadow: 0px 0px 0px $glow-color-primary,
-                                     0px 0px 0px $glow-color-secondary; // glow effect
-                        @include multi-prefix-transition(text-shadow .3s ease-in-out);
+        }
+
+        // ❯❯❯❯❯ Navbar right side menu ❯❯❯❯❯........................................................................
+        // ❯❯❯....Animated underline.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
+        // Credit: https://codepen.io/mxttsco/pen/KgodYm?editors=1100
+        $animate: all 0.2s ease-in-out;
+
+        .underline-animation {
+
+            .hover {
+                @include multi-prefix-transition($animate);
+                position: relative;
+
+                &:before, &:after {
+                    content:             "";
+                    position:            absolute;
+                    bottom:              0.5em;
+                    width:               0px;
+                    height:              1px;
+                    margin:              0em;
+                    @include multi-prefix-transition($animate);
+                    transition-duration: 0.75s;
+                    opacity:             0;
+                    background-color:    $nav-bar-link;
+                }
+
+                &.hover-4 {
+                    &:before {
+                        //left: 0.5rem;
+                        left: 0.5rem;
+                    }
+
+                    &:after {
+                        //right: 0.5rem;
+                        right: 0.5rem;
                     }
                 }
             }
 
-        }
-
-
-        .navbar-nav .nav-item .nav-link {
-            // Inactive menu item
-            color: $nav-bar-link;
-            color: red;
-
             &:hover {
-                color: $nav-bar-hover;
+
+                .hover {
+                    &:before, &:after {
+                        width:   100%;
+                        opacity: 1;
+                    }
+
+                    &.hover-4 {
+                        &:before, &:after {
+                            width: 50%;
+                        }
+                    }
+                }
+
+                cursor: pointer;
             }
 
-            &:active {
-                color: $nav-bar-hover;
+        }
+
+        // ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Animated underline....❮❮❮
+
+        // ❯❯❯....Navbar right side menu LINK state.... . . . .  .  .   .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
+        .navbar-nav li.nav-item {
+            @extend .underline-animation;
+
+            a.nav-link {
+                @extend .hover;
+                @extend .hover-4;
+
+                // Inactive menu item
+                color: $nav-bar-link;
+                //color: red;
+
+                &:hover {
+                    color: $nav-bar-hover;
+                }
+
+                &:active {
+                    color: $nav-bar-hover;
+                }
+            }
+
+            &.active {
+                a.nav-link {
+                    //@extend .test;
+                    //@extend %hover-before-after;
+
+                    &:before {
+                        left: 0.5rem;
+                    }
+
+                    &:after {
+                        right: 0.5rem;
+                    }
+
+                    &:before, &:after {
+                        width:            100%;
+                        opacity:          1;
+                    }
+
+                    &.hover-4 {
+                        &:before, &:after {
+                            width: 50%;
+                            background-color: $nav-bar-active;
+                        }
+                    }
+
+                }
             }
         }
+
+        // ... . .  .  .  .  .  .  .  .  .   .  .  .  .  .  .  .  . . . . . ....Navbar right side menu LINK state....❮❮❮
+
 
         .navbar-nav .nav-item.active > .nav-link {
             // Active menu item
             background-color: inherit;
             //color: red;
             color:            $nav-bar-active;
-            font-weight:      bolder;
+            //font-weight:      bolder;
 
             &:hover {
                 //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
@@ -313,8 +412,10 @@ header {
                 text-shadow: none; // glow effect
                 @include multi-prefix-transition(text-shadow .0s);
             }
-
         }
+
+        // ............................................................................❮❮❮❮❮ Navbar right side menu ❮❮❮❮❮
+
 
         .contact-icon {
             font-size: 1.25rem;
