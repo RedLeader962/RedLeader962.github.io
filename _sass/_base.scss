@@ -205,7 +205,7 @@ header {
                                      0px 0px 0px $glow-color-init,
                                      0px 0px 0px $glow-color-init,
                                      0px 0px 0px $glow-color-init;
-                        transform: scale(1.0);
+                        transform:   scale(1.0);
                     }
                     75% {
                         text-shadow: 0px 0px 0px $glow-color-primary,
@@ -213,7 +213,7 @@ header {
                                      2px -5px 5px $shadow-color-primary,
                                      5px 3px 3px $shadow-color-secondary,
                                      12px -1px 3px $shadow-color-third; // glow effect
-                        transform: scale(1.0);
+                        transform:   scale(1.0);
                     }
                     85% {
                         text-shadow: 0px 0px 0px $glow-color-primary,
@@ -221,7 +221,7 @@ header {
                                      2px -5px 5px $shadow-color-primary,
                                      5px 3px 3px $shadow-color-secondary,
                                      12px -1px 3px $shadow-color-third; // glow effect
-                        transform: scale(1.09);
+                        transform:   scale(1.09);
                     }
                     90% {
                         text-shadow: 0px 0px 0px $glow-color-primary,
@@ -229,7 +229,7 @@ header {
                                      2px -5px 5px $shadow-color-primary,
                                      5px 3px 3px $shadow-color-secondary,
                                      12px -1px 3px $shadow-color-third; // glow effect
-                        transform: scale(0.92);
+                        transform:   scale(0.92);
                     }
                     100% {
                         text-shadow: 0px 0px 0px $glow-color-primary,
@@ -237,7 +237,7 @@ header {
                                      2px -5px 5px $shadow-color-primary,
                                      5px 3px 3px $shadow-color-secondary,
                                      12px -1px 3px $shadow-color-third; // glow effect
-                        transform: scale(1.0);
+                        transform:   scale(1.0);
                     }
                 }
 
@@ -308,6 +308,7 @@ header {
                     }
                 }
             }
+
             // ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Navbar right side menu GLOW....❮❮❮
 
         }
@@ -764,13 +765,14 @@ footer.sticky-bottom {
     border-bottom:  1px solid $grey-color-light;
 
     h1 {
-        color:       $theme-color;
+        color:       $theme-color-no-opacity;
         font-size:   3.35rem;
-        font-weight: bolder;
+        //font-weight: bolder;
+        font-weight: bold;
     }
 
     h2 {
-        color:     $grey-color;
+        color:     $grey-color-darker;
         font-size: 1.40rem;
     }
 }
@@ -790,6 +792,10 @@ footer.sticky-bottom {
         a {
             text-decoration: none;
 
+            .post-title {
+                font-weight: bolder;
+            }
+
             &:hover {
                 color: $link-color-hover;
             }
@@ -798,9 +804,6 @@ footer.sticky-bottom {
                 color: $link-color-hover;
             }
 
-            .post-title {
-                font-weight: bolder;
-            }
 
             .post-meta {
                 font-size:     0.875rem;
