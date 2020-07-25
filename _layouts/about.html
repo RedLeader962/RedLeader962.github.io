@@ -18,11 +18,14 @@ layout: default
         <p class="post-description ">{{ page.description }}</p>
 
         <p>
-        <div class="full-width d-none d-md-block">
+        <div class="full-width d-block d-sm-block d-md-none">
+            <img class="z-depth-1" src="{{ 'ChicChoc_low_rez.jpg' | prepend: '/assets/img/' | relative_url }}">
+        </div>
+        <div class="full-width d-none d-md-block d-lg-none">
             <img class="z-depth-1" src="{{ 'ChicChoc.JPG' | prepend: '/assets/img/' | relative_url }}">
         </div>
-        <div class="full-width d-md-none">
-            <img class="z-depth-1" src="{{ 'ChicChoc_low_rez.jpg' | prepend: '/assets/img/' | relative_url }}">
+        <div class="full-width d-none d-lg-block d-xl-block">
+            <img class="z-depth-1" src="{{ 'ChicChocNarrower.JPG' | prepend: '/assets/img/' | relative_url }}">
         </div>
         </p>
     </header>

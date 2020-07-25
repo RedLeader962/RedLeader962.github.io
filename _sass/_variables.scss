@@ -63,11 +63,11 @@ $nav-bar-active:                  white;
 
 // ❯❯❯❯❯ Nav-brand ❯❯❯❯❯.................................................................................................
 
-$glow-start-offset:               800px;
-$glow-blur-init:                  50px;
+$glow-start-offset:               1000px;
+$glow-blur-init:                 20px;
 
-//$glow-color-init:               $theme-color;
-$glow-color-init:                 $grey-color-Dark;
+$glow-color-init:               $theme-color;
+//$glow-color-init:                 $grey-color-Dark;
 $glow-color-primary:              $grey-color-light;
 $glow-color-secondary:            $grey-color-light;
 $shadow-color-primary:            darken($grey-color, 20%);

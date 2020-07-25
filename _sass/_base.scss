@@ -205,6 +205,31 @@ header {
                                      0px 0px 0px $glow-color-init,
                                      0px 0px 0px $glow-color-init,
                                      0px 0px 0px $glow-color-init;
+                        transform: scale(1.0);
+                    }
+                    75% {
+                        text-shadow: 0px 0px 0px $glow-color-primary,
+                                     0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary,
+                                     2px -5px 5px $shadow-color-primary,
+                                     5px 3px 3px $shadow-color-secondary,
+                                     12px -1px 3px $shadow-color-third; // glow effect
+                        transform: scale(1.0);
+                    }
+                    85% {
+                        text-shadow: 0px 0px 0px $glow-color-primary,
+                                     0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary,
+                                     2px -5px 5px $shadow-color-primary,
+                                     5px 3px 3px $shadow-color-secondary,
+                                     12px -1px 3px $shadow-color-third; // glow effect
+                        transform: scale(1.09);
+                    }
+                    90% {
+                        text-shadow: 0px 0px 0px $glow-color-primary,
+                                     0px 0px 0px $glow-color-secondary, -3px 5px 5px $shadow-color-primary,
+                                     2px -5px 5px $shadow-color-primary,
+                                     5px 3px 3px $shadow-color-secondary,
+                                     12px -1px 3px $shadow-color-third; // glow effect
+                        transform: scale(0.92);
                     }
                     100% {
                         text-shadow: 0px 0px 0px $glow-color-primary,
@@ -212,6 +237,7 @@ header {
                                      2px -5px 5px $shadow-color-primary,
                                      5px 3px 3px $shadow-color-secondary,
                                      12px -1px 3px $shadow-color-third; // glow effect
+                        transform: scale(1.0);
                     }
                 }
 
@@ -228,7 +254,7 @@ header {
                 //}
 
                 &.active {
-                    @include multi-prefix-animation(navbar-brand-anim-kf .3s ease-in-out forwards);
+                    @include multi-prefix-animation(navbar-brand-anim-kf .5s ease-in forwards);
                 }
             }
 
