@@ -2,7 +2,8 @@
 published: true
 layout: distill
 title: Do implementation details matter in Deep Reinforcement Learning?
-description: 'A reflection on design, architecture and implementation of DRL algorithms from a software engineering perspective applied to research.'
+description: 'A reflection on design, architecture and implementation of DRL algorithms from a software engineering perspective applied to research.
+                Spoiler alert … it does matter!'
 
 authors:
   - name: Luc Coupal
@@ -240,13 +241,12 @@ decisions and implementation details in Deep Reinforcement Learning
 <i class="fas fa-th-large"></i> Going down the rabbit hole
 --------------------------
 
-Making sense of *Actor-Critic* algorithm scheme definitively ticked my
-curiosity. Studying the theoretical part was a relatively straight
-forward process as there is a lot of literature covering the core theory
-with well-detailed analysis & explanation.  
+Making sense of *Actor-Critic* algorithm scheme definitively ticked my curiosity. 
+Studying the theoretical part was a relatively straight forward process as there is a lot of literature covering the 
+core theory with well-detailed analysis & explanation. On the other hand, studying the applied part has been puzzling. 
+Here's why.
 
-On the other hand, studying the applied part has been puzzling. I took
-the habit when I study a new algorithm-related subject, to first
+I took the habit when I study a new algorithm-related subject, to first
 implement it by myself without any code example. After I’ve done the
 work, I look at other published code examples or different framework
 codebases. This way I get an intimate sense of what’s going on under the
@@ -584,7 +584,7 @@ in ML/RL. It’s all about choosing what is a good optimization investment.
                                 -->
                             </li>
                         </ul>
-                        and the lost function
+                        and the loss function
                             <!-- 
                             <div class="center">
                             -->
@@ -655,10 +655,10 @@ at trajectory end would be a better design choice.
 
 What I want to show with this example is that **some implementation details might have no effect in some settings but can be a game changer in others.**  
 
-This means that it’s a **setting sensitive** issue and the real question we need to ask myself is:
+This means that it’s a **setting sensitive** issue and the real question we need to ask ourselves is:
 
 <p class="text-center myLead">
-    How do I recognize <b>when</b> an implementation detail<br> becomes impactful or critical?   
+    How do we recognize <b>when</b> an implementation detail<br> becomes impactful or critical?   
 </p>
 
 
