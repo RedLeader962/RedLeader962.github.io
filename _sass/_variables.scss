@@ -72,8 +72,15 @@ $glow-color-primary:              $grey-color-light;
 $glow-color-secondary:            $grey-color-light;
 $shadow-color-primary:            darken($grey-color, 20%);
 //$shadow-color-secondary:        darken($grey-color, 10%);
-$shadow-color-secondary:          darken(red, 0%);
-$shadow-color-third:              lighten($theme-color, 60%);
+//$shadow-color-secondary:          darken(red, 0%);
+$shadow-color-secondary:          darken(red, 20%);
+//$shadow-color-secondary:          darken($grey-color-Lighter, 90%);
+//$shadow-color-secondary:          darken($theme-color-no-opacity, 0%);
+//$shadow-color-third:              lighten($theme-color, 60%);
+//$shadow-color-third:              lighten($theme-color, 30%);
+//$shadow-color-third:              lighten($grey-color-dark, 0%);
+$shadow-color-third:              darken($grey-color-dark, 15%);
+//$shadow-color-third:              lighten($grey-color, 90%);
 
 // .................................................................................................❮❮❮❮❮ Nav-brand ❮❮❮❮❮
 

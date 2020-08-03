@@ -2,6 +2,11 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// Font import for navbar-brand title
+@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
 .test {
     background-color: cyan;
     color:            red;
@@ -73,6 +78,7 @@ a, table.table a {
 
 // ❯❯...Navbar customization............................................................................................
 header {
+    //font-size: x-large;
 
     //.logo-img {
     //  // to black
@@ -80,6 +86,7 @@ header {
     //  // or to blue
     //  // filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
     //}
+
 
     %navbar-azure-blue {
         box-shadow:       5px 10px 18px #888888;
@@ -197,6 +204,8 @@ header {
 
 
             a.navbar-brand {
+                color: $nav-bar-link;
+
                 @keyframes navbar-brand-anim-kf {
                     0% {
                         text-shadow: -$glow-start-offset -0px $glow-blur-init $glow-color-init,
@@ -241,6 +250,23 @@ header {
                     }
                 }
 
+                @keyframes navbar-brand-glow-anim-kf {
+                    0% {
+                        text-shadow: 0px 0px 0px $glow-color-init,
+                                     0px 0px 0px $glow-color-init,
+                                     0px 0px 0px $glow-color-init,
+                                     0px 0px 0px $glow-color-init;
+                        transform:   scale(1.0);
+                    }
+                    100% {
+                        text-shadow: -3px 5px 5px $shadow-color-primary,
+                                     2px -5px 5px $shadow-color-primary,
+                                     5px 3px 3px $shadow-color-secondary,
+                                     12px -1px 3px $shadow-color-third; // glow effect
+                        transform:   scale(1.0);
+                    }
+                }
+
                 //&:link {
                 //    text-shadow: 0px 0px 0px $glow-color-init,
                 //                 0px 0px 100px $glow-color-init; // glow effect
@@ -254,12 +280,44 @@ header {
                 //}
 
                 &.active {
-                    @include multi-prefix-animation(navbar-brand-anim-kf .5s ease-in forwards);
+                    //@include multi-prefix-animation(navbar-brand-anim-kf .5s ease-in forwards);
+                    //@include multi-prefix-animation(navbar-brand-glow-anim-kf 0.9s ease-in forwards);
+                    color: $nav-bar-active;
+
+                    &.title svg {
+                        fill:          $nav-bar-active;
+                        //margin-bottom: -0.35rem;
+                    }
+                }
+
+                &.title {
+                    //background-color: red;
+                    //font-family: 'Beth Ellen', cursive;
+                    //font-family: 'Sedgwick Ave', cursive;
+                    //font-family: 'Sedgwick Ave Display', cursive;
+                    //font-size: larger;
+                    //font-weight: bold;
+
+                    svg {
+                        fill:          $nav-bar-link;
+                        margin-bottom: -0.35rem;
+
+                        &:hover {
+                            fill: $nav-bar-active;
+                        }
+
+                        &:active {
+                            fill: $nav-bar-hover;
+                        }
+                    }
+
                 }
             }
 
 
             .social-icon-glow {
+                padding-left: 0.75em;
+
                 a {
                     &:link {
                         text-shadow: 0px 0px 0px $glow-color-init, 0px 0px 100px $glow-color-init; // glow effect
@@ -278,35 +336,41 @@ header {
 
             // ❯❯❯....Navbar right side menu GLOW.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
             .navbar-nav.nav-link-glow {
-                a.nav-link {
-                    //transition:      1.9s;
-                    //text-shadow:     0px 0px 0px $nav-bar-link; // glow effect
-                    //text-shadow:     -600px -0px 100px $nav-bar-link,
-                    //                 600px 0px 100px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link,
-                    //                 0px 0px 0px $nav-bar-link; // glow effect
-                    text-shadow:     -$glow-start-offset -0px $glow-blur-init $glow-color-init,
-                                     $glow-start-offset 0px $glow-blur-init $glow-color-init; // glow effect
-                    @include multi-prefix-transition(text-shadow .12s ease-in-out);
-                    z-index:         0;
-                    text-decoration: none;
-
-                    &:hover {
-                        //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
-                        //text-shadow: 0px 0px 60px white; // glow effect
-                        //text-shadow: 0px 0px 0px $glow-color-primary,
-                        //             0px 0px 0px $glow-color-secondary; // glow effect
-                        //text-shadow: 0px 0px 0px $glow-color-primary,
-                        //             0px 0px 0px $glow-color-secondary,
-                        //             -3px 6px 3px $shadow-color-primary,
-                        //             4px -7px 2px $shadow-color-primary,
-                        //             5px 2px 2.5px $shadow-color-secondary; // glow effect
-                        text-shadow: 0px 0px 0px $glow-color-primary,
-                                     0px 0px 0px $glow-color-secondary; // glow effect
-                        @include multi-prefix-transition(text-shadow .3s ease-in-out);
-                    }
+                & li {
+                    //padding-left: 5em;
+                    margin-left: 1rem;
                 }
+
+                //a.nav-link {
+                //    //transition:      1.9s;
+                //    //text-shadow:     0px 0px 0px $nav-bar-link; // glow effect
+                //    //text-shadow:     -600px -0px 100px $nav-bar-link,
+                //    //                 600px 0px 100px $nav-bar-link,
+                //    //                 0px 0px 0px $nav-bar-link,
+                //    //                 0px 0px 0px $nav-bar-link,
+                //    //                 0px 0px 0px $nav-bar-link; // glow effect
+                //    box-shadow:     -$glow-start-offset -6px $glow-blur-init $glow-color-init,
+                //                     $glow-start-offset -6px $glow-blur-init $glow-color-init; // glow effect
+                //    @include multi-prefix-transition(box-shadow .2s ease-in-out);
+                //    z-index:         0;
+                //    text-decoration: none;
+                //
+                //    &:hover {
+                //        //text-shadow: 0px 0px 60px $grey-color-Lighter, 0px 0px 90px white; // glow effect
+                //        //text-shadow: 0px 0px 60px white; // glow effect
+                //        //text-shadow: 0px 0px 0px $glow-color-primary,
+                //        //             0px 0px 0px $glow-color-secondary; // glow effect
+                //        //text-shadow: 0px 0px 0px $glow-color-primary,
+                //        //             0px 0px 0px $glow-color-secondary,
+                //        //             -3px 6px 3px $shadow-color-primary,
+                //        //             4px -7px 2px $shadow-color-primary,
+                //        //             5px 2px 2.5px $shadow-color-secondary; // glow effect
+                //        box-shadow: 0px -6px 0px $glow-color-primary,
+                //                     0px -6px 0px $glow-color-secondary; // glow effect
+                //        @include multi-prefix-transition(box-shadow .2s ease-in-out);
+                //    }
+                //}
+
             }
 
             // ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Navbar right side menu GLOW....❮❮❮
@@ -326,9 +390,9 @@ header {
                 &:before, &:after {
                     content:             "";
                     position:            absolute;
-                    bottom:              0.5em;
+                    bottom:              0.35em;
                     width:               0px;
-                    height:              0.5px;
+                    height:              1.5px;
                     margin:              0em;
                     @include multi-prefix-transition($animate);
                     transition-duration: 0.75s;
@@ -381,11 +445,11 @@ header {
 
         // ❯❯❯....Navbar right side menu LINK state.... . . . .  .  .   .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
         .navbar-nav li.nav-item {
-            //@extend .underline-animation;     // for underline animation
+            @extend .underline-animation; // for underline animation
 
             a.nav-link {
-                //@extend .hover;       // for underline animation
-                //@extend .hover-4;     // for underline animation
+                @extend .hover; // for underline animation
+                @extend .hover-4; // for underline animation
 
                 // Inactive menu item
                 color: $nav-bar-link;
@@ -397,6 +461,18 @@ header {
 
                 &:active {
                     color: $nav-bar-hover;
+                }
+
+                svg {
+                    fill: $nav-bar-link;
+
+                    &:hover {
+                        fill: $nav-bar-active;
+                    }
+
+                    &:active {
+                        fill: $nav-bar-hover;
+                    }
                 }
             }
 
@@ -446,6 +522,19 @@ header {
                 text-shadow: none; // glow effect
                 @include multi-prefix-transition(text-shadow .0s);
             }
+
+            svg {
+                fill: $nav-bar-active;
+
+                &:hover {
+                    fill: $nav-bar-active;
+                }
+
+                &:active {
+                    fill: $nav-bar-hover;
+                }
+            }
+
         }
 
         // ............................................................................❮❮❮❮❮ Navbar right side menu ❮❮❮❮❮
@@ -760,9 +849,9 @@ footer.sticky-bottom {
 // ❯❯❯..Blog... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
 .blog-header-bar {
     text-align:     center;
-    padding-top:    1rem;
+    //padding-top:    1rem;
     padding-bottom: 4rem;
-    border-bottom:  1px solid $grey-color-light;
+    //border-bottom:  1px solid $grey-color-light;
 
     h1 {
         color:       $theme-color-no-opacity;
@@ -773,8 +862,10 @@ footer.sticky-bottom {
 
     h2 {
         color:     $grey-color-darker;
-        font-size: 1.40rem;
+        //font-size: 1.40rem;
+        font-size: 1.7rem;
     }
+
 }
 
 .post-list {
@@ -787,7 +878,7 @@ footer.sticky-bottom {
         margin-bottom:  1.5rem;
         padding-top:    1.5rem;
         padding-bottom: 1.5rem;
-        border-bottom:  1px solid $grey-color-light;
+        //border-bottom:  1px solid $grey-color-light;
 
         a {
             text-decoration: none;

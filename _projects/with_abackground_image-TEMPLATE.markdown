@@ -1,7 +1,7 @@
 ---
 published: false
 layout: page
-title: project 1
+title: Project 1
 description: a project with a background image
 img: /assets/img/12.jpg
 importance: 1
