@@ -31,7 +31,7 @@ show_social_icons:  true
 # To achieve this, change serve_og_meta to true and then provide the URL of the
 # preview image as the value of og_image.
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
-og_image: "{{ 'Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg' | prepend: '/assets/img/Logo-blog/' | relative_url }}"  # The site-wide (default for all links) Open Graph preview image
+og_image: "/assets/img/Logo-blog/Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg"  # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
