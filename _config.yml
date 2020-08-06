@@ -11,7 +11,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 #  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
-url: https://redleader962.github.io # the base hostname & protocol for your site
+url: https://redleader962.github.io # the base hostname & protocol for your site !! used in Open Graph related liquid tag !!
 baseurl: # the subpath of your site, e.g. /blog/ originaly: /al-folio
 last_updated: true # set to true if you want to display last updated in the footer
 
@@ -31,7 +31,8 @@ show_social_icons:  true
 # To achieve this, change serve_og_meta to true and then provide the URL of the
 # preview image as the value of og_image.
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
-og_image: "https://redleader962.github.io/assets/img/Logo-blog/Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg"  # The site-wide (default for all links) Open Graph preview image
+#og_image: "https://redleader962.github.io/assets/img/Logo-blog/Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg"  # The site-wide (default for all links) Open Graph preview image
+og_image: "{{ '/assets/img/Logo-blog/Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg' | prepend: site.baseurl | prepend: site.url }}"  # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------

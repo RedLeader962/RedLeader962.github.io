@@ -46,9 +46,6 @@
 
 <!-- OPEN GRAPH -->
 {% if site.serve_og_meta %}
-<meta property="TEST1" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}"/>
-<meta property="TEST2" content="{{ site.url }}"/>
-<meta property="TEST3" content="{{ site.baseurl }}"/>
 <!-- REQUIRED OG TAG -->
 <meta property="og:description"
       content="Blog by Luc Coupal | My journal, my point of vue, my journey with it's ups, downs and full disclosure."/>
@@ -63,8 +60,8 @@
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="628"/>
 <!--<meta property="og:url" content="{{ page.url | prepend: 'https://redleader962.github.io' }}"/>-->
-<meta property="og:url" content="{{ page.url | absolute_url }}"/>
-<!--<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />-->
+<!--<meta property="og:url" content="{{ page.url | absolute_url }}"/>-->
+<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
 <meta name="twitter:card" content="summary_large_image"/>
 <!--<meta property="og:locale" content="en_US">-->
 {% endif %}
