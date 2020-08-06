@@ -1,6 +1,6 @@
 ---
 layout: index
 title: Luc Coupal blog & projects
-description: site.description
+description: {{ site.description }}
 permalink: /
 ---
