@@ -2,9 +2,11 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-name: Luc Coupal blog | Tales from a computer scientist in the A.I. world
 title: Luc Coupal #Your Name
-description: My journal, my point of vue, my journey with it's ups, downs and full disclosure.
+name: Luc Coupal blog & projects
+site_author: Luc Coupal #Your Name
+description: > #
+#  My journal, my point of vue, my journey with it's ups, downs and full disclosure.
 email: luc.coupal.1@ulaval.ca
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Based on <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.

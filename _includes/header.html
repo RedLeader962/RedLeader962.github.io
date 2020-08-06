@@ -4,9 +4,9 @@
     <nav id="navbar"
          class="navbar navbar-dark navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
         <div class="container navbar-glow">
-            {% assign name = site.title | split: ' ' %}
             <a class="navbar-brand title {% if page.title == 'about' %}active{% endif %}"
                href="{{ '/about/' | relative_url }}">
+                <!--        {% assign name = site.site_author | split: ' ' %}-->
                 <!--                                    <span class="font-weight-bold ">-->
                 <!--                        <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}"-->
                 <!--                             width="20" , style="filter: invert(1);"/>-->

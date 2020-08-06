@@ -3,7 +3,7 @@
     <div class="container">
         {% if site.show_social_icons != true %}
         <h1>
-            {% assign name = site.title | split: ' ' %}
+            {% assign name = site.site_author | split: ' ' %}
             <!--            <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}" width="20"/>-->
             <span class="font-weight-bold">{{ name | first }}</span>
             {{ name | last }}
@@ -11,7 +11,7 @@
             {%- include social.html -%}
         </h1>
         {% endif %}
-        &copy; Copyright {{ site.time | date: '%Y' }} <a class="u-email" href="mailto:{{ site.email }}">{{ site.title
+        &copy; Copyright {{ site.time | date: '%Y' }} <a class="u-email" href="mailto:{{ site.email }}">{{ site.site_author
         }}</a>.
         &copy; Copyright 2018 <a href="https://github.com/distillpub/template/blob/master/AUTHORS">The Distill Template
         Authors.</a>
@@ -37,7 +37,7 @@
 
             <div class="col-auto">
                 &copy; Copyright {{ site.time | date: '%Y' }} <a class="u-email" href="mailto:{{ site.email }}">{{
-                site.title }}</a>.
+                site.site_author }}</a>.
             </div>
 
             <div class="col-auto">
