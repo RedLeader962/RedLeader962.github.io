@@ -25,18 +25,17 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
 <!--
-     Favicon
+     FAVICON
      Note: The following lines were generated with https://realfavicongenerator.net
 -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon/apple-touch-icon.png?v=zXv6OyYrL5' | relative_url }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon/favicon-32x32.png?v=zXv6OyYrL5' | relative_url }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon/favicon-16x16.png?v=zXv6OyYrL5' | relative_url }}">
-<link rel="manifest" href="{{ '/assets/img/favicon/site.webmanifest?v=zXv6OyYrL5' | relative_url }}">
-<link rel="mask-icon" href="{{ '/assets/img/favicon/safari-pinned-tab.svg?v=zXv6OyYrL5' | relative_url }}" color="#000014">
-<link rel="shortcut icon" href="{{ '/assets/img/favicon/favicon.ico?v=zXv6OyYrL5' | relative_url }}">
-<meta name="msapplication-TileColor" content="#000014">
-<meta name="msapplication-config" content="{{ '/assets/img/favicon/browserconfig.xml?v=zXv6OyYrL5' | relative_url }}">
-<meta name="theme-color" content="#000014">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=yy403AJa2m">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=yy403AJa2m">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=yy403AJa2m">
+<link rel="manifest" href="/site.webmanifest?v=yy403AJa2m">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?v=yy403AJa2m" color="#333333">
+<link rel="shortcut icon" href="/favicon.ico?v=yy403AJa2m">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000">
 
 
 <!--
@@ -47,7 +46,9 @@
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
 
-<!-- OPEN GRAPH -->
+<!--
+    OPEN GRAPH
+-->
 {% if site.serve_og_meta %}
 {% assign og_images_path = '/assets/img/open-graph-img/' | prepend: site.baseurl | prepend: site.url %}
 
@@ -56,6 +57,7 @@
 <meta property="og:description" content="{{ page.description }}"/>
 <meta property="og:image"
       content="{%- if page.og_image -%}{{ page.og_image | prepend: og_images_path }}{%- else -%}{{ site.og_image | prepend: og_images_path }}{%- endif -%}"/>
+
 <!-- OPTIONAL OG TAG -->
 <meta property="og:site_name" content="{{ site.name }}"/>
 <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}"/>
