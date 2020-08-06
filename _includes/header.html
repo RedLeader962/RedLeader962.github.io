@@ -6,7 +6,7 @@
         <div class="container navbar-glow">
             {% assign name = site.title | split: ' ' %}
             <a class="navbar-brand title {% if page.title == 'about' %}active{% endif %}"
-               href="{{ '/about/' | prepend: site.url }}">
+               href="{{ '/about/' | relative_url }}">
                 <!--                                    <span class="font-weight-bold ">-->
                 <!--                        <img src="{{ 'favicon-safari-pinned-tab.svg' | prepend: '/assets/img/' | relative_url }}"-->
                 <!--                             width="20" , style="filter: invert(1);"/>-->

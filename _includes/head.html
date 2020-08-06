@@ -25,45 +25,27 @@
 <link rel="shortcut icon" href="{{ '/assets/img/favicon.ico'  | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}">
+<!--<link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}">-->
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-<!--&lt;!&ndash; ORIGINAL >>> Open Graph &ndash;&gt;-->
-<!--{% if site.serve_og_meta %}-->
-<!--<meta property="og:description" content="{{ page.title }}" />-->
-<!--<meta property="og:title" content="{{ site.name }}" />-->
-<!--<meta property="og:site_name" content="{{ site.description }}" />-->
-<!--<meta property="og:url" content="{{ page.url | prepend: 'https://redleader962.github.io' }}" />-->
-<!--<meta property="og:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />-->
-<!--<meta property="og:type" content="object" />-->
-<!--&lt;!&ndash;<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />&ndash;&gt;-->
-<!--<meta property="og:image:width" content="1200" />-->
-<!--<meta property="og:image:height" content="628" />-->
-<!--<meta property="og:image:type" content="image/jpeg" />-->
-<!--<meta name="twitter:card" content="summary_large_image">-->
-<!--&lt;!&ndash;<meta property="og:locale" content="en_US">&ndash;&gt;-->
-<!--&lt;!&ndash;<meta property="og:type" content="article">&ndash;&gt;-->
-<!--{% endif %}-->
 
 <!-- OPEN GRAPH -->
 {% if site.serve_og_meta %}
 {% assign og_images_path = '/assets/img/open-graph-img/' | prepend: site.baseurl | prepend: site.url %}
 
 <!-- REQUIRED OG TAG -->
+<meta property="og:title" content="{{ site.name }}"/>
 <meta property="og:description"
       content="Blog by Luc Coupal | My journal, my point of vue, my journey with it's ups, downs and full disclosure."/>
-<meta property="og:title" content="{{ site.name }}"/>
 <meta property="og:image"
       content="{%- if page.og_image -%}{{ page.og_image | prepend: og_images_path }}{%- else -%}{{ site.og_image | prepend: og_images_path }}{%- endif -%}"/>
 <!-- OPTIONAL OG TAG -->
 <meta property="og:site_name" content="{{ site.description }}"/>
-<!--    <meta property="og:type" content="object"/>-->
+<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
 <meta property="og:type" content="website"/>
 <meta property="og:image:type" content="image/jpeg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="628"/>
-<!--<meta property="og:url" content="{{ page.url | prepend: 'https://redleader962.github.io' }}"/>-->
-<!--<meta property="og:url" content="{{ page.url | absolute_url }}"/>-->
-<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
 <meta name="twitter:card" content="summary_large_image"/>
 <!--<meta property="og:locale" content="en_US">-->
 {% endif %}

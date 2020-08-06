@@ -92,8 +92,10 @@ Requirement:
 
    > (★) **Note:**  
    > When deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
+   >
+   > (★) Suplementary: well ... seems like Open Graph related liquid tags need the url tag pointing to a abolute path ex: https://redleader962.github.io
    > ```
-   > url: # should be empty
+   > url: # should be empty !!! humm... not sure about that since OG needs it
    > baseurl:  # should be empty
    > ```
 

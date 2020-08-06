@@ -2,10 +2,10 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Luc Coupal #Your Name
-email: luc.coupal.1@ulaval.ca
-description: Tales from a computer scientist in the A.I. world
 name: Tales from a computer scientist in the A.I. world
+title: Luc Coupal #Your Name
+description: Tales from a computer scientist in the A.I. world
+email: luc.coupal.1@ulaval.ca
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Based on <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -31,7 +31,6 @@ show_social_icons:  true
 # To achieve this, change serve_og_meta to true and then provide the URL of the
 # preview image as the value of og_image.
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
-#og_image: "https://redleader962.github.io/assets/img/Logo-blog/Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg"  # The site-wide (default for all links) Open Graph preview image
 og_image: "Tales-from-a-computer-scientist-in-the-AI-world-OG.jpg"  # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 # Social integration
