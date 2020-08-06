@@ -46,12 +46,14 @@
 
 <!-- OPEN GRAPH -->
 {% if site.serve_og_meta %}
+{% assign og_images_path = '/assets/img/open-graph-img/' | prepend: site.baseurl | prepend: site.url %}
+
 <!-- REQUIRED OG TAG -->
 <meta property="og:description"
       content="Blog by Luc Coupal | My journal, my point of vue, my journey with it's ups, downs and full disclosure."/>
 <meta property="og:title" content="{{ site.name }}"/>
 <meta property="og:image"
-      content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}"/>
+      content="{%- if page.og_image -%}{{ page.og_image | prepend: og_images_path }}{%- else -%}{{ site.og_image | prepend: og_images_path }}{%- endif -%}"/>
 <!-- OPTIONAL OG TAG -->
 <meta property="og:site_name" content="{{ site.description }}"/>
 <!--    <meta property="og:type" content="object"/>-->
