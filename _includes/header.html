@@ -4,7 +4,7 @@
     <nav id="navbar"
          class="navbar navbar-dark navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
         <div class="container navbar-glow">
-            <a class="navbar-brand title {% if page.title == 'about' %}active{% endif %}"
+            <a class="navbar-brand title {% if page.url contains 'about' %}active{% endif %}"
                href="{{ '/about/' | relative_url }}">
                 <!--        {% assign name = site.site_author | split: ' ' %}-->
                 <!--                                    <span class="font-weight-bold ">-->
@@ -84,10 +84,10 @@
                     {% endif %}
                     {% endfor %}
                     <!-- About -->
-                    <li class="nav-item {% if page.title == 'about' %}active{% endif %}">
+                    <li class="nav-item {% if page.url contains 'about' %}active{% endif %}">
                         <a class="nav-link" href="{{ '/about/' | relative_url }}">
                             About me (cv)
-                            {% if page.title == "about" %}
+                            {% if page.url contains "about" %}
                             <span class="sr-only">(current)</span>
                             {% endif %}
                         </a>

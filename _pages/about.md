@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: about me
 permalink: /about/
 description: Proud veteran from Montreal Canada, turned <b>computer scientist</b> and passionate about <b>A.I.</b>
 
