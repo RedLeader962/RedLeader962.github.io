@@ -2,9 +2,9 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Luc Coupal #Your Name
+title: Luc Coupal
 name: Luc Coupal blog & projects
-site_author: Luc Coupal #Your Name
+site_author: Luc Coupal
 description: > #
   My journal and projects on Deep Reinforcement Learning (RL/DRL) and AI related topic.
 #  My journal, my point of vue, my journey with it's ups, downs and full disclosure.
