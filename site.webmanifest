@@ -1,14 +1,14 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Luc Coupal blog & projects",
+    "short_name": "Luc Coupal blog & projects",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png?v=yy403AJa2m",
+            "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png?v=yy403AJa2m",
+            "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
