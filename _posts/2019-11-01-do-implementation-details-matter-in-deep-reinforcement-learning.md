@@ -21,63 +21,12 @@ _styles: >
         margin-bottom: 0em;
         min-height: 1.8em;
     }
-    .supervisorDbyline {
-        contain: style;
-        overflow: hidden;
-        font-size: 0.8rem;
-        line-height: 1.8em;
-        padding: 1.5rem 0;
-        min-height: 1.8em;
-        padding-bottom: 0em;
-        margin-bottom: 0em;
-      }
-    .supervisorDbylineTitle {
-        font-size: 0.6rem;
-        font-weight: 400;
-        line-height: 1.8em;
-        text-transform: uppercase;
-        margin: 0rem 0;
-        padding: 0rem 0;
-        color: #888;
-      }
-    .supervisorDbyline a {
-        color: rgba(0, 0, 0, 0.8);
-        text-decoration: none;
-        border-bottom: none;
-      }
-    .supervisorDbyline a:hover {
-        text-decoration: none;
-        color: #828282;
-        border-bottom: none;
-     }
-    .supervisorThe {
-        font-weight: 500;
-        color:       #333;
-    }
-    .supervisorThe:hover {
-        color:           #333;
-        border-bottom:   1px solid #333;
-    }
-    .acknowledgments{
-        font-weight: 500;
-        color:       #333;
-    }
-    .supervisorDbylineHorizontalRule {
-        display: block;
-        margin-top: 1.75em;
-        height:1px;
-        border-width:0;
-        color:rgba(0, 0, 0, 0.1);
-        background-color:rgba(0, 0, 0, 0.1)
-    }
     d-article {
         border-top: 0px solid rgba(0, 0, 0, 0.1);
         padding-top: 0rem;
         margin-top: 0rem;
     }
 ---
-
-<div style=""></div>
 
 <!-- Bibtex citation key
 Henderson2018
