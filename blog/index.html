@@ -26,12 +26,17 @@ pagination:
     <h2>{{ site.blog_description }}</h2>
   </div>
 
-
   <ul class="post-list">
     {% for post in paginator.posts %}
       <li>
         <a  href="{{ post.url | prepend: site.baseurl }}">
-        <h3 class="post-title"><i class="fas fa-caret-right"></i> {{ post.title }}</h3>
+<!--        <h3 class="post-title"><i class="fas fa-caret-right"></i> {{ post.title }}</h3>-->
+<!--        <h3 class="post-title"><i class="fas fa-ellipsis-v" ></i>{{ post.title }}</h3>-->
+<!--        <h3 class="post-title"><i class="fas fa-quote-left" ></i>{{ post.title }}</h3>-->
+        <h3 class="post-title">
+          <img src="{{ 'android-chrome-192x192.png' | relative_url }}"/>
+          {{ post.title }}
+        </h3>
         <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }}</p>
         <p class="post-description">{{ post.description }}</p>
         </a>

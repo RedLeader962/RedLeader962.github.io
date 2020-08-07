@@ -286,7 +286,7 @@ header {
                     color: $nav-bar-active;
 
                     &.title svg {
-                        fill:          $nav-bar-active;
+                        fill: $nav-bar-active;
                         //margin-bottom: -0.35rem;
                     }
                 }
@@ -851,7 +851,7 @@ footer.sticky-bottom {
 .blog-header-bar {
     text-align:     center;
     //padding-top:    1rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2em;
     //border-bottom:  1px solid $grey-color-light;
 
     h1 {
@@ -880,9 +880,16 @@ footer.sticky-bottom {
         padding-top:    1.5rem;
         padding-bottom: 1.5rem;
         //border-bottom:  1px solid $grey-color-light;
+        border-top:  1px solid $grey-color-Dark;
 
         a {
             text-decoration: none;
+
+            img {
+                //height:        1.25rem;
+                margin-bottom: 0.18em;
+                height:        0.72em;
+            }
 
             .post-title {
                 font-weight: bolder;
