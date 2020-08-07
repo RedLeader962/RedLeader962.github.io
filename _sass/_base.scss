@@ -3,9 +3,10 @@
  ******************************************************************************/
 
 // Font import for navbar-brand title
-@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+// Note: I have used inline SVG instead so @import not used
+//@import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 
 .test {
     background-color: cyan;
@@ -302,9 +303,9 @@ header {
                         fill:          $nav-bar-link;
                         margin-bottom: -0.35rem;
 
-                        &:hover {
-                            fill: $nav-bar-active;
-                        }
+                        //&:hover {
+                        //    fill: $nav-bar-active;
+                        //}
 
                         &:active {
                             fill: $nav-bar-hover;
@@ -547,7 +548,7 @@ header {
                 //       color: lighten($grey-color, 43%);
                 //color: lighten($grey-color-Dark, 7%);
                 color:       darken($nav-bar-link, 10%);
-                margin-left: 0.2em;
+                margin-left: 0.4rem;
 
                 &:hover {
                     color: $grey-color-lighter;
@@ -641,7 +642,7 @@ header {
 
         a {
             color:       $grey-color-dark;
-            margin-left: 0.2em;
+            margin-left: 0.4em;
 
             &:hover {
                 color: $nav-bar-hover;
