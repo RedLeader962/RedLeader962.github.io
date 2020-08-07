@@ -38,7 +38,6 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#000000">
 
-
 <!--
      Note:  Cannonical link must be a absolute (!)
             Validate jekyll deployed files directly on the GitHub repo
@@ -46,25 +45,41 @@
 -->
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-
 <!--
     OPEN GRAPH
 -->
 {% if site.serve_og_meta %}
 {% assign og_images_path = '/assets/img/open-graph-img/' | prepend: site.baseurl | prepend: site.url %}
-
-<!-- REQUIRED OG TAG -->
 <meta property="og:title" content="{{ page.title }}"/>
 <meta property="og:description" content="{{ page.description }}"/>
+
+<!-- Main image -->
 <meta property="og:image"
       content="{%- if page.og_image -%}{{ page.og_image | prepend: og_images_path }}{%- else -%}{{ site.og_image | prepend: og_images_path }}{%- endif -%}"/>
-
-<!-- OPTIONAL OG TAG -->
-<meta property="og:site_name" content="{{ site.name }}"/>
-<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}"/>
-<meta property="og:type" content="website"/>
 <meta property="og:image:type" content="image/jpeg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="628"/>
+<!-- Fall back image -->
+<meta property="og:image" content="{{ '/android-chrome-512x512.png' | prepend: site.baseurl | prepend: site.url}}"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="512"/>
+<meta property="og:image:height" content="512"/>
+
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+<meta property="og:site_name" content="{{ site.name }}"/>
+
+<!-- Type related -->
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="https://redleader962.github.io/blog/" />
+<meta property="article:author" content="Luc Coupal" />
+<meta property="article:tag" content="Deep Reinforcement Learning" />
+<meta property="article:tag" content="DRL" />
+<meta property="article:tag" content="Artificial intelligence" />
+<meta property="article:tag" content="AI" />
+<meta property="article:tag" content="A.I." />
+
+<!-- Twitter specific -->
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@Red_Leader962" />
+<meta name="twitter:image:alt" content="Tales from a computer scientist in the A.I. world">
 {% endif %}
