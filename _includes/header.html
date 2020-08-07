@@ -59,11 +59,11 @@
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav ml-auto flex-nowrap nav-link-glow align-items-center">
-                    {% if site.blog_name %}
+                    {% if site.navbar_blog_name %}
                     <!-- Blog -->
                     <li class="nav-item {% if page.url contains 'blog' %}active{% endif %}">
                         <a class="nav-link" href="{{ '/blog/' | relative_url }}">
-                            Blog
+                            {{ site.navbar_blog_name }}
                             {% if page.url contains 'blog' %}
                             <span class="sr-only">(current)</span>
                             {% endif %}
