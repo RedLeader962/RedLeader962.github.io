@@ -469,10 +469,10 @@
             }
         }
 
-        // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....collapsable topic alternate..❮❮❮
+        // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....collapsable topic alternate..❮❮❮
 
 
-        // ❯❯❯..Style for note or comment... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
+        // ❯❯❯..Style for note or comment... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
         // Todo: assess usefuleness
         .remark-header {
             font-size:     larger;
@@ -495,7 +495,7 @@
             background-color: $light-gray;
         }
 
-        // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Style for note or comment..❮❮❮
+        // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....Style for note or comment..❮❮❮
 
 
         .definition {
@@ -507,6 +507,11 @@
                 font-weight:    bold;
                 text-transform: none;
                 color:          #666;
+            }
+
+            & dl {
+                padding-left: 0em;
+                padding-right: 0em;
             }
 
             & dt {

@@ -103,7 +103,7 @@ decisions and implementation details in Deep Reinforcement Learning
 --------------------------------------
 
 <div class="definition">
-    <dl style="padding-left: 0em; padding-right: 0em;" class="row">
+    <dl class="row">
       <dt class="col-md-3">The setting</dt> 
       <dd class="col-md-9 ml-auto">
         In this essay, with respect to an algorithm implementation, the term
@@ -561,12 +561,10 @@ So we now need to look for 2 types of implementation details:
     <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>and those related to wall clock speed.</li>
 </ul>
  
-That’s when things get trickier. Take for example the *value estimate* computation of the **critic** 
-$\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ 
-in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
-I won't dive in the details here, but keep in mind that in the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the **critic bootstrap target** and
+That’s when things get trickier. Take for example the *value estimate* computation of the **critic** <d-math>\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})</d-math>in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
+I won't dive in the details here, but keep in mind that in the end, we just need <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> to compute the **critic bootstrap target** and
 the **advantage** at the update stage. 
-Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? 
+Knowing that, what’s the best place to compute <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>? 
 Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
 <p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Does it even make a difference?</p>
@@ -579,7 +577,7 @@ since you only need to store in RAM at each timestep a 4-digit
 observation and that trajectory length is capped at $200$ steps so you
 end up with relatively small batches size. Even if that design choice
 completely fails to leverage the power of matrix computation framework,
-considering the setting, computing $$\widehat{V}_\phi^\pi$$
+considering the setting, computing <d-math>\widehat{V}_\phi^\pi</d-math>
 anywhere would be relatively fast anyway.
 
 **Casse 2 - _batch level_ :** On the other hand, using the same design in an environment with very
@@ -587,19 +585,19 @@ high dimensional observation space like the [*PySc2
 Starcraft*](https://github.com/deepmind/pysc2) environment <d-footnote>PySc2 have multiple observation output. As an example, minimap observation is an RGB representation of 7 feature layers with resolution ranging from 32 − 2562<sup>2</sup> where most pixel value give important information on the game state.</d-footnote>, will make
 that same operation slower, potentially to a point where it could become
 a bottleneck that will considerably impair experimentation speed. So
-maybe a design where you compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+maybe a design where you compute <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 at *batch level* would make more sense in that setting.
 
 **Casse 3 - _trajectory level_ :** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
-Starcraft* game is  $$\sim 40, 000$$ steps long. In order to compute
-$$\widehat{V}_\phi^\pi(\mathbf{s})$$ at batch level, you need to store
+Starcraft* game is  <d-math>\sim 40, 000</d-math> steps long. In order to compute
+<d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> at batch level, you need to store
 in RAM memory each timestep observation for the full batch, so given the
 observation space size and the range of trajectory length, in that
 setting you could end up with RAM issues. If you have access to powerful
 hardware like they have in Google Deepmind laboratory it won’t really be
 a problem, but if you have a humble consumer market computer, it will
 matter. So maybe in that case, keeping only observations from the
-current trajectory and computing $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+current trajectory and computing <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 at trajectory end would be a better design choice.  
 
 What I want to show with this example is that **some implementation details might have no effect in some settings but can be a game changer in others.**  
