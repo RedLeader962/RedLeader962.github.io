@@ -589,8 +589,7 @@ maybe a design where you compute <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-mat
 at *batch level* would make more sense in that setting.
 
 **Casse 3 - _trajectory level_ :** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
-Starcraft* game is  <d-math>\sim 40, 000</d-math> steps long. In order to compute
-<d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> at batch level, you need to store
+Starcraft* game is  <d-math>\sim 40, 000</d-math> steps long. In order to compute <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> at batch level, you need to store
 in RAM memory each timestep observation for the full batch, so given the
 observation space size and the range of trajectory length, in that
 setting you could end up with RAM issues. If you have access to powerful
