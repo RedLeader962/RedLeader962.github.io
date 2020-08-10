@@ -113,8 +113,8 @@ plugins:
   - jekyll-paginate-v2
   - jekyll/scholar
   - jemoji
-  #  - bootstrap
-  # - material-sass
+#    - bootstrap
+#   - material-sass
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
