@@ -63,22 +63,55 @@ Requirement:
    - [ ] [Ruby](https://www.ruby-lang.org/en/downloads/) --> pre-instaled on OsX
    - [ ] [Bundler](https://bundler.io/) --> pre-instaled on OsX
    - [ ] Optional: consider using [rbenv](https://github.com/rbenv/rbenv) for ease of managing ruby gems 
-     
-1. fork the theme from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` and do the following:
-   ```bash
-   $ git clone git@github.com:<your-username>/<your-repo-name>.git
-   $ cd <your-repo-name>
-   $ bundle install
-   $ bundle exec jekyll serve
-   ```
-2. change the name!
-3. Customize
-    - `_config.yml`
-    - `_pages/about.md`
-    - `_pages/projects.md`
-    - Category appearance in menu. ex.: `teaching.md` --> set `nav: true`
-4. After you are done, **commit** your final changes to master.
-5. Deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
+
+#### Jekyll instal instruction
+Source: https://jekyllrb.com/docs/installation/macos/
+```bash
+# INSTALL HOMEBREW
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew install ruby
+$ echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+
+# Close and reopen terminal
+
+$ which ruby
+/usr/local/opt/ruby/bin/ruby
+
+$ ruby -v
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c)
+
+# INSTALL JEKYLL
+$ gem install --user-install bundler jekyll
+$ ruby -v
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c)
+
+$ echo 'export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"' >> ~/.bash_profile
+replacing the X.X with the first two digits of your Ruby version.
+
+$ gem env
+And check that `GEM PATHS:` points to a path in your home directory.
+```
+
+Error msg when using `bundle exec jekyll serve`
+```bash
+$ bundle exec jekyll serve
+dyld: lazy symbol binding failed: Symbol not found: _libiconv_open
+  Referenced from: /usr/local/lib/ruby/gems/2.7.0/gems/nokogiri-1.10.10/lib/nokogiri/nokogiri.bundle
+  Expected in: /usr/lib/libiconv.2.dylib
+
+dyld: Symbol not found: _libiconv_open
+  Referenced from: /usr/local/lib/ruby/gems/2.7.0/gems/nokogiri-1.10.10/lib/nokogiri/nokogiri.bundle
+  Expected in: /usr/lib/libiconv.2.dylib
+```
+To solve, do: 
+```bash
+gem install pkg-config
+gem install nokogiri -- --use-system-libraries
+```
+Source: https://nokogiri.org/tutorials/installing_nokogiri.html#install_with_system_libraries
+
+
+### Deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
    ```bash
     $ ./bin/deploy [--user]
    ```
