@@ -5,14 +5,11 @@
 title: Luc Coupal
 name: Luc Coupal blog & projects
 site_author: Luc Coupal
-description: >
-  My journal and projects on Deep Reinforcement Learning (RL/DRL) and AI related topic.
-#  My journal, my point of vue, my journey with it's ups, downs and full disclosure.
+description: My journal and projects on Deep Reinforcement Learning (RL/DRL) and AI related topic.
 email: luc.coupal.1@ulaval.ca
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Based on <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-#  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
 url: https://redleader962.github.io # the base hostname & protocol for your site !! used in Open Graph related liquid tag !!
 baseurl: # the subpath of your site, e.g. /blog/ originaly: /al-folio
@@ -108,7 +105,7 @@ kramdown:
 
 # Includes & excludes
 include: ['_pages']
-exclude: [vendor, node_modules]
+exclude: [vendor]
 
 # Plug-ins
 plugins:

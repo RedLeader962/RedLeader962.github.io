@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: distill
 title: TEMPLATE - Collapsable CARD
 description: Quick refresher on Advantage Actor-Critic method with bootstrap target
@@ -62,18 +62,6 @@ Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{
 Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
 <p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Does it even make a difference?</p>
-
-Test inline `$`:   $\widehat{V}_\phi^\pi(\mathbf{s})$
-
-Test display `$$`:  $$\widehat{V}_\phi^\pi(\mathbf{s})$$
-
-Test inline `\(`:  \(\widehat{V}_\phi^\pi(\mathbf{s})\)
-
-Test display `\[`:  \[\widehat{V}_\phi^\pi(\mathbf{s})\]
-
-Test inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
-
-Test display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 
 <!---- Collapsable card ----------------------------------------------------------------------------------------------->
 <div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
