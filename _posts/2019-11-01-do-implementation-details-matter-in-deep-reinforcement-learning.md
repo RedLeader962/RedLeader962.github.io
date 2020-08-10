@@ -458,8 +458,7 @@ say in the computer science community :
 
 Does it apply to the ML/RL field? Anyone that has been waiting for an
 experiment to conclude after a few strikes will say that waiting for
-result is playing with their mind and that speed matters **a lot** to them
-at the moment. Aside from mental health, the reality is that **the
+result is playing with their mind and that speed matters **a lot** to them at the moment. Aside from mental health, the reality is that **the
 faster you can iterate between experiments, the faster you get feedback
 from your decisions, the faster you can make adjustments towards your
 goals.** So optimizing for speed sooner than later is impactful indeed
