@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: distill
 title: a distill-style blog post
 description: an example of a distill-style blog post and main elements
@@ -22,7 +22,7 @@ authors:
 bibliography: 2018-12-22-distill.bib
 
 # Below is an example of injecting additional post-specific styles.
-# If you use this post as a template, delete this _styles block.
+# (!) If you use this post as a template, delete this _styles block.
 _styles: >
   .fake-img {
     background: #bbb;
@@ -38,10 +38,22 @@ _styles: >
     text-align: center;
     font-size: 16px;
   }
-
 ---
 
+Test **_markdown/LaTeX/distill_ math tag** with respect to the **_Distill/Katex/Kramdown_ version used in my site**
+- inline `$`:   $\widehat{V}_\phi^\pi(\mathbf{s})$
+- display `$$`:  $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+- inline `\(`:  \(\widehat{V}_\phi^\pi(\mathbf{s})\)
+- display `\[`:  \[\widehat{V}_\phi^\pi(\mathbf{s})\]
+- inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
+- display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 
+ref: 
+- `RedLeader962.github.io/blog/index.html`
+- `RedLeader962.github.io/_config.yml`
+- `RedLeader962.github.io/assets/js/katex.js`
+
+---
 ## Equations
 
 This theme supports rendering beautiful math in inline and display modes using [KaTeX](https://khan.github.io/KaTeX/) engine.

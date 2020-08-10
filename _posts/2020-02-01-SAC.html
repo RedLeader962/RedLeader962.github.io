@@ -1,0 +1,744 @@
+---
+published: false
+layout: distill
+title: Soft Actor-Critic
+description: 
+
+authors:
+  - name: Albert Einstein
+    url: "https://en.wikipedia.org/wiki/Albert_Einstein"
+    affiliations:
+      name: IAS, Princeton
+  - name: Boris Podolsky
+    url: "https://en.wikipedia.org/wiki/Boris_Podolsky"
+    affiliations:
+      name: IAS, Princeton
+  - name: Nathan Rosen
+    url: "https://en.wikipedia.org/wiki/Nathan_Rosen"
+    affiliations:
+      name: IAS, Princeton
+      
+bibliography: 2019-11-01-a-reflexion-on-design-and-implementation.bib
+
+_styles: >
+    d-byline {
+        padding: 1.5rem 0;
+        padding-bottom: 0em;
+        margin-bottom: 0em;
+        min-height: 1.8em;
+    }
+    d-article {
+        border-top: 0px solid rgba(0, 0, 0, 0.1);
+        padding-top: 0rem;
+        margin-top: 0rem;
+    }
+---
+
+
+<p><img src="/assets/img/SAC/TaxonomySoftActorCritic_mod.png" alt="image" style="width:16.5cm" /> <span id="UUIa7fdea0bface4805b0a3d95ea2dfd2a2D" label="UUIa7fdea0bface4805b0a3d95ea2dfd2a2D">[UUIa7fdea0bface4805b0a3d95ea2dfd2a2D]</span></p>
+
+<h1 id="sec:SoftActorCritic">Soft Actor-Critic</h1>
+<p>Soft Actor-Critic (<em>SAC</em>) is an off-policy algorithm based on the <em>Maximum Entropy</em> <em>Reinforcement Learning</em> framework. The main idea behind <em>Maximum Entropy RL</em> is to frame the decision-making problem as a graphical model from top to bottom and then solve it using tools borrowed from the field of <em>Probabilistic Graphical Model</em>. Under this framework, a learning agent seeks to maximize both the return and the entropy simultaneously. This approach benefit <em>Deep Reinforcement Learning</em> algorithm by giving them the capacity to consider and learn many alternate paths leading to an optimal goal and the capacity to learn how to act optimally despite adverse circumstances.</p>
+<p>Since <em>SAC</em> is an off-policy algorithm, then it has the ability to train on samples coming from a different policy. What is particular though is that contrary to other off-policy algortihm, it’s stable. This mean that the algorithm is much less picky in term of hyperparameter tuning.</p>
+<p><em>SAC</em> <span class="citation" data-cites="Haarnoja2018a"></span> is curently <strong>the state of the art</strong> <em>Deep Reinforcement Learning</em> algorithm together with Twin Delayed Deep Deterministic policy gradient (<em>TD3</em>) <span class="citation" data-cites="DBLP:journals/corr/abs-1802-09477"></span>.</p>
+<p>The learning curve of the <em>Maximum Entropy RL</em> framework is quite steep due to it’s depth and to how much it re-think the RL problem. It was definitavely required in order to understand how <em>SAC</em> work. Tackling the applied part was arguably the most difficult project I did to date, both in term of component to implement &amp; silent bug dificulties. Never the less I’m particularly proud of the result.</p>
+<p>You can find my implementaion at <a href="https://github.com/RedLeader962/LectureDirigeDRLimplementation" class="uri">https://github.com/RedLeader962/LectureDirigeDRLimplementation</a></p>
+<h2 id="reading-material">Reading material:</h2>
+<ul>
+<li><p>Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor <span class="citation" data-cites="Haarnoja2018a"></span></p></li>
+<li><p>Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review <span class="citation" data-cites="Levine2018"></span></p></li>
+<li><p>Soft Actor-Critic Algorithms and Applications <span class="citation" data-cites="Haarnoja2018"></span></p></li>
+<li><p>Reinforcement Learning with Deep Energy-Based Policies <span class="citation" data-cites="Haarnoja2017"></span></p></li>
+<li><p>Deterministic Policy Gradient Algorithms <span class="citation" data-cites="Silver2014"></span></p></li>
+<li><p>Reinforcement learning: An introduction <span class="citation" data-cites="Sutton1394"></span></p></li>
+</ul>
+<p>I’ve also complemented my reading with the following resources:</p>
+<ul>
+<li><p><a href="http://rail.eecs.berkeley.edu/deeprlcourse-fa18/">CS 294–112 <em>Deep Reinforcement Learning</em></a>: lectures 14-15 by Sergey Levine from University Berkeley;</p></li>
+<li><p><a href="https://spinningup.openai.com/en/latest/algorithms/sac.html"><em>OpenAI: Spinning Up: <em>Soft Actor-Critic</em></em></a>, by Josh Achiam;</p></li>
+<li><p>and also <a href="https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#sac"><em>Lil’ Log blog:Policy Gradient Algorithms</em></a> by Lilian Weng, research intern at <em>OpenAI</em>;</p></li>
+</ul>
+<h3 id="comment-on-notation">Comment on notation:</h3>
+<p>Since there are a lot of different notations across paper, I’ve decided to follow (for the most part) the convention established by Sutton &amp; Barto in their book Reinforcement Learning: An Introduction <span class="citation" data-cites="Sutton1394"></span></p>
+<div style="color: myGrayLabel">
+<hr />
+</div>
+
+
+<p><d-math>\displaystyle
+        (\mathcal{S}, \mathcal{A}, T, \mathcal{R} )</d-math></p>
+
+<p><d-math>\scriptstyle t \, \in \,  [1 .. \mathsf{T}]</d-math></p>
+
+
+<p><span id="6bc47c98c32e4e92b90c1a4502f49ac3" label="6bc47c98c32e4e92b90c1a4502f49ac3">[6bc47c98c32e4e92b90c1a4502f49ac3]</span></p>
+
+<p><d-math>\scriptstyle \mathsf{T}</d-math></p>
+
+
+<p><span id="1282605c586d414b9bd95a91f57c9ae5" label="1282605c586d414b9bd95a91f57c9ae5">[1282605c586d414b9bd95a91f57c9ae5]</span></p>
+
+<p><d-math>\displaystyle
+        \tau</d-math></p>
+
+
+<p><span id="e651f3c1544041649f9124bf969279ce" label="e651f3c1544041649f9124bf969279ce">[e651f3c1544041649f9124bf969279ce]</span></p>
+
+<p><d-math>\displaystyle
+        \theta</d-math></p>
+
+
+<p><span id="7f3dd9c4e7c0411ba7a9bca0dd391268" label="7f3dd9c4e7c0411ba7a9bca0dd391268">[7f3dd9c4e7c0411ba7a9bca0dd391268]</span></p>
+
+<p><d-math>\displaystyle
+        \pi_\theta(\tau)</d-math></p>
+
+
+<p><span id="9a9653aa20324bb5bc7cf0b97b12587a" label="9a9653aa20324bb5bc7cf0b97b12587a">[9a9653aa20324bb5bc7cf0b97b12587a]</span></p>
+
+<p><d-math>\displaystyle
+        \pi_\theta(\mathbf{a}_t | \mathbf{s}_t )</d-math></p>
+
+
+<p><span id="39d132537fb34789815eb3f616bf01f9" label="39d132537fb34789815eb3f616bf01f9">[39d132537fb34789815eb3f616bf01f9]</span></p>
+
+<p><d-math>\displaystyle
+        s, \mathbf{s}, s_t, \text{ or } \mathbf{s}_t</d-math></p>
+
+
+<p><span id="449e5356844245f1a53ecade7804175a" label="449e5356844245f1a53ecade7804175a">[449e5356844245f1a53ecade7804175a]</span></p>
+
+<p><d-math>\displaystyle
+        a, \mathbf{a}, a_t, \text{ or } \mathbf{a}_t</d-math></p>
+
+
+<p><span id="385dee880d66474a9562b011e5309376" label="385dee880d66474a9562b011e5309376">[385dee880d66474a9562b011e5309376]</span></p>
+
+<p><d-math>\displaystyle
+        r \text{ or } r_t</d-math></p>
+
+
+<p><span id="4e46fbd325ea423ca67f79949a40a380" label="4e46fbd325ea423ca67f79949a40a380">[4e46fbd325ea423ca67f79949a40a380]</span></p>
+
+<p><d-math>{\displaystyle
+        p(\mathbf{s}&#39;|\mathbf{s}, \mathbf{a})}</d-math></p>
+
+
+<p><span id="cf5e6b6353794486906d986eec814e0b" label="cf5e6b6353794486906d986eec814e0b">[cf5e6b6353794486906d986eec814e0b]</span></p>
+
+<p><d-math>\displaystyle
+        r(\mathbf{s}_t, \mathbf{a}_t)</d-math></p>
+
+
+<p><span id="daa1ecb384354a1eb9561db4620cac29" label="daa1ecb384354a1eb9561db4620cac29">[daa1ecb384354a1eb9561db4620cac29]</span></p>
+
+<p><d-math>\displaystyle
+        J(\theta)</d-math></p>
+
+
+<p><span id="c44c9ef620ac407e92d2a48c64bea39e" label="c44c9ef620ac407e92d2a48c64bea39e">[c44c9ef620ac407e92d2a48c64bea39e]</span></p>
+
+<p><d-math>\displaystyle
+        \mathbb{E}_{\tau \sim \pi_\theta(\tau)}\left[ X \right]</d-math></p>
+
+
+<p><span id="b6c69b932dd040f29e1bd2ba5dbd187f" label="b6c69b932dd040f29e1bd2ba5dbd187f">[b6c69b932dd040f29e1bd2ba5dbd187f]</span></p>
+
+<p><d-math>\displaystyle
+        \gamma</d-math></p>
+
+
+<p><span id="bfb97eb438964af4b12532ffd85c58cf" label="bfb97eb438964af4b12532ffd85c58cf">[bfb97eb438964af4b12532ffd85c58cf]</span></p>
+
+<p><d-math>\displaystyle
+        G_t \text{ or } r_t^\gamma</d-math></p>
+
+<div style="color: myGrayLabel">
+<hr />
+</div>
+
+<h2 id="subsec:buildingBlocMaximumEntropyFramework">An overview of the <em>Maximum Entropy</em> framework</h2>
+<dl>
+<dt>Goal:</dt>
+<dd><p>Solving decision-making problems in a way that define optimality as a context-dependent and multi-solution concept.</p>
+</dd>
+<dt>How?</dt>
+<dd><p>By learning a <a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">Maximum Entropy model</a>.</p>
+</dd>
+</dl>
+<p>The <em>Maximum Entropy</em> framework is an approach to solving decision-making problem that uses the formalism and tools of the field of <em>Probabilistic Graphical Model</em>. The difference between <em>Classical RL</em> and <em>Maximum Entropy RL</em> is not obvious at first because in both cases, it’s all about dealing with probabilities, random variable, expectation maximization and so on. As we will see, those two are fundamentally different.</p>
+<h3 id="a-other-way-of-framing-the-decision-making-problem">A other way of framing the decision-making problem</h3>
+<h4 id="the-classical-approach-used-in-rl" class="unnumbered unnumbered">The classical approach used in RL</h4>
+<p>is to formalize the decision-making problem <strong>using a</strong> <em>Probabilistic Graphical Model</em> <strong>augmented with a reward input</strong> and then seek to maximize the sum of cumulative reward using some kind of tools borrowed from <em>Stochastic Optimization</em> (in the broad sense).</p>
+<h4 id="the-maximum-entropy-rl-approach" class="unnumbered unnumbered">The <em>Maximum Entropy RL</em> approach</h4>
+<p>on the other end formalize the decision-making problem <strong>as a</strong> <em>Probabilistic Graphical Model</em> and then solve a learning and inference problem using <em>Probabilistic Graphical Model</em> tools. While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as <em>Probabilistic Graphical Model</em>. In other word, the <em>Maximum Entropy</em> framework <strong>formalize and solve the entirety of the RL problem using probability theory</strong>.</p>
+<dl>
+<dt>Note:</dt>
+<dd><p>This approach to tackling decision-making problem is not new in the literature and has many names: <em>Maximum Entropy RL</em>, <em>KL-divergence control</em>, <em>stochastic optimal control</em>. In this essay we will use the name <em>Maximum Entropy RL</em>.</p>
+</dd>
+</dl>
+<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered unnumbered">How does it make the RL problem different (an intuition):</h4>
+<p>Consider an environment with a continuous action space. The <em>Classical RL</em> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state. In contrast, the <em>Maximum Entropy RL</em> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
+<h4 id="why-does-it-matter" class="unnumbered unnumbered">Why does it matter?</h4>
+<p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
+<ul>
+<li><p>Suppose the optimal way is simply impractical at a given time, meaning there is no choice to fallback to a lesser optimal way. Does he know how handle non-optimal alternative way to do things?</p></li>
+<li><p>Suppose there is more than one optimal way to do things all leading to the same end result, how does he choose between them?</p></li>
+<li><p>Suppose now that there exist multiple equally optimal but different end result, how does he proceed now?</p></li>
+<li><p>What about the case where there are many ways to do things and only one optimal way but we want the agent to relax is expectation regarding the end result, in other words, we don’t care whether the end result is optimal or near optimal? Will he be able to make good use of that relaxed requirement of near optimality?</p></li>
+</ul>
+<p>Those are all legitimate scenario that an agent should be required to successfully handle in order to become effective, skillful, agile, nimble, resilient and capable of handling adverse condition.<br />
+The problem with <em>Classical RL</em> is that it converges (in expectation) to a deterministic policy <d-math>\pi</d-math>. This is one of the keys takes away proof from the <em>Deterministic Policy Gradient</em> (DPG) <span class="citation" data-cites="Silver2014"></span> paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  <span class="citation" data-cites="Sutton1394"></span> This mean that the algorithm will optimize for one and only one way to do things. Once it starts <em>believing</em> that a path is more promising than the others, it will start to optimize for that <em>believed-best</em> path and it will discard all the alternate ones. Even if the algorithm is forced to explore using whatever trick, those trick only promote <em>believed unpromising</em> path for consideration but it still results in an algorithm learn to optimize for one and only way to do things.<br />
+On the other end, <em>Maximum Entropy RL</em> optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:</p>
+<ul>
+<li><p>effective exploration</p></li>
+<li><p>transfer learning capabilities out of the box</p></li>
+<li><p>robustness and adaptability</p></li>
+</ul>
+<h3 id="nuts-and-bolt-key-component-related-to-sac">Nuts and bolt (Key component related to SAC)</h3>
+
+<p>[]</p>
+
+<p>[]</p>
+<h4 id="the-maxent-policy-pi" class="unnumbered unnumbered">The <em>MaxEnt</em> policy <d-math>\pi</d-math>:</h4>
+<p>Recall the <em>Classical RL</em> policy <d-math>\pi</d-math> definition<br />
+<span class="math display">\[\pi_{classical} (\mathbf{a}_t | \mathbf{s}_t )  \ \ = \ \ \mathbb{P}\left[\, \mathcal{A}_t = \mathbf{a}  \, \middle| \,  \mathcal{S}_t = \mathbf{s} \, \right] \,\]</span><br />
+which is modelled either as categorical or a Gaussian distribution.<br />
+Instead, <em>Maximum Entropy RL</em> defines it either in terms of <em>Q-function</em> <d-math>Q^\pi</d-math> as <span class="math display">\[\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )  \ \ \propto \ \   \exp \left(\, \frac{1}{\alpha}  Q^\pi(\mathbf{s}_t, \mathbf{a}_t)  \,\right)\]</span> or in terms of <em>advantage</em> <d-math>A^\pi</d-math> as <span class="math display">\[\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )  \ \ = \ \ \exp \left(\, \frac{1}{\alpha}  Q^\pi(\mathbf{s}_t, \mathbf{a}_t ) \ - \   \frac{1}{\alpha}  V^\pi(\mathbf{s}_t) \,\right) \ \ = \ \  \exp \left(\, \frac{1}{\alpha}  A^\pi(\mathbf{s}_t, \mathbf{a}_t)  \,\right)\]</span> with <d-math>\alpha</d-math> being the <em>temperature</em> and <d-math>\propto</d-math> the symbol of proportionality</p>
+<p>We can observe that it’s an analogue of the <a href="https://en.wikipedia.org/wiki/Boltzmann_distribution">Boltzmann distribution</a> (aka Gibbs distribution) with the <em>advantage</em> being the negative energy found in the Boltzmann distribution. Equivalently, it gives us a <em>probability measure</em> of a RL agent doing action <d-math>\mathbf{a}_t</d-math> in a given state <d-math>\mathbf{s}_t</d-math> as a function of that state energy <d-math>A(\mathbf{s}_t, \mathbf{a}_t)</d-math> (<em>the advantage</em>). As the <em>temperature</em> <d-math>\alpha</d-math> decreases and approach to zero, the policy behaves like a standard <em>greedy policy</em><br />
+<span class="math display">\[\pi_{greedy} (\mathbf{a}_t | \mathbf{s}_t)  \ = \ \argmax\limits_{\mathbf{a}} A^\pi(\mathbf{s}_t, \mathbf{a}_t)\]</span></p>
+<p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
+
+
+<p>[]</p>
+
+<p>[]</p>
+<h4 id="the-maxent-objective-jpi" class="unnumbered unnumbered">The <em>MaxEnt</em> objective <d-math>J(\pi)</d-math>:</h4>
+<p>The RL objective derived from the <em>Maximum Entropy RL</em> framework is similar to the <em>Classical RL</em> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
+<p><span class="math display">\[J(\pi_\textit{MaxEnt} ) \ \ = \ \  \E_{\tau \sim \pi}\Bigg[ \,
+            \, \Bigg]\]</span></p>
+<dl>
+<dt>Key idea:</dt>
+<dd><p>This objective seeks to maximize the expected <em>return</em> <strong>and</strong> maximize the action <em>entropy</em> at the same time.</p>
+</dd>
+<dt>Moving part</dt>
+<dd><ul>
+<li><p><strong>The return:</strong> Same as in <em>Classical RL</em></p></li>
+<li><p><strong>The entropy term:</strong> Can be viewed as regularizer, an uninformative prior over the policy or a way to handle exploration/exploitation.</p></li>
+<li><p><strong>The temperature <d-math>\alpha</d-math>:</strong> Control the trade-off between exploration/exploitation.</p></li>
+</ul>
+</dd>
+</dl>
+
+
+<p><span class="math display">\[\mathcal{H}(p) \ \ = \ \  - \E_{x \sim p(x)}\left[ \, \log p(x) \, \right] \ \ = \ \ - \int_{x}^{} p(x) \log p(x) \, dx\]</span></p>
+<p><a href="https://en.wikipedia.org/wiki/Information_theory_and_measure_theory">It’s a measure</a> of the randomness of a random variable.</p>
+<ul>
+<li><p><d-math>0 \leq \mathcal{H} \leq 1</d-math></p></li>
+<li><p><d-math>\mathcal{H} = 0 \ \Longrightarrow</d-math> the variable is deterministic.</p></li>
+</ul>
+<p><span><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Additional information</a></span></p>
+
+<p><d-math>\mathcal{H}</d-math> tel us how wide is the distribution from which are sampled the random variables.</p>
+<ul>
+<li><p>A wide distribution will produce high entropy <em>random variable.</em></p></li>
+<li><p>A narrow distribution will produce low entropy <em>random variable.</em></p></li>
+</ul>
+
+
+<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered unnumbered">The <em>soft</em> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<p>Under the <em>Maximum Entropy</em> framework, both value function are redefined to handle the added entropy term.</p>
+<p>First we need to rewrite the <em>MaxEnt</em> objective by expanding the <em>entropy</em> term and using the <em>Q-function</em> definition such that <span class="math display">\[\begin{aligned}
+            J(\pi_\textit{MaxEnt} ) \ \ &amp;= \ \  \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi(\tau) } \left[ \, \sum_{t&#39;= t}^\mathsf{T} r(\mathbf{s}_{t&#39;}, \mathbf{a}_{t&#39;})  \ + \ \alpha \mathcal{H} \left(  \pi ( \cdot | \mathbf{s}_t )  \right) \right]\\
+            \shortintertext{\raggedleft  \color{darkgray} \footnotesize \(\left&lt; \ \ \text{definition of Q-function and entropy} \ \ \right&gt;\)}
+            &amp;= \ \  \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi(\tau) } \Big[ \, Q^\pi (\mathbf{s}_t, \mathbf{a}_t ) \ + \ \alpha  \E_{\mathbf{a} \sim \pi}\left[ \, - \log  \pi (\mathbf{a}_t | \mathbf{s}_t ) \, \right]    \Big]\\
+            \shortintertext{\raggedleft  \color{darkgray} \footnotesize \(\left&lt; \ \ \mathbf{a} \text{ is condition on the same policy, so the inner expectation can be push outside} \ \ \right&gt;\)}
+            &amp;= \ \  \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi(\tau) } \Big[ \, Q^\pi (\mathbf{s}_t, \mathbf{a}_t ) \ - \ \alpha   \log  \pi (\mathbf{a}_t | \mathbf{s}_t ) \, \Big]
+        \end{aligned}\]</span></p>
+<p>This leads us to the definition of both <em>value function</em>. The <em>state-action value function</em> is defined as</p>
+<p><span class="math display">\[Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t ) \ \ = \ \ r(\mathbf{s}_t, \mathbf{a}_t) + \E_{(\mathbf{s}_{t+1}, \mathbf{a}_{t+1} ) \sim \pi}\left[ \, \sum_{t&#39;=t+1}^\mathsf{T} r(\mathbf{s}_{t&#39;}, \mathbf{a}_{t&#39;}) \ - \ \alpha \log \pi (\mathbf{a}_{t&#39;} | \mathbf{s}_{t&#39;} )   ) \, \right] \label{equationQsoft}\]</span></p>
+<p>and the <em>state value function</em> is defined as <span class="math display">\[V_{soft}^\pi(\mathbf{s}_t) \ \ = \ \    \E_{\mathbf{a}_t \sim \pi_\theta (\mathbf{a}_t | \mathbf{s}_t )   }\left[ \, Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t) \ - \ \alpha \log \pi (\mathbf{a}_t | \mathbf{s}_t )   \, \right] \label{equationVsoft}\]</span> or alternatively <span class="math display">\[V_{soft}^\pi(\mathbf{s}_t) \ \ = \ \  \alpha \, \log \int_{a_t}^{} \exp \left(\, \frac{1}{\alpha} \,  Q(\mathbf{s}_t, \mathbf{a}_t ) \,\right)\, d \mathbf{a}_t \label{equationVsoftAlternate}\]</span></p>
+<p>We can also rewrite the <em>Bellman</em> equation in terms of <d-math>Q_{soft}^\pi</d-math> and <d-math>V_{soft}^\pi</d-math> <span class="math display">\[Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t ) \ \ = \ \ r(\mathbf{s}_t, \mathbf{a}_t) + \E_{\mathbf{s}_{t+1} \sim p(\mathbf{s}_{t+1} | \mathbf{s}_t, \mathbf{a}_t) } \big[ \, V_{soft}^\pi(\mathbf{s}_{t+1}) \, \big] \label{equationBellmanSoft}\]</span> with <d-math>p</d-math> being the <em>transition dynamic</em>.</p>
+<p>Without going into the details about the nuts and bolt of <em>Maximum Entropy</em> framework, it’s valuable to point out that <d-math>Q_{soft}^\pi</d-math> is what is called in <em>Probabilistic Graphical Model</em> a <em>backward message</em>. <span id="softQfunctionIsBackwardMessage" label="softQfunctionIsBackwardMessage">[softQfunctionIsBackwardMessage]</span> It’s not working like a <em>Classical RL</em> <em>reward-to-go</em> <d-math>Q^\pi</d-math> nor is it having the same properties.</p>
+<p>By definition, <d-math>Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math> <strong>is the probability of being optimal at timestep <d-math>t</d-math> until the trajectory end.</strong> <span id="softQfunctionMeaning" label="softQfunctionMeaning">[softQfunctionMeaning]</span> It’s a measure of the quality of an ongoing trajectory as in the <em>measure-theory</em> definition of <em>measure</em> contrary to the <em>Classical RL</em> <em>reward-to-go</em>, which is not since a <d-math>Q_{classical}^\pi(\cdot, \mathbf{s}) = 0</d-math> does not mean an empty set of <em>reward</em> magnitude of a trajectory. Take the case of an environment where the <em>reward</em> signal upper-bound is 0 by design, then 0 would be the highest possible <em>return</em>.</p>
+
+
+<p><span id="c45bb0a520d741849de22ca23be5b81a" label="c45bb0a520d741849de22ca23be5b81a">[c45bb0a520d741849de22ca23be5b81a]</span></p>
+<p><span><strong> (Key idea) Building bloc of <em>Maximum Entropy RL</em></strong></span></p>
+
+
+<dl>
+<dt>Framing the RL problem:</dt>
+<dd><p>The <em>Maximum Entropy</em> framework <strong>formalize and solve the entirety of the RL problem using probability theory</strong></p>
+</dd>
+<dt>Key benefits:</dt>
+<dd><ul>
+<li><p>effective exploration</p></li>
+<li><p>transfer learning capabilities out of the box</p></li>
+<li><p>robustness and adaptability</p></li>
+</ul>
+</dd>
+<dt>Policy</dt>
+<dd><p><span class="math display">\[\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )  \ \ \propto \ \   \exp \left(\, \frac{1}{\alpha}  Q^\pi(\mathbf{s}_t, \mathbf{a}_t)  \,\right)\]</span></p>
+</dd>
+<dt>State value function</dt>
+<dd><p><span class="math display">\[V_{soft}^\pi(\mathbf{s}_t) \ \ = \ \    \E_{\mathbf{a}_t \sim \pi_\theta (\mathbf{a}_t | \mathbf{s}_t )   }\left[ \, Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t) \ - \ \alpha \log \pi (\mathbf{a}_t | \mathbf{s}_t )   \, \right]\]</span></p>
+</dd>
+<dt>Q-function</dt>
+<dd><p><span class="math display">\[Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t ) \ \ = \ \ r(\mathbf{s}_t, \mathbf{a}_t) + \E_{(\mathbf{s}_{t+1}, \mathbf{a}_{t+1} ) \sim \pi}\big[ \, \sum_{t&#39;=t+1}^\mathsf{T} r(\mathbf{s}_{t&#39;}, \mathbf{a}_{t&#39;}) \ - \ \alpha \log \pi (\mathbf{a}_{t&#39;} | \mathbf{s}_{t&#39;} )   ) \, \big]\\\]</span> <span class="math display">\[\text{It&#39;s the probability of being optimal at timestep \textit{t} until the trajectory end.}\]</span></p>
+</dd>
+<dt>Objective</dt>
+<dd><p><span class="math display">\[J(\pi_\textit{MaxEnt} ) \ \ = \ \  \E_{\tau \sim \pi}\Bigg[ \, \sum_{t=0}^\mathsf{T} \, r(\mathbf{s}_t, \mathbf{a}_t) \ + \ \alpha \mathcal{H}(\pi (  \cdot | \mathbf{s}_t )) \, \Bigg]\]</span></p>
+</dd>
+<dt>What it does:</dt>
+<dd><p>The <em>MaxEnt</em> objective seek to maximize the expected <em>return</em> <strong>and</strong> maximize the action <em>entropy</em> at the same time.</p>
+</dd>
+</dl>
+
+<h2 id="subsec:BuildingBloc">Building bloc of Soft Actor-Critic</h2>
+<p>The algorithm seeks to maximize the maximum entropy objective by <d-math>J(\pi_{MaxEnt})</d-math> doing <em>soft policy iteration</em>, which is similar to regular policy iteration (more on this in the section). To do so, the algorithm will have to learn simultaneously the <em>soft Q-function</em> <d-math>Q_\theta^\pi</d-math> and <em>Maximum Entropy policy</em> <d-math>\pi_{MaxEnt}</d-math>.</p>
+<p>Because it’s learning both value and policy at the same time, <em>Soft Actor-Critic</em> (<em>SAC</em> for short) <strong>is considered a <em>value-based</em> <em>Actor-Critic</em> algorithm</strong>. This also means that it can be trained using <em>off-policy</em> samples.</p>
+<p><em>off-policy</em> learning capability is a very valuable and coveted ability: it means that <strong>the algorithm can learn from samples generated by another policy <d-math>\pi</d-math> distribution than the current one</strong>. Those samples could be coming from the same but older policy <d-math>\pi_{older}</d-math> (in other word samples generated earlier) or they could be coming from a totally different policy <d-math>\pi&#39;</d-math> that is producing them elsewhere.</p>
+<p>The key benefit here is that it can <strong>speed up training by reducing the overhead of having to produce new sample at every gradient step</strong>. It’s particularly useful in environment where producing new samples is a long process, like in real life robotic.</p>
+<h3 id="subsubsec:LearningTheSoftQfunction">Learning the <em>soft Q-function</em></h3>
+<p>Recall that we talk earlier about <d-math>Q_{soft}^\pi</d-math> being a <em>Probabilistic Graphical Model</em> . In order to be able to compute that value efficiently, we need to approximate it. We can do this by representing it has a parametrized function <d-math>Q_{\theta}^\pi (\mathbf{s}_t, \mathbf{a}_t )</d-math> of parameters <d-math>\theta</d-math>. We then learn <d-math>\theta</d-math> by minimizing the squared soft Bellman residual error</p>
+<p><span class="math display">\[J_Q(\theta) \ \ = \ \ \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi}\bigg[ \, \frac{1}{2}  \Big( \,  Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t) \ - \
+        \, \Big)^2  \, \bigg]\]</span> with <d-math>\widehat{Q}_{soft}^\pi</d-math> being the target.</p>
+<p>In theory, <d-math>V_{soft}^\pi(\mathbf{s}_t)</d-math> value can be estimated directly using . However, representing <d-math>V_{soft}^\pi</d-math> explicitly has the added benefit of helping stabilize learning. We can represent it has a parametrized function <d-math>V_{\psi}^\pi (\mathbf{s}_t)</d-math> of parameters <d-math>\psi</d-math>. We then learn <d-math>\psi</d-math> by minimizing the squared residual error</p>
+<p><span class="math display">\[J_V(\psi) \ \ = \ \ \E_{\mathbf{s}_t \sim p}\bigg[ \, \frac{1}{2}  \Big( \, V_\phi^\pi(\mathbf{s}_t )  \ - \
+        \, \Big)^2  \, \bigg]\]</span> with <d-math>\widehat{V}_{soft}^\pi</d-math> being the target.</p>
+<p>We now need a way to represent and learn <d-math>\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )</d-math>.</p>
+
+<h3 id="deriving-the-objective-jpi_maxent-of-sac">Deriving the objective <d-math>J(\pi_{MaxEnt})</d-math> of SAC:</h3>
+<p>Let first rewrite the <em>Maximum Entropy RL</em> objective for a single timestep in terms of <d-math>Q_\theta^\pi</d-math></p>
+<p><span class="math display">\[\begin{aligned}
+        J(\pi_\textit{MaxEnt} ) \ \ &amp;= \ \  \E_{\mathbf{s} \sim p, \, \mathbf{a} \sim \pi (\mathbf{a} | \mathbf{s})} \Big[ \, \sum_{t&#39;=1}^\mathsf{T} r(\mathbf{s}_{t&#39;}, \mathbf{a}_{t&#39;})  \ + \ \alpha \mathcal{H} \left(  \pi ( \cdot | \mathbf{s} )  \right) \Big]\\
+        \shortintertext{\raggedleft  \color{darkgray} \footnotesize \(\left&lt; \ \ \text{definition of soft Q function and entropy} \ \ \right&gt;\)}
+        &amp;= \ \  \E_{\mathbf{s} \sim p, \, \mathbf{a} \sim \pi (\mathbf{a} | \mathbf{s})} \Big[ \, Q_\theta^\pi (\mathbf{s}, \mathbf{a} ) \ + \ \alpha  \E_{\mathbf{a} \sim \pi}\left[ \, - \log  \pi (\mathbf{a} | \mathbf{s} ) \, \right]    \Big]\\
+        \shortintertext{\raggedleft  \color{darkgray} \footnotesize \(\left&lt; \ \ \mathbf{a} \text{ is condition on the same policy, so the inner expectation can be push outside } \ \ \right&gt;\)}
+        &amp;= \ \  \E_{\mathbf{s} \sim p, \, \mathbf{a} \sim \pi (\mathbf{a} | \mathbf{s})} \Big[ \, Q_\theta^\pi (\mathbf{s}, \mathbf{a} ) \ - \ \alpha   \log  \pi (\mathbf{a} | \mathbf{s} ) \,     \Big] \label{equationPiMaxEntObjectiveLogVersion}\\
+        &amp;= \ \  - \E_{\mathbf{s} \sim p, \, \mathbf{a} \sim \pi (\mathbf{a} | \mathbf{s})} \Big[ \, \alpha   \log  \pi (\mathbf{a} | \mathbf{s} )  \ - \  Q_\theta^\pi(\mathbf{s}, \mathbf{a}) \, \Big] \label{equationPiMaxEntObjective}\\
+        &amp;= \ \  - \E_{\mathbf{s} \sim p} \Big[ \, \E_{\, \mathbf{a} \sim \pi (\mathbf{a} | \mathbf{s})}\left[ \, \alpha   \log  \pi (\mathbf{a} | \mathbf{s} )  \ - \  Q_\theta^\pi(\mathbf{s}, \mathbf{a}) \, \right]  \,  \Big]\\
+        \shortintertext{\raggedleft  \color{darkgray} \footnotesize \(\left&lt; \ \ \text{rewriting the inner expectation as a KL-divergence}   \ \ \right&gt;\)}
+       J(\pi_\textit{SAC} ) \ \ &amp;= \ \  - \E_{\mathbf{s} \sim p}\left[ \, D_{KL} \left( \, \pi ( \cdot | \mathbf{s} ) \, \middle\Vert \, \exp \left( \frac{1}{\alpha} Q_\theta^\pi (\mathbf{s}_t, \cdot ) \right) \, \right) \, \right] + constant \label{equationMaxEntKLObj}
+    \end{aligned}\]</span> with the <em>constant</em> being the <a href="https://en.wikipedia.org/wiki/Partition_function_(mathematics)">partition function</a> that is used to normalize the distribution.<br />
+We can then learn this objective by minimizing the expected <em>KL-divergence</em> directly using this update rule <span class="math display">\[\pi_{new} \ \ \longleftarrow \ \ \argmin\limits_{\pi&#39; \in \Pi} D_{KL} \left(  \, \pi&#39; ( \cdot | \mathbf{s} ) \, \middle\Vert \, \exp \left( \frac{1}{\alpha} Q_\theta^{\pi_{old}} (\mathbf{s}_t, \cdot )  \right) \, \right)\]</span> with <d-math>\Pi</d-math> being a family of policy.</p>
+<dl>
+<dt>Note:</dt>
+<dd><p>The authors of the SAC paper as demonstrated that the constant can be omitted since it does not contribute to the gradient of <d-math>J(\pi_{MaxEnt})</d-math>  <span class="citation" data-cites="Haarnoja2018a"></span> (see appendix B).</p>
+</dd>
+</dl>
+
+<p><span class="math display">\[D_{KL} \big(P \Vert Q\big) \ \ \ = \ \ \  \E_{x \sim P(x)}\left[ \, \log \frac{P(x)}{Q(x)}  \, \right] \ \ \ = \ \ \ - \E_{x \sim P(x)}\left[ \, \log \frac{Q(x)}{P(x)}  \, \right] \ \ \ = \ \ \ - \E_{x \sim P(x)}\big[ \, \log Q(x)  \, \big] \, - \, \mathcal{H}\big(P(x)\big)\]</span></p>
+<p>It tel us how much different are to distribution</p>
+<ul>
+<li><p><d-math>0 \leq D_{KL} \big(q \Vert p\big)</d-math></p></li>
+<li><p><d-math>D_{KL} \big(q \Vert p\big)  = 0 \ \Longrightarrow \ q</d-math> and <d-math>p</d-math> are similar</p></li>
+</ul>
+
+<h3 id="learning-the-policy-pi_maxent">Learning the policy <d-math>\pi_{MaxEnt}</d-math></h3>
+<p>Concretely, we are going to approximate the policy <d-math>\pi_{SAC}</d-math> by representing it has parametrized Gaussian distribution <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math> of parameters <d-math>\phi</d-math> with a learnable mean and covariance. We cannot directly differentiate a probability distribution but using the <em>reparameterization trick</em>, we can remodel the policy so that it exposes different parameters: in our case the mean and covariance of a Gaussian distribution. Using this trick, we can express the action <span class="math display">\[\mathbf{a}_t\]</span></p>
+<p>as</p>
+<p><span class="math display">\[f_\phi (\epsilon_t; \mathbf{s}_t) \longmapsto \mathbf{a}_t\]</span></p>
+<p>where <d-math>\epsilon \sim \mathcal{N}(\mu, \Sigma)</d-math> and define implicitly the policy <d-math>\pi_\phi</d-math> in terms of <d-math>f_\phi</d-math></p>
+<p><span class="math display">\[\pi_\phi \Big(\, f_\phi (\epsilon_t; \mathbf{s}_t) \, | \mathbf{s}_t \Big) \longmapsto \mathbf{a}_t\\\]</span></p>
+<p>We then rewrite as <span class="math display">\[J_\pi(\phi) \ \ = \ \ \E_{\mathbf{s}_t \sim p, \, \epsilon \sim \mathcal{N}(\mu, \Sigma) } \Bigg[ \, \alpha   \log  \pi_\phi\Big(\,
+        \, \Big) \, \Bigg]\\\]</span></p>
+
+
+<p><span id="23774ec862f24739b51a8fe5be21751e" label="23774ec862f24739b51a8fe5be21751e">[23774ec862f24739b51a8fe5be21751e]</span></p>
+<p><span><strong> (Key idea) Building bloc of Soft Actor-Critic</strong></span></p>
+
+
+<dl>
+<dt>Algo. type:</dt>
+<dd><p><em>value-based</em> <em>Actor-Critic</em> algorithm</p>
+</dd>
+<dt>How does it work?</dt>
+<dd><p>SAC learns simultaneously a <em>soft Q-function</em> <d-math>Q_{soft}^\pi</d-math> and a <em>Maximum Entropy policy</em> <d-math>\pi_{MaxEnt}</d-math></p>
+</dd>
+<dt>Capability:</dt>
+<dd><p><em>off-policy</em> learning</p>
+<ul>
+<li><p>the algorithm can learn from samples generated by another policy <d-math>\pi</d-math> distribution than the current one;</p></li>
+<li><p>Key benefit: speed up training by reducing the overhead of having to produce new samples often;</p></li>
+</ul>
+</dd>
+<dt>Learning objective:</dt>
+<dd>
+</dd>
+</dl>
+<p><span class="math display">\[J_Q(\theta) \ \ = \ \ \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi}\bigg[ \, \frac{1}{2}  \Big( \,  Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t) \ - \
+            \, \Big)^2  \, \bigg]\]</span></p>
+<p><span class="math display">\[J(\pi_\textit{SAC} ) \ \ = \ \ - \E_{\mathbf{s} \sim p}\left[ \, D_{KL} \left( \, \pi ( \cdot | \mathbf{s} ) \, \middle\Vert \, \exp \left( \frac{1}{\alpha} Q_{soft}^\pi (\mathbf{s}_t, \cdot ) \right) \, \right) \, \right]\]</span></p>
+<dl>
+<dt>Trick:</dt>
+<dd><p>Learning <d-math>V_{soft}^\pi</d-math> separately is not required in principle but it can be useful to help stabilize learning </p>
+</dd>
+</dl>
+<p><span class="math display">\[J_V(\psi) \ \ = \ \ \E_{\mathbf{s}_t \sim p}\bigg[ \, \frac{1}{2}  \Big( \, V_\phi^\pi(\mathbf{s}_t )  \ - \
+            \, \Big)^2  \, \bigg]\]</span></p>
+<dl>
+<dt>Trick:</dt>
+<dd><p>Apply the reparameterization trick to transform the policy <d-math>\pi_{MaxEnt}</d-math> as a learnable Gaussian distribution</p>
+</dd>
+</dl>
+<p><span class="math display">\[\label{equationPolicyPhi}
+        J_\pi(\phi) \ \ = \ \ \E_{\mathbf{s}_t \sim p, \, \epsilon \sim \mathcal{N}(\mu, \Sigma) } \Bigg[ \, \alpha   \log  \pi_\phi\Big(\,
+        f_\phi(\epsilon_t; \mathbf{s}_t) \, | \mathbf{s}_t \Big)  \ - \  Q_\theta^\pi\Big(\, \mathbf{s}_t, \, f_\phi(\epsilon_t; \mathbf{s}_t) \, \Big) \, \Bigg]\\\]</span></p>
+
+<h2 id="subsec:AlgorithmAnatomy">Algorithm anatomy:</h2>
+<p>In order to be effective while tackling large continuous domain, the <em>SAC</em> algorithm uses an approximation of the <em>soft policy iteration</em> algorithm:</p>
+<ol>
+<li><p>It used function approximator for the <em>soft Q-function</em> <d-math>Q_{soft}^\pi</d-math> and the policy <d-math>\pi_{SAC}</d-math></p></li>
+<li><p>It alternates between <em>soft policy evaluation</em> and <em>soft policy improvement</em> instead of running each one to convergence separately like in <em>Classical RL</em> <em>policy iteration</em>.</p></li>
+</ol>
+
+<p><span id="57ec02b6db7b497fb840fa34ba3b0a98" label="57ec02b6db7b497fb840fa34ba3b0a98">[57ec02b6db7b497fb840fa34ba3b0a98]</span></p>
+<p>soft policy iteration</p>
+
+
+
+
+<h3 id="training-soft-function-approximator-implementation-details">Training soft function approximator: implementation details</h3>
+<p>The algorithm will learn</p>
+<ol>
+<li><p>a parametrized soft <em>state-value function</em> <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math>;</p></li>
+<li><p>two parametrized <em>soft Q-function</em> <d-math>Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math>;</p></li>
+<li><p>and a <em>maximum entropy policy</em> <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>;</p></li>
+</ol>
+<p><d-math>\psi</d-math> and <d-math>\theta</d-math> will be modelled as neural networks. <d-math>\psi</d-math> will be reparameterized as a Gaussian distribution with a mean and covariance learnable by a neural network.</p>
+<p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, done_{t+1} )</d-math>. One of the key benefits of sampling tuple <d-math>(\mathbf{s}_t, \mathbf{a}_t, r_t, \mathbf{s}_{t+1})</d-math> randomly from a <em>replay buffer</em> is that it breaks temporal correlation which helps learning  </p>
+<h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <em>state-value function</em> <d-math>V_\psi^\pi</d-math> ?</h4>
+<p>As we talked there is no theoretical requirement for learning <d-math>V_\psi(\mathbf{s}_t)</d-math> since it can be recovered from directly using <d-math>Q_\theta(\mathbf{s}_t, \mathbf{a}_t )</d-math> and <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>. In practice, it can stabilize training  </p>
+<h4 id="why-learn-the-two-soft-q-function-q_thetapi">Why learn the two soft <em>Q-function</em> <d-math>Q_\theta^\pi</d-math> ?</h4>
+<p>The policy improvement step is known to produce positive bias that reduces the performance in value-based method. This is a trick (aka <em>clipped double-Q</em>) that help reduce the impact of this problem. How it work is that the algorithm learn <d-math>Q_{\theta 1}^\pi</d-math> and <d-math>Q_{\theta 2}^\pi</d-math> separately then take the minimum between the two when training <d-math>V_\psi^\pi</d-math>. In practice, the SAC authors founded that “it significantly speed up training, especially on harder task”  </p>
+
+<p>[]</p>
+
+<p>[]</p>
+<h4 id="detail-regarding-the-soft-state-value-function">Detail regarding the Soft state value function</h4>
+<p>Like we we can train the <em>soft state value function</em> by least squared regression <span class="math display">\[J_V(\psi) \ \ = \ \ \E_{\mathbf{s}_t \sim D}\Bigg[ \, \frac{1}{2} \bigg( V_\psi^\pi(\mathbf{s}_t)  \ - \ \E_{
+            \ - \ \log \pi_\phi (\mathbf{a}_t | \mathbf{s}_t )  \, \Big]  \bigg)^2 \, \Bigg]\]</span> Observe that state <d-math>\mathbf{s}_t</d-math> is sampled from the <em>replay buffer</em> but not action <d-math>\mathbf{a}_t</d-math> which is sampled from the current policy <d-math>\pi</d-math>. It’s a critical detail that is easy to miss. Also, this is where we make use of our two learned <em>soft Q-function</em>.</p>
+<h4 id="detail-regarding-the-soft-q-function">Detail regarding the Soft Q-function</h4>
+<p>Again, we can train the <em>soft Q-function</em> by least squared regression</p>
+<p><span class="math display">\[J_Q(\theta) \ \ = \ \ \E_{(\mathbf{s}_t, \mathbf{a}_t ) \sim \pi}\Big[ \, \frac{1}{2}  \Big( \, Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t) \ - \
+            \, \Big)^2  \, \Big]\]</span></p>
+<p>The learning target is represented by a copy of the main <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math> with parameter noted <d-math>\bar{\psi}</d-math>. Network weight from <d-math>V_\psi^\pi</d-math> are copied in a controlled manner to <d-math>V_{\bar{\psi}}^\pi</d-math> using exponential moving average and adjusted by a target smoothing coefficient hyperparameter <d-math>\tau</d-math>.</p>
+<h4 id="detail-regarding-the-soft-actor-critic-policy">Detail regarding the <em>Soft Actor-Critic</em> policy</h4>
+<p>Policy <d-math>\pi_\phi</d-math> is trained using <span class="math display">\[J_\pi(\phi) \ \ = \ \ \E_{\mathbf{s}_t \sim p, \, \epsilon \sim \mathcal{N}(\mu, \Sigma) } \Bigg[ \, \alpha   \log  \pi_\phi\Big(\,
+            f_\phi(\epsilon_t; \mathbf{s}_t) \, | \mathbf{s}_t \Big)  \ - \  Q_\theta^\pi\Big(\, \mathbf{s}_t, \, f_\phi(\epsilon_t; \mathbf{s}_t) \, \Big) \, \Bigg]\\\]</span></p>
+<p>Like we have explained earlier, the policy <d-math>\pi</d-math> is modelled using a Gaussian distribution. It’s important to consider the fact that Gaussian distributions are unbounded contrary to our policy which needs to produce action inside a bound reflecting the environment <em>action space</em>. Thus, enforcing those bounds is done by applying a squashing function <d-math>\sum_{i = 1}^{|\mathcal{A}|} \log (1 - \tanh^2(action))</d-math>.</p>
+
+<p><span id="58d721ea48034c2bbd651f574a60c628" label="58d721ea48034c2bbd651f574a60c628">[58d721ea48034c2bbd651f574a60c628]</span></p>
+<p><em>Soft Actor-Critic</em></p>
+
+
+
+
+
+
+
+
+<p><d-math>\leftarrow 0.005</d-math> <d-math>\leftarrow 1</d-math> <d-math>\leftarrow 1</d-math> <d-math>\leftarrow 10e6</d-math> <d-math>\leftarrow 256</d-math><br />
+<br />
+<br />
+( environment step <d-math>t</d-math>)<span>learning goal reached</span><span> <d-math>\mathbf{a}_t \sim \pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math> <d-math>r(\mathbf{s}_t, \mathbf{a}_t), \mathbf{s}_{t+1}  \sim p(\mathbf{s}_{t+1} | \mathbf{s}_t, \mathbf{a}_t)</d-math> <d-math>\mathcal{D} \longleftarrow \mathcal{D} \cup {(\mathbf{s}_t, \mathbf{a}_t , r(\mathbf{s}_t, \mathbf{a}_t), \mathbf{s}_{t+1}  )}</d-math> (update target)<span>TARGET-INTERVALLE reached</span><span> <d-math>\bar{\psi} \, \longleftarrow \, \tau\psi + (1-\tau) \bar{\psi}</d-math> </span> </span></p>
+
+<h1 id="sec:inPractice">Soft Actor-Critic - In Practice</h1>
+<p>Implementing <em>SAC</em> was definitely not an easy venture. There was a lot of moving pieces, interacting part and many small important details. It was a new framework for me, so the challenge was both on a theoretical and applied level. Of course every time one adds a complexity layer to a problem, narrower the margin for error become and the steepest the fall. Nevertheless it was thrilling and very fulfilling especially the moment I finally started seeing results.</p>
+<p>There were many tasks to handle in order to implement SAC, among others:</p>
+<ul>
+<li><p>expanding my previous learning agent implementation to support: a new architecture, a new data acquisition requirement and new hyperparameters;</p></li>
+<li><p>implementing an agent brain comprised of <strong>5 neural nets</strong>;</p></li>
+<li><p>3 different optimization operations;</p></li>
+<li><p>a neural net weight update operation that <strong>required to periodically fetch parameters from his older brother, tensor by tensor</strong>;</p></li>
+<li><p>a <strong>continuous action space policy</strong> with learnable mean and covariance;</p></li>
+<li><p>a way to convert this stochastic policy on the fly to a deterministic one;</p></li>
+<li><p>a <strong>replay buffer</strong> of arbitrary size for storing collected samples with the capability to renew is stock along the way;</p></li>
+<li><p>a <strong>minibatch sampler</strong> that aggregates randomly selected samples from the replay buffer to feed the learning agent;</p></li>
+<li><p><strong>collecting additional metrics</strong> from those 5 neural nets and the agent in order to evaluate performance and understand how <em>Maximum Entropy RL</em> behave and work;</p></li>
+<li><p>expand my tools for running experiment and organize results and, <strong>of course, …<br />
+solving silent bugs</strong>;</p></li>
+</ul>
+<p>Once the implementation was working and the agent was exhibiting some timid proof of life, the second challenge was to understand how this new framework behave and get acquainted with very sensitive hyperparameter that has the power to make or break the algorithm if poorly understood. Reading about it is one thing, being able to recognize their effects among the noise of other things during experimentation is something else.</p>
+<h2 id="from-theory-to-practice">From theory to practice</h2>
+<h3 id="implementing-a-policy-for-continuous-action-space">Implementing a policy for continuous action space</h3>
+<p>Like every other algorithm capable of handling continuous action space, the common strategy is to model the policy has a Gaussian distribution with the center of the distribution <d-math>\mu</d-math> representing the best action <d-math>\mathbf{a}</d-math> given the <d-math>\mathbf{s}</d-math>. <d-math>\mu</d-math> is learned with a function approximator and we don’t care about the covariance since we are optimizing for ’the’ optimal path.</p>
+<p>Under the <em>Maximum Entropy</em> framework, things are a little bit different as we are optimizing for every optimal behaviour, even those under adverse condition. In that regard, the policy cannot just rely on knowing the position of the peak under the distribution. The policy must learn multiple modes and to do so, he must have control over learning the covariance as well as <d-math>\mu</d-math>. Thus, it’s critical to validate that the gradient is able to flow throughout all those component during back propagation.</p>
+<h3 id="keeping-up-with-5-separate-neural-networks">Keeping up with 5 separate neural networks</h3>
+<p>One of the main challenges was to handle the construction of those graph, their interaction, make sure the data was piped in the right place. Because of the growing number of <em>TensorFlow</em> <code>Tensors</code> and <code>Operations</code>, keeping things organized became a necessity. This required the uses of a standardize vocabulary and regrouping <code>Tensors</code> and <code>Operations</code> under logical <code>name scope</code>.</p>
+<p><img src="/assets/img/SAC/SAC_NeuralNets.png" alt="image" style="width:13cm" /> <span id="SAC_tensorboradGraph" label="SAC_tensorboradGraph">[SAC_tensorboradGraph]</span></p>
+
+
+<p>Like I have talked previously, <em>Soft Actor-Critic</em> implementation makes use of a <em>Gaussian distribution</em> parametrized by a neural net <d-math>\phi</d-math>, two <em>Q-function</em> <d-math>\theta</d-math> of same architecture behaving closely and two <em>state value functions</em> of same architecture but with one always behind in time in terms of optimization.</p>
+<p><img src="/assets/img/SAC/SAC_graph_5network.png" alt="image" style="width:16.5cm" /> <span id="SACNeuralNets5net" label="SACNeuralNets5net">[SACNeuralNets5net]</span></p>
+<p>The fact that both <d-math>\theta</d-math> networks were never far apart in terms of optimization added a bit of confusion during debugging since the feedback you get from watching their collected metrics on TensorBoard is that they are the same! Then you are faced with the doubt that maybe, you did something wrong and that the first one is cloned into the other for whatever reason.</p>
+<p><img src="/assets/img/SAC/Q_loss_look_alike_smaller.png" alt="image" style="width:13cm" /> <span id="Q_loss_look_alike_smaller" label="Q_loss_look_alike_smaller">[Q_loss_look_alike_smaller]</span></p>
+
+
+<h3 id="implementing-the-target-update-operation">Implementing the target update operation</h3>
+<p>This idea of using two slightly different copy of the same network to optimize the mean squared error is common among value-based algorithms.</p>
+<p>The problem arises from the fact that we are trying to minimize the loss of two functions depending on the same parameters. Performing a delayed update on the target network keep them closely related but different enough so that evaluating their differences as they evolve can give a useful learning signal. In effect, it stabilizes training.</p>
+<p>This is one of the key contributions of <em>DQN</em> in terms of architecture.</p>
+
+<p>This was a tricky part for me since I was not familiar with that kind of task involving low-level TensorFlow component. So the story goes like this.: SAC need a way to keep track of two closely evolving neural nets <d-math>\psi</d-math> and <d-math>\bar{\psi}</d-math> with one always lagging behind the other one in terms of optimization. They are both named <code>V_psi</code> and <code>frozen_V_psi</code> in the snapshot of <em>SAC</em> trainable variable.</p>
+<p><img src="/assets/img/SAC/graph_variable_key.png" alt="image" style="width:13cm" /> <span id="graph_variable_key" label="graph_variable_key">[graph_variable_key]</span></p>
+
+<p>We can’t copy the entire network at once because of the way <em>TensorFlow</em> computation graph are designed. We can see it as a custom-made aggregation of <em>tensor</em> with full control over their component. In other words, <em>TensorFlow</em> is not designed to be user-friendly, it is designed for efficiency and computation power. So there is no easy solution out of the box to do this like a <code>newNet = easyCopyMyNeuralNetwork(oldNet)</code> function.</p>
+<p>The way to handle this is to build a <em>TensorFlow operation</em> that fetches the relevant <em>tensor</em> part of the<code>V_psi</code> graph among all the available <em>Trainable Variables</em> and assign their weight to <code>frozen_V_psi</code> by performing polyak averaging. This operation once built became part of the computation graph.</p>
+<p><span>( See on next page, Figure: My target network update <em>TensorFlow operation</em> implementation detail)</span></p>
+<p><img src="/assets/img/SAC/tf_bloc_graph_variable_updater_2.png" alt="image" style="width:16cm" /> <span id="tf_bloc_graph_variable_updater_2" label="tf_bloc_graph_variable_updater_2">[tf_bloc_graph_variable_updater_2]</span><br />
+<span>My target network update <em>TensorFlow operation</em> implementation detail</span><br />
+<span><code>tensorflowbloc.py</code> module from the <code>blocAndTools</code> package</span></p>
+
+<h3 id="implementing-the-replay-buffer">Implementing the replay buffer</h3>
+<p>This is “not a big challenge to implement” per se but it is a very crucial one. A one for which a careless design and implementation can have a detrimental effect on the agent learning wall clock speed and also, on another level, impede the development process because of the delayed feedback between experimentation cycles. So it’s essential to take as much time as possible to optimize the replay buffer for speed as some of its operation are going to be performed millions of times over a experimentations set.</p>
+<p>Let suppose you setup an experimentation to perform training of a SAC algorithm over a period of <code>50 epoch</code> of <code>5000 timestep</code> each. Then SAC will have to perform <code>250000 gradient steps</code> during an experimentation run. Now you also decide to set a <code>batch size of 100</code>, which is a relatively conservative value. Since <em>SAC</em> standard design (the one with target update by exponential moving average) performs <code>1 gradient step</code> for every timestep it collects, this means that <em>SAC</em> will handle 25 million samples during the course of one experimentation. The price of a poor design choice can be quite significative when performed <d-math>25e^6</d-math> times.</p>
+<p>One design experiment I have conducted showed that, given that we want to compute data at the end:</p>
+<ul>
+<li><p>writing to a prefixed size list is close in speed to writing to a numpy array;</p></li>
+<li><p>appending to a list is  45 times slower than writing to a prefixed size container;</p></li>
+</ul>
+
+<p><img src="/assets/img/SAC/write_vs_apend_data_structure_benchmark_snapshot.png" alt="image" style="width:14cm" /> <span id="write_vs_apend_data_structure_benchmark_snapshot" label="write_vs_apend_data_structure_benchmark_snapshot">[write_vs_apend_data_structure_benchmark_snapshot]</span><br />
+<span><code>write_vs_apend_data_structure_benchmark.py</code></span></p>
+
+<p>In another benchmark experiment regarding the design of an <code>EpisodeData</code> class proof of concept, I observed the following:</p>
+<ul>
+<li><p>numpy array indexing (READ) is 2X slower compared to (READ) on list of the same size;</p></li>
+<li><p>overridden methods are a little slower to execute than an original one;</p></li>
+<li><p>execution behaves differently with respect to container size (size: 4000 vs 4000000);</p></li>
+<li><p>result change drastically if TensorFlow is running in another python process at the same time;</p></li>
+</ul>
+
+<p><img src="/assets/img/SAC/data_conrainer_benchmark.png" alt="image" style="width:14cm" /> <span id="data_conrainer_benchmark" label="data_conrainer_benchmark">[data_conrainer_benchmark]</span><br />
+<span><code>EpisodeData</code> class proof of concept</span><br />
+<span><code>data_structure_prof_of_concept_benchmark.py</code></span></p>
+
+<h2 id="important-component-that-make-or-break-sac">Important component that make or break SAC</h2>
+<h4 id="section"></h4>
+<p>Recall that <em>SAC</em> optimize a stochastic policy <d-math>\pi_{MaxEnt}</d-math>, so when it comes to evaluating the performance it is useful to make it deterministic. This same strategy can be used at deployment time of a trained <em>SAC</em> agent.</p>
+<p><strong>How?</strong> By using a variant of the <d-math>\pi_{MaxEnt}</d-math> where instead of returning a sampled action from the learned distribution, we return it’s mean <d-math>\mu</d-math> (like in a <em>Classical RL</em> policy for continuous action space). <span class="math display">\[\begin{aligned}
+        \pi_{Stochastic} &amp;\longrightarrow \mathbf{a}_t \sim \pi_t\\
+        \text{vs}&amp; \\
+        \pi_{Deterministic} &amp;\longrightarrow \mathbf{a}_t = \mu_t
+    \end{aligned}\]</span></p>
+
+<h3 id="understanding-the-reward-scaling-and-the-quest-for-finding-the-right-one">Understanding the reward scaling and the quest for finding the right one</h3>
+<p>Reward scaling is the process of raising or lowering the magnitude of the reward by multiplying each reward term by a constant: <code>reward scaling</code> coefficients that we will note <d-math>\eta</d-math>. <span class="math display">\[\eta \, \cdot \ r(\mathbf{s}_t , \mathbf{a}_t) \ \ \ \ \ \ \forall t \in \interval[]{1}{\mathsf{T}}\]</span></p>
+<p>It’s a common trick that is useful when an algorithm is sensitive to the reward magnitude.</p>
+<p>The <em>Maximum Entropy RL</em> policy definition with <code>reward scaling</code> coefficient is <span class="math display">\[\begin{aligned}
+    \pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )   \ \ &amp;\propto \ \ \exp\left( \frac{1}{\alpha} \ Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t) \right)  \\
+    \shortintertext{\raggedleft  \color{darkgray}  \(\left&lt; \ \ \text{Definition of the \hyperref[equationBellmanSoft]{\textit{soft Bellman equation}} } \ \ \right&gt;\)}
+    &amp;\propto \ \ \exp\left( \frac{
+    \, \eta \, \cdot \ r(\mathbf{s}_t, \mathbf{a}_t) + \E_{\mathbf{s}_{t+1} \sim p(\mathbf{s}_{t+1} | \mathbf{s}_t, \mathbf{a}_t) } \big[ \, V_{soft}^\pi(\mathbf{s}_{t+1}) \, \big] \,
+    }{\alpha} \  \, \right)  \nonumber\end{aligned}\]</span> with <d-math>\alpha</d-math> being the <code>temperature</code> .</p>
+<p>As the authors of <em>SAC</em> paper mentioned, <em>SAC</em> is very sensitive to this hyperparameter setting since the reward plays the same role as the inverse of the energy in its analogue, the Boltzmann distribution. So <code>reward scaling</code> coefficient has the opposite effect of the temperature <d-math>\alpha</d-math> thus tuning both parameters in the same experiment is useless, it’s one or the other.</p>
+<h4 id="intuitively">Intuitively:</h4>
+
+<ul>
+<li><p>Low reward magnitudes will make all rewards look identical to the agent, so the agent won’t be able to see a difference between events;</p></li>
+<li><p>High reward magnitudes will make the agent completely discard event linked to smaller reward making the policy almost deterministic;</p></li>
+</ul>
+
+<p>We can observe the effect of <code>reward scaling</code> in the following experiment done on the <code>LunarLanderContinuous-v2</code> environment where I performed 8 training run divided over 4 different <code>reward scaling</code> coefficient settings (1.0, 5.0, 20.0, 40.0) using no random seed. We can see how 40.0 is the only setting leading to consistent results where the agent succeeded to learn 2 times out of 2.</p>
+<p>Note: This experiment was performed to give a general idea and need to be rerun at least 3 more times to have significant empirical value.</p>
+<p><img src="/assets/img/SAC/rewScaleFour_avg_return_deterministic.png" alt="image" style="width:15.8cm" /><br />
+<span id="rewScaleFour_avg_return_deterministic" label="rewScaleFour_avg_return_deterministic">[rewScaleFour_avg_return_deterministic]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<img src="/assets/img/SAC/rewScaleFour_trj_lenght_detrministic.png" alt="image" style="width:15.8cm" /><br />
+<span id="rewScaleFour_trj_lenght_detrministic" label="rewScaleFour_trj_lenght_detrministic">[rewScaleFour_trj_lenght_detrministic]</span> <span><strong>Trajectory lenght</strong></span><br />
+</p>
+
+
+<p><strong>ExperimentSpec</strong> {</p>
+<ul>
+<li><p>’Rerun tag’: <code>LunarLander-EMA-MinPool-RewSFour-reward_scaling=(1.0|5.0|20.0|40.0)</code></p></li>
+<li><p>’Max epoch’: 50</p></li>
+<li><p>’Timestep per epoch’: 5000</p></li>
+<li><p>’Discount factor’: 0.99</p></li>
+<li><p>’Learning rate’: 0.003</p></li>
+<li><p>’All Neural Nets topo’: (200X200)</p></li>
+<li><p>’Hidden layers activation’: relu</p></li>
+<li><p>’Replay buffer capacity’: 50000</p></li>
+<li><p>’Batch size in timestep’: 200</p></li>
+<li><p>’Minimum replay buffer size’: 200000</p></li>
+<li><p>’reward scaling’: [1.0, 5.0, 20.0, 40.0]</p></li>
+<li><p>’Random seed’: None</p></li>
+</ul>
+<p>}</p>
+
+<h3 id="the-effect-of-the-replay-buffer-size">The effect of the replay buffer size</h3>
+<p>This component is composed of two aspects:</p>
+<ul>
+<li><p>The <strong>minimum</strong> <code>replay buffer</code> size before starting to take gradient step</p></li>
+<li><p>The <strong>maximum</strong> <code>replay buffer</code> size before starting to overwrite older samples</p></li>
+</ul>
+<p>This is an underrated component in the <em>SAC</em> literature. In fact, the part regarding the <strong>minimum</strong> <code>replay buffer</code> size is not discussed at all.</p>
+<p>The effect in principle is that <strong>the bigger the <code>replay buffer</code>, the more diversify the experience pool will be for the learning agent</strong>. The caveat, though, is that the bigger the <code>replay buffer</code>, the slower samples in the replay buffer get renewed, the slower the learning agent gets access to samples coming from trajectories that are closer to optimal one, which is what the algorithm is optimizing for. Well, that’s <strong>the common assumption made in the case or <em>Classical RL</em></strong>, where you usually want to <strong>prioritized sample leading to the optimal trajectories</strong>.</p>
+<p>Things are different in the case of <em>Maximum Entropy RL</em>. Intuitively, the bigger and diversify the experience pool, the wider and deeper the learning scope gets. As <em>Maximum Entropy RL</em> optimize for many optimal path and alternative scenario, learning from a large <code>replay buffer</code> become a requirement. Finding the right <code>maximum buffer size</code> setting is significant because it affects how old sample get renewed.</p>
+<p>The common assumption coming from <em>Classical RL</em> is that since newer trajectory samples come from a policy <d-math>\pi</d-math> distribution closer to the optimal goal, then they must have more learning value. It’s important to point out that <strong>this logic does not apply to <em>Maximum Entropy RL</em> as non-optimal trajectory samples are essential to learning how to handle adverse condition. So getting solely expose to optimal condition won’t cut it.</strong></p>
+<p>The agent needs to have a hard time, need to be beaten up, shaken, rattle and so on. Putting it in a way that relates to human performances in sport:</p>
+<p><strong>No one ever became strong by having it easy</strong>.</p>
+<p>That’s the general idea about how <strong>the upper bound</strong> on the <code>replay buffer</code> size has huge consequences on <em>SAC</em> performance. Now let’s talk about the underrated one, the <strong>lower bound</strong>, as in the <strong>minimum</strong> <code>replay buffer</code> size before starting to take gradient steps.</p>
+<p>Suppose we start training early, right at the end of the first trajectory at <d-math>t=200</d-math>. We choose a batch size of 100 for training, so gradient step will look like this:</p>
+<dl>
+<dt>1</dt>
+<dd><p>is done with samples from <d-math>\frac{100}{200}</d-math> of the replay buffer;</p>
+</dd>
+<dt>2</dt>
+<dd><p>is done with samples from <d-math>\frac{100}{201}</d-math> of the replay buffer;</p>
+</dd>
+<dt>3</dt>
+<dd><p>is done with samples from <d-math>\frac{100}{202}</d-math> of the replay buffer;</p>
+</dd>
+<dt>4</dt>
+<dd><p>is done with samples from <d-math>\frac{100}{203}</d-math> of the replay buffer;</p>
+</dd>
+<dt>5</dt>
+<dd><p>…</p>
+</dd>
+</dl>
+<p>so since the <code>replay buffer</code> size grow slower than the speed at which the agent train on them, we can see how he will probably overfit those first samples and reach a local maxima.</p>
+
+<p>The <strong>best-case scenario</strong> is that at every timestep, the sampler pick the ones that were less used for training; The <strong>worst-case scenario</strong> is that at every timestep, the sampler pick all the same one consecutively;</p>
+<p>It’s true that both the worst case and best-case scenario can happen for every <code>minimum replay buffer</code> size setting. The problem is that the smaller the <code>minimum replay buffer</code> size, the greater the chances of encountering the worst-case scenario and the lesser the chances of encountering the best-case scenario.</p>
+<p>This intuition is aligned with what I have observed during experimentation. When the <code>minimum replay buffer</code> size was too small for the training environment, then the agent training performance was inconsistent. On the other end, when the <code>minimum replay buffer</code> size was large enough for the training environment, then the agent training was succeeding at every run.</p>
+<p>In the following experiment done on the <code>LunarLanderContinuous-v2</code> environment, I performed 15 training run divided over 3 different <code>minimum replay buffer</code> settings (300, 10000 and 20000) using no random seed. We can observe how the lower settings 300 and 10000 gave inconsistent results as the agent failed to learn 3 times out of 5 as opposed to a large enough <code>minimum replay buffer</code> setting of 20000, which gave consistent results as the agent succeeded to learn 5 times out of 5.</p>
+<p><img src="/assets/img/SAC/min_pool=300_deterministice.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=300_deterministice" label="min_pool=300_deterministice">[min_pool=300_deterministice]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<img src="/assets/img/SAC/min_pool=300_stochas.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=300_stochas" label="min_pool=300_stochas">[min_pool=300_stochas]</span> <span><strong>Stochastic policy</strong> <d-math>\pi</d-math></span><br />
+</p>
+<p><img src="/assets/img/SAC/min_pool=1000_deterministice.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=1000_deterministice" label="min_pool=1000_deterministice">[min_pool=1000_deterministice]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<img src="/assets/img/SAC/min_pool=1000_stochas.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=1000_stochas" label="min_pool=1000_stochas">[min_pool=1000_stochas]</span> <span><strong>Stochastic policy</strong> <d-math>\pi</d-math></span><br />
+</p>
+
+<p><img src="/assets/img/SAC/min_pool=2000_deterministice.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=2000_deterministice" label="min_pool=2000_deterministice">[min_pool=2000_deterministice]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<img src="/assets/img/SAC/min_pool=2000_stochas.png" alt="image" style="width:16cm" /><br />
+<span id="min_pool=2000_stochas" label="min_pool=2000_stochas">[min_pool=2000_stochas]</span> <span><strong>Stochastic policy</strong> <d-math>\pi</d-math></span><br />
+</p>
+
+
+<p><strong>ExperimentSpec</strong> {</p>
+<ul>
+<li><p>’Rerun tag’: <code>LunarLander-EMA-MinPool-ModBuffer-min_pool_size=(300|20000|10000)</code></p></li>
+<li><p>’Max epoch’: 50</p></li>
+<li><p>’Timestep per epoch’: 5000</p></li>
+<li><p>’Discount factor’: 0.99</p></li>
+<li><p>’Learning rate’: 0.003</p></li>
+<li><p>’All Neural Nets topo’: (200X200)</p></li>
+<li><p>’Hidden layers activation’: relu</p></li>
+<li><p>’reward scaling’: 40.0</p></li>
+<li><p>’Replay buffer capacity’: 50000</p></li>
+<li><p>’Batch size in timestep’: 200</p></li>
+<li><p>’Minimum replay buffer size’: [300|10000|20000]</p></li>
+<li><p>’Random seed’: None</p></li>
+</ul>
+<p>}</p>
+
+<h2 id="subsec:Experimentation">Experimentation</h2>
+<p>It took a lot of time and hard work before starting to be able to exhibit the SAC paper results in a consistent manner, meaning over multiple rerun with the same experiment specification. It did so for numerous reasons, among those stated earlier:</p>
+<ul>
+<li><p>spotting the <code>replay buffer</code> sampling defects,</p></li>
+<li><p>tunning the <code>reward scaling</code> coefficient required for the current environment</p></li>
+<li><p>understanding the catastrophic effect that a too small <code>minimum pool size</code> hyperparameter value has on training a <em>Soft Actor-Critic</em> agent.</p></li>
+</ul>
+<h3 id="when-silent-bugs-and-bad-hyperparameters-walk-hand-in-hand">When silent bugs and bad hyperparameters walk hand in hand</h3>
+<p>What I did not mention about those three previously stated problems is that they had a compounding effect over the same resulting behaviour, naming: <strong>optimizing to a local maxima</strong> where learning an optimal path seems to be <strong>depending on state initialization probabilities</strong>.</p>
+<p><strong>This is the opposite of the expected behaviour of <em>Maximum Entropy RL</em></strong>.</p>
+<p>This compounding effect made finding its multiple causes harder, as solving one only diminished the undesired behaviour. The effect of that weak feedback and mix signal gave me doubt for a long time as I was unsure if I was wasting my time or if I was actually heading in the right direction even though I was solving issues.</p>
+<p>I have to point out the fact that easier task like <code>Pendulum</code> did not highlight those problems, probably because of the smaller observation and action spaces. So once it worked on <code>Pendulum</code>, I thought that my implementation was working fine and that the lack of results on harder task was only due to hyperparameter tunning among those discuss in the literature. Also the experimentation cycle become slower and slower as environment get harder. As an example, a single training run on <code>LunarLanderContinuous-v2</code> over 250000 timesteps working those <em>SAC</em> 5 neural nets with each 200X200 neurons take between one and three and a half hour long on average.</p>
+<p><img src="/assets/img/SAC/experiment_wall_clock_time.png" alt="image" style="width:16cm" /><br />
+<span id="experiment_wall_clock_time" label="experiment_wall_clock_time">[experiment_wall_clock_time]</span> <span> <strong>Average return</strong> vs <strong>wall clock time</strong> </span></p>
+<p>Nevertheless, after a lot of hard work, countless hours, sleepless night, many failed hypotheses and close to 500 experiments run, I am proud to say that I founded all the causes, I now understand why they were causing <em>SAC</em> to brake and I have a lot deeper appreciation of the <em>Maximum Entropy RL</em> mechanic in general.</p>
+<p><img src="/assets/img/SAC/min_pool=2000_deterministice.png" alt="image" style="width:15.5cm" /><br />
+<span id="min_pool=2000_deterministice" label="min_pool=2000_deterministice">[min_pool=2000_deterministice]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<img src="/assets/img/SAC/minpool20000_trajectory_lenght.png" alt="image" style="width:15.5cm" /><br />
+<span id="minpool20000_trajectory_lenght" label="minpool20000_trajectory_lenght">[minpool20000_trajectory_lenght]</span> <span><strong>Trajectory lenght</strong></span><br />
+<img src="/assets/img/SAC/minpool20000_loss.png" alt="image" style="width:15.8cm" /><br />
+<span id="minpool20000_loss" label="minpool20000_loss">[minpool20000_loss]</span> <span><strong>Losses</strong></span></p>
+
+<p><strong>ExperimentSpec</strong> {</p>
+<ul>
+<li><p>’Rerun tag’: <code>LunarLander-EMA-MinPool-ModBuffer-min_pool_size=20000</code></p></li>
+<li><p>’Max epoch’: 50</p></li>
+<li><p>’Timestep per epoch’: 5000</p></li>
+<li><p>’Discout factor’: 0.99</p></li>
+<li><p>’Learning rate’: 0.003</p></li>
+<li><p>’All Neural Nets topo’: (200X200)</p></li>
+<li><p>’Hidden layers activation’: relu</p></li>
+<li><p>’Batch size in timestep’: 200</p></li>
+<li><p>’reward scaling’: 40.0</p></li>
+<li><p>’Replay buffer capacity’: 50000</p></li>
+<li><p>’Minimum replay buffer size’: 20000</p></li>
+<li><p>’Random seed’: None</p></li>
+</ul>
+<p>}</p>
+
+<p>I still have a lot of experimentation to do on harder task but so far, my final iteration learn fast and gives powerful result. As you can appreciate, this following <em>SAC</em> training runs on <code>LunarLanderContinuous-v2</code> exceeded the reward goal in 7 <code>epoch</code> of the 50 planned.</p>
+<p><img src="experiment_runner_2.png" alt="image" style="width:12cm" /> <span id="experiment_runner_2" label="experiment_runner_2">[experiment_runner_2]</span><br />
+<span>A tool that I’ve built to custom display dynamically learning metric in the console</span><br />
+<span><code>visualisationtools.py</code> and <code>experiment_runner.py</code> modules under the <code>blocAndTools</code> package</span></p>
+
+<h2 id="lesson-learned-best-practice">Lesson learned &amp; best practice</h2>
+<h3 id="the-importance-of-applying-test-driven-development-best-practice-in-rl">The importance of applying <em>Test-Driven development</em> best practice in RL</h3>
+<h4 id="why">Why?</h4>
+<p><strong>First,</strong> because it <strong>gives you confidence over those tested piece of code when tracking evil silent bug</strong> causes. You know for sure they are working as expected so you can focus elsewhere. <strong>Second,</strong> because you can catch small mistakes early so you don’t waste time later. <strong>Third,</strong> the “divide and conquer” approach: It’s much easier to solve a problem over a small scope of your code base than it is on the entire code base.</p>
+<p>It’s easy to get overconfident (as I did) and think that since it’s “not a big challenge to implement”, I could minimize or delay the <em>unit-test</em> part.</p>
+<p>As an example, I realized at some point (very late in the process) that my <em>SAC</em> implementation seems to behave like it was getting trapped in local maxima more often than not. I thought for weeks that my math implementation was the problem and wasted a lot of valuable time and effort while looking at the wrong place.</p>
+<p>The feedback I was getting from experimentation, over and over again, was that: for every 5 to 10 experimentation run, only one was actually learning something to an OK level. The others were never rising above a -150 return.</p>
+<p>In general, for a experimentation rerun 5 times with the same hyperparameter settings, the average return was looking like this for deterministic policy:</p>
+<p><span>(Note: LunarLander <code>reward threshold</code> is 200)</span></p>
+<p><img src="local_maxima_problem_1over4_avgReturn_deterministic_3.png" alt="image" style="width:16cm" /><br />
+<span id="local_maxima_problem_1over4_avgReturn_deterministic" label="local_maxima_problem_1over4_avgReturn_deterministic">[local_maxima_problem_1over4_avgReturn_deterministic]</span> <span><strong>Deterministic policy</strong> <d-math>\pi</d-math></span><br />
+<span>Real average return over timestep<br />
+Experiment tag: <code>Exp-LunarLander-EMA-MedRewS</code></span></p>
+
+<p>and like this for stochastic policy</p>
+<p><img src="local_maxima_problem_1over4_avgReturn_stochastic_3.png" alt="image" style="width:16cm" /><br />
+<span id="local_maxima_problem_1over4_avgReturn_stochastic" label="local_maxima_problem_1over4_avgReturn_stochastic">[local_maxima_problem_1over4_avgReturn_stochastic]</span> <span><strong>Stochastic policy</strong> <d-math>\pi</d-math></span><br />
+<span>Real average return over timestep<br />
+Experiment tag: <code>Exp-LunarLander-EMA-MedRewS</code></span></p>
+<p>with their learned policy <d-math>\pi</d-math> distribution for the final few <code>epoch</code> looking like the following</p>
+<p><img src="local_maxima_problem_1over4_piDistribution_2inaRow.png" alt="image" style="width:13cm" /><br />
+<span id="local_maxima_problem_1over4_piDistribution" label="local_maxima_problem_1over4_piDistribution">[local_maxima_problem_1over4_piDistribution]</span> <span><strong>Policy</strong> <d-math>\pi</d-math> <strong>distribution</strong></span></p>
+<p>where the pink one is the only run that learned something useful.</p>
+<p>Recall that <em>SAC</em> seeks to maximize the <em>return</em> and <em>entropy</em> so the final policy <d-math>\pi</d-math> distribution should be as wide as possible; thus it makes sense that the pink run looks flat.</p>
+<h4 id="the-actual-cause-dots">The actual cause <d-math>\dots</d-math></h4>
+<p>a bad implementation detail choice fixed with one method call change.</p>
+<h4 id="why-did-it-happen">Why did it happen?</h4>
+<p>Because I decided (unknowingly) to pass samples from the <code>replay buffer</code> to the <code>minibatch sampler</code> in ways that did not account for the speed at which those were randomly selected. So it was actually selecting random samples faster than it was swapping them in the <code>minibatch</code>. In effect, the <code>replay buffer</code> was, more often than not, passing identical <code>minibatch</code> to the learner periodically.</p>
+<h4 id="as-a-result">As a result,</h4>
+<p>the algorithm was overfitting those same samples for multiple gradient step at the expense of the bigger picture, weakening its ability to handle local maxima.</p>
+<h4 id="lesson-re-learned">Lesson RE-learned:</h4>
+<p>Whenever I start thinking of myself as a “Top Gun coder” …think twice, it’s a trap.</p>
+<h1 id="closing-thoughts">Closing Thoughts</h1>
+<h4 id="where-do-we-go-from-here">Where do we go from here?</h4>
+<p>Even though the idea of using <em>entropy</em> or <em>Probabilistic Graphical Model</em> to solve the decision-making problem is not new in reinforcement learning, their application in practice, on the other hand, was not giving arguably better performance gain so far, until <em>Soft Actor-Critic</em> came out in 2018.</p>
+<p>This approach is still very young and there is much more to explore on the subject:</p>
+<ul>
+<li><p>Is there more hyperparameter constraints that did not meet the eyes yet?</p></li>
+<li><p>Does it exhibits the same property regardless of the environment?</p></li>
+<li><p>To what extent can we model the policy in different ways?</p></li>
+</ul>
+<p>The next few years will be interesting as we will probably discover a lot more on the subject and its capacity.</p>
+<h3 id="future-related-projects">Future related projects:</h3>
+<ul>
+<li><p>Following my observation on the minimum <code>replay buffer</code> size problem: explore thoroughly and prove rigorously <em>SAC</em> <em>replay buffer</em> requirements;</p></li>
+<li><p>Implement <em>transfer learning</em> capabilities to <em>SAC</em>: the ability to inject prior knowledge such as a policy distribution <d-math>\pi_{prior}</d-math> pre-trained on more general task;</p></li>
+<li><p>Implement <em>PEARL</em> <span class="citation" data-cites="DBLP:journals/corr/abs-1903-08254"></span>, a Meta-Learning algorithm based on <em>Maximum Entropy RL</em>;</p></li>
+<li><p>Design an experiment that challenges adaptability skills and highlight agent robustness to adverse condition. My idea is to build on top of <a href="https://github.com/EmbersArc/gym_rocketLander"><em>Sven Niederberger</em> Gym <strong>Rocket Lander</strong> environment</a> by making the state space more challenging and adding sub-goal. More importantly, adding a chaotic test environment to evaluate the robustness level of a trained agent over never-before-seen disaster scenario like those:</p>
+<ul>
+<li><p>the loss of thrust during deceleration;</p></li>
+<li><p>a moving landing pad;</p></li>
+<li><p>strong side wind;</p></li>
+<li><p>closing at the wrong angle;</p></li>
+<li><p>losing control in a high angular velocity spin;</p></li>
+<li><p>and so on;</p></li>
+</ul></li>
+<li><p>Dive into <em>Probabilistic Graphical Model</em> theory and applications;</p></li>
+</ul>

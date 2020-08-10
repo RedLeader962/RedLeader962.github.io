@@ -1,10 +1,26 @@
 ---
-published: false
+published: true
 layout: post
 title: a post with math
 date: 2015-10-20 11:12:00-0400
 description: an example of a blog post with some math
 ---
+
+Test **_markdown/LaTeX/distill_ math tag** with respect to the **_Distill/Katex/Kramdown_ version used in my site**
+- inline `$`:   $\widehat{V}_\phi^\pi(\mathbf{s})$
+- display `$$`:  $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+- inline `\(`:  \(\widehat{V}_\phi^\pi(\mathbf{s})\)
+- display `\[`:  \[\widehat{V}_\phi^\pi(\mathbf{s})\]
+- inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
+- display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
+
+ref: 
+- `RedLeader962.github.io/blog/index.html`
+- `RedLeader962.github.io/_config.yml`
+- `RedLeader962.github.io/assets/js/katex.js`
+
+---
+
 This theme supports rendering beautiful math in inline and display modes using [KaTeX](https://khan.github.io/KaTeX/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
 
 To use display mode, again surround your expression with `$$` and place it as a separate paragraph. Here is an example:

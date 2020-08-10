@@ -590,12 +590,9 @@ at *batch level* would make more sense in that setting.
 
 **Casse 3 - _trajectory level_ :** Now let’s consider trajectory length. As an example, a 30-minute *PySc2
 Starcraft* game is  <d-math>\sim 40, 000</d-math> steps long. In order to compute <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math> at batch level, you need to store
-in RAM memory each timestep observation for the full batch, so given the
-observation space size and the range of trajectory length, in that
-setting you could end up with RAM issues. If you have access to powerful
-hardware like they have in Google Deepmind laboratory it won’t really be
-a problem, but if you have a humble consumer market computer, it will
-matter. So maybe in that case, keeping only observations from the
+in RAM memory each timestep observation for the full batch, so given the observation space size and the range of trajectory length, in that
+setting you could end up with RAM issues. If you have access to powerful hardware like they have in Google Deepmind laboratory it won’t really be
+a problem, but if you have a humble consumer market computer, it will matter. So maybe in that case, keeping only observations from the
 current trajectory and computing <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 at trajectory end would be a better design choice.  
 

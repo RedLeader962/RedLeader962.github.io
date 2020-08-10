@@ -5,7 +5,7 @@
 title: Luc Coupal
 name: Luc Coupal blog & projects
 site_author: Luc Coupal
-description: > #
+description: >
   My journal and projects on Deep Reinforcement Learning (RL/DRL) and AI related topic.
 #  My journal, my point of vue, my journey with it's ups, downs and full disclosure.
 email: luc.coupal.1@ulaval.ca
@@ -52,7 +52,7 @@ blogger_url: # your blogger URL
 contact_note: > # You can even add a little note about which of these is the best way to reach you.
   Feel free to reach out, I don’t bite.
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: #UA-XXXXXXXXX # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog

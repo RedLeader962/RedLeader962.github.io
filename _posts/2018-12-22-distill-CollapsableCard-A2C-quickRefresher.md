@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: distill
 title: TEMPLATE - Collapsable CARD
 description: Quick refresher on Advantage Actor-Critic method with bootstrap target
@@ -55,16 +55,25 @@ So we now need to look for 2 types of implementation details:
     <li><span class="fa-li"> <i class="fas fa-caret-right"></i> </span>and those related to wall clock speed.</li>
 </ul>
  
-That’s when things get trickier. Take for example the *value estimate* computation of the **critic** 
-$\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ 
-in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
-I won't dive in the details here, but keep in mind that in the end, we just need $$\widehat{V}_\phi^\pi(\mathbf{s})$$ to compute the **critic bootstrap target** and
+That’s when things get trickier. Take for example the *value estimate* computation of the **critic** $\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})$ in a **batch Actor-Critic** algorithm with a **bootstraps target** design.
+I won't dive in the details here, but keep in mind that in the end, we just need $\widehat{V}_\phi^\pi(\mathbf{s})$ to compute the **critic bootstrap target** and
 the **advantage** at the update stage. 
 Knowing that, what’s the best place to compute $$\widehat{V}_\phi^\pi(\mathbf{s})$$? 
 Is it at *timestep level* close to the *collect process* or at *batch level* close to the *update process*? 
  
 <p class="text-center myLead" style="padding-top: 0em; padding-bottom: 0em">Does it even make a difference?</p>
 
+Test inline `$`:   $\widehat{V}_\phi^\pi(\mathbf{s})$
+
+Test display `$$`:  $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+
+Test inline `\(`:  \(\widehat{V}_\phi^\pi(\mathbf{s})\)
+
+Test display `\[`:  \[\widehat{V}_\phi^\pi(\mathbf{s})\]
+
+Test inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
+
+Test display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 
 <!---- Collapsable card ----------------------------------------------------------------------------------------------->
 <div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
