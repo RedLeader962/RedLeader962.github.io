@@ -41,10 +41,10 @@ _styles: >
 ---
 
 Test **_markdown/LaTeX/distill_ math tag** with respect to the **_Distill/Katex/Kramdown_ version used in my site**
-- inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
-- display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 - inline `$`:   $\widehat{V}_\phi^\pi(\mathbf{s})$
 - display `$$`:  $$\widehat{V}_\phi^\pi(\mathbf{s})$$
+- inline `<d-math>`:  <d-math>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
+- display `<d-math block>`:  <d-math block>\widehat{V}_\phi^\pi(\mathbf{s})</d-math>
 - inline `\(`:  \(\widehat{V}_\phi^\pi(\mathbf{s})\)
 - display `\[`:  \[\widehat{V}_\phi^\pi(\mathbf{s})\]
 

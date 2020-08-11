@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 group :jekyll_plugins do
     gem 'github-pages'
     gem 'jekyll'
-    gem 'kramdown', '~> 1.17' # version lower than 2.0 is required for katex rendering
     gem 'jekyll-email-protect'
     gem 'jekyll-paginate-v2'
     gem 'jekyll-scholar'
     gem 'jemoji'
     gem 'unicode_utils'
 end
+
 
 # ❯❯❯....References.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . ....
 # https://bundler.io
@@ -22,6 +22,18 @@ end
 # https://rubygems.org/gems/bibtex-ruby
 # https://rubygems.org/gems/jekyll-scholar
 # https://rubygems.org/gems/github-pages/versions/207
+
+# ❯❯❯....Use 'kramdown' version distributing 'katex'.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . ....
+#group :jekyll_plugins do
+#    gem 'github-pages'
+#    gem 'jekyll'
+#    gem 'kramdown', '~> 1.17' # version lower than 2.0 is required for katex rendering
+#    gem 'jekyll-email-protect'
+#    gem 'jekyll-paginate-v2'
+#    gem 'jekyll-scholar'
+#    gem 'jemoji'
+#    gem 'unicode_utils'
+#end
 
 # ❯❯❯....Use vulnerabilty fixed version of 'bibtex-ruby' using the latest 'jekyll-scholar'.... . . . .  .  .  . . . ....
 # group :jekyll_plugins do
@@ -43,4 +55,3 @@ end
 #     gem 'jemoji', '~> 0.11.1'
 #     gem 'unicode_utils'
 # end
-
