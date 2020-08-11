@@ -110,6 +110,9 @@ gem install nokogiri -- --use-system-libraries
 ```
 Source: https://nokogiri.org/tutorials/installing_nokogiri.html#install_with_system_libraries
 
+#### Note on katex rendering
+`gem 'kramdown', '~> 1.17'` version lower than 2.0.0 is required for katex rendering since 'kramdown-math-katex' was remove of the kramdown >= 2.0.0 distribution.
+
 
 ### Deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
    ```bash
