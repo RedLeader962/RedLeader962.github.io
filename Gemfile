@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 group :jekyll_plugins do
     gem 'github-pages'
     gem 'jekyll'
-    gem 'kramdown', '~> 1.17' # version lower than 2.0 is required for katex rendering
+    gem 'kramdown', '~> 2.3' # version lower than 2.0 is required for katex rendering
     gem 'jekyll-email-protect'
     gem 'jekyll-paginate-v2'
     gem 'jekyll-scholar'
