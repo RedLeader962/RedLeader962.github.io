@@ -1,4 +1,6 @@
 ---
+#@formatter:off
+
 published: true
 layout: distill
 title: Do implementation details matter in Deep Reinforcement Learning?
@@ -12,7 +14,7 @@ authors:
       name: Université Laval
       url: https://www.ulaval.ca
 
-bibliography: 2019-11-01-a-reflexion-on-design-and-implementation.bib
+bibliography: do-implementation-details-matter-in-deep-reinforcement-learning.bib
 
 _styles: >
     d-byline {
@@ -26,6 +28,8 @@ _styles: >
         padding-top: 0rem;
         margin-top: 0rem;
     }
+    
+#@formatter:on
 ---
 
 <!-- Bibtex citation key
@@ -281,8 +285,8 @@ performances. As you can see, that assumption is wrong.
         </div>
     </div>
     <figcaption>
-    <strong>TRPO codebase comparison using a default set of hyperparameters.</strong><br>
-    <b>Source:</b> Figure 35 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite>
+    TRPO codebase comparison using a default set of hyperparameters.<br>
+    <span class="captionSource"><b>Source:</b> Figure 35 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite></span>
     </figcaption>
 </figure>
 
@@ -353,8 +357,8 @@ km/h</span>. They concluded that:
         </div>
     </div>
     <figcaption>
-    <strong>Comparing Policy Gradients across various environments.</strong><br>
-    <b>Source:</b> Figure 26 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite>
+    Comparing Policy Gradients across various environments.<br>
+    <span class="captionSource"><b>Source:</b> Figure 26 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite></span>
     </figcaption>
 </figure>
 
@@ -378,9 +382,9 @@ reward scale. Here are a few examples:
         </div>
     </div>
     <figcaption>
-    <strong>Significance of Policy Network Structure and Activation Functions PPO
-(left), TRPO (middle) and DDPG (right).</strong><br>
-    <b>Source:</b> Figure 2 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite>
+    Significance of Policy Network Structure and Activation Functions PPO
+(left), TRPO (middle) and DDPG (right).<br>
+    <span class="captionSource"><b>Source:</b> Figure 2 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite></span>
     </figcaption>
 </figure>
 
@@ -398,8 +402,8 @@ reward scale. Here are a few examples:
         </div>
     </div>
     <figcaption>
-    <strong>ACKTR Value Network Structure.</strong><br>
-    <b>Source:</b> Figure 11 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite>
+    ACKTR Value Network Structure.<br>
+    <span class="captionSource"><b>Source:</b> Figure 11 from <i>Deep reinforcement learning that matters</i> <d-cite key="Henderson2018"></d-cite></span>
     </figcaption>
 </figure>
 

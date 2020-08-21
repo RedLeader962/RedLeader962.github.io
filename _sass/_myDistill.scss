@@ -538,11 +538,25 @@
         figcaption {
             padding-top: 1em;
             text-align:  center;
+            font-size:   medium;
+            font-weight: bold;
+
+            & strong {
+                //font-size: larger;
+                //font-weight: unset;
+            }
+
+            & span.captionSource {
+                font-size:   small;
+                font-weight: normal;
+                //color:       red;
+            }
         }
 
-        figcaption strong {
-            font-size: larger;
-        }
+
+        //figcaption strong {
+        //    font-size: larger;
+        //}
 
         figure {
             padding-top:    1em;
