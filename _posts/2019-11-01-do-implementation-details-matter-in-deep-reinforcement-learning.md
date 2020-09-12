@@ -103,7 +103,7 @@ I have learned on the importance of design decisions, architectural
 decisions and implementation details in Deep Reinforcement Learning
 (specificaly regarding the class of policy gradient algorithms).
 
-<i class="fas fa-th-large"></i> Clarification on ambiguous terminology
+Clarification on ambiguous terminology
 --------------------------------------
 
 <div class="definition">
@@ -191,7 +191,7 @@ decisions and implementation details in Deep Reinforcement Learning
 </div>
   
 
-<i class="fas fa-th-large"></i> Going down the rabbit hole
+Going down the rabbit hole
 --------------------------
 
 Making sense of *Actor-Critic* algorithm scheme definitively ticked my curiosity. 
@@ -251,7 +251,7 @@ pattern*. Which led me to those next questions:
 
 <div id="sec-does-it-even-matter"> </div>
 
-### <i class="fas fa-th"></i> Does it even make a difference?
+### Does it even make a difference?
 
 Apparently, it does a great deal as Henderson, P. et al. demonstrated in
 their paper *Deep reinforcement learning that matters* <d-cite key="Henderson2018"></d-cite>  (from McGill’s
@@ -443,7 +443,7 @@ their closing thought, which reads as follows:
 
 <p id="subsec-which-implementation-details-are-impactful-or-critical"></p>
 
-### <i class="fas fa-th"></i> Which implementation details are impactful or critical?
+### Which implementation details are impactful or critical?
 
 We have established 
 <a href="#subsec-regarding-implementation-details">previously</a>
@@ -609,7 +609,7 @@ This means that it’s a **setting sensitive** issue and the real question we ne
 
 
 
-### <i class="fas fa-th"></i> Asking the right questions
+### Asking the right questions
 
 From my understanding, there is no cookbook defining the recipe of a
 *one best* design & architecture that will outperform all the other ones
@@ -679,7 +679,8 @@ the success or failure of a DRL project and it’s a must study.
 ---
 ##### Cite as:
 
-```bibtex
+
+<d-code block language="bash">
 @article{lcoupal2019implementation,
   author   = {Coupal, Luc},
   journal  = {redleader962.github.io/blog},
@@ -688,4 +689,5 @@ the success or failure of a DRL project and it’s a must study.
   url      = {https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/},
   keywords = {Deep reinforcement learning,Reinforcement learning,policy gradient methods,Software engineering}
 }
-```
+</d-code>
+

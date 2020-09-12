@@ -19,9 +19,9 @@ last_updated: true # set to true if you want to display last updated in the foot
 # Layout
 # -----------------------------------------------------------------------------
 
-navbar_fixed:       true
-footer_fixed:       false
-show_social_icons:  true
+navbar_fixed: true
+footer_fixed: false
+show_social_icons: true
 # TODO: add layout settings (single page vs. multi-page)
 
 # -----------------------------------------------------------------------------
@@ -35,7 +35,7 @@ og_image: "Tales-from-a-computer-scientist-in-the-AI-world-OG-super-alt.jpg"  # 
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: RedLeader962 # your GitHub user name
+github_username: RedLeader962 # your GitHub user append style
 twitter_username: Red_Leader962 # your Twitter handle
 linkedin_username: # your LinkedIn user name
 scholar_userid: # your Google Scholar ID
@@ -92,11 +92,22 @@ livereload: true
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
-highlight_theme: github  # https://github.com/jwarby/jekyll-pygments-themes
+
+# Code Syntax Highlighting style fetched from https://github.com/jwarby/jekyll-pygments-themes
+# Theme viewer: https://github.com/jwarby/jekyll-pygments-themes
+# Default was `github`
+#  - dark bg: monokai, fruity, native, vim, zenburn
+#  - white bg: manni, pastie, trac, colorful, borland, default, emacs, github
+# My pick: native, monokai, default
+highlight_theme: github
+
+# (!) Distill use Prism syntax highlighter: https://prismjs.com
+
 kramdown:
   input: GFM
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: 'highlight'  # Use 'highlight' for Pygment theme. Require 'syntax' for Rouge theme
+    default_lang: python
     span:
       line_numbers: false
     block:
@@ -104,8 +115,8 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ['_pages']
-exclude: [vendor, node_modules]
+include: [ '_pages' ]
+exclude: [ vendor, node_modules ]
 
 # Plug-ins
 plugins:
@@ -147,11 +158,11 @@ scholar:
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics:  false
-enable_katex:             true
-enable_mansory:           true
-enable_progressbar:       true
-enable_tooltips:          true
+enable_google_analytics: false
+enable_katex: true
+enable_mansory: true
+enable_progressbar: true
+enable_tooltips: true
 
 # -----------------------------------------------------------------------------
 # Library versions

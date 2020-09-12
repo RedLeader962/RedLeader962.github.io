@@ -1,4 +1,6 @@
 ---
+#@formatter:off
+
 published: false
 layout: distill
 title: a distill-style blog post
@@ -38,6 +40,8 @@ _styles: >
     text-align: center;
     font-size: 16px;
   }
+
+#@formatter:on
 ---
 
 Test **_markdown/LaTeX/distill_ math tag** with respect to the **_Distill/Katex/Kramdown_ version used in my site**

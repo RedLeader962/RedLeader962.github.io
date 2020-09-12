@@ -2,6 +2,9 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// ❯❯❯....Font Awesome.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . ...
+// ... . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . ....Font Awesome....❮❮❮
+
 
 // Distill
 
@@ -96,6 +99,9 @@
         //  //color: red;
         //}
 
+        h1 {
+        }
+
 
         h2 {
             //color: red;
@@ -103,7 +109,16 @@
             margin-bottom:  1.25rem;
             padding-bottom: 0.25rem;
             border-bottom:  2px solid $text-color;
+
+            // Reference: https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
+            &::before {
+                font-family:  "Font Awesome 5 Free";
+                font-weight:  900;
+                content:      "\f009";
+                margin-right: 0.25em;
+            }
         }
+
 
         h3 {
             //color: red;
@@ -112,6 +127,14 @@
             padding-bottom: 0.25rem;
             border-bottom:  2px solid $text-color;
             font-size:      x-large;
+
+            // Reference: https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
+            &::before {
+                font-family:  "Font Awesome 5 Free";
+                font-weight:  900;
+                content:      "\f00a";
+                margin-right: 0.25em;
+            }
         }
 
         h4 {
@@ -510,7 +533,7 @@
             }
 
             & dl {
-                padding-left: 0em;
+                padding-left:  0em;
                 padding-right: 0em;
             }
 
@@ -535,6 +558,11 @@
             font-weight: bolder;
         }
 
+        .distiller-lead {
+            //required by the Panddoc writer Distiller
+            @extend .myLead
+        }
+
         figcaption {
             padding-top: 1em;
             text-align:  center;
@@ -547,6 +575,7 @@
             }
 
             & span.captionSource {
+                // required by the Panddoc writer Distiller
                 font-size:   small;
                 font-weight: normal;
                 //color:       red;
@@ -561,6 +590,24 @@
         figure {
             padding-top:    1em;
             padding-bottom: 2em;
+            //@extend .test;
+
+            &.distiller-GroupFirstImg {
+                //margin-bottom:  0em;
+                padding-bottom: 0em;
+            }
+
+            &.distiller-GroupMiddleImg {
+                //margin-bottom:  0em;
+                padding-bottom: 0em;
+                //margin-top:     0em;
+                padding-top:    0em;
+            }
+
+            &.distiller-GroupLastImg {
+                //margin-top:  0em;
+                padding-top: 0em;
+            }
         }
 
         blockquote.blockquote {
@@ -574,14 +621,50 @@
             color: #ccc;
         }
 
+
+        d-code {
+            //@extend .test;
+            font-size:        12px;
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        d-code[block] {
+            overflow-x:         scroll;
+            -ms-overflow-style: none; // IE 10+
+            overflow:           -moz-scrollbars-none; // Firefox
+            overflow:           auto;
+
+            /* Code blocks */
+            padding:            1em;
+            padding-left:       unset;
+            margin-bottom: 1em;
+            border:             .1em solid lightgray;
+            border-radius:      .5em;
+            box-shadow:         1px 1px .5em gray inset;
+            background-color:   rgba(0, 0, 0, 0.04);
+
+            &.myCode-body-outset {
+                margin-left:  -6em;
+                margin-right: -6em;
+            }
+        }
+
+
         ul li {
             margin-left:   1em;
             margin-bottom: 0.25em;
         }
 
+        ol li {
+            margin-left:   2em;
+            margin-bottom: 0.25em;
+        }
+
+
         .mainH1 {
             margin-top: 1em;
         }
     }
+
 
 }

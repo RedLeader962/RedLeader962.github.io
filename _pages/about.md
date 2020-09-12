@@ -81,7 +81,9 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                 <div class="row ">
                     <div class="col text-sm-center">
                         <i><b>Python</b> [ TensorFlow, Numpy, Matplotlib ]</i> <br>
-                        <i><b>LaTeX</b> [ TikZ/PGF, Beamer, Algorithm2e ]</i> <br><br>
+                        <i><b>LaTeX</b> [ TikZ/PGF, Beamer, Algorithm2e ]</i> <br>
+                        <i><b>Shell scripting</b></i> <br>
+                        <br>
                     </div>
                 </div>
                 <div class="row justify-content-center ">
@@ -91,6 +93,12 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                     <div class="col-md-6"> <b>Project planning & control</b>: <i>YouTrack, Trello</i> </div>
                     <div class="col-md-6"> Methodology <i><b>Scrumm</b></i> and <i><b>Agile</b></i> </div>
                     <div class="col-md-6"> <b>Semantic database</b>: <i>SPARQL, RDF, OWL</i> </div>
+                    <br><br>
+                </div>
+                <div class="row ">
+                    <div class="col text-sm">
+                        <i><b>Experience in </b> Lua, HTML, CSS, SASS, Java, C/C++</i> <br>
+                    </div>
                 </div>
             </div>
         </div>
