@@ -96,8 +96,8 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                     <br><br>
                 </div>
                 <div class="row ">
-                    <div class="col text-sm">
-                        <i><b>Experience in </b> Lua, HTML, CSS, SASS, Java, C/C++</i> <br>
+                    <div class="col text-sm-center">
+                        <i><b>Also familiar with </b> Lua, HTML, CSS, SASS, AngularJS, Java, C/C++, SQL, PL/SQL</i> <br>
                     </div>
                 </div>
             </div>
