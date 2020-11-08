@@ -3,8 +3,8 @@
 
 published: true
 layout: distill
-title: '<i>Soft Actor-Critic</i> part 1:  theoretical aspect'
-description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via <i>maximum entropy</i>'
+title: '<i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect'
+description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via <i>maximum entropy</i>.'
 
 postImagesFolder: post_SAC/
 
@@ -74,7 +74,7 @@ _styles: >
 <hr class="supervisorDbylineHorizontalRule">
 
 
-<figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="">
+<figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="margin-left: -0.5rem; margin-top: -0.5rem;">
     <div class="row">
         <div class="col">
             <img src="{{ 'images/TaxonomySoftActorCritic_mod.png' | prepend: page.postImagesFolder | prepend: '/assets/img/' | relative_url }}" />
@@ -257,13 +257,13 @@ In this essay we will use the name <i>Maximum Entropy RL</i>.</p></dd>
     </div>
 </div>
 
-<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem different (an intuition):</h4>
+<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered">How does it make the RL problem different (an intuition):</h4>
 
 <p>Consider an environment with a continuous action space.
 The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
 In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
 
-<h4 class="unnumbered" id="why-does-it-matter">Why does it matter?</h4>
+<h4 id="why-does-it-matter" class="unnumbered">Why does it matter?</h4>
 
 <p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
 
@@ -291,10 +291,10 @@ learn to optimize for one and only one way to do things.</p>
 <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>robustness and adaptability</li>
 </ul>
 
-        <h3>Nuts and bolt <br><span style="font-weight: normal">(Key component related to SAC)</span></h3>
+        <h3>Nuts and bolt <span style="font-weight: normal">(Key component related to SAC)</span></h3>
         
 
-<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
+<h4 id="the-maxent-policy-pi" class="unnumbered">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
 
 <p>Recall the <i>Classical RL</i> policy <d-math>\pi</d-math> definition</p>
 
@@ -332,7 +332,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
 
-<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+<h4 id="the-maxent-objective-jpi" class="unnumbered">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
 
 <p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
 
@@ -395,7 +395,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
 
 <p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
 
@@ -440,7 +440,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>Without diving to deep into the <i>Maximum Entropy</i> framework, it’s valuable to point out that
 <d-math>Q_{soft}^\pi</d-math> doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i> <d-math>Q^\pi</d-math> and it doesn’t have the same properties either.<d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.</d-footnote>
-By definition, <d-math>Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math> <strong>is the probability of being optimal at timestep <d-math>t</d-math> until the trajectory end.</strong> <span label="softQfunctionMeaning" class="distillarizerLabel" id="softQfunctionMeaning"></span>
+By definition, <d-math>Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math> <strong>is the probability of being optimal at timestep <d-math>t</d-math> until the trajectory end.</strong> <span id="softQfunctionMeaning" label="softQfunctionMeaning" class="distillarizerLabel"></span>
 It’s a measure of the quality of an ongoing trajectory as per definition of a <i>measure</i> in <a href='https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;oldid=970525184' title=''><i>measure theory</i></a>.</p>
 
 <p>It’s common to say in <i>classical RL/DRL</i> that the <i>reward-to-go</i> <d-math>Q_{classical}^\pi</d-math> is a <i>measure</i> of performance. Nevertheless, in the sense of <i>measure theory</i>, it’s not since it does not satisfy the property of the <i>null empty set</i> <d-math>\mu(\emptyset)=0</d-math>. As a matter of fact,
@@ -631,6 +631,15 @@ We cannot directly differentiate a probability distribution but using the <i>rep
 <p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, done_{t+1} )</d-math>.
 One of the key benefits of sampling tuple <d-math>(\mathbf{s}_t, \mathbf{a}_t, r_t, \mathbf{s}_{t+1})</d-math> randomly from a <i>replay buffer</i> is that it breaks temporal correlation which helps learning  </p>
 
+<figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
+    <div class="row">
+        <div class="col one">
+            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
+
 <h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <i>state-value function</i> <d-math>V_\psi^\pi</d-math> ?</h4>
 
 <p>As we talked
@@ -685,31 +694,29 @@ Network weight from <d-math>V_\psi^\pi</d-math> are copied in a controlled manne
 </div>
 
 
-<figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
-    <div class="row">
-        <div class="col one">
-            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
-        </div>
-    </div>
-</figure>
-
+    <div style="margin-top: 2em; margin-bottom: 2em;">
+    
 
 <h1 id="next-step">Next step</h1>
 
-<p>This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
+<p>{{HTMLstyle=margin-}}
+This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
 Come back soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.</p>
+
+    </div>
+    
 
 <hr class="supervisorDbylineHorizontalRule">
 
 <h5 id="cite-my-post-as">Cite my post as:</h5>
 
-<d-code block language="bash" class="myCode-body-outset">
+<d-code block language="bash" class="l-body-outset">
 @article{lcoupal2020SoftActorCriticPart1,
       author   = {Coupal, Luc},
       journal  = {redleader962.github.io/blog},
-      title    = {% raw %}{{Soft Actor-Critic (Part 1)}}{% endraw %},
+      title    = {% raw %}{{Soft Actor-Critic part 1: intuition and theoretical aspect}}{% endraw %},
       year     = {2020},
-      url      = {https://redleader962.github.io/blog/2020/SAC-distillarized},
+      url      = {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized},
       keywords = {Deep reinforcement learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic}
     }
 </d-code>
