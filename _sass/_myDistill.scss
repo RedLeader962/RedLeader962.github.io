@@ -138,12 +138,13 @@
         }
 
         h4 {
-            color:         $grey-color-dark;
+            color:          $grey-color-dark;
             //color: red;
-            margin-top:    1.25rem;
-            padding-top:   0.25rem;
-            font-size:     medium;
-            border-bottom: 2px dotted lightgray;
+            margin-top:     1.25rem;
+            padding-top:    0.25rem;
+            font-size:      medium;
+            border-bottom:  2px dotted lightgray;
+            text-transform: none; // fix unwanted formating that break italic string display
         }
 
         a {
@@ -171,6 +172,14 @@
             //border-color: $grey-color-Lighter;
             background-color: $theme-color;
             border-color:     $theme-color;
+        }
+
+        .static-header-grey {
+            @extend .header-grey;
+            @extend .remark-card;
+            text-transform: none;
+            padding-top:    0.25em;
+            padding-bottom: 0.25em;
         }
 
         .button-dark {
@@ -201,33 +210,44 @@
             $collapsable-card-bg-color: $theme-color-no-opacity !default;
 
             .card-shadow {
-                box-shadow: 9px 9px 10px lighten($grey-color, 35%); //none
+                box-shadow:    9px 9px 10px lighten($grey-color, 35%); //none
+                border-radius: 9px;
             }
 
             button {
                 @extend .button-dark;
-                background-color: $collapsable-card-bg-color;
-                color:            $grey-color-light;
-                border-color:     $collapsable-card-bg-color;
-                border-style:     solid;
-                border-width:     1px;
-                text-align:       left;
-                padding-left:     1em;
+                background-color:           $collapsable-card-bg-color;
+                color:                      $grey-color-light;
+                //border-color:     $collapsable-card-bg-color;
+                border-color:               $grey-color-lighter;
+                border-style:               solid;
+                border-width:               1px;
+                text-align:                 left;
+                padding-left:               1em;
+                border-top-right-radius:    9px;
+                border-top-left-radius:     9px;
+                border-bottom-left-radius:  0px;
+                border-bottom-right-radius: 0px;
+                margin-bottom:              -2.5px;
 
 
                 &:hover {
                     //background-color: lighten($grey-color-Dark, 20%);
                     //color: white;
-                    background-color: darken(white, 0%);
-                    border-color:     $grey-color-darker;
-                    border-width:     1px;
-                    color:            $collapsable-card-bg-color;
+                    background-color:    darken(white, 0%);
+                    border-color:        $grey-color-darker;
+                    border-width:        1px;
+                    color:               $collapsable-card-bg-color;
                 }
             }
 
             button.collapsed {
                 @extend .button-dark-collapsed;
-                box-shadow: none;
+                box-shadow:                 none;
+                border-bottom-left-radius:  2px;
+                border-bottom-right-radius: 2px;
+                border-bottom-left-radius:  9px;
+                border-bottom-right-radius: 9px;
 
                 &:hover {
                     background-color: darken(white, 0%);
@@ -242,6 +262,10 @@
                 font-weight:  900;
                 content:      "\f146";
                 margin-right: 1em;
+                // ❯❯❯ to make the icon right align ❯❯❯ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                //float: right;
+                //margin-right: -1.5rem;
+                //  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .❮❮❮ to make the icon right align ❮❮❮
             }
 
             .close-icon:before {
@@ -249,12 +273,23 @@
                 font-weight:  900;
                 content:      "\f0fe";
                 margin-right: 1em;
+                // ❯❯❯ to make the icon right align ❯❯❯ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                //float:       right;
+                //margin-right: -1.5rem;
+                //  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .❮❮❮ to make the icon right align ❮❮❮
+
             }
 
             .card {
                 @extend .remark-card;
-                z-index: -10;
-                color:   $grey-color;
+                color:                      $grey-color;
+                //z-index: -10;
+                border-top-left-radius:     0px;
+                border-top-right-radius:    0px;
+                border-bottom-left-radius:  9px;
+                border-bottom-right-radius: 9px;
+                border-top-color:           $white;
+                margin-top:                 3px;
 
                 .text {
                     //@extend .test;
@@ -267,6 +302,7 @@
                 .card-body {
                     @extend .text;
                 }
+
 
                 ul {
                     //@extend .text;
@@ -307,6 +343,120 @@
         }
 
         // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Collapsable Card..❮❮❮
+        //
+        //
+
+        .distillarizerStandalone {
+            box-shadow:    9px 9px 10px lighten($grey-color, 35%); //none
+            border-radius: 9px;
+        }
+
+        // ❯❯❯..Static Card... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ....
+        .static-card {
+            //$static-card-bg-color: $theme-color !default;
+            $static-card-bg-color: $theme-color-no-opacity !default;
+
+            .card-shadow {
+                box-shadow:    9px 9px 10px lighten($grey-color, 35%); //none
+                //border-bottom-left-radius: 9px;
+                //border-bottom-right-radius: 9px;
+                border-radius: 9px;
+            }
+
+            .card {
+                @extend .remark-card;
+                //z-index: -10;
+                color:         $grey-color;
+                //border-bottom-left-radius: 9px;
+                //border-bottom-right-radius: 9px;
+                border-radius: 9px;
+
+                .text {
+                    //@extend .test;
+                    color:       $grey-color-dark;
+                    //color: black;
+                    font-size:   90%;
+                    font-weight: 300;
+                }
+
+                .card-header {
+                    @extend .static-header-grey;
+                    //background-color: $grey-color-light;
+                    background-color:        $grey-color-lighter;
+                    //color:            $grey-color-Dark;
+                    color:                   black;
+                    font-weight:             500;
+                    border-color:            $grey-color-light;
+                    //border-style:     solid;
+                    //border-width:     1px;
+                    text-align:              left;
+                    padding-left:            1em;
+                    margin-bottom:           -0.3em;
+                    border-top-right-radius: 9px;
+                    border-top-left-radius:  9px;
+                }
+
+                .card-body {
+                    @extend .text;
+                    border-color:               $grey-color-light;
+                    border-style:               solid;
+                    border-width:               1px;
+                    background-color:           $grey-color-light;
+                    border-bottom-left-radius:  9px;
+                    border-bottom-right-radius: 9px;
+                }
+
+                //a {
+                //    color:               $link-color;
+                //    border-bottom-color: $link-color-hover;
+                //    text-decoration:     none;
+                //}
+                //
+                //a:hover {
+                //    color:               $link-color-hover;
+                //    border-bottom-color: lighten($link-color-hover, 20%);
+                //    text-decoration:     none;
+                //}
+
+                ul {
+                    //@extend .text;
+                    margin-left: 2em;
+                }
+
+                p {
+                }
+
+                .force-center-d-math-block {
+                    margin-left:     auto;
+                    margin-right:    auto;
+                    width:           100%;
+                    display:         flex;
+                    justify-content: center;
+                    //background-color: red;
+                }
+
+                .card-d-math-display {
+                    //@extend .test;
+                    //font-size: larger;
+                    //padding: 4px 0px 4px 0px;
+                    //margin: 0.3em 0em 0.5em 0em;
+                    padding-top:    4px;
+                    padding-bottom: 4px;
+                    padding-right:  1em;
+                    @extend .force-center-d-math-block;
+                }
+
+                .comment {
+                    color: $grey-color;
+
+                    d-math {
+                        opacity: 75%;
+                    }
+                }
+            }
+        }
+
+        // .... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ...Static Card..❮❮❮
 
 
         // ❯❯❯..Collapsable Topic... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .....
@@ -533,17 +683,20 @@
             }
 
             & dl {
-                padding-left:  0em;
-                padding-right: 0em;
+                padding-left:   0em;
+                padding-right:  0em;
+                padding-top:    0rem;
+                padding-bottom: 0rem;
             }
 
             & dt {
-                padding-top: 2em;
+                //padding-top: 2em;
             }
 
             & dd {
-                padding-top: 2em;
+                //padding-top: 2em;
             }
+
 
             & blockquote {
                 font-size:     inherit;
@@ -558,7 +711,7 @@
             font-weight: bolder;
         }
 
-        .distiller-lead {
+        .distillarizer-lead {
             //required by the Panddoc writer Distiller
             @extend .myLead
         }
@@ -592,19 +745,19 @@
             padding-bottom: 2em;
             //@extend .test;
 
-            &.distiller-GroupFirstImg {
+            &.distillarizer-GroupFirstImg {
                 //margin-bottom:  0em;
                 padding-bottom: 0em;
             }
 
-            &.distiller-GroupMiddleImg {
+            &.distillarizer-GroupMiddleImg {
                 //margin-bottom:  0em;
                 padding-bottom: 0em;
                 //margin-top:     0em;
                 padding-top:    0em;
             }
 
-            &.distiller-GroupLastImg {
+            &.distillarizer-GroupLastImg {
                 //margin-top:  0em;
                 padding-top: 0em;
             }
@@ -637,7 +790,7 @@
             /* Code blocks */
             padding:            1em;
             padding-left:       unset;
-            margin-bottom: 1em;
+            margin-bottom:      1em;
             border:             .1em solid lightgray;
             border-radius:      .5em;
             box-shadow:         1px 1px .5em gray inset;
