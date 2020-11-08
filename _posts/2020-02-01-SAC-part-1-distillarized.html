@@ -3,8 +3,8 @@
 
 published: true
 layout: distill
-title: '<i>Soft Actor-Critic</i> part 1:  theoretical aspect'
-description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via <i>maximum entropy</i>'
+title: '<i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect'
+description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via the <i>maximum entropy</i> principle. We cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.'
 
 postImagesFolder: post_SAC/
 
@@ -74,7 +74,7 @@ _styles: >
 <hr class="supervisorDbylineHorizontalRule">
 
 
-<figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="">
+<figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="margin-left: -0.5rem; margin-top: -0.5rem;">
     <div class="row">
         <div class="col">
             <img src="{{ 'images/TaxonomySoftActorCritic_mod.png' | prepend: page.postImagesFolder | prepend: '/assets/img/' | relative_url }}" />
@@ -291,7 +291,7 @@ learn to optimize for one and only one way to do things.</p>
 <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>robustness and adaptability</li>
 </ul>
 
-        <h3>Nuts and bolt <br><span style="font-weight: normal">(Key component related to SAC)</span></h3>
+        <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
         
 
 <h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
@@ -462,7 +462,7 @@ we have no guarantee that the environment dynamic was designed to produce</p>
 </figure>
 
 
-<h2 id="subsec:BuildingBloc">Building bloc of Soft Actor-Critic</h2>
+<h2 id="subsec:BuildingBloc">Building blocks of Soft Actor-Critic</h2>
 
 <p>The algorithm seeks to maximize the <i>maximum entropy</i> objective <d-math>J(\pi_{MaxEnt})</d-math> by doing <i>soft policy iteration</i>, which is similar to regular policy iteration (more on this in the
 algorithm anatomy section <a href='#subsec:AlgorithmAnatomy' title=''>1.4</a> ).</p>
@@ -494,7 +494,7 @@ backward message <a href='#softQfunctionIsBackwardMessage' title=''>1.2.1.0.1</a
 <p>In theory, <d-math>V_{soft}^\pi(\mathbf{s}_t)</d-math> value can be estimated directly using <strong><i>equation 6</i></strong>. However, representing <d-math>V_{soft}^\pi</d-math> explicitly has the added benefit of helping stabilize learning. We can represent it as a parametrized function <d-math>V_{\psi}^\pi (\mathbf{s}_t)</d-math> of parameters <d-math>\psi</d-math>. We then learn <d-math>\psi</d-math> by minimizing the squared residual error</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 0rem;">
-    <img src="{{ 'standaloneJVtheta.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneJVpsi.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
 </div>
 
 
@@ -625,11 +625,21 @@ We cannot directly differentiate a probability distribution but using the <i>rep
 <li>and a <i>maximum entropy policy</i> <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>;</li>
 </ol>
 
-<p><d-math>\psi</d-math> and <d-math>\theta</d-math> will be modelled as neural networks.
-<d-math>\psi</d-math> will be reparameterized as a Gaussian distribution with a mean and covariance learnable by a neural network.</p>
+<p>with <d-math>\psi, \theta</d-math> and <d-math>\phi</d-math> modelled as neural networks.
+Note that <d-math>\pi_\phi</d-math> will be reparameterized as a Gaussian distribution with a learnable mean and covariance.</p>
 
-<p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, done_{t+1} )</d-math>.
-One of the key benefits of sampling tuple <d-math>(\mathbf{s}_t, \mathbf{a}_t, r_t, \mathbf{s}_{t+1})</d-math> randomly from a <i>replay buffer</i> is that it breaks temporal correlation which helps learning  </p>
+<p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, r_{t+1}, done_{t+1} )</d-math>.
+One of the key benefits of sampling tuple
+randomly from a <i>replay buffer</i> is that it breaks temporal correlation which helps learning  </p>
+
+<figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
+    <div class="row">
+        <div class="col one">
+            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
 
 <h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <i>state-value function</i> <d-math>V_\psi^\pi</d-math> ?</h4>
 
@@ -685,31 +695,29 @@ Network weight from <d-math>V_\psi^\pi</d-math> are copied in a controlled manne
 </div>
 
 
-<figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
-    <div class="row">
-        <div class="col one">
-            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
-        </div>
-    </div>
-</figure>
-
+    <div style="margin-top: 2em; margin-bottom: 2em;">
+    
 
 <h1 id="next-step">Next step</h1>
 
-<p>This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
+<p>{{HTMLstyle=margin-}}
+This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
 Come back soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.</p>
+
+    </div>
+    
 
 <hr class="supervisorDbylineHorizontalRule">
 
 <h5 id="cite-my-post-as">Cite my post as:</h5>
 
-<d-code block language="bash" class="myCode-body-outset">
+<d-code block language="bash" class="l-body-outset">
 @article{lcoupal2020SoftActorCriticPart1,
       author   = {Coupal, Luc},
       journal  = {redleader962.github.io/blog},
-      title    = {% raw %}{{Soft Actor-Critic (Part 1)}}{% endraw %},
+      title    = {% raw %}{{Soft Actor-Critic part 1: intuition and theoretical aspect}}{% endraw %},
       year     = {2020},
-      url      = {https://redleader962.github.io/blog/2020/SAC-distillarized},
+      url      = {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized},
       keywords = {Deep reinforcement learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic}
     }
 </d-code>
