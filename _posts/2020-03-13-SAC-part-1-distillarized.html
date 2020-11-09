@@ -454,8 +454,11 @@ By definition,</p>
 <p>with <d-math>\mathcal{O}</d-math> being a optimality random variable. This definition of <d-math>Q_{MaxEnt}^\pi</d-math> can be interpreted as</p>
 
 <p class="distillarizer-lead text-center">
-<strong>the probability</strong> (on a logaritmic scale) <strong>of being optimal from timestep <d-math>t</d-math> until the trajectory end</strong> given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>. <span id="softQfunctionMeaning" label="softQfunctionMeaning" class="distillarizerLabel"></span>
+<strong>the probability</strong> (on a logaritmic scale)<br/><strong>of being optimal from timestep <d-math>t</d-math> until the trajectory end</strong><br/>
 </p>
+
+<p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
+<span class="distillarizerLabel" id="softQfunctionMeaning" label="softQfunctionMeaning"></span></p>
 
 <p>Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
 
@@ -488,7 +491,7 @@ we have no guarantee that the environment dynamic was designed to produce</p>
 <p>Take the case of an environment where the <i>reward</i> signal upper-bound is 0 by design. In that case, 0 would be the highest possible <i>return</i> but it certainly doesn’t mean that it’s a non-rewarding trajectory or that the trajectory was initialized on a terminal state.</p>
 
 <p>For now, this is all we need to understand how the <i>Soft Actor-Critic</i> algorithm work.
-More to follow on the subject of <i>Maximum Entropy RL</i> in a futur post.</p>
+More on the subject of <i>Maximum Entropy RL</i> in a futur post.</p>
 
 <figure id="" class="l-body-outset" style="margin-bottom: 0rem; margin-top: 0rem">
     <div class="row">
