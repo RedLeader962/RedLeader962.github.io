@@ -4,7 +4,7 @@
 published: true
 layout: distill
 title: '<i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect'
-description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via the <i>maximum entropy</i> principle. We cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.'
+description: 'Teaching robustness to a <i>deep reinforcement learning</i>  agent via the <i>maximum entropy</i> principle. I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.'
 
 postImagesFolder: post_SAC/
 
@@ -86,18 +86,22 @@ _styles: >
 <h1 id="sec:SoftActorCritic">Soft Actor-Critic</h1>
 
 <p>Soft Actor-Critic (<i>SAC</i>) is an off-policy algorithm based on the <i>Maximum Entropy</i> <i>Reinforcement</i> <i>Learning</i> framework.
-The main idea behind <i>Maximum Entropy RL</i> is to frame the decision-making problem as a <i>probabilistic graphical model</i> from top to bottom and then solve it using tools borrowed from that same field. Under <i>Maximum Entropy RL</i> framework, a learning agent seeks to maximize both the return and the entropy simultaneously.
-This approach benefit <i>Deep Reinforcement Learning</i> algorithm by giving them the capacity to consider and learn many alternate paths leading to an optimal goal
-and the capacity to learn how to act optimally despite adverse circumstances.</p>
+The main idea behind <i>Maximum Entropy RL</i> is to frame the decision-making problem as a <i>probabilistic graphical model</i> from top to bottom and then solve it using tools borrowed from that same field. Under <i>Maximum Entropy RL</i> framework, a learning agent seeks to maximize both the return and the entropy simultaneously.</p>
 
-<p>Since <i>SAC</i> is an off-policy algorithm, then it has the ability to train on samples coming from a different policy.
-What is particular though is that, contrary to other off-policy algortihm, it’s stable. This mean that the algorithm is much less picky in term of hyperparameter tuning.</p>
+<p>This approach benefits <i>Deep Reinforcement Learning</i> algorithms</p>
+
+<p class="distillarizer-lead text-center">
+by giving them the capacity to consider and learn<br/>many alternate paths leading to an optimal goal<br/>and the capacity to learn how to act optimally<br/>despite adverse circumstances.
+</p>
+
+<p><i>SAC</i> is an off-policy algorithm, which means it has the ability to train on samples coming from a different policy.
+What is particular though is that, contrary to other off-policy algortihms, it’s stable. This mean that the algorithm is much less picky in terms of hyperparameter tuning.</p>
 
 <p><i>SAC</i> <d-cite key="Haarnoja2018a"></d-cite> is curently <strong>the state of the art</strong> <i>Deep Reinforcement Learning</i> algorithm together with Twin Delayed Deep Deterministic policy gradient ( <i>TD3</i> ) <d-cite key="DBLP:journals/corr/abs-1802-09477"></d-cite>.</p>
 
-<p>The learning curve of the <i>Maximum Entropy RL</i> framework is quite steep due to how much it rethink the RL problem. Diving in depth into the <i>Maximum Entropy RL</i> theory is definitely required in order to understand how <i>SAC</i> work.
+<p>The learning curve of the <i>Maximum Entropy RL</i> framework is quite steep due to how much it rethinks the RL problem. Diving in depth into the <i>Maximum Entropy RL</i> theory is definitely required in order to understand how <i>SAC</i> work.
 Tackling the applied part was arguably the hardest project I did so far, both in terms of component implementation and in terms of evil silent bugs.
-Nevertheless, it worth every headache and nightmare I had in the process once it starts working.</p>
+Nevertheless, it’s worth every headache and nightmare I had in the process once it started working.</p>
 
     <p>You can find my implementaion on <a href="https://github.com/RedLeader962/LectureDirigeDRLimplementation" target="_blank" title="GitHub">my GitHub <i class="fab fa-github"></i></a></p>
     
@@ -245,25 +249,19 @@ As we will see, those two are fundamentally different.</p>
 
 <p><strong>The <i>Maximum Entropy RL</i> approach</strong> on the other end formalize the decision-making problem <strong>as a</strong> <i>Probabilistic Graphical Model</i>
 and then solve a learning and inference problem using <i>Probabilistic Graphical Model</i> tools.
-While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as <i>Probabilistic Graphical Model</i>.
-In other word, the <i>Maximum Entropy</i> framework <strong>formalize and solve the entirety of the RL problem using probability theory</strong>.</p>
+While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as <i>Probabilistic Graphical Model</i>.</p>
 
-<div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3">Note:</dt>
-        <dd class="col"><p>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>.
-In this essay we will use the name <i>Maximum Entropy RL</i>.</p></dd>
-    </dl>
-    </div>
-</div>
+<p class="distillarizer-lead text-center">
+In other word, the <i>Maximum Entropy RL</i><d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum Entropy RL</i>.</d-footnote>framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
+</p>
 
-<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered">How does it make the RL problem different (an intuition):</h4>
+<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem different (an intuition):</h4>
 
 <p>Consider an environment with a continuous action space.
 The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
 In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
 
-<h4 id="why-does-it-matter" class="unnumbered">Why does it matter?</h4>
+<h4 class="unnumbered" id="why-does-it-matter">Why does it matter?</h4>
 
 <p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
 
@@ -276,14 +274,16 @@ In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as 
 
 <p>Those are all legitimate scenario that an agent should be required to successfully handle in order to become effective, skillful, agile, nimble, resilient and capable of handling adverse condition.</p>
 
-<p>The problem with <i>Classical RL</i> is that it converges (in expectation) to a deterministic policy <d-math>\pi</d-math>.
-This is one of the keys takes away proof from the <i>Deterministic Policy Gradient</i> (DPG) <d-cite key="Silver2014"></d-cite> paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  <d-cite key="Sutton1394"></d-cite>
+<p class="distillarizer-lead text-center">
+The problem with <i>Classical RL</i> is that it converges (in expectation) to a deterministic policy <d-math>\pi</d-math>.
+</p>
+
+<p>This is one of the keys takes away proof from the <i>Deterministic Policy Gradient</i> (DPG) <d-cite key="Silver2014"></d-cite> paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  <d-cite key="Sutton1394"></d-cite>
 This mean that the algorithm will optimize for one and only one way to do things.
 Once it starts <i>believing</i> that a path is more promising than the others, it will start to optimize for that <i>believed-best</i> path and it will discard all the alternate ones.
 Even if the algorithm is forced to explore using whatever trick, those trick only promote <i>believed unpromising</i> path for consideration but it still results in an algorithm that
-learn to optimize for one and only one way to do things.</p>
-
-<p>On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:</p>
+learn to optimize for one and only one way to do things.
+On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:</p>
 
 <ul class="fa-ul">
 <li><span class="fa-li"><i class="fas fa-caret-right"></i></span>effective exploration</li>
@@ -294,7 +294,7 @@ learn to optimize for one and only one way to do things.</p>
         <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
         
 
-<h4 id="the-maxent-policy-pi" class="unnumbered">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
+<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
 
 <p>Recall the <i>Classical RL</i> policy <d-math>\pi</d-math> definition</p>
 
@@ -332,7 +332,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
 
-<h4 id="the-maxent-objective-jpi" class="unnumbered">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
 
 <p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
 
@@ -395,7 +395,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
 
 <p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
 
@@ -440,7 +440,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>Without diving to deep into the <i>Maximum Entropy</i> framework, it’s valuable to point out that
 <d-math>Q_{soft}^\pi</d-math> doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i> <d-math>Q^\pi</d-math> and it doesn’t have the same properties either.<d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.</d-footnote>
-By definition, <d-math>Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math> <strong>is the probability of being optimal at timestep <d-math>t</d-math> until the trajectory end.</strong> <span class="distillarizerLabel" label="softQfunctionMeaning" id="softQfunctionMeaning"></span>
+By definition, <d-math>Q_{soft}^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math> <strong>is the probability of being optimal at timestep <d-math>t</d-math> until the trajectory end.</strong> <span label="softQfunctionMeaning" class="distillarizerLabel" id="softQfunctionMeaning"></span>
 It’s a measure of the quality of an ongoing trajectory as per definition of a <i>measure</i> in <a href='https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;oldid=970525184' title=''><i>measure theory</i></a>.</p>
 
 <p>It’s common to say in <i>classical RL/DRL</i> that the <i>reward-to-go</i> <d-math>Q_{classical}^\pi</d-math> is a <i>measure</i> of performance. Nevertheless, in the sense of <i>measure theory</i>, it’s not since it does not satisfy the property of the <i>null empty set</i> <d-math>\mu(\emptyset)=0</d-math>. As a matter of fact,
