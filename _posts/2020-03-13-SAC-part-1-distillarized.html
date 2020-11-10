@@ -34,7 +34,6 @@ _styles: >
 ---
 
 
-
 <div class="container supervisorDbyline">
     <div class="row">
         <div class="col">
@@ -45,15 +44,13 @@ _styles: >
         -->
         <div class="w-100"></div>
         <div class="col-md-3">
-            Prof.
-                <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
-                  <span class="supervisorThe"> Brahim Chaib-draa </span>
-                </a>
+            Prof. <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
+            <span class="supervisorThe"> Brahim Chaib-draa </span>
+        </a>
         </div>
         <div class="col-md-9">
-            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca" target="blank">
-            Université Laval
-            </a>
+            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca"
+                                                                              target="blank"> Université Laval </a>
         </div>
     </div>
 </div>
@@ -68,7 +65,9 @@ _styles: >
         -->
         <div class="w-100"></div>
     </div>
-        A big thank you to my angel <span class="acknowledgments"> Karen Cadet </span> for her support and precious insight on the english language.
+    A big thank you to my angel
+    <span class="acknowledgments"> Karen Cadet </span>
+    for her support and precious insight on the english language.
 </div>
 
 <hr class="supervisorDbylineHorizontalRule">
@@ -77,149 +76,370 @@ _styles: >
 <figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="margin-left: -0.5rem; margin-top: -0.5rem;">
     <div class="row">
         <div class="col">
-            <img src="{{ 'images/TaxonomySoftActorCritic_mod.png' | prepend: page.postImagesFolder | prepend: '/assets/img/' | relative_url }}" />
+            <img src="{{ 'images/TaxonomySoftActorCritic_mod.png' | prepend: page.postImagesFolder | prepend: '/assets/img/' | relative_url }}"/>
         </div>
     </div>
-    <figcaption>            </figcaption>
+    <figcaption></figcaption>
 </figure>
 
 <h1 id="sec:SoftActorCritic">Soft Actor-Critic</h1>
 
-<p>Soft Actor-Critic (<i>SAC</i>) is an off-policy algorithm based on the <i>Maximum Entropy</i> <i>Reinforcement</i> <i>Learning</i> framework.
-The main idea behind <i>Maximum Entropy RL</i> is to frame the decision-making problem as a <i>probabilistic graphical model</i> from top to bottom and then solve it using tools borrowed from that same field. Under <i>Maximum Entropy RL</i> framework, a learning agent seeks to maximize both the return and the entropy simultaneously.</p>
+<p>Soft Actor-Critic (<i>SAC</i>) is an off-policy algorithm based on the <i>Maximum Entropy</i> <i>Reinforcement</i>
+    <i>Learning</i> framework. The main idea behind <i>Maximum Entropy RL</i> is to frame the decision-making problem as
+   a <i>probabilistic graphical model</i> from top to bottom and then solve it using tools borrowed from that same
+   field. Under <i>Maximum Entropy RL</i> framework, a learning agent seeks to maximize both the return and the entropy
+   simultaneously.</p>
 
 <p>This approach benefits <i>Deep Reinforcement Learning</i> algorithms by giving them</p>
 
 <p class="distillarizer-lead text-center">
-the capacity to consider and learn<br/>many alternate paths leading to an optimal goal<br/>and the capacity to learn how to act optimally<br/>despite adverse circumstances.
+    the capacity to consider and learn<br/>many alternate paths leading to an optimal goal<br/>and the capacity to learn
+    how to act optimally<br/>despite adverse circumstances.
 </p>
 
-<p><i>SAC</i> is an off-policy algorithm, which means it has the ability to train on samples coming from a different policy.
-What is particular though is that, contrary to other off-policy algortihms, it’s stable. This mean that the algorithm is much less picky in terms of hyperparameter tuning.</p>
+<p><i>SAC</i> is an off-policy algorithm, which means it has the ability to train on samples coming from a different
+              policy. What is particular though is that, contrary to other off-policy algortihms, it’s stable. This mean
+              that the algorithm is much less picky in terms of hyperparameter tuning.</p>
 
-<p><i>SAC</i> <d-cite key="Haarnoja2018a"></d-cite> is curently <strong>the state of the art</strong> <i>Deep Reinforcement Learning</i> algorithm together with Twin Delayed Deep Deterministic policy gradient ( <i>TD3</i> ) <d-cite key="DBLP:journals/corr/abs-1802-09477"></d-cite>.</p>
+<p><i>SAC</i> 
+    <d-cite key="Haarnoja2018a"></d-cite>
+             is curently <strong>the state of the art</strong> <i>Deep Reinforcement Learning</i> algorithm together
+             with Twin Delayed Deep Deterministic policy gradient ( <i>TD3</i> ) 
+    <d-cite key="DBLP:journals/corr/abs-1802-09477"></d-cite>
+             .
+</p>
 
-<p>The learning curve of the <i>Maximum Entropy RL</i> framework is quite steep due to how much it rethinks the RL problem. Diving in depth into the <i>Maximum Entropy RL</i> theory is definitely required in order to understand how <i>SAC</i> work.
-Tackling the applied part was arguably the hardest project I did so far, both in terms of component implementation and in terms of evil silent bugs.
-Nevertheless, it’s worth every headache and nightmare I had in the process once it started working.</p>
+<p>The learning curve of the <i>Maximum Entropy RL</i> framework is quite steep due to how much it rethinks the RL
+   problem. Diving in depth into the <i>Maximum Entropy RL</i> theory is definitely required in order to understand how
+    <i>SAC</i> work. Tackling the applied part was arguably the hardest project I did so far, both in terms of component
+   implementation and in terms of evil silent bugs. Nevertheless, it’s worth every headache and nightmare I had in the
+   process once it started working.</p>
 
-    <p>You can find my implementaion on <a href="https://github.com/RedLeader962/LectureDirigeDRLimplementation" target="_blank" title="GitHub">my GitHub <i class="fab fa-github"></i></a></p>
-    
+<p>You can find my implementaion on <a href="https://github.com/RedLeader962/LectureDirigeDRLimplementation"
+                                       target="_blank"
+                                       title="GitHub">my GitHub <i class="fab fa-github"></i></a></p>
+
 
 <h2 id="reading-material">Reading material:</h2>
 
 <ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor <d-cite key="Haarnoja2018a"></d-cite></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review <d-cite key="Levine2018"></d-cite></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Soft Actor-Critic Algorithms and Applications <d-cite key="Haarnoja2018"></d-cite></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement Learning with Deep Energy-Based Policies <d-cite key="Haarnoja2017"></d-cite></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Deterministic Policy Gradient Algorithms <d-cite key="Silver2014"></d-cite></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement learning: An introduction <d-cite key="Sutton1394"></d-cite></li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor 
+        <d-cite key="Haarnoja2018a"></d-cite>
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review 
+        <d-cite key="Levine2018"></d-cite>
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Soft Actor-Critic Algorithms and Applications 
+        <d-cite key="Haarnoja2018"></d-cite>
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Reinforcement Learning with Deep Energy-Based Policies 
+        <d-cite key="Haarnoja2017"></d-cite>
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Deterministic Policy Gradient Algorithms 
+        <d-cite key="Silver2014"></d-cite>
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Reinforcement learning: An introduction 
+        <d-cite key="Sutton1394"></d-cite>
+    </li>
 </ul>
 
 <p>I’ve also complemented my reading with the following resources:</p>
 
 <ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><a href='http://rail.eecs.berkeley.edu/deeprlcourse-fa18/' title=''>CS 294–112 <i>Deep Reinforcement Learning</i></a>: lectures 14-15 by Sergey Levine from University Berkeley;</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><a href='https://spinningup.openai.com/en/latest/algorithms/sac.html' title=''><i>OpenAI: Spinning Up: <i>Soft Actor-Critic</i></i></a>, by Josh Achiam;</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>and also <a href='https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#sac' title=''><i>Lil’ Log blog:Policy Gradient Algorithms</i></a> by Lilian Weng, research intern at <i>OpenAI</i>;</li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        <a href="http://rail.eecs.berkeley.edu/deeprlcourse-fa18/" title="">CS 294–112 <i>Deep Reinforcement
+                                                                                          Learning</i></a>: lectures
+                                                                                                          14-15 by
+                                                                                                          Sergey Levine
+                                                                                                          from
+                                                                                                          University
+                                                                                                          Berkeley;
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        <a href="https://spinningup.openai.com/en/latest/algorithms/sac.html" title=""><i>OpenAI: Spinning Up: <i>Soft
+                                                                                                                  Actor-Critic</i></i></a>,
+                                                                                                                                          by
+                                                                                                                                          Josh
+                                                                                                                                          Achiam;
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        and also <a href="https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#sac" title=""><i>Lil’
+                                                                                                                           Log
+                                                                                                                           blog:Policy
+                                                                                                                           Gradient
+                                                                                                                           Algorithms</i></a>
+        by Lilian Weng, research intern at <i>OpenAI</i>;
+    </li>
 </ul>
 
 <div class="l-body">
 
-<!---- Collapsable card ----------------------------------------------------------------------------------------------->
-<div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
-    <div class="card-shadow">
-        <button class="btn btn-lg btn-block close-icon shadow-none collapsed" type="button" data-toggle="collapse" data-target="#commentOnNotation" aria-expanded="false" aria-controls="commentOnNotation">
-        Comment on notation
-        </button>
-        <div id="commentOnNotation" class="collapse">
-            <div class="card shadow-none">
-                <div class="card-body">
+    <!---- Collapsable card ----------------------------------------------------------------------------------------------->
+    <div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
+        <div class="card-shadow">
+            <button class="btn btn-lg btn-block close-icon shadow-none collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#commentOnNotation"
+                    aria-expanded="false"
+                    aria-controls="commentOnNotation">
+                Comment on notation
+            </button>
+            <div id="commentOnNotation" class="collapse">
+                <div class="card shadow-none">
+                    <div class="card-body">
 
+                        <p>Since there are a lot of different notations across paper, I’ve decided to follow (for the
+                           most part) the convention established by Sutton &amp; Barto in their book Reinforcement
+                           Learning: An Introduction 
+                            <d-cite key="Sutton1394"></d-cite>
+                        </p>
 
-<p>Since there are a lot of different notations across paper, I’ve decided to follow (for the most part) the convention established by Sutton &amp; Barto in their book Reinforcement Learning: An Introduction <d-cite key="Sutton1394"></d-cite></p>
+                        <div class="container-fluid">
+                            <div class="definition">
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle (\mathcal{S}, \mathcal{A}, T, \mathcal{R} )</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Markov decision process</strong><br/>with
+                                            <d-math>\mathcal{S}</d-math>
+                                                                                        the state space,
+                                            <d-math>\mathcal{A}</d-math>
+                                                                                        the action space, the transition
+                                                                                        fct
+                                            <d-math>T</d-math>
+                                                                                        and a reward space
+                                            <d-math>\mathcal{R}</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\scriptstyle t \, \in \, \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>A <strong>time step</strong><br/>between the initiale state at
+                                            <d-math>t=1</d-math>
+                                           and the terminal state
+                                            <d-math>t=\mathsf{T}</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\scriptstyle \mathsf{T}</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Time horizon</strong><br/>time step
+                                            <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math>
+                                                                             ; Case 1:
+                                            <d-math>\mathsf{T}</d-math>
+                                                                             is finite, case 2:
+                                            <d-math>\mathsf{T}</d-math>
+                                                                             is infinite.
+                                            <d-math>(\mathsf{T} = \infty)</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \tau</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>A <strong>trajectory</strong>  
+                                            <d-math>\mathbf{s}_{_{1}}, \mathbf{a}_{_{1}}, r_{_{2}} , \mathbf{s}_{_{2}},
+                                                    \mathbf{a}_{_{2}}, \, \dots \, ,r_{_{\mathsf{T}}},
+                                                    \mathbf{s}_{_{\mathsf{T}}}, \mathbf{a}_{_{\mathsf{T}}}
+                                            </d-math>
+                                           aka: an episode, a trial, a rollout
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \theta</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Parameters vector</strong><br/>a vector of
+                                            <d-math>m</d-math>
+                                                                                  parameters
+                                            <d-math>\theta \, = \, (\theta_1, \, \dots \, , \theta_m)</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \pi_\theta(\tau)</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Policy</strong> over trajectory
+                                            <d-math>\tau</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \pi_\theta(\mathbf{a}_t | \mathbf{s}_t )</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Policy</strong> of parameter
+                                            <d-math>\theta</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle s, \mathbf{s}, s_t \text{ or } \mathbf{s}_t</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>State</strong> or <strong>state vector</strong><br/>
+                                            <d-math>s, \mathbf{s} \in \mathcal{S}</d-math>
+                                                                  .  
+                                            <d-math>\mathbf{s}</d-math>
+                                                                  is a state compose of multiple information<br/>ex:
+                                            <d-math>\left&lt; \text{coord}:(x, y, z), \text{heading}:10 \deg
+                                                    \right&gt;
+                                            </d-math>
+                                                                  .
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle a, \mathbf{a}, a_t \text{ or } \mathbf{a}_t</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Action</strong><br/>
+                                            <d-math>a, \mathbf{a} \in \mathcal{A}</d-math>
+                                            .  
+                                            <d-math>\mathbf{a}</d-math>
+                                            is an vector compose of multiple action information<br/>ex:
+                                            <d-math>\left&lt; x:+1, y:+2, z:0, \text{ say:hello} \right&gt;</d-math>
+                                            .
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle r \text{ or } r_t</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>The <strong>reward</strong> at time step t<br/>
+                                            <d-math>r, r_t \in \mathcal{R}</d-math>
+                                           .  
+                                            <d-math>r_t</d-math>
+                                           is a shorthand for
+                                            <d-math>R_t = r</d-math>
+                                            at time step
+                                            <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>{\displaystyle p(\mathbf{s}&#39;|\mathbf{s}, \mathbf{a})}</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>A <strong>transition dynamic</strong> of unknown model (3 argument
+                                           version)<br/>aka: transition fct, environment dynamic<br/>Model of the world
+                                           express in terms of conditional probability of getting from
+                                            <d-math>(\mathbf{s}_t, \mathbf{a}_t )</d-math>
+                                           to
+                                            <d-math>\mathbf{s}_{t+1}</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle r(\mathbf{s}_t, \mathbf{a}_t)</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>The expected immediate <strong>reward</strong> from state
+                                            <d-math>\mathbf{s}</d-math>
+                                           after action
+                                            <d-math>\mathbf{a}</d-math>
+                                        </p>
 
-<div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle (\mathcal{S}, \mathcal{A}, T, \mathcal{R} )</d-math></dt>
-        <dd class="col"><p><strong>Markov decision process</strong><br/>with <d-math>\mathcal{S}</d-math> the state space, <d-math>\mathcal{A}</d-math> the action space, the transition fct <d-math>T</d-math> and a reward space <d-math>\mathcal{R}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\scriptstyle t \, \in \,  \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math> </dt>
-        <dd class="col"><p>A <strong>time step</strong><br/>between the initiale state at <d-math>t=1</d-math> and the terminal state <d-math>t=\mathsf{T}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\scriptstyle \mathsf{T}</d-math></dt>
-        <dd class="col"><p><strong>Time horizon</strong><br/>time step <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math>; Case 1: <d-math>\mathsf{T}</d-math> is finite, case 2: <d-math>\mathsf{T}</d-math> is infinite. <d-math>(\mathsf{T} = \infty)</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \tau</d-math></dt>
-        <dd class="col"><p>A <strong>trajectory</strong>  <d-math>\mathbf{s}_{_{1}}, \mathbf{a}_{_{1}}, r_{_{2}} , \mathbf{s}_{_{2}}, \mathbf{a}_{_{2}}, \, \dots \, ,r_{_{\mathsf{T}}}, \mathbf{s}_{_{\mathsf{T}}}, \mathbf{a}_{_{\mathsf{T}}}</d-math>
-aka: an episode, a trial, a rollout</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \theta</d-math></dt>
-        <dd class="col"><p><strong>Parameters vector</strong><br/>a vector of <d-math>m</d-math> parameters <d-math>\theta \, = \, (\theta_1, \, \dots \, , \theta_m)</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \pi_\theta(\tau)</d-math></dt>
-        <dd class="col"><p><strong>Policy</strong> over trajectory <d-math>\tau</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \pi_\theta(\mathbf{a}_t | \mathbf{s}_t )</d-math></dt>
-        <dd class="col"><p><strong>Policy</strong> of parameter <d-math>\theta</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle s, \mathbf{s}, s_t \text{ or } \mathbf{s}_t</d-math></dt>
-        <dd class="col"><p><strong>State</strong> or <strong>state vector</strong><br/><d-math>s, \mathbf{s} \in \mathcal{S}</d-math>.  <d-math>\mathbf{s}</d-math> is a state compose of multiple information<br/>ex: <d-math>\left&lt; \text{coord}:(x, y, z), \text{heading}:10 \deg \right&gt;</d-math>.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle a, \mathbf{a}, a_t \text{ or } \mathbf{a}_t</d-math></dt>
-        <dd class="col"><p><strong>Action</strong><br/><d-math>a, \mathbf{a} \in \mathcal{A}</d-math>.  <d-math>\mathbf{a}</d-math> is an vector compose of multiple action information<br/>ex: <d-math>\left&lt; x:+1, y:+2, z:0, \text{ say:hello} \right&gt;</d-math>.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle r \text{ or } r_t</d-math></dt>
-        <dd class="col"><p>The <strong>reward</strong> at time step t<br/><d-math>r, r_t \in \mathcal{R}</d-math>.  <d-math>r_t</d-math> is a shorthand for <d-math>R_t = r</d-math> at time step <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>{\displaystyle p(\mathbf{s}&#39;|\mathbf{s}, \mathbf{a})}</d-math></dt>
-        <dd class="col"><p>A <strong>transition dynamic</strong> of unknown model (3 argument version)<br/>aka: transition fct, environment dynamic<br/>Model of the world express in terms of conditional probability of getting
-from <d-math>(\mathbf{s}_t, \mathbf{a}_t )</d-math> to <d-math>\mathbf{s}_{t+1}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle r(\mathbf{s}_t, \mathbf{a}_t)</d-math></dt>
-        <dd class="col"><p>The expected immediate <strong>reward</strong> from state <d-math>\mathbf{s}</d-math> after action <d-math>\mathbf{a}</d-math></p>
+                                        <p>
+                                            <d-math>r: \mathcal{S} \times \mathcal{A} \longrightarrow \mathbb{R}
+                                            </d-math>
+                                            ;
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle J(\theta)</d-math>
+                                    </dt>
+                                    <dd class="col"><p><strong>Objective function</strong><br/>the function to optimize,
+                                                                                               sometimes synonymous with
+                                                                                               loss/cost/error function
+                                    </p></dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \mathbb{E}_{\tau \sim \pi_\theta(\tau)} \left\lbrack\, X\,
+                                                \right\rbrack
+                                        </d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Expectation</strong><br/>of
+                                            <d-math>X</d-math>
+                                                                            with respect to the trajectory
+                                            <d-math>\tau</d-math>
+                                                                            conditioned on the policy
+                                            <d-math>\pi_\theta</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle \gamma</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p><strong>Discount factor</strong><br/>penalty to uncertainty of future
+                                                                                rewards;
+                                            <d-math>0 &lt; \gamma \leq 1</d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-3">
+                                        <d-math>\displaystyle G_t \text{ or } r_t^\gamma</d-math>
+                                    </dt>
+                                    <dd class="col">
+                                        <p>The <strong>return</strong>: the total discounted future reward<br/>
+                                            <d-math>G_t \, = \, r_t^\gamma \, = \, \sum_{k=t}^{\infty} \gamma^{k-t} \,
+                                                    r(\mathbf{s}_{k}, \mathbf{a}_k)
+                                            </d-math>
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
 
-<p><d-math>r: \mathcal{S} \times \mathcal{A} \longrightarrow \mathbb{R}</d-math>;</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle J(\theta)</d-math></dt>
-        <dd class="col"><p><strong>Objective function</strong><br/>the function to optimize, sometimes synonymous with loss/cost/error function</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle
-        \mathbb{E}_{\tau \sim \pi_\theta(\tau)}
-        \left\lbrack\, X\, \right\rbrack</d-math></dt>
-        <dd class="col"><p><strong>Expectation</strong><br/>of <d-math>X</d-math> with respect to the trajectory <d-math>\tau</d-math> conditioned on the policy <d-math>\pi_\theta</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \gamma</d-math></dt>
-        <dd class="col"><p><strong>Discount factor</strong><br/>penalty to uncertainty of future rewards; <d-math>0 &lt; \gamma \leq 1</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle G_t \text{ or } r_t^\gamma</d-math></dt>
-        <dd class="col"><p>The <strong>return</strong>: the total discounted future reward<br/><d-math>G_t \, = \, r_t^\gamma \, = \,  \sum_{k=t}^{\infty} \gamma^{k-t} \, r(\mathbf{s}_{k}, \mathbf{a}_k)</d-math></p></dd>
-    </dl>
-    </div>
-</div>
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--------------------------------------------------------------------------------------- Collapsable card ---(end)---->
+    <!--------------------------------------------------------------------------------------- Collapsable card ---(end)---->
 
 
 </div>
@@ -227,136 +447,271 @@ from <d-math>(\mathbf{s}_t, \mathbf{a}_t )</d-math> to <d-math>\mathbf{s}_{t+1}<
 <h2 id="subsec:buildingBlocMaximumEntropyFramework">An overview of the <i>Maximum Entropy</i> framework</h2>
 
 <div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3">Goal:</dt>
-        <dd class="col"><p>Solving decision-making problems in a way that define optimality as a context-dependent and multi-solution concept.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3">How?</dt>
-        <dd class="col"><p>By learning a <a href='https://en.wikipedia.org/wiki/Principle_of_maximum_entropy' title=''>Maximum Entropy model</a>.</p></dd>
-    </dl>
+    <div class="definition">
+        <dl class="row">
+            <dt class="col-3">Goal:</dt>
+            <dd class="col"><p>Solving decision-making problems in a way that define optimality as a context-dependent
+                               and multi-solution concept.</p></dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-3">How?</dt>
+            <dd class="col"><p>By learning a <a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy"
+                                                title="">Maximum Entropy model</a>.</p></dd>
+        </dl>
     </div>
 </div>
 
-<p>The <i>Maximum Entropy</i> framework is an approach to solving decision-making problem that uses the formalism and tools of the field of <i>Probabilistic Graphical Model</i>.
-The difference between <i>Classical RL</i> and <i>Maximum Entropy RL</i> is not obvious at first because in both cases, it’s all about dealing with probabilities, random variable,
-expectation maximization and so on.
-As we will see, those two are fundamentally different.</p>
+<p>The <i>Maximum Entropy</i> framework is an approach to solving decision-making problem that uses the formalism and
+   tools of the field of <i>Probabilistic Graphical Model</i>. The difference between <i>Classical RL</i> and <i>Maximum
+                                                                                                                 Entropy
+                                                                                                                 RL</i>
+   is not obvious at first because in both cases, it’s all about dealing with probabilities, random variable,
+   expectation maximization and so on. As we will see, those two are fundamentally different.</p>
 
 <h3 id="a-other-way-of-framing-the-decision-making-problem">A other way of framing the decision-making problem</h3>
 
-<p><strong>The classical approach used in RL</strong> is to formalize the decision-making problem <strong>using a</strong> <i>Probabilistic Graphical Model</i> <strong>augmented with a reward input</strong> and then seek to maximize the sum of cumulative reward using some kind of tools borrowed from <i>Stochastic Optimization</i> (in the broad sense).</p>
+<p><strong>The classical approach used in RL</strong> is to formalize the decision-making problem <strong>using
+                                                                                                          a</strong> <i>Probabilistic
+                                                                                                                        Graphical
+                                                                                                                        Model</i>
+    <strong>augmented with a reward input</strong> and then seek to maximize the sum of cumulative reward using some
+                                                      kind of tools borrowed from <i>Stochastic Optimization</i> (in the
+                                                      broad sense).</p>
 
-<p><strong>The <i>Maximum Entropy RL</i> approach</strong> on the other end formalize the decision-making problem <strong>as a</strong> <i>Probabilistic Graphical Model</i>
-and then solve a learning and inference problem using <i>Probabilistic Graphical Model</i> tools.
-While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as <i>Probabilistic Graphical Model</i>.</p>
+<p><strong>The <i>Maximum Entropy RL</i> approach</strong> on the other end formalize the decision-making problem
+    <strong>as a</strong> <i>Probabilistic Graphical Model</i> and then solve a learning and inference problem using <i>Probabilistic
+                                                                                                                        Graphical
+                                                                                                                        Model</i>
+                                                           tools. While the former can use Probabilistic Graphical Model
+                                                           to describe the RL problem, the later formalize the complete
+                                                           RL problem as <i>Probabilistic Graphical Model</i>.</p>
 
 <p class="distillarizer-lead text-center">
-In other word, the <i>Maximum Entropy RL</i><d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum Entropy RL</i>.</d-footnote>framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
+    In other word, the <i>Maximum Entropy RL</i>
+    <d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum
+                                                                                                                      Entropy
+                                                                                                                      RL</i>,
+        <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum
+                                                                                                               Entropy
+                                                                                                               RL</i>.
+    </d-footnote>
+    framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
 </p>
 
-<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem different (an intuition):</h4>
+<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem
+                                                                                   different (an intuition):</h4>
 
-<p>Consider an environment with a continuous action space.
-The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
-In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
+<p>Consider an environment with a continuous action space. The <i>Classical RL</i> approach would specify the agent
+   policy
+    <d-math>\pi</d-math>
+   as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action
+   for a given state. In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal
+   distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a
+   given state.
+</p>
 
 <h4 class="unnumbered" id="why-does-it-matter">Why does it matter?</h4>
 
-<p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
+<p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent
+   should be able to handle the following scenario:</p>
 
 <ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose the optimal way is simply impractical at a given time, meaning there is no choice to fallback to a lesser optimal way. Does he know how to handle non-optimal alternative way to do things?</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose there is more than one optimal way to do things all leading to the same end result, how does he choose between them?</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose now that there exist multiple equally optimal but different end result, how does he proceed now?</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>What about the case where there are many ways to do things and only one optimal way but we want the agent to relax is expectation regarding the end result, in other words, we don’t care whether the end result is optimal or near optimal? Will he be able to make good use of that relaxed requirement of near optimality?</li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Suppose the optimal way is simply impractical at a given time, meaning there is no choice to fallback to a
+        lesser optimal way. Does he know how to handle non-optimal alternative way to do things?
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Suppose there is more than one optimal way to do things all leading to the same end result, how does he choose
+        between them?
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        Suppose now that there exist multiple equally optimal but different end result, how does he proceed now?
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        What about the case where there are many ways to do things and only one optimal way but we want the agent to
+        relax is expectation regarding the end result, in other words, we don’t care whether the end result is optimal
+        or near optimal? Will he be able to make good use of that relaxed requirement of near optimality?
+    </li>
 </ul>
 
-<p>Those are all legitimate scenario that an agent should be required to successfully handle in order to become effective, skillful, agile, nimble, resilient and capable of handling adverse condition.</p>
+<p>Those are all legitimate scenario that an agent should be required to successfully handle in order to become
+   effective, skillful, agile, nimble, resilient and capable of handling adverse condition.</p>
 
 <p class="distillarizer-lead text-center">
-The problem with <i>Classical RL</i> is that it converges (in expectation) to a deterministic policy <d-math>\pi</d-math>.
+    The problem with <i>Classical RL</i> is that it converges (in expectation) to a deterministic policy
+    <d-math>\pi</d-math>
+    .
 </p>
 
-<p>This is one of the keys takes away proof from the <i>Deterministic Policy Gradient</i> (DPG) <d-cite key="Silver2014"></d-cite> paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  <d-cite key="Sutton1394"></d-cite>
-This mean that the algorithm will optimize for one and only one way to do things.
-Once it starts <i>believing</i> that a path is more promising than the others, it will start to optimize for that <i>believed-best</i> path and it will discard all the alternate ones.
-Even if the algorithm is forced to explore using whatever trick, those trick only promote <i>believed unpromising</i> path for consideration but it still results in an algorithm that
-learn to optimize for one and only one way to do things.
-On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:</p>
+<p>This is one of the keys takes away proof from the <i>Deterministic Policy Gradient</i> (DPG) 
+    <d-cite key="Silver2014"></d-cite>
+   paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy
+   gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for
+   value-based algorithms  
+    <d-cite key="Sutton1394"></d-cite>
+   This mean that the algorithm will optimize for one and only one way to do things. Once it starts <i>believing</i>
+   that a path is more promising than the others, it will start to optimize for that <i>believed-best</i> path and it
+   will discard all the alternate ones. Even if the algorithm is forced to explore using whatever trick, those trick
+   only promote <i>believed unpromising</i> path for consideration but it still results in an algorithm that learn to
+   optimize for one and only one way to do things. On the other end, <i>Maximum Entropy RL</i> optimize for multiple
+   alternate ways of doing things which lead to algorithms that exhibit the following property:
+</p>
 
 <ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>effective exploration</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>transfer learning capabilities out of the box</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>robustness and adaptability</li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        effective exploration
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        transfer learning capabilities out of the box
+    </li>
+    <li>
+        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+        robustness and adaptability
+    </li>
 </ul>
 
-        <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
-        
+<h3>Nuts and bolts
+    <span style="font-weight: normal">(Key component related to SAC)</span>
+</h3>
 
-<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
 
-<p>Recall the <i>Classical RL</i> stochastic policy <d-math>\pi</d-math> definition</p>
+<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy
+    <d-math>\pi</d-math>
+                                                 :
+</h4>
+
+<p>Recall the <i>Classical RL</i> stochastic policy
+    <d-math>\pi</d-math>
+   definition
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneNutsAndBolt_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneNutsAndBolt_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>which is modelled either as a categorical or a Gaussian distribution with his mean value representing the best action <d-math>\mathbf{a}</d-math> given satet <d-math>\mathbf{s}</d-math> at <i>timestep</i> <d-math>t</d-math>.
-How this distribution is defined is a arbitrary choice let to the algorithm design.</p>
+<p>which is modelled either as a categorical or a Gaussian distribution with his mean value representing the best action
+    <d-math>\mathbf{a}</d-math>
+   given satet
+    <d-math>\mathbf{s}</d-math>
+   at <i>timestep</i>
+    <d-math>t</d-math>
+   . How this distribution is defined is a arbitrary choice let to the algorithm design.
+</p>
 
-<p>On the other end, <i>Maximum Entropy RL</i> defines the distribution explicitely either in terms of
-<i>advantage</i> <d-math>A^\pi</d-math> as</p>
+<p>On the other end, <i>Maximum Entropy RL</i> defines the distribution explicitely either in terms of <i>advantage</i>
+    <d-math>A^\pi</d-math>
+   as
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneNutsAndBolt_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneNutsAndBolt_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>or in terms of
-<i>Q-function</i> <d-math>Q^\pi</d-math> as</p>
+<p>or in terms of <i>Q-function</i>
+    <d-math>Q^\pi</d-math>
+   as
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneNutsAndBolt_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneNutsAndBolt_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with <d-math>\alpha</d-math> being the <i>temperature</i> and <d-math>\propto</d-math> the symbol of proportionality.</p>
+<p>with
+    <d-math>\alpha</d-math>
+   being the <i>temperature</i> and
+    <d-math>\propto</d-math>
+   the symbol of proportionality.
+</p>
 
-<p>We can observe that it’s an analogue of the <a href='https://en.wikipedia.org/wiki/Boltzmann_distribution' title=''>Boltzmann distribution</a> (aka Gibbs distribution) with the <i>advantage</i> being the negative energy found in the Boltzmann distribution.
-Equivalently, it gives us a <i>probability measure</i> of a RL agent doing action <d-math>\mathbf{a}_t</d-math> in a given state <d-math>\mathbf{s}_t</d-math> as a function of that state energy <d-math>A(\mathbf{s}_t, \mathbf{a}_t)</d-math> (<i>the advantage</i>).
-As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero, the policy behaves like a standard <i>greedy policy</i></p>
+<p>We can observe that it’s an analogue of the <a href="https://en.wikipedia.org/wiki/Boltzmann_distribution" title="">Boltzmann
+                                                                                                                       distribution</a>
+   (aka Gibbs distribution) with the <i>advantage</i> being the negative energy found in the Boltzmann distribution.
+   Equivalently, it gives us a <i>probability measure</i> of a RL agent doing action
+    <d-math>\mathbf{a}_t</d-math>
+   in a given state
+    <d-math>\mathbf{s}_t</d-math>
+   as a function of that state energy
+    <d-math>A(\mathbf{s}_t, \mathbf{a}_t)</d-math>
+   (<i>the advantage</i>). As the <i>temperature</i>
+    <d-math>\alpha</d-math>
+   decreases and approach to zero, the policy behaves like a standard <i>greedy policy</i></p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneNutsAndBolt_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneNutsAndBolt_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
+<p>This hyperparameter
+    <d-math>\alpha</d-math>
+   control the stochasticity of the policy and become very useful later on during training in order to adjust the
+   trade-off between exploration and exploitation.
+</p>
 
-<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective
+    <d-math>J(\pi)</d-math>
+                                                     :
+</h4>
 
-<p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
+<p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with
+   the exception of an added entropy term
+    <d-math>\mathcal{H}</d-math>
+   and the temperature.
+    <d-math>\alpha</d-math>
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-top: 0.5rem">
-    <img src="{{ 'standaloneNutsAndBolt_5.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneNutsAndBolt_5.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3">Key idea:</dt>
-        <dd class="col"><p>This objective seeks to maximize the expected <i>return</i> <strong>and</strong> maximize the action <i>entropy</i> at the same time.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3">Moving part</dt>
-        <dd class="col"><ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The return:</strong> Same as in <i>Classical RL</i></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The entropy term:</strong> Can be viewed as a regularizer, an uniform prior over the policy or a way to tackle the exploration/exploitation trade off.</li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The temperature <d-math>\alpha</d-math>:</strong> Control the trade-off between exploration/exploitation.</li>
-</ul></dd>
-    </dl>
+    <div class="definition">
+        <dl class="row">
+            <dt class="col-3">Key idea:</dt>
+            <dd class="col"><p>This objective seeks to maximize the expected <i>return</i> <strong>and</strong> maximize
+                               the action <i>entropy</i> at the same time.</p></dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-3">Moving part</dt>
+            <dd class="col">
+                <ul class="fa-ul">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <strong>The return:</strong> Same as in <i>Classical RL</i></li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <strong>The entropy term:</strong> Can be viewed as a regularizer, an uniform prior over the
+                                                           policy or a way to tackle the exploration/exploitation trade
+                                                           off.
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <strong>The temperature
+                            <d-math>\alpha</d-math>
+                                :</strong> Control the trade-off between exploration/exploitation.
+                    </li>
+                </ul>
+            </dd>
+        </dl>
     </div>
 </div>
 
@@ -365,31 +720,57 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
     <div class="card-shadow">
         <div class="card">
             <div class="card-header" style="">
-            Entropy
+                Entropy
             </div>
             <div class="card-body">
 
 
-<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-top: 1.1rem">
-    <img src="{{ 'standaloneNutsAndBolt_entropy.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
-</div>
+                <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-top: 1.1rem">
+                    <img src="{{ 'standaloneNutsAndBolt_entropy.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                         class="img-fluid"
+                         width="100%"/>
+                </div>
 
 
-<p><a href='https://en.wikipedia.org/wiki/Information_theory_and_measure_theory' title=''>It’s a measure</a> of the randomness of a random variable.</p>
+                <p><a href="https://en.wikipedia.org/wiki/Information_theory_and_measure_theory" title="">It’s a
+                                                                                                          measure</a> of
+                                                                                                                      the
+                                                                                                                      randomness
+                                                                                                                      of
+                                                                                                                      a
+                                                                                                                      random
+                                                                                                                      variable.
+                </p>
 
-<ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>0 \leq \mathcal{H} \leq 1</d-math></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>\mathcal{H} = 0 \ \Longrightarrow</d-math> the variable is deterministic.</li>
-</ul>
+                <ul class="fa-ul">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <d-math>0 \leq \mathcal{H} \leq 1</d-math>
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <d-math>\mathcal{H} = 0 \ \Longrightarrow</d-math>
+                        the variable is deterministic.
+                    </li>
+                </ul>
 
-<p><span><a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)' title=''>Additional information</a></span></p>
+                <p>
+                    <span><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" title="">Additional information</a></span>
+                </p>
 
-<p><d-math>\mathcal{H}</d-math> tel us how wide is the distribution from which are sampled the random variables.</p>
+                <p>
+                    <d-math>\mathcal{H}</d-math>
+                    tel us how wide is the distribution from which are sampled the random variables.
+                </p>
 
-<ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>A wide distribution will produce high entropy <i>random variable.</i></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>A narrow distribution will produce low entropy <i>random variable.</i></li>
-</ul>
+                <ul class="fa-ul">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        A wide distribution will produce high entropy <i>random variable.</i></li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        A narrow distribution will produce low entropy <i>random variable.</i></li>
+                </ul>
 
             </div>
         </div>
@@ -398,105 +779,176 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function
+    <d-math>Q^\pi</d-math>
+                                                                and
+    <d-math>V^\pi</d-math>
+</h4>
 
 <p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
 
-<p>First we need to rewrite the <i>MaxEnt</i> objective by expanding the <i>entropy</i> term and using the <i>Q-function</i> definition such that</p>
+<p>First we need to rewrite the <i>MaxEnt</i> objective by expanding the <i>entropy</i> term and using the
+    <i>Q-function</i> definition such that</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>This leads us to the definition of both <i>value function</i>. The <i>state-action value function</i> is defined as</p>
+<p>This leads us to the definition of both <i>value function</i>. The <i>state-action value function</i> is defined as
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <p>and the <i>state value function</i> is defined as</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <p>or alternatively</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>We can also rewrite the <i>Bellman</i> equation in terms of <d-math>Q_{soft}^\pi</d-math> and <d-math>V_{soft}^\pi</d-math></p>
+<p>We can also rewrite the <i>Bellman</i> equation in terms of
+    <d-math>Q_{soft}^\pi</d-math>
+   and
+    <d-math>V_{soft}^\pi</d-math>
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_5.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_5.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with <d-math>p</d-math> being the <i>transition dynamic</i>.</p>
+<p>with
+    <d-math>p</d-math>
+   being the <i>transition dynamic</i>.
+</p>
 
 <h5 id="softQfunctionIsBackwardMessage"></h5>
 
 <p>Without diving to deep into the <i>Maximum Entropy</i> framework, it’s valuable to point out that
-<d-math>Q_{soft}^\pi</d-math> doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i> <d-math>Q^\pi</d-math>
-and it doesn’t have the same properties either<d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.</d-footnote>.
-By definition,</p>
-
-<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_5b.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
-</div>
-
-
-<p>with <d-math>\mathcal{O}</d-math> being a optimality random variable. This definition of <d-math>Q_{MaxEnt}^\pi</d-math> can be interpreted as</p>
-
-<p class="distillarizer-lead text-center">
-<strong>the probability</strong> (on a logaritmic scale)<br/><strong>of being optimal from timestep <d-math>t</d-math> until the trajectory end</strong><br/>
+    <d-math>Q_{soft}^\pi</d-math>
+   doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i>
+    <d-math>Q^\pi</d-math>
+   and it doesn’t have the same properties either
+    <d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.
+    </d-footnote>
+   . By definition,
 </p>
 
-<p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
-<span class="distillarizerLabel" label="softQfunctionMeaning" id="softQfunctionMeaning"></span></p>
-
-<p>Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
-
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_5c.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_5b.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>we can appreciate how it uses both value-function in order to evaluate the quality of an action <d-math>\mathbf{a}_t</d-math> <strong>with regard to every other legal action <d-math>\mathbf{a}&#39;_t</d-math> available</strong> in that state <d-math>\mathbf{s}_t</d-math>. This ratio is equivalent to the formulation of a conditional probability with the lowest possible value being close to <d-math>0.0</d-math> for a very bad action outcome. In effect, this probability like formulation mean that</p>
+<p>with
+    <d-math>\mathcal{O}</d-math>
+   being a optimality random variable. This definition of
+    <d-math>Q_{MaxEnt}^\pi</d-math>
+   can be interpreted as
+</p>
 
 <p class="distillarizer-lead text-center">
-it give a measure of the quality of an ongoing trajectory<br/>as per definition of a <i>measure</i> in <a href='https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;oldid=970525184' title=''><i>measure theory</i></a>.
+    <strong>the probability</strong> (on a logaritmic scale)<br/><strong>of being optimal from timestep
+    <d-math>t</d-math>
+                                                                         until the trajectory end</strong><br/>
+</p>
+
+<p>given that we are in state
+    <d-math>\mathbf{s}_t</d-math>
+   and we take action
+    <d-math>\mathbf{a}_t</d-math>
+   .
+    <span class="distillarizerLabel" label="softQfunctionMeaning" id="softQfunctionMeaning"></span>
+</p>
+
+<p>Looking back at the initial formulation of the policy
+    <d-math>\pi_{MaxEnt}</d-math>
+   in its ratio form
+</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="{{ 'standaloneSoftValueFct_5c.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
+</div>
+
+
+<p>we can appreciate how it uses both value-function in order to evaluate the quality of an action
+    <d-math>\mathbf{a}_t</d-math>
+    <strong>with regard to every other legal action
+        <d-math>\mathbf{a}&#39;_t</d-math>
+            available</strong> in that state
+    <d-math>\mathbf{s}_t</d-math>
+   . This ratio is equivalent to the formulation of a conditional probability with the lowest possible value being close
+   to
+    <d-math>0.0</d-math>
+   for a very bad action outcome. In effect, this probability like formulation mean that
+</p>
+
+<p class="distillarizer-lead text-center">
+    it give a measure of the quality of an ongoing trajectory<br/>as per definition of a <i>measure</i> in
+    <a href="https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;oldid=970525184" title=""><i>measure
+                                                                                                               theory</i></a>.
 </p>
 
 <p>Having this in mind leads us to an interesting question:</p>
 
 <blockquote class="blockquote text-justify">
-    <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
-    Is taking the value-function <d-math>Q_{classical}^\pi</d-math> alone a reliable way of assessing the quality of a trajectory?
+    <i class="fas fa-quote-left fa-1x fa-pull-left"></i> Is taking the value-function
+    <d-math>Q_{classical}^\pi</d-math>
+                                                         alone a reliable way of assessing the quality of a trajectory?
 </blockquote>
 
-<p>It’s common to say in <i>classical RL/DRL</i> that the <i>reward-to-go</i> <d-math>Q_{classical}^\pi</d-math> is a <i>measure</i> of performance. Nevertheless, in the sense of <i>measure theory</i>, it’s not since it does not satisfy the property of the <i>null empty set</i> <d-math>\mu(\emptyset)=0</d-math>. As a matter of fact,
-we have no guarantee that the environment dynamic was designed to produce</p>
+<p>It’s common to say in <i>classical RL/DRL</i> that the <i>reward-to-go</i>
+    <d-math>Q_{classical}^\pi</d-math>
+   is a <i>measure</i> of performance. Nevertheless, in the sense of <i>measure theory</i>, it’s not since it does not
+   satisfy the property of the <i>null empty set</i>
+    <d-math>\mu(\emptyset)=0</d-math>
+   . As a matter of fact, we have no guarantee that the environment dynamic was designed to produce
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneSoftValueFct_6.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneSoftValueFct_6.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>Take the case of an environment where the <i>reward</i> signal upper-bound is 0 by design. In that case, 0 would be the highest possible <i>return</i> but it certainly doesn’t mean that it’s a non-rewarding trajectory or that the trajectory was initialized on a terminal state.</p>
+<p>Take the case of an environment where the <i>reward</i> signal upper-bound is 0 by design. In that case, 0 would be
+   the highest possible <i>return</i> but it certainly doesn’t mean that it’s a non-rewarding trajectory or that the
+   trajectory was initialized on a terminal state.</p>
 
-<p>For now, this is all we need to understand how the <i>Soft Actor-Critic</i> algorithm work.
-More on the subject of <i>Maximum Entropy RL</i> in a futur post.</p>
+<p>For now, this is all we need to understand how the <i>Soft Actor-Critic</i> algorithm work. More on the subject of
+    <i>Maximum Entropy RL</i> in a futur post.</p>
 
 <figure id="" class="l-body-outset" style="margin-bottom: 0rem; margin-top: 0rem">
     <div class="row">
         <div class="col one">
-            <img src="{{ 'standaloneBuildingBlocOfMaxEntRL.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+            <img src="{{ 'standaloneBuildingBlocOfMaxEntRL.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                 class="img-fluid distillarizerStandalone"
+                 width="100%"/>
         </div>
     </div>
 </figure>
@@ -504,67 +956,150 @@ More on the subject of <i>Maximum Entropy RL</i> in a futur post.</p>
 
 <h2 id="subsec:BuildingBloc">Building blocks of Soft Actor-Critic</h2>
 
-<p>The algorithm seeks to maximize the <i>maximum entropy</i> objective <d-math>J(\pi_{MaxEnt})</d-math> by doing <i>soft policy iteration</i>, which is similar to regular policy iteration (more on this in the
-algorithm anatomy section <a href='#subsec:AlgorithmAnatomy' title=''>1.4</a> ).</p>
+<p>The algorithm seeks to maximize the <i>maximum entropy</i> objective
+    <d-math>J(\pi_{MaxEnt})</d-math>
+   by doing <i>soft policy iteration</i>, which is similar to regular policy iteration (more on this in the algorithm
+   anatomy section <a href="#subsec:AlgorithmAnatomy" title="">1.4</a> ).
+</p>
 
-<p>To do so, the algorithm will have to learn simultaneously the <i>soft Q-function</i> <d-math>Q_\theta^\pi</d-math> and <i>Maximum Entropy policy</i> <d-math>\pi_{MaxEnt}</d-math>.</p>
+<p>To do so, the algorithm will have to learn simultaneously the <i>soft Q-function</i>
+    <d-math>Q_\theta^\pi</d-math>
+   and <i>Maximum Entropy policy</i>
+    <d-math>\pi_{MaxEnt}</d-math>
+   .
+</p>
 
-<p>Because it’s learning both value and policy at the same time, <i>Soft Actor-Critic</i> (<i>SAC</i> for short) <strong>is considered a <i>value-based</i> <i>Actor-Critic</i> algorithm</strong>. This also means that it can be trained using <i>off-policy</i> samples.</p>
+<p>Because it’s learning both value and policy at the same time, <i>Soft Actor-Critic</i> (<i>SAC</i> for short)
+    <strong>is considered a <i>value-based</i> <i>Actor-Critic</i> algorithm</strong>. This also means that it can be
+   trained using <i>off-policy</i> samples.</p>
 
-<p><i>off-policy</i> learning capability is a very valuable and coveted ability: it means that <strong>the algorithm can learn from samples generated by another policy <d-math>\pi</d-math> distribution than the current one</strong>. Those samples could be coming from the same but older policy <d-math>\pi_{older}</d-math> (in other word samples generated earlier) or they could be coming from a totally different policy <d-math>\pi&#39;</d-math> that is producing them elsewhere.</p>
+<p><i>off-policy</i> learning capability is a very valuable and coveted ability: it means that <strong>the algorithm can
+                                                                                                       learn from
+                                                                                                       samples generated
+                                                                                                       by another policy
+    <d-math>\pi</d-math>
+                                                                                                       distribution than
+                                                                                                       the current
+                                                                                                       one</strong>.
+                     Those samples could be coming from the same but older policy
+    <d-math>\pi_{older}</d-math>
+                     (in other word samples generated earlier) or they could be coming from a totally different policy
+    <d-math>\pi&#39;</d-math>
+                     that is producing them elsewhere.
+</p>
 
-<p>The key benefit here is that it can <strong>speed up training by reducing the overhead of having to produce new sample at every gradient step</strong>.
-It’s particularly useful in environment where producing new samples is a long process, like in real life robotic.</p>
+<p>The key benefit here is that it can <strong>speed up training by reducing the overhead of having to produce new
+                                               sample at every gradient step</strong>. It’s particularly useful in
+   environment where producing new samples is a long process, like in real life robotic.</p>
 
 <h3 id="subsubsec:LearningTheSoftQfunction">Learning the <i>soft Q-function</i></h3>
 
-<p>Recall that we talk earlier about <d-math>Q_{soft}^\pi</d-math> being a <i>Probabilistic Graphical Model</i>
-backward message <a href='#softQfunctionIsBackwardMessage' title=''>1.2.1.0.1</a>
-. In order to be able to compute that value efficiently, we need to approximate it.</p>
+<p>Recall that we talk earlier about
+    <d-math>Q_{soft}^\pi</d-math>
+   being a <i>Probabilistic Graphical Model</i> backward message <a href="#softQfunctionIsBackwardMessage" title="">1.2.1.0.1</a>
+   . In order to be able to compute that value efficiently, we need to approximate it.
+</p>
 
-<p>We can do this by representing it as a parametrized function <d-math>Q_{\theta}^\pi (\mathbf{s}_t, \mathbf{a}_t )</d-math> of parameters <d-math>\theta</d-math>. We then learn <d-math>\theta</d-math> by minimizing the squared soft Bellman residual error</p>
+<p>We can do this by representing it as a parametrized function
+    <d-math>Q_{\theta}^\pi (\mathbf{s}_t, \mathbf{a}_t )</d-math>
+   of parameters
+    <d-math>\theta</d-math>
+   . We then learn
+    <d-math>\theta</d-math>
+   by minimizing the squared soft Bellman residual error
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 0rem;">
-    <img src="{{ 'standaloneJQtheta.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneJQtheta.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with <d-math>\widehat{Q}_{soft}^\pi</d-math> being the target.</p>
+<p>with
+    <d-math>\widehat{Q}_{soft}^\pi</d-math>
+   being the target.
+</p>
 
-<p>In theory, <d-math>V_{soft}^\pi(\mathbf{s}_t)</d-math> value can be estimated directly using <strong><i>equation 6</i></strong>. However, representing <d-math>V_{soft}^\pi</d-math> explicitly has the added benefit of helping stabilize learning. We can represent it as a parametrized function <d-math>V_{\psi}^\pi (\mathbf{s}_t)</d-math> of parameters <d-math>\psi</d-math>. We then learn <d-math>\psi</d-math> by minimizing the squared residual error</p>
+<p>In theory,
+    <d-math>V_{soft}^\pi(\mathbf{s}_t)</d-math>
+   value can be estimated directly using <strong><i>equation 6</i></strong>. However, representing
+    <d-math>V_{soft}^\pi</d-math>
+   explicitly has the added benefit of helping stabilize learning. We can represent it as a parametrized function
+    <d-math>V_{\psi}^\pi (\mathbf{s}_t)</d-math>
+   of parameters
+    <d-math>\psi</d-math>
+   . We then learn
+    <d-math>\psi</d-math>
+   by minimizing the squared residual error
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 0rem;">
-    <img src="{{ 'standaloneJVpsi.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneJVpsi.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with <d-math>\widehat{V}_{soft}^\pi</d-math> being the target.</p>
+<p>with
+    <d-math>\widehat{V}_{soft}^\pi</d-math>
+   being the target.
+</p>
 
-<p>We now need a way to represent and learn <d-math>\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )</d-math>.</p>
+<p>We now need a way to represent and learn
+    <d-math>\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )</d-math>
+   .
+</p>
 
-<h3 id="deriving-the-objective-jpi_maxent-of-sac">Deriving the objective <d-math>J(\pi_{MaxEnt})</d-math> of SAC:</h3>
+<h3 id="deriving-the-objective-jpi_maxent-of-sac">Deriving the objective
+    <d-math>J(\pi_{MaxEnt})</d-math>
+                                                  of SAC:
+</h3>
 
-<p>Let first rewrite the <i>Maximum Entropy RL</i> objective for a single timestep in terms of <d-math>Q_\theta^\pi</d-math></p>
+<p>Let first rewrite the <i>Maximum Entropy RL</i> objective for a single timestep in terms of
+    <d-math>Q_\theta^\pi</d-math>
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 0rem;">
-    <img src="{{ 'standaloneJpiMaxEnt.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneJpiMaxEnt.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with the <i>constant</i> <d-math>C</d-math> being the <a href='https://en.wikipedia.org/wiki/Partition_function_(mathematics)' title=''>partition function</a> that is used to normalize the distribution.<br/>We can then learn this objective by minimizing the expected <i>KL-divergence</i> directly using this update rule</p>
+<p>with the <i>constant</i>
+    <d-math>C</d-math>
+   being the <a href="https://en.wikipedia.org/wiki/Partition_function_(mathematics)" title="">partition function</a>
+   that is used to normalize the distribution.<br/>We can then learn this objective by minimizing the expected <i>KL-divergence</i>
+   directly using this update rule
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standalonePiNew.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standalonePiNew.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>with <d-math>\Pi</d-math> being a family of policy.</p>
+<p>with
+    <d-math>\Pi</d-math>
+   being a family of policy.
+</p>
 
 <div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3">Note:</dt>
-        <dd class="col"><p>The authors of the SAC paper as demonstrated that the constant can be omitted since it does not contribute to the gradient of <d-math>J(\pi_{MaxEnt})</d-math> <d-cite key="Haarnoja2018a"></d-cite> (see appendix B).</p></dd>
-    </dl>
+    <div class="definition">
+        <dl class="row">
+            <dt class="col-3">Note:</dt>
+            <dd class="col">
+                <p>The authors of the SAC paper as demonstrated that the constant can be omitted since it does not
+                   contribute to the gradient of
+                    <d-math>J(\pi_{MaxEnt})</d-math>
+                    
+                    <d-cite key="Haarnoja2018a"></d-cite>
+                   (see appendix B).
+                </p>
+            </dd>
+        </dl>
     </div>
 </div>
 
@@ -573,22 +1108,33 @@ backward message <a href='#softQfunctionIsBackwardMessage' title=''>1.2.1.0.1</a
     <div class="card-shadow">
         <div class="card">
             <div class="card-header" style="">
-            KL-divergence (aka. relative entropy)
+                KL-divergence (aka. relative entropy)
             </div>
             <div class="card-body">
 
 
-<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneKLdivergence.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
-</div>
+                <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+                    <img src="{{ 'standaloneKLdivergence.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                         class="img-fluid"
+                         width="100%"/>
+                </div>
 
 
-<p>It tel us how much different are two distributions</p>
+                <p>It tel us how much different are two distributions</p>
 
-<ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>0 \leq D_{KL} \big(q \Vert p\big)</d-math></li>
-<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>D_{KL} \big(q \Vert p\big)  = 0 \ \Longrightarrow \ q</d-math> and <d-math>p</d-math> are similar</li>
-</ul>
+                <ul class="fa-ul">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <d-math>0 \leq D_{KL} \big(q \Vert p\big)</d-math>
+                    </li>
+                    <li>
+                        <span class="fa-li"><i class="fas fa-caret-right"></i></span>
+                        <d-math>D_{KL} \big(q \Vert p\big) = 0 \ \Longrightarrow \ q</d-math>
+                        and
+                        <d-math>p</d-math>
+                        are similar
+                    </li>
+                </ul>
 
             </div>
         </div>
@@ -597,41 +1143,68 @@ backward message <a href='#softQfunctionIsBackwardMessage' title=''>1.2.1.0.1</a
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h3 id="learning-the-policy-pi_maxent">Learning the policy <d-math>\pi_{MaxEnt}</d-math></h3>
+<h3 id="learning-the-policy-pi_maxent">Learning the policy
+    <d-math>\pi_{MaxEnt}</d-math>
+</h3>
 
-<p>Concretely, we are going to approximate the policy <d-math>\pi_{SAC}</d-math> by representing it as a parametrized Gaussian distribution <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math> of parameters <d-math>\phi</d-math> with a learnable mean and covariance.
-We cannot directly differentiate a probability distribution but using the <i>reparameterization trick</i>, we can remodel the policy so that it exposes different parameters: in our case the mean and covariance of a Gaussian distribution. Using this trick, we can express the action</p>
+<p>Concretely, we are going to approximate the policy
+    <d-math>\pi_{SAC}</d-math>
+   by representing it as a parametrized Gaussian distribution
+    <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>
+   of parameters
+    <d-math>\phi</d-math>
+   with a learnable mean and covariance. We cannot directly differentiate a probability distribution but using the <i>reparameterization
+                                                                                                                      trick</i>,
+   we can remodel the policy so that it exposes different parameters: in our case the mean and covariance of a Gaussian
+   distribution. Using this trick, we can express the action
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneLearningpolicy_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneLearningpolicy_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <p>as</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneLearningpolicy_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneLearningpolicy_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>where <d-math>\epsilon \sim \mathcal{N}(\mu, \Sigma)</d-math> and define implicitly the policy <d-math>\pi_\phi</d-math> in terms of <d-math>f_\phi</d-math></p>
+<p>where
+    <d-math>\epsilon \sim \mathcal{N}(\mu, \Sigma)</d-math>
+   and define implicitly the policy
+    <d-math>\pi_\phi</d-math>
+   in terms of
+    <d-math>f_\phi</d-math>
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneLearningpolicy_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneLearningpolicy_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <p>We then rewrite <strong><i>equation 11</i></strong> as</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
-    <img src="{{ 'standaloneLearningpolicy_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneLearningpolicy_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <figure id="" class="l-body-outset" style="">
     <div class="row">
         <div class="col one">
-            <img src="{{ 'standaloneBuildingBlocKeyIdea.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+            <img src="{{ 'standaloneBuildingBlocKeyIdea.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                 class="img-fluid distillarizerStandalone"
+                 width="100%"/>
         </div>
     </div>
 </figure>
@@ -639,108 +1212,190 @@ We cannot directly differentiate a probability distribution but using the <i>rep
 
 <h2 id="subsec:AlgorithmAnatomy">Algorithm anatomy:</h2>
 
-<p>In order to be effective while tackling large continuous domain, the <i>SAC</i> algorithm uses an approximation of the <i>soft policy iteration</i> algorithm:</p>
+<p>In order to be effective while tackling large continuous domain, the <i>SAC</i> algorithm uses an approximation of
+   the <i>soft policy iteration</i> algorithm:</p>
 
 <ol>
-<li>It used function approximator for the <i>soft Q-function</i> <d-math>Q_{soft}^\pi</d-math> and the policy <d-math>\pi_{SAC}</d-math></li>
-<li>It alternates between <i>soft policy evaluation</i> and <i>soft policy improvement</i> instead of running each one to convergence separately like in <i>Classical RL</i> <i>policy iteration</i>.</li>
+    <li>It used function approximator for the <i>soft Q-function</i>
+        <d-math>Q_{soft}^\pi</d-math>
+        and the policy
+        <d-math>\pi_{SAC}</d-math>
+    </li>
+    <li>It alternates between <i>soft policy evaluation</i> and <i>soft policy improvement</i> instead of running each
+        one to convergence separately like in <i>Classical RL</i> <i>policy iteration</i>.
+    </li>
 </ol>
 
 <figure id="" class="l-body-outset" style="">
     <div class="row">
         <div class="col one">
-            <img src="{{ 'standaloneAlgo_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+            <img src="{{ 'standaloneAlgo_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                 class="img-fluid distillarizerStandalone"
+                 width="100%"/>
         </div>
     </div>
 </figure>
 
 
-<h3 id="training-soft-function-approximator-implementation-details">Training soft function approximator: implementation details</h3>
+<h3 id="training-soft-function-approximator-implementation-details">Training soft function approximator: implementation
+                                                                    details</h3>
 
 <p>The algorithm will learn</p>
 
 <ol>
-<li>a parametrized soft <i>state-value function</i> <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math>;</li>
-<li>two parametrized <i>soft Q-function</i> <d-math>Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math>;</li>
-<li>and a <i>maximum entropy policy</i> <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>;</li>
+    <li>a parametrized soft <i>state-value function</i>
+        <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math>
+        ;
+    </li>
+    <li>two parametrized <i>soft Q-function</i>
+        <d-math>Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math>
+        ;
+    </li>
+    <li>and a <i>maximum entropy policy</i>
+        <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>
+        ;
+    </li>
 </ol>
 
-<p>with <d-math>\psi, \theta</d-math> and <d-math>\phi</d-math> modelled as neural networks.
-Note that <d-math>\pi_\phi</d-math> will be reparameterized as a Gaussian distribution with a learnable mean and covariance.</p>
+<p>with
+    <d-math>\psi, \theta</d-math>
+   and
+    <d-math>\phi</d-math>
+   modelled as neural networks. Note that
+    <d-math>\pi_\phi</d-math>
+   will be reparameterized as a Gaussian distribution with a learnable mean and covariance.
+</p>
 
-<p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, r_{t+1}, done_{t+1} )</d-math>.
-One of the key benefits of sampling tuple
-randomly from a <i>replay buffer</i> is that it breaks temporal correlation which helps learning  </p>
+<p>The algorithm also uses a <strong>replay buffer</strong>
+    <d-math>D</d-math>
+   to collect and accumulate samples
+    <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, r_{t+1}, done_{t+1} )</d-math>
+   . One of the key benefits of sampling tuple randomly from a <i>replay buffer</i> is that it breaks temporal
+   correlation which helps learning  
+</p>
 
 <figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
     <div class="row">
         <div class="col one">
-            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}" class="img-fluid distillarizerStandalone" width="100%"/>
+            <img src="{{ 'standaloneAlgo_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+                 class="img-fluid distillarizerStandalone"
+                 width="100%"/>
         </div>
     </div>
 </figure>
 
 
-<h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <i>state-value function</i> <d-math>V_\psi^\pi</d-math> ?</h4>
+<h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <i>state-value function</i>
+    <d-math>V_\psi^\pi</d-math>
+                                                         ?
+</h4>
 
-<p>As we talked
-earlier,
-there is no theoretical requirement for learning <d-math>V_\psi(\mathbf{s}_t)</d-math> since it can be recovered from <strong><i>equation 6</i></strong> directly using <d-math>Q_\theta(\mathbf{s}_t, \mathbf{a}_t )</d-math> and <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>.
-In practice, it can stabilize training  </p>
+<p>As we talked earlier, there is no theoretical requirement for learning
+    <d-math>V_\psi(\mathbf{s}_t)</d-math>
+   since it can be recovered from <strong><i>equation 6</i></strong> directly using
+    <d-math>Q_\theta(\mathbf{s}_t, \mathbf{a}_t )</d-math>
+   and
+    <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>
+   . In practice, it can stabilize training  
+</p>
 
-<h4 id="why-learn-the-two-soft-q-function-q_thetapi">Why learn the two soft <i>Q-function</i> <d-math>Q_\theta^\pi</d-math> ?</h4>
+<h4 id="why-learn-the-two-soft-q-function-q_thetapi">Why learn the two soft <i>Q-function</i>
+    <d-math>Q_\theta^\pi</d-math>
+                                                     ?
+</h4>
 
-<p>The policy improvement step is known to produce positive bias that reduces the performance in value-based method. This is a trick (aka <i>clipped double-Q</i>) that help reduce the impact of this problem. How it work is that the algorithm learn <d-math>Q_{\theta 1}^\pi</d-math> and <d-math>Q_{\theta 2}^\pi</d-math> separately then take the minimum between the two when training <d-math>V_\psi^\pi</d-math>.
-In practice, the SAC authors founded that <q>it significantly speed up training, especially on harder task</q>  </p>
+<p>The policy improvement step is known to produce positive bias that reduces the performance in value-based method.
+   This is a trick (aka <i>clipped double-Q</i>) that help reduce the impact of this problem. How it work is that the
+   algorithm learn
+    <d-math>Q_{\theta 1}^\pi</d-math>
+   and
+    <d-math>Q_{\theta 2}^\pi</d-math>
+   separately then take the minimum between the two when training
+    <d-math>V_\psi^\pi</d-math>
+   . In practice, the SAC authors founded that <q>it significantly speed up training, especially on harder task</q>  
+</p>
 
 <h4 id="detail-regarding-the-soft-state-value-function">Detail regarding the Soft state value function</h4>
 
-<p>Like we
-explained earlier</p>
+<p>Like we explained earlier</p>
 
 <p>we can train the <i>soft state value function</i> by least squared regression</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 1rem">
-    <img src="{{ 'standaloneAlgoAnatony_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneAlgoAnatony_1.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>Observe that state <d-math>\mathbf{s}_t</d-math> is sampled from the <i>replay buffer</i> but not action <d-math>\mathbf{a}_t</d-math> which is sampled from the current policy <d-math>\pi</d-math>. It’s a critical detail that is easy to miss. Also, this is where we make use of our two learned <i>soft Q-function</i>.</p>
+<p>Observe that state
+    <d-math>\mathbf{s}_t</d-math>
+   is sampled from the <i>replay buffer</i> but not action
+    <d-math>\mathbf{a}_t</d-math>
+   which is sampled from the current policy
+    <d-math>\pi</d-math>
+   . It’s a critical detail that is easy to miss. Also, this is where we make use of our two learned <i>soft
+                                                                                                        Q-function</i>.
+</p>
 
 <h4 id="detail-regarding-the-soft-q-function">Detail regarding the Soft Q-function</h4>
 
 <p>Again, we can train the <i>soft Q-function</i> by least squared regression</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 1rem; margin-top: 1rem">
-    <img src="{{ 'standaloneAlgoAnatony_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneAlgoAnatony_2.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>The learning target is represented by a copy of the main <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math> with parameter noted <d-math>\bar{\psi}</d-math>.
-Network weight from <d-math>V_\psi^\pi</d-math> are copied in a controlled manner to <d-math>V_{\bar{\psi}}^\pi</d-math> using exponential moving average and adjusted by a target smoothing coefficient hyperparameter <d-math>\tau</d-math>.</p>
+<p>The learning target is represented by a copy of the main
+    <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math>
+   with parameter noted
+    <d-math>\bar{\psi}</d-math>
+   . Network weight from
+    <d-math>V_\psi^\pi</d-math>
+   are copied in a controlled manner to
+    <d-math>V_{\bar{\psi}}^\pi</d-math>
+   using exponential moving average and adjusted by a target smoothing coefficient hyperparameter
+    <d-math>\tau</d-math>
+   .
+</p>
 
 <h4 id="detail-regarding-the-soft-actor-critic-policy">Detail regarding the <i>Soft Actor-Critic</i> policy</h4>
 
-<p>Policy <d-math>\pi_\phi</d-math> is trained using <strong><i>equation 13</i></strong></p>
+<p>Policy
+    <d-math>\pi_\phi</d-math>
+   is trained using <strong><i>equation 13</i></strong></p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem">
-    <img src="{{ 'standaloneAlgoAnatony_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneAlgoAnatony_3.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
-<p>Like we have explained earlier, the policy <d-math>\pi</d-math> is modelled using a Gaussian distribution. It’s important to consider the fact that Gaussian distributions are unbounded contrary to our policy which needs to produce action inside a bound reflecting the environment <i>action space</i>. Thus, enforcing those bounds is done by applying a squashing function</p>
+<p>Like we have explained earlier, the policy
+    <d-math>\pi</d-math>
+   is modelled using a Gaussian distribution. It’s important to consider the fact that Gaussian distributions are
+   unbounded contrary to our policy which needs to produce action inside a bound reflecting the environment <i>action
+                                                                                                               space</i>.
+   Thus, enforcing those bounds is done by applying a squashing function
+</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem">
-    <img src="{{ 'standaloneAlgoAnatony_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
+    <img src="{{ 'standaloneAlgoAnatony_4.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"
+         class="img-fluid"
+         width="100%"/>
 </div>
 
 
 <div style="margin-top: 2em; margin-bottom: 2em;">
 
-<h1 id="next-step">Next step</h1>
+    <h1 id="next-step">Next step</h1>
 
-<p>This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
-Come back soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.</p>
+    <p>This concludes the theoretical part. Next step …  the fun part: implementation and experimentation. Come back
+       soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.</p>
 
 </div>
 
@@ -749,12 +1404,8 @@ Come back soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.<
 <h5 id="cite-my-post-as">Cite my post as:</h5>
 
 <d-code block language="bash" class="l-body-outset">
-@article{lcoupal2020SoftActorCriticPart1,
-      author   = {Coupal, Luc},
-      journal  = {redleader962.github.io/blog},
-      title    = {% raw %}{{Soft Actor-Critic part 1: intuition and theoretical aspect}}{% endraw %},
-      year     = {2020},
-      url      = {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized},
-      keywords = {Deep reinforcement learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic}
-    }
+    @article{lcoupal2020SoftActorCriticPart1, author = {Coupal, Luc}, journal = {redleader962.github.io/blog}, title =
+    {% raw %}{{Soft Actor-Critic part 1: intuition and theoretical aspect}}{% endraw %}, year = {2020}, url =
+    {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized}, keywords = {Deep reinforcement
+    learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic} }
 </d-code>
