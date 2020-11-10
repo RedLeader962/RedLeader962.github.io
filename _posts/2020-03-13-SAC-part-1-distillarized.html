@@ -375,23 +375,21 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <p>Without diving to deep into the <i>Maximum Entropy</i> framework, it’s valuable to point out that
 <d-math>Q_{soft}^\pi</d-math> doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i> <d-math>Q^\pi</d-math>
 and it doesn’t have the same properties either<d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.</d-footnote>.
-By definition,</p>
+The <i>Maximum Entropy RL</i> Q-function general definition is</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
     <img src="{{ 'standaloneSoftValueFct_5b.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
 </div>
 
 
-<p>with <d-math>\mathcal{O}</d-math> being a optimality random variable. This definition of <d-math>Q_{MaxEnt}^\pi</d-math> can be interpreted as</p>
+<p>with <d-math>\mathcal{O}</d-math> being a optimality random variable. This definition can be interpreted as</p>
 
 <p class="distillarizer-lead text-center">
 <strong>the probability</strong> (on a logaritmic scale)<br/><strong>of being optimal from timestep <d-math>t</d-math> until the trajectory end</strong><br/>
 </p>
 
 <p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
-<span label="softQfunctionMeaning" id="softQfunctionMeaning" class="distillarizerLabel"></span></p>
-
-<p>Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
+Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
 
 <div class="l-body-outset" style="margin-bottom: 1.5rem; ">
     <img src="{{ 'standaloneSoftValueFct_5c.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
