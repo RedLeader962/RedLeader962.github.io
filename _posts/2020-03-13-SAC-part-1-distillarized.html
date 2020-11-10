@@ -186,13 +186,13 @@ While the former can use Probabilistic Graphical Model to describe the RL proble
 In other word, the <i>Maximum Entropy RL</i><d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum Entropy RL</i>.</d-footnote>framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
 </p>
 
-<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem different (an intuition):</h4>
+<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered">How does it make the RL problem different (an intuition):</h4>
 
 <p>Consider an environment with a continuous action space.
 The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
 In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
 
-<h4 class="unnumbered" id="why-does-it-matter">Why does it matter?</h4>
+<h4 id="why-does-it-matter" class="unnumbered">Why does it matter?</h4>
 
 <p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
 
@@ -225,7 +225,7 @@ On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways
         <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
         
 
-<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
+<h4 id="the-maxent-policy-pi" class="unnumbered">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
 
 <p>Recall the <i>Classical RL</i> stochastic policy <d-math>\pi</d-math> definition</p>
 
@@ -266,7 +266,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
 
-<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+<h4 id="the-maxent-objective-jpi" class="unnumbered">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
 
 <p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
 
@@ -329,7 +329,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
 
 <p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
 
@@ -389,7 +389,7 @@ By definition,</p>
 </p>
 
 <p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
-<span id="softQfunctionMeaning" class="distillarizerLabel" label="softQfunctionMeaning"></span></p>
+<span label="softQfunctionMeaning" id="softQfunctionMeaning" class="distillarizerLabel"></span></p>
 
 <p>Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
 
