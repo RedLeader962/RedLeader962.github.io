@@ -140,76 +140,10 @@ Nevertheless, it’s worth every headache and nightmare I had in the process onc
 
 <p>Since there are a lot of different notations across paper, I’ve decided to follow (for the most part) the convention established by Sutton &amp; Barto in their book Reinforcement Learning: An Introduction <d-cite key="Sutton1394"></d-cite></p>
 
-<div class="container-fluid">
-    <div class="definition">    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle (\mathcal{S}, \mathcal{A}, T, \mathcal{R} )</d-math></dt>
-        <dd class="col"><p><strong>Markov decision process</strong><br/>with <d-math>\mathcal{S}</d-math> the state space, <d-math>\mathcal{A}</d-math> the action space, the transition fct <d-math>T</d-math><br/>and a reward space <d-math>\mathcal{R}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\scriptstyle t \, \in \,  \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math> </dt>
-        <dd class="col"><p>A <strong>time step</strong><br/>between the initiale state at <d-math>t=1</d-math> and the terminal state <d-math>t=\mathsf{T}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\scriptstyle \mathsf{T}</d-math></dt>
-        <dd class="col"><p><strong>Time horizon</strong><br/>time step <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math>; Case 1: <d-math>\mathsf{T}</d-math> is finite, case 2: <d-math>\mathsf{T}</d-math> is infinite. <d-math>(\mathsf{T} = \infty)</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \tau</d-math></dt>
-        <dd class="col"><p>A <strong>trajectory</strong>  <d-math>\mathbf{s}_{_{1}}, \mathbf{a}_{_{1}}, r_{_{2}} , \mathbf{s}_{_{2}}, \mathbf{a}_{_{2}}, \, \dots \, ,r_{_{\mathsf{T}}}, \mathbf{s}_{_{\mathsf{T}}}, \mathbf{a}_{_{\mathsf{T}}}</d-math>
-aka: an episode, a trial, a rollout</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \theta</d-math></dt>
-        <dd class="col"><p><strong>Parameters vector</strong><br/>a vector of <d-math>m</d-math> parameters <d-math>\theta \, = \, (\theta_1, \, \dots \, , \theta_m)</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \pi_\theta(\tau)</d-math></dt>
-        <dd class="col"><p><strong>Policy</strong> over trajectory <d-math>\tau</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \pi_\theta(\mathbf{a}_t | \mathbf{s}_t )</d-math></dt>
-        <dd class="col"><p><strong>Policy</strong> of parameter <d-math>\theta</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle s, \mathbf{s}, s_t \text{ or } \mathbf{s}_t</d-math></dt>
-        <dd class="col"><p><strong>State</strong> or <strong>state vector</strong><br/><d-math>s, \mathbf{s} \in \mathcal{S}</d-math>.  <d-math>\mathbf{s}</d-math> is a state compose of multiple information<br/>ex: <d-math>\left&lt; \text{coord}:(x, y, z), \text{heading}:10 \deg \right&gt;</d-math>.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle a, \mathbf{a}, a_t \text{ or } \mathbf{a}_t</d-math></dt>
-        <dd class="col"><p><strong>Action</strong><br/><d-math>a, \mathbf{a} \in \mathcal{A}</d-math>.  <d-math>\mathbf{a}</d-math> is an vector compose of multiple action information<br/>ex: <d-math>\left&lt; x:+1, y:+2, z:0, \text{ say:hello} \right&gt;</d-math>.</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle r \text{ or } r_t</d-math></dt>
-        <dd class="col"><p>The <strong>reward</strong> at time step t<br/><d-math>r, r_t \in \mathcal{R}</d-math>.  <d-math>r_t</d-math> is a shorthand for <d-math>R_t = r</d-math> at time step <d-math>t \in \lbrack\,1,\,\mathsf{T}\,\rbrack</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>{\displaystyle p(\mathbf{s}&#39;|\mathbf{s}, \mathbf{a})}</d-math></dt>
-        <dd class="col"><p>A <strong>transition dynamic</strong> of unknown model (3 argument version)<br/>(aka: transition fct, environment dynamic)<br/>Model of the world express in terms of conditional probability<br/>of getting from <d-math>(\mathbf{s}_t, \mathbf{a}_t )</d-math> to <d-math>\mathbf{s}_{t+1}</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle r(\mathbf{s}_t, \mathbf{a}_t)</d-math></dt>
-        <dd class="col"><p>The expected immediate <strong>reward</strong> from state <d-math>\mathbf{s}</d-math> after action <d-math>\mathbf{a}</d-math><br/><d-math>r: \mathcal{S} \times \mathcal{A} \longrightarrow \mathbb{R}</d-math>;</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle J(\theta)</d-math></dt>
-        <dd class="col"><p><strong>Objective function</strong><br/>the function to optimize, sometimes synonymous<br/>with loss/cost/error function</p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle
-        \mathbb{E}_{\tau \sim \pi_\theta(\tau)}
-        \left\lbrack\, X\, \right\rbrack</d-math></dt>
-        <dd class="col"><p><strong>Expectation</strong><br/>of <d-math>X</d-math> with respect to the trajectory <d-math>\tau</d-math> conditioned on the policy <d-math>\pi_\theta</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle \gamma</d-math></dt>
-        <dd class="col"><p><strong>Discount factor</strong><br/>penalty to uncertainty of future rewards; <d-math>0 &lt; \gamma \leq 1</d-math></p></dd>
-    </dl>
-    <dl class="row">
-        <dt class="col-3"><d-math>\displaystyle G_t \text{ or } r_t^\gamma</d-math></dt>
-        <dd class="col"><p>The <strong>return</strong>: the total discounted future reward<br/><d-math>G_t \, = \, r_t^\gamma \, = \,  \sum_{k=t}^{\infty} \gamma^{k-t} \, r(\mathbf{s}_{k}, \mathbf{a}_k)</d-math></p></dd>
-    </dl>
-    </div>
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="{{ 'standaloneNotation.svg' | prepend: '/assets/img/post_SAC/distillarized-svg/' | relative_url }}"  class="img-fluid" width="100%"/>
 </div>
+
 
                 </div>
             </div>
@@ -252,13 +186,13 @@ While the former can use Probabilistic Graphical Model to describe the RL proble
 In other word, the <i>Maximum Entropy RL</i><d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum Entropy RL</i>.</d-footnote>framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
 </p>
 
-<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered">How does it make the RL problem different (an intuition):</h4>
+<h4 class="unnumbered" id="how-does-it-make-the-rl-problem-different-an-intuition">How does it make the RL problem different (an intuition):</h4>
 
 <p>Consider an environment with a continuous action space.
 The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
 In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
 
-<h4 id="why-does-it-matter" class="unnumbered">Why does it matter?</h4>
+<h4 class="unnumbered" id="why-does-it-matter">Why does it matter?</h4>
 
 <p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
 
@@ -291,7 +225,7 @@ On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways
         <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
         
 
-<h4 id="the-maxent-policy-pi" class="unnumbered">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
+<h4 class="unnumbered" id="the-maxent-policy-pi">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
 
 <p>Recall the <i>Classical RL</i> stochastic policy <d-math>\pi</d-math> definition</p>
 
@@ -332,7 +266,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 
 <p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
 
-<h4 id="the-maxent-objective-jpi" class="unnumbered">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+<h4 class="unnumbered" id="the-maxent-objective-jpi">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
 
 <p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
 
@@ -395,7 +329,7 @@ As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero
 <!-------------------------------------------------------------------------------------------- Static card ---(end)---->
 
 
-<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+<h4 class="unnumbered" id="the-soft-value-function-qpi-and-vpi">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
 
 <p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
 
@@ -455,7 +389,7 @@ By definition,</p>
 </p>
 
 <p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
-<span class="distillarizerLabel" label="softQfunctionMeaning" id="softQfunctionMeaning"></span></p>
+<span id="softQfunctionMeaning" class="distillarizerLabel" label="softQfunctionMeaning"></span></p>
 
 <p>Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
 
