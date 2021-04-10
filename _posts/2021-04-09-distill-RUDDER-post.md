@@ -32,7 +32,7 @@ bibliography: RUDDER-post.bib
 
 <p class="text-center">
     <a href="https://youtu.be/2xH1TjVt9I8" target="blank">Visionner sur <b>YouTube</b></a> <i class="fab fa-youtube"></i><br>  
-    <a href="https://github.com/RedLeader962/Une-intuition-sur-RUDDER/blob/master/README.md" target="blank">Télécharger les <b>diapositives</b></a> <i class="fab fa-github"></i><br>  
+    <a href="https://github.com/RedLeader962/Une-intuition-sur-RUDDER" target="blank">Télécharger les <b>diapositives</b></a> <i class="fab fa-github"></i><br>  
 </p>
 
 #### Matériel lié à l'article de <i>Arjona-Medina, J.A</i> et <i>al.</i>
