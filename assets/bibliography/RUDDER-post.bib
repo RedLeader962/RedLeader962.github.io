@@ -1,0 +1,31 @@
+@misc{Arjona-Medina2018-Blog,
+    abstract = {The main idea of RUDDER (5 min read). RUDDER explained on a more detailed example (20 min read)},
+    author = {Arjona-Medina, Jose A. and Gillhofer, Michael and Widrich, Michael and Unterthiner, Thomas and Brandstetter, Johannes and Hochreiter, Sepp},
+    file = {:Users/redleader/Library/Application Support/Mendeley Desktop/Downloaded/Arjona-Medina et al. - Unknown - RUDDER - Reinforcement Learning with Delayed Rewards Blog post.pdf:pdf},
+    mendeley-groups = {GLO-7030 Deep Learning},
+    title = {{RUDDER - Reinforcement Learning with Delayed Rewards | Blog post}},
+    url = {https://ml-jku.github.io/rudder/}
+}
+@article{Arjona-Medina2018,
+    abstract = {We propose RUDDER, a novel reinforcement learning approach for delayed rewards in finite Markov decision processes (MDPs). RUDDER is based on two main ideas: (i) a backward view approach and (ii) the concept of return-equivalent MDPs. Forward view approaches, like deep Q-networks (DQNs) or Monte Carlo tree search (MCTS), have to average over a large number of probabilistic future state-action paths that increases exponentially with the delay of the reward. Backward view approaches, in contrast, identify actions and states that cause a delayed reward by analyzing already chosen paths. RUDDER's backward view transforms tasks of estimating future returns into regression tasks at which deep learning excels. RUDDER decomposes the return into new, non-delayed rewards by redistributing the original reward across the episode, thereby creating a new MDP that is return-equivalent to the original MDP. "Return-equivalent MDPs" is a new concept ensuring that both MDPs have the same optimal policies. If the return decomposition is optimal, then the new MDP will be stripped of any delayed rewards. In this case, action-value estimates are unbiased and the future expected return is always zero. On several artificial tasks with delayed rewards RUDDER significantly outperforms Monte Carlo, MCTS, temporal difference, TD({\_}), and reward shaping approaches. RUDDER is even exponentially faster than the last three. RUDDER on top of a Proximal Policy Optimization (PPO) baseline improves the scores on Atari games and excels for delayed rewards. For long delayed rewards, as in Bowling, Frostbite, PrivateEye, and Venture, RUDDER yields exceptional results.},
+    archivePrefix = {arXiv},
+    arxivId = {1806.07857},
+    author = {Arjona-Medina, Jose A. and Gillhofer, Michael and Widrich, Michael and Unterthiner, Thomas and Brandstetter, Johannes and Hochreiter, Sepp},
+    eprint = {1806.07857},
+    file = {:Users/redleader/Desktop/GLO-7030/Course project/♜ Ref | RUDDER (article)/NeurIPS-2019-rudder-return-decomposition-for-delayed-rewards-Paper.pdf:pdf},
+    issn = {23318422},
+    journal = {arXiv},
+    number = {NeurIPS},
+    title = {{Rudder: Return decomposition for delayed rewards}},
+    year = {2018},
+    url = {https://papers.nips.cc/paper/2019/file/16105fb9cc614fc29e1bda00dab60d41-Paper.pdf}
+}
+@article{Arjona-Medina,
+    author = {Arjona-Medina, Jose A. and Gillhofer, Michael and Widrich, Michael and Unterthiner, Thomas and Brandstetter, Johannes and Hochreiter, Sepp},
+    file = {:Users/redleader/Desktop/GLO-7030/Course project/♜ Ref | RUDDER (article)/RUDDER{\_}Supplements{\_}Camera{\_}ready{\_}2020.pdf:pdf},
+    number = {NeurIPS 2019},
+    title = {{SUPPLEMENTS to the manuscript “ RUDDER : Return Decomposition for Delayed Rewards ”}},
+    url = {https://proceedings.neurips.cc/paper/2019/file/16105fb9cc614fc29e1bda00dab60d41-Supplemental.zip},
+}
+
+
