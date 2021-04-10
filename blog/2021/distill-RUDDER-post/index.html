@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
+<!-- Check for references implementation:
+    al-folio dev branch: https://github.com/alshedivat/al-folio/blob/dev/_layouts/distill.html
+    al-folio mod in pgm-spring-2019: https://github.com/sailinglab/pgm-spring-2019/blob/master/_layouts/distill.html
+-->
+<head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Luc Coupal blog | Tales from a computer scientist in the A.I. world</title>
-<meta name="description" content="My journal, my point of view, my journey with its ups, downs and full disclosure.">
+<title>Luc Coupal blog | Une intuition sur <i>RUDDER</i></title>
+<meta name="description" content="Présentation de l'article RUDDER: Return Decomposition for Delayed Rewards écrit par Arjona-Medina, J. A. et al. dans le cadre du cours GLO-7030 Apprentissage par réseaux de neurones profonds donné à l'Université Laval.">
 
 <!-- Bootstrap & MDB -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -48,14 +51,14 @@
             Validate jekyll deployed files directly on the GitHub repo
             or using https://developers.facebook.com/tools/debug/
 -->
-<link rel="canonical" href="https://redleader962.github.io/blog/">
+<link rel="canonical" href="https://redleader962.github.io/blog/2021/distill-RUDDER-post/">
 
 <!--
     OPEN GRAPH
 -->
 <meta property="og:title"
-      content="Luc Coupal blog | Tales from a computer scientist in the A.I. world"/>
-<meta property="og:description" content="My journal, my point of view, my journey with its ups, downs and full disclosure."/>
+      content="Luc Coupal blog | Une intuition sur <i>RUDDER</i>"/>
+<meta property="og:description" content="Présentation de l'article <i>RUDDER: Return Decomposition for Delayed Rewards</i> écrit par <i>Arjona-Medina, J. A.</i> et <i>al.</i> dans le cadre du cours <i>GLO-7030 Apprentissage par réseaux de neurones profonds</i> donné à l'Université Laval."/>
 
 <!-- Type related -->
 
@@ -69,7 +72,7 @@
 
 
 <meta property="og:site_name" content="Luc Coupal blog & projects"/>
-<meta property="og:url" content="https://redleader962.github.io/blog/"/>
+<meta property="og:url" content="https://redleader962.github.io/blog/2021/distill-RUDDER-post/"/>
 
 <!-- Main image -->
 
@@ -93,13 +96,68 @@
 <meta name="twitter:image:alt" content="Tales from a computer scientist in the A.I. world">
 
 
-  </head>
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+<!--    <script src="http://distill.pub/template.v2.js"></script>-->
+<!--    <script src="http://distill.pub/transforms.v2.js"></script>-->
+    
+</head>
 
-  <body class="fixed-top-nav sticky-bottom-footer">
 
-    <!-- Header -->
+<!-- Muted from the front-matter -->
+<d-front-matter>
+    <script type="text/json">{
+      "title": "Une intuition sur <i>RUDDER</i>",
+      "description": "Présentation de l'article <i>RUDDER: Return Decomposition for Delayed Rewards</i> écrit par <i>Arjona-Medina, J. A.</i> et <i>al.</i> dans le cadre du cours <i>GLO-7030 Apprentissage par réseaux de neurones profonds</i> donné à l'Université Laval.",
+      "published": "April 9, 2021",
+      "authors": [
+        
+        {
+          "author": "Luc Coupal",
+          "authorURL": "https://redleader962.github.io/about/",
+          "affiliations": [
+            {
+              "name": "Université Laval",
+              "url": ""
+            }
+          ]
+        },
+        
+        {
+          "author": "F-A Tremblay",
+          "authorURL": "https://www.linkedin.com/in/francois-alexandre-tremblay-m-sc-2b212146/",
+          "affiliations": [
+            {
+              "name": "Université Laval",
+              "url": ""
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }
+    </script>
+</d-front-matter>
 
-    <header>
+<body class="fixed-top-nav sticky-bottom-footer">
+
+<!-- Header -->
+
+<header>
 
     <!-- Nav Bar -->
     <nav id="navbar"
@@ -229,79 +287,55 @@
 </header>
 
 
-    <!-- Content -->
+<!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+<div class="post distill">
 
-  <div class="blog-header-bar">
-<!--    <h1>Tales from a computer scientist in the A.I. world</h1>-->
-<!--    <img src="/assets/img/Logo-blog/luc-blog-logo-serious.svg" style="margin-bottom: 1.5em"/>-->
-<!--    <img src="/assets/img/Logo-blog/luc-blog-logo-serious-alt.svg" style="margin-bottom: 1.5em"/>-->
-<!--    <img src="/assets/img/Logo-blog/luc-blog-logo-serious-super.svg" style="margin-bottom: 1.5em"/>-->
-    <img src="/assets/img/Logo-blog/luc-blog-logo-serious-super-alt.svg" style="margin-bottom: 1.5em"/>
-<!--    <img src="/assets/img/Logo-blog/luc-blog-logo-serious-line-drawed.svg" style="margin-bottom: 1.5em"/>-->
-<!--    <img src="/assets/img/Logo-blog/luc-blog-logo-less-serious.svg" style="margin-bottom: 1.5em"/>-->
 
-    <h2>My journal, my point of view, my journey with its ups, downs and full disclosure.</h2>
-  </div>
+    <d-title>
+        <h1>
+            <!--<img src="/apple-touch-icon.png" style="height: 0.75em"/>-->
+            <img src="/safari-pinned-tab.svg"
+                 style="height: 2.5rem; margin-bottom: 0.15em; margin-right: -0.05em"/> Une intuition sur <i>RUDDER</i>
+        </h1>
+        <p>Présentation de l'article <i>RUDDER: Return Decomposition for Delayed Rewards</i> écrit par <i>Arjona-Medina, J. A.</i> et <i>al.</i> dans le cadre du cours <i>GLO-7030 Apprentissage par réseaux de neurones profonds</i> donné à l'Université Laval.</p>
+    </d-title>
 
-  <ul class="post-list">
-    
-      <li>
-        <a  href="/blog/2021/distill-RUDDER-post/">
-<!--        <h3 class="post-title"><i class="fas fa-caret-right"></i> Une intuition sur <i>RUDDER</i></h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-ellipsis-v" ></i>Une intuition sur <i>RUDDER</i></h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-quote-left" ></i>Une intuition sur <i>RUDDER</i></h3>-->
-        <h3 class="post-title">
-          <img src="/android-chrome-192x192.png"/>
-          Une intuition sur <i>RUDDER</i>
-        </h3>
-        <p class="post-meta">April 9, 2021</p>
-        <p class="post-description">Présentation de l'article <i>RUDDER: Return Decomposition for Delayed Rewards</i> écrit par <i>Arjona-Medina, J. A.</i> et <i>al.</i> dans le cadre du cours <i>GLO-7030 Apprentissage par réseaux de neurones profonds</i> donné à l'Université Laval.</p>
-        </a>
-      </li>
-    
-      <li>
-        <a  href="/blog/2020/SAC-part-1-distillarized/">
-<!--        <h3 class="post-title"><i class="fas fa-caret-right"></i> <i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect</h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-ellipsis-v" ></i><i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect</h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-quote-left" ></i><i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect</h3>-->
-        <h3 class="post-title">
-          <img src="/android-chrome-192x192.png"/>
-          <i>Soft Actor-Critic</i> part 1: intuition and theoretical aspect
-        </h3>
-        <p class="post-meta">March 13, 2020</p>
-        <p class="post-description">How to teach robustness to a <i>deep reinforcement learning</i> agent using the <i>maximum entropy</i> principle. In this essay, I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.</p>
-        </a>
-      </li>
-    
-      <li>
-        <a  href="/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/">
-<!--        <h3 class="post-title"><i class="fas fa-caret-right"></i> Do implementation details matter in Deep Reinforcement Learning?</h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-ellipsis-v" ></i>Do implementation details matter in Deep Reinforcement Learning?</h3>-->
-<!--        <h3 class="post-title"><i class="fas fa-quote-left" ></i>Do implementation details matter in Deep Reinforcement Learning?</h3>-->
-        <h3 class="post-title">
-          <img src="/android-chrome-192x192.png"/>
-          Do implementation details matter in Deep Reinforcement Learning?
-        </h3>
-        <p class="post-meta">November 1, 2019</p>
-        <p class="post-description">A reflection on design, architecture and implementation of DRL algorithms from a software engineering perspective applied to research. Spoiler alert … it does matter!</p>
-        </a>
-      </li>
-    
-  </ul>
+    <d-byline></d-byline>
 
-  
+    <d-article>
+        
+<p class="text-center">
+    <a href="https://youtu.be/2xH1TjVt9I8" target="blank">Visionner sur <b>YouTube</b></a> <i class="fab fa-youtube"></i><br />  
+    <a href="https://github.com/RedLeader962/Une-intuition-sur-RUDDER" target="blank">Télécharger les <b>diapositives</b></a> <i class="fab fa-github"></i><br />  
+</p>
 
+<h4 id="matériel-lié-à-larticle-de-arjona-medina-ja-et-al">Matériel lié à l’article de <i>Arjona-Medina, J.A</i> et <i>al.</i></h4>
+<ul>
+  <li>Version de l’article accepté à NeurIPS 2019 <d-cite key="Arjona-Medina2018"></d-cite></li>
+  <li>Annexe de l’article (64 pages + bibliographie) <d-cite key="Arjona-Medina"></d-cite></li>
+  <li><i>Blog post</i> des auteurs (<cite>5 min read</cite> + <cite>20 min read</cite>) <d-cite key="Arjona-Medina2018-Blog"></d-cite></li>
+</ul>
+
+<p><br /></p>
+<div class="l-body-outset embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2xH1TjVt9I8?controls=1;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+<p><br /></p>
+
+
+    </d-article>
+
+    <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+    </d-appendix>
 
 </div>
 
-    </div>
+<!-- Footer -->
 
-    <!-- Footer -->
 
-    
 <footer class="sticky-bottom mt-5">
     <div class="container">
 
@@ -336,9 +370,9 @@
 
 
 
-  </body>
+</body>
 
-  <!-- Load Core and Bootstrap JS -->
+<!-- Load Core and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js" integrity="sha256-OH05DFHUWzr725HmuHo3pnuvUUn+TJuj8/Qz9xytFEw=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -388,5 +422,8 @@ $(function () {
 
 
 
+
+<d-bibliography src="/assets/bibliography/RUDDER-post.bib">
+</d-bibliography>
 
 </html>
