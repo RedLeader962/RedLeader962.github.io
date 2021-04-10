@@ -60,8 +60,8 @@ Black Live Matter: today, tomorow and every day after that<br>
 
 
 ### Goals 
-- Find a way to explain ideas and concepts in the most intuitive way using drawing or funny example. 
 - Develop robust and adaptative algorithms that thrives in adverse condition.
+- Find a way to explain ideas and concepts in the most intuitive way using drawing or funny example. 
 
 
 ### Skills
@@ -80,8 +80,8 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             <div class="container card-text">
                 <div class="row ">
                     <div class="col text-sm-center">
-                        <i><b>Python</b> [ TensorFlow, Numpy, Matplotlib ]</i> <br>
-                        <i><b>LaTeX</b> [ TikZ/PGF, Beamer, Algorithm2e ]</i> <br>
+                        <i><b>Python</b> [ PyTorch, TensorFlow, Numpy, Matplotlib ]</i> <br>
+                        <i><b>LaTeX</b> [ AMSmath, TikZ/PGF, Beamer, Algorithm2e ]</i> <br>
                         <i><b>Shell scripting</b></i> <br>
                         <br>
                     </div>
@@ -97,7 +97,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                 </div>
                 <div class="row ">
                     <div class="col text-sm-center">
-                        <i><b>Also familiar with </b> Lua, HTML, CSS, SASS, AngularJS, Java, C/C++, SQL, PL/SQL</i> <br>
+                        <i><b>Also familiar with </b> C/C++, HTML, CSS, SASS, Java, AngularJS, Lua, SQL, PL/SQL</i> <br>
                     </div>
                 </div>
             </div>
@@ -115,9 +115,9 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             <div class="container card-text" style="font-weight: bold">
                 <div class="row justify-content-center">
                         <div class="col-md-6">Decision-making under uncertainty<br></div>
-                        <div class="col-md-6"> Classical Reinforcement Learning </div>
-                        <div class="col-md-6"> Deep Reinforcement Learning </div>
                         <div class="col-md-6"> Maximum Entropy RL </div>
+                        <div class="col-md-6"> Deep Reinforcement Learning </div>
+                        <div class="col-md-6"> Classical Reinforcement Learning </div>
                         <div class="col-md-6"> Probability theory </div>
                         <div class="col-md-6"> Combinatorial optimization algorithm </div>
                         <div class="col-md-6"> Semantic </div>
@@ -132,6 +132,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
+ * NSERC 2021 **Undergraduate Student Research Award**
  * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
  * Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
 
@@ -184,7 +185,6 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
             <img class="d-block w-100 rounded"
                      src="{{ 'afgh_pistol_train.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
         </div>
-        -->
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'afg_sunset.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
@@ -192,6 +192,7 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                 <p>Afghanistan 2011</p>
             </div>
         </div>
+        -->
         <div class="carousel-item ">
             <img class="d-block w-100 rounded"
                      src="{{ 'op_extract.jpg' | prepend: '/assets/img/history_pic/' | relative_url }}">
