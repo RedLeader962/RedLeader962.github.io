@@ -1,5 +1,11 @@
 #### Ressources:
 
+Install alternate ruby version
+```bash
+brew install ruby@2.7
+
+```
+
 ##### The al-folio Theme
 
 - [theme demo](https://alshedivat.github.io/al-folio/) | [theme GitHub/dev branch](https://github.com/alshedivat/al-folio/tree/dev)

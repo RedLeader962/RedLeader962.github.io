@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+
+# Use first: `$ brew install ruby@2.7`
 group :jekyll_plugins do
     gem 'github-pages'
     gem 'jekyll'
@@ -8,6 +11,23 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem 'unicode_utils'
 end
+
+
+# Ref: https://github.com/alshedivat/al-folio/issues/161
+# group :jekyll_plugins do
+#     gem 'github-pages'
+# #     gem "jekyll", "~> 4.2.0"
+#     gem 'jekyll', '3.7.3' # <-- this line
+#     gem 'jekyll-email-protect'
+#     gem 'jekyll-github-metadata'
+#     gem 'jekyll-paginate-v2'
+#     gem 'jekyll-scholar'
+#     gem 'jekyll-twitter-plugin'
+#     gem 'jemoji'
+#     gem 'unicode_utils'
+# #     gem 'webrick'
+# end
+
 
 
 # ❯❯❯....References.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . ....
@@ -55,3 +75,5 @@ end
 #     gem 'jemoji', '~> 0.11.1'
 #     gem 'unicode_utils'
 # end
+#
+
