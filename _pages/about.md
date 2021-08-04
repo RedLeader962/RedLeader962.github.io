@@ -89,6 +89,8 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                 <div class="row justify-content-center ">
                     <div class="col-md-6"> <b>Test-Driven-Developement</b> : <i>Pytest, Mock</i> </div>
                     <div class="col-md-6"> <b>Continuous Integration</b>: <i>TeamCity</i> </div>
+                    <div class="col-md-6"> <b>Containerization</b>: <i>Docker, NVIDIA Container</i> </div>
+                    <div class="col-md-6"> <b>Embedded computing</b>: <i>ROS, NVIDIA Jetson </i> </div>
                     <div class="col-md-6"> <b>Parallel/distributed computing</b>: <i>Ray [ RLlib, tune ]</i></div>
                     <div class="col-md-6"> <b>Project planning & control</b>: <i>YouTrack, Trello</i> </div>
                     <div class="col-md-6"> Methodology <i><b>Scrumm</b></i> and <i><b>Agile</b></i> </div>
@@ -114,9 +116,11 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
         <div class="card-body text-dark">
             <div class="container card-text" style="font-weight: bold">
                 <div class="row justify-content-center">
-                        <div class="col-md-6">Decision-making under uncertainty<br></div>
-                        <div class="col-md-6"> Maximum Entropy RL </div>
                         <div class="col-md-6"> Deep Reinforcement Learning </div>
+                        <div class="col-md-6"> Maximum Entropy RL </div>
+                        <div class="col-md-6"> Optimal control </div>
+                        <div class="col-md-6"> Mobile robotic </div>
+                        <div class="col-md-6">Decision-making under uncertainty<br></div>
                         <div class="col-md-6"> Classical Reinforcement Learning </div>
                         <div class="col-md-6"> Probability theory </div>
                         <div class="col-md-6"> Combinatorial optimization algorithm </div>
@@ -132,7 +136,8 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
- * NSERC 2021 **Undergraduate Student Research Award**
+ * Research internship at ***[NorLab](https://norlab.ulaval.ca)*** on robotic control problem subject to adversarial condition (project _SNOW-AutoRally_)
+ * *NSERC* 2021 **[Undergraduate Student Research Award](https://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp)**
  * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
  * Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
 
