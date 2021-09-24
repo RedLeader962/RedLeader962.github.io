@@ -1,0 +1,60 @@
+I"�<div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+            Prof.
+                <a href="https://norlab.ulaval.ca/people/f_pomerleau/" target="blank">
+                  <span class="supervisorThe"> François Pomerleau </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            Director of the <a href="https://norlab.ulaval.ca" target="blank">Northern Robotics Laboratory (NorLab)</a> and professor in computer science at <a href="https://www.ulaval.ca" target="blank"> Université Laval </a>
+        </div>
+    </div>
+    <div class="row">
+        <!-- 
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        -->
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+            Prof.
+                <a href="http://www2.ift.ulaval.ca/~pgiguere/" target="blank">
+                  <span class="supervisorThe"> Philippe Giguère </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            Co-director of the <a href="https://norlab.ulaval.ca" target="blank">Northern Robotics Laboratory (NorLab)</a> and professor in computer science at <a href="https://www.ulaval.ca" target="blank"> Université Laval </a>
+        </div>
+    </div>
+<div class="row">
+        <!-- 
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        -->
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+                <a href="https://norlab.ulaval.ca/people/d_baril/" target="blank">
+                  <span class="supervisorThe"> Dominic Baril </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            PHD student at <a href="https://norlab.ulaval.ca" target="blank">Northern Robotics Laboratory (NorLab)</a>
+        </div>
+    </div>
+</div>
+:ET

@@ -1,0 +1,48 @@
+I"�<div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+            Prof.
+                <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
+                  <span class="supervisorThe"> Brahim Chaib-draa </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca" target="blank">
+            Université Laval
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr class="supervisorDbylineHorizontalRule" />
+
+<p class="text-center">
+    <a href="https://youtu.be/2xH1TjVt9I8" target="blank">Visionner sur <b>YouTube</b></a> <i class="fab fa-youtube"></i><br />  
+    <!-- 
+    <a href="https://github.com/RedLeader962/Une-intuition-sur-RUDDER" target="blank">Télécharger les <b>diapositives</b></a> <i class="fab fa-github"></i><br>
+    -->  
+</p>
+
+<h4 id="related-article">Related article</h4>
+<ul>
+  <li>Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving par <d-cite key="Williams2018"></d-cite></li>
+  <li>Information theoretic MPC for model-based reinforcement learning par <d-cite key="Williams2017"></d-cite></li>
+  <li>Aggressive driving with model predictive path integral control par <d-cite key="Williams2016"></d-cite></li>
+  <li>AutoRally: An Open Platform for Aggressive Autonomous Driving par <d-cite key="Goldfain2019"></d-cite></li>
+  <li>Evaluation of Skid-Steering Kinematic Models for Subarctic Environments par <d-cite key="baril2020evaluation"></d-cite></li>
+</ul>
+
+<p><br /></p>
+<div class="l-body-outset embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xf0izxr4Y2Q?controls=1;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+<p><br /></p>
+
+:ET

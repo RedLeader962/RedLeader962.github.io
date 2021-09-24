@@ -1,0 +1,23 @@
+I"<div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+            Prof.
+                <a href="https://norlab.ulaval.ca/people/f_pomerleau/" target="blank">
+                  <span class="supervisorThe"> François Pomerleau </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            Director of <a href="https://norlab.ulaval.ca" target="blank">NorLab</a>, profesor at  l'<a href="https://www.ulaval.ca" target="blank">
+            Université Laval
+            </a>
+        </div>
+    </div>
+</div>
+:ET

@@ -4,7 +4,7 @@
 
 published: true
 layout: distill
-title: 'Une intuition sur <i>RUDDER</i>'
+title: 'Une intuition sur RUDDER'
 description: "Présentation de l'article <i>RUDDER: Return Decomposition for Delayed Rewards</i> écrit par <i>Arjona-Medina, J. A.</i> et <i>al.</i> dans le cadre du cours <i>GLO-7030 Apprentissage par réseaux de neurones profonds</i> donné à l'Université Laval."
 
 date: 2021-04-09
