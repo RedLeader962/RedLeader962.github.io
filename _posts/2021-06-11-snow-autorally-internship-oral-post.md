@@ -37,7 +37,7 @@ _styles: >
 <div class="container supervisorDbyline">
     <div class="row">
         <div class="col">
-            <p class="supervisorDbylineTitle"> Supervisor </p>
+            <p class="supervisorDbylineTitle"> Supervisors </p>
         </div>
         <!--
             Force next columns to break to new line
@@ -101,15 +101,21 @@ _styles: >
     <a href="https://youtu.be/2xH1TjVt9I8" target="blank">Visionner sur <b>YouTube</b></a> <i class="fab fa-youtube"></i><br>  
     <!-- 
     <a href="https://github.com/RedLeader962/Une-intuition-sur-RUDDER" target="blank">Télécharger les <b>diapositives</b></a> <i class="fab fa-github"></i><br>
-    -->  
+    --> 
 </p>
 
 
 <br>
 <div class="l-body-outset embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xf0izxr4Y2Q?controls=1;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xf0izxr4Y2Q?controls=1&start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <br>
+
+
+<p class="text-center">
+    <a href="https://github.com/RedLeader962/Dockerized-SNOW" target="blank">Project container: <b>Dockerized-SNOW</b></a> <i class="fab fa-github"></i><br>
+    <a href="https://github.com/RedLeader962/SNOW_AutoRally" target="blank">Project repository: <b>SNOW_AutoRally</b></a> <i class="fab fa-github"></i><br>
+</p>
 
 #### Related literature
 - Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving <d-cite key="Williams2018"></d-cite>
