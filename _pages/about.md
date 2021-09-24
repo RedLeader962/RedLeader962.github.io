@@ -136,26 +136,28 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
- * Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
+* M.Sc. students at ***[NorLab](https://norlab.ulaval.ca)*** doing research on robotic control problem subject to adversarial condition.
+* Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
 
 ##### Past:
- * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
- * Research internship at ***[NorLab](https://norlab.ulaval.ca)*** on robotic control problem subject to adversarial condition (project _SNOW-AutoRally_)
- * *NSERC* 2021 **[Undergraduate Student Research Award](https://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp)**
- * Served with the Canadian army for 12 years:
-     * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
-     * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) at Valcartier:
-        * **RECON** platoon patrolman (4 years)
-        * Tactical intelligence operator (1 year)
-        * 2 combat tours in ***Afghanistan*** : _Zhari_ District in 2007 and _Panjwai_ District in 2011 
-        * _5th Canadian Mechanized Brigade Group_ shooting competition:
-            * pistol (2013):  bronze for best shooter, silver for best junior shooter, gold for best team 
-            * assault rifle (2006):  gold for best squad
-        * Basic infantry course **excellence trophy** for best candidate    
- * Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing, ...
- * Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._
- * Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
- * Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
+ <!--  * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> -->
+* B.Sc. with **Honors** in **Computer Science** specialized in **intelligent system** at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> (Sept 2021) 
+* Research internship at ***[NorLab](https://norlab.ulaval.ca)*** on robotic control problem subject to adversarial condition (project _SNOW-AutoRally_, summer 2021) 
+* *NSERC* 2021 **[Undergraduate Student Research Award](https://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp)**
+* Served with the Canadian army for 12 years:
+    * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
+    * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) at Valcartier:
+       * **RECON** platoon patrolman (4 years)
+       * Tactical intelligence operator (1 year)
+       * 2 combat tours in ***Afghanistan*** : _Zhari_ District in 2007 and _Panjwai_ District in 2011 
+       * _5th Canadian Mechanized Brigade Group_ shooting competition:
+           * pistol (2013):  bronze for best shooter, silver for best junior shooter, gold for best team 
+           * assault rifle (2006):  gold for best squad
+       * Basic infantry course **excellence trophy** for best candidate    
+* Dedicated **ski bum** in the 90's : steep, moguls, backflip, competitive freestyle skiing, ...
+* Once upon a time an **electric guitar shredder** : _Satriani, Malmsteen, Vivaldi, Metallica, ..._
+* Practiced/taught many **martial arts** over the years : _jujitsu, aïkido, kenjutsu, iaïdo, judo, boxe,_ ...
+* Self-taught **graphic designer** with a special interest in compositing and 2D motion graphics.
  
 <div id="carouselRedLeaderPictSlidesOnly" class="carousel slide carousel-fade " data-interval="5000" data-ride="carousel" style="padding-top: 2em;">
     <div class="carousel-inner z-depth-1">
