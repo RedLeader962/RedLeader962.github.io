@@ -1,0 +1,5 @@
+I"t<h5 id="-dockerized-snow"><a href="https://github.com/RedLeader962/Dockerized-SNOW">&gt; Dockerized SNOW</a></h5>
+
+<p>Containerized development workflow for the <em>NorLab_MPPI</em> and <em>SNOW_AutoRally</em> projects leveraging <em>nvidia-docker</em> technology. 
+Believe it or not, it’s configured for developing with <em>ROS melodic</em> in <em>python 3.6</em>.</p>
+:ET
