@@ -10,7 +10,7 @@ social: true
 
 
 ### Main interests
-Deep Reinforcement Learning, Maximum Entropy RL, sport, music, laughing until it hurts, perpetually seeking breathtaking views and tought-provoking ideas. 
+Deep Reinforcement Learning, Maximum Entropy RL, Robotic, sport, music, laughing until it hurts, perpetually seeking breathtaking views and tought-provoking ideas. 
 
 ### Core values
 
@@ -60,7 +60,7 @@ Black Live Matter: today, tomorow and every day after that<br>
 
 
 ### Goals 
-- Develop robust and adaptative algorithms that thrives in adverse condition.
+- Develop **robust and adaptative** algorithms that thrives in **adverse condition**.
 - Find a way to explain ideas and concepts in the most intuitive way using drawing or funny example. 
 
 
@@ -136,12 +136,12 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
- * Research internship at ***[NorLab](https://norlab.ulaval.ca)*** on robotic control problem subject to adversarial condition (project _SNOW-AutoRally_)
- * *NSERC* 2021 **[Undergraduate Student Research Award](https://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp)**
- * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
  * Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
 
 ##### Past:
+ * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> 
+ * Research internship at ***[NorLab](https://norlab.ulaval.ca)*** on robotic control problem subject to adversarial condition (project _SNOW-AutoRally_)
+ * *NSERC* 2021 **[Undergraduate Student Research Award](https://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp)**
  * Served with the Canadian army for 12 years:
      * **Computer developer** in a research cell at [***Defence Research and Development Canada***](https://www.canada.ca/en/defence-research-development.html) (1 year)
      * **Infantry soldier** in the [***Royal 22e Régiment***](https://fr.wikipedia.org/wiki/Royal_22e_Régiment) at Valcartier:

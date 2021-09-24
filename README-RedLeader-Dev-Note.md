@@ -1,11 +1,5 @@
 #### Ressources:
 
-Install alternate ruby version
-```bash
-brew install ruby@2.7
-
-```
-
 ##### The al-folio Theme
 
 - [theme demo](https://alshedivat.github.io/al-folio/) | [theme GitHub/dev branch](https://github.com/alshedivat/al-folio/tree/dev)
@@ -76,6 +70,8 @@ Source: https://jekyllrb.com/docs/installation/macos/
 # INSTALL HOMEBREW
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install ruby
+# or install alternate ruby version
+$ brew install ruby@2.7
 $ echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
 
 # Close and reopen terminal
@@ -97,6 +93,7 @@ replacing the X.X with the first two digits of your Ruby version.
 $ gem env
 And check that `GEM PATHS:` points to a path in your home directory.
 ```
+
 
 Error msg when using `bundle exec jekyll serve`
 ```bash

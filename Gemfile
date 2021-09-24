@@ -1,19 +1,40 @@
 source 'https://rubygems.org'
 
 
-# Use first: `$ brew install ruby@2.7`
+# al-folio main >> https://github.com/alshedivat/al-folio/blob/master/Gemfile
 group :jekyll_plugins do
-    gem 'github-pages'
     gem 'jekyll'
     gem 'jekyll-email-protect'
+    gem 'jekyll-feed'
+    gem 'jekyll-github-metadata'
     gem 'jekyll-paginate-v2'
     gem 'jekyll-scholar'
+    gem 'jekyll-twitter-plugin'
+    gem 'jekyll-sitemap'
     gem 'jemoji'
     gem 'unicode_utils'
+    gem 'webrick'
 end
 
 
-# Ref: https://github.com/alshedivat/al-folio/issues/161
+#
+# # Use first: `$ brew install ruby@2.7`
+# group :jekyll_plugins do
+#     gem 'github-pages'
+# #     gem 'github-pages', '~> 207'
+# #     gem 'jekyll'
+#     gem 'jekyll', '3.7.3' # <-- this line
+#     gem 'jekyll-email-protect'
+#     gem 'jekyll-paginate-v2'
+#     gem 'jekyll-scholar'
+#     gem 'jemoji'
+#     gem 'unicode_utils'
+#     gem 'unf_ext', '~> 0.0.7.2'
+# #     gem 'eventmachine', '~> 1.2', '>= 1.2.7'
+# end
+
+
+# ## Ref: https://github.com/alshedivat/al-folio/issues/161
 # group :jekyll_plugins do
 #     gem 'github-pages'
 # #     gem "jekyll", "~> 4.2.0"
@@ -43,7 +64,7 @@ end
 # https://rubygems.org/gems/jekyll-scholar
 # https://rubygems.org/gems/github-pages/versions/207
 
-# ❯❯❯....Use 'kramdown' version distributing 'katex'.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . ....
+## ❯❯❯....Use 'kramdown' version distributing 'katex'.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . ....
 #group :jekyll_plugins do
 #    gem 'github-pages'
 #    gem 'jekyll'
@@ -55,7 +76,7 @@ end
 #    gem 'unicode_utils'
 #end
 
-# ❯❯❯....Use vulnerabilty fixed version of 'bibtex-ruby' using the latest 'jekyll-scholar'.... . . . .  .  .  . . . ....
+## ❯❯❯....Use vulnerabilty fixed version of 'bibtex-ruby' using the latest 'jekyll-scholar'.... . . . .  .  .  . . . ....
 # group :jekyll_plugins do
 #     gem 'jekyll', '~> 4.1', '>= 4.1.1'
 #     gem 'jekyll-email-protect'
@@ -65,7 +86,7 @@ end
 #     gem 'unicode_utils'
 # end
 
-# ❯❯❯....Use 'github-pages' compatible gem version.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . ...
+# # ❯❯❯....Use 'github-pages' compatible gem version.... . . . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . ...
 # group :jekyll_plugins do
 #     gem 'jekyll', '~> 3.9'
 #     gem 'github-pages', '~> 207'
@@ -75,5 +96,5 @@ end
 #     gem 'jemoji', '~> 0.11.1'
 #     gem 'unicode_utils'
 # end
-#
+
 
