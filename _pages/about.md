@@ -10,37 +10,40 @@ social: true
 
 
 ### Main interests
-Deep Reinforcement Learning, Maximum Entropy RL, Robotic, sport, music, laughing until it hurts, perpetually seeking breathtaking views and tought-provoking ideas. 
+Deep Reinforcement Learning, control problems, robotic, real-life adventure, challenging my limits, music, laughing until it hurts and perpetually seeking breathtaking views. 
 
 ### Core values
 
 <dl style="padding-left: 1em; padding-right: 0em;" class="row">
-  <dt class="col-md-3">A.I. for good</dt> <dd class="col-xl-9">
+    <dt class="col-md-3">A.I. for good</dt> <dd class="col-xl-9">
      Humanity first, then computer science. Not the other way around ! 
-  </dd>
-  <dt class="col-md-3">Ethical A.I.</dt> <dd class="col-xl-9">
-    "Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems that are not worth celebrating.”
-    <span style="color: gray">― <a style="color: gray" href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a> 
-    <!-- at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a> -->
-    </span> 
-  </dd>
-  <dt class="col-md-3 border-md-bottom">Integrity</dt> <dd class="col-xl-9">
+    </dd>
+    <dt class="col-md-3 border-md-bottom">Integrity</dt> <dd class="col-xl-9">
         ... without compromise.
-  </dd>
-  <dt class="col-md-3">Toward excellence</dt> <dd class="col-xl-9">
+    </dd>
+    <dt class="col-md-3">Toward excellence</dt> <dd class="col-xl-9">
         <!-- 
         Better to set the bar too high and fail then setting it to low and succeed
         -->
         “The greatest danger for most of us is not that our aim is too high and we miss it, but that it is too low and we reach it.” 
         <span style="color: gray">― Michelangelo</span>
-  </dd>
-  <dt class="col-md-3">Black Lives Matter</dt> <dd class="col-xl-9">
-        <!-- 
-        Today, tomorrow and every day after that
-        if it does not, then my life does not matter either
-        -->
-        ... or none do.
-  </dd>
+    </dd>
+    <dt class="col-md-3">Ethical A.I.</dt> <dd class="col-xl-9">
+    "Poor data, inexplicable code or rushed deployment can easily lead to A.I. systems that are not worth celebrating.”
+    <span style="color: gray">― <a style="color: gray" href="https://atg-abhishek.github.io" target="_blank">Abhishek Gupta</a> 
+    <!-- at the <a href="https://www.weforum.org" target="_blank">World Economic Forum</a> -->
+    </span> 
+    </dd>
+    <!-- 
+      <dt class="col-md-3">Black Lives Matter</dt> 
+        <dd class="col-xl-9">
+            ... or none do.
+        </dd>
+    -->
+    <!-- 
+    Today, tomorrow and every day after that
+    if it does not, then my life does not matter either
+    -->
 </dl>
 
 <!-- 
@@ -69,7 +72,7 @@ Black Live Matter: today, tomorow and every day after that<br>
 <span style="font-size: large; font-weight: bolder; border-bottom: none; margin-right: 0.75em;">
 Language:
 </span>
-I speak French (native tongue) and English and I sometimes dream in _Python, LaTeX, C++_ 
+I speak French (native tongue) and English. Sometimes in my dream I speak _Python_ code. 
 
 <div style="padding-top: 1em;">
     <div class="card border-dark mb-3">
@@ -91,15 +94,15 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
                     <div class="col-md-6"> <b>Continuous Integration</b>: <i>TeamCity</i> </div>
                     <div class="col-md-6"> <b>Containerization</b>: <i>Docker, NVIDIA Container</i> </div>
                     <div class="col-md-6"> <b>Embedded computing</b>: <i>ROS, NVIDIA Jetson </i> </div>
-                    <div class="col-md-6"> <b>Parallel/distributed computing</b>: <i>Ray [ RLlib, tune ]</i></div>
-                    <div class="col-md-6"> <b>Project planning & control</b>: <i>YouTrack, Trello</i> </div>
+                    <div class="col-md-6"> <b>Project planning & control</b>: <i>YouTrack</i> </div>
                     <div class="col-md-6"> Methodology <i><b>Scrumm</b></i> and <i><b>Agile</b></i> </div>
+                    <div class="col-md-6"> <b>Parallel/distributed computing</b>: <i>Ray [ RLlib, tune ]</i></div>
                     <div class="col-md-6"> <b>Semantic database</b>: <i>SPARQL, RDF, OWL</i> </div>
                     <br><br>
                 </div>
                 <div class="row ">
                     <div class="col text-sm-center">
-                        <i><b>Also familiar with </b> C/C++, HTML, CSS, SASS, Java, AngularJS, Lua, SQL, PL/SQL</i> <br>
+                        <i><b>Also familiar with </b> C/C++, HTML, CSS, SASS, Java, SQL, PL/SQL</i> <br>
                     </div>
                 </div>
             </div>
@@ -136,8 +139,25 @@ I speak French (native tongue) and English and I sometimes dream in _Python, LaT
 
 ### History 
 ##### Present:
-* M.Sc. students at ***[NorLab](https://norlab.ulaval.ca)*** doing research on robotic control problem subject to adversarial condition.
-* Enjoying every minute of my civilian life with my angel _Karen_ (she is not white and she won't be asking to speak with the manager).
+
+
+<p class="text-center img-with-hyperlink" style="padding-top: 0em; padding-bottom: 0em; margin-top: -1em; margin-bottom: 1em;">
+    <a href="https://norlab.ulaval.ca"  target="blank">
+        <img  src="{{ site.baseurl }}/assets/img/norlab_img/norlab_logo_acronym_dark.png" width="175">
+    </a> 
+</p>
+<!-- 
+<p class="text-center" style="font-size: smaller">
+    <a href="https://norlab.ulaval.ca"  target="blank"> https://norlab.ulaval.ca </a> 
+</p>
+-->
+
+* M.Sc. students at ***[NorLab](https://norlab.ulaval.ca)*** doing research on robotic control problems subject to adversarial condition.
+* Enjoying every minute of my civilian life with my angel _Karen_.
+
+<!-- 
+(she is not white and she won't be asking to speak with the manager).
+-->
 
 ##### Past:
  <!--  * Finalizing my bachelor’s degree as an **honor student** in computer science at <a href="https://www.ulaval.ca" target="_blank">Université Laval</a> -->
