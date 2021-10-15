@@ -1,0 +1,1409 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://redleader962.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://redleader962.github.io/" rel="alternate" type="text/html" /><updated>2021-10-15T13:34:43-04:00</updated><id>https://redleader962.github.io/feed.xml</id><title type="html">Luc Coupal</title><subtitle>My journal and projects on Deep Reinforcement Learning (RL/DRL) and AI related topic.</subtitle><entry><title type="html">From Georgia Tech AutoRally to SNOW-AutoRally … and beyond</title><link href="https://redleader962.github.io/blog/2021/snow-autorally-internship-oral-post/" rel="alternate" type="text/html" title="From Georgia Tech AutoRally to SNOW-AutoRally … and beyond" /><published>2021-06-11T00:00:00-04:00</published><updated>2021-06-11T00:00:00-04:00</updated><id>https://redleader962.github.io/blog/2021/snow-autorally-internship-oral-post</id><content type="html" xml:base="https://redleader962.github.io/blog/2021/snow-autorally-internship-oral-post/">&lt;div class=&quot;container supervisorDbyline&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Supervisors &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!--
+            Force next columns to break to new line
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-3&quot;&gt;
+            Prof.
+                &lt;a href=&quot;https://norlab.ulaval.ca/people/f_pomerleau/&quot; target=&quot;blank&quot;&gt;
+                  &lt;span class=&quot;supervisorThe&quot;&gt; François Pomerleau &lt;/span&gt;
+                &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+            Director of the &lt;a href=&quot;https://norlab.ulaval.ca&quot; target=&quot;blank&quot;&gt;NorLab&lt;/a&gt; and professor in computer science at &lt;a href=&quot;https://www.ulaval.ca&quot; target=&quot;blank&quot;&gt; Université Laval &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;!-- 
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Supervisor &lt;/p&gt;
+        &lt;/div&gt;
+        --&gt;
+        &lt;!--
+            Force next columns to break to new line
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-3&quot;&gt;
+            Prof.
+                &lt;a href=&quot;http://www2.ift.ulaval.ca/~pgiguere/&quot; target=&quot;blank&quot;&gt;
+                  &lt;span class=&quot;supervisorThe&quot;&gt; Philippe Giguère &lt;/span&gt;
+                &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+            Co-director of the &lt;a href=&quot;https://norlab.ulaval.ca&quot; target=&quot;blank&quot;&gt;NorLab&lt;/a&gt; and professor in computer science at &lt;a href=&quot;https://www.ulaval.ca&quot; target=&quot;blank&quot;&gt; Université Laval&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+        &lt;!-- 
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Supervisor &lt;/p&gt;
+        &lt;/div&gt;
+        --&gt;
+        &lt;!--
+            Force next columns to break to new line
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-3&quot;&gt;
+                &lt;a href=&quot;https://norlab.ulaval.ca/people/d_baril/&quot; target=&quot;blank&quot;&gt;
+                  &lt;span class=&quot;supervisorThe&quot;&gt; Dominic Baril &lt;/span&gt;
+                &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+            PHD student at &lt;a href=&quot;https://norlab.ulaval.ca&quot; target=&quot;blank&quot;&gt;NorLab&lt;/a&gt;, &lt;a href=&quot;https://www.ulaval.ca&quot; target=&quot;blank&quot;&gt; Université Laval&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class=&quot;supervisorDbylineHorizontalRule&quot; /&gt;
+
+&lt;p class=&quot;text-center img-with-hyperlink&quot; style=&quot;padding-top: 0em; padding-bottom: 0em; margin-top: -1.5em; margin-bottom: 0em;&quot;&gt;
+    &lt;a href=&quot;https://norlab.ulaval.ca&quot; target=&quot;blank&quot;&gt;
+        &lt;img src=&quot;/assets/img/norlab_img/norlab_logo_acronym_dark.png&quot; width=&quot;175&quot; /&gt;
+    &lt;/a&gt; 
+&lt;/p&gt;
+&lt;p class=&quot;text-center&quot; style=&quot;font-size: smaller&quot;&gt;
+    &lt;a href=&quot;https://norlab.ulaval.ca&quot; target=&quot;blank&quot;&gt; https://norlab.ulaval.ca &lt;/a&gt; 
+&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot; style=&quot;padding-top: 0em; padding-bottom: 0em; margin-top: 1em; margin-bottom: 0em;&quot;&gt;
+    &lt;a href=&quot;https://www.youtube.com/embed/xf0izxr4Y2Q?controls=1&amp;amp;start=3&amp;amp;autoplay=1&quot; target=&quot;blank&quot;&gt;Watch the oral presentation on &lt;b&gt;YouTube&lt;/b&gt;&lt;/a&gt; &lt;i class=&quot;fab fa-youtube&quot;&gt;&lt;/i&gt;&lt;br /&gt;   
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;static-card l-body-outset&quot; style=&quot;padding-top: 0em; padding-bottom: 3em; margin-top: 0em; &quot;&gt;
+    &lt;div class=&quot;card-shadow&quot;&gt;
+        &lt;a href=&quot;https://www.youtube.com/embed/xf0izxr4Y2Q?controls=2&amp;amp;start=3&amp;amp;showinfo=0&amp;amp;autoplay=1&quot; target=&quot;blank&quot;&gt;
+            &lt;img class=&quot;img-fluid card&quot; src=&quot;/assets/img/E21_norlab_oral_title_page.png&quot; width=&quot;100%&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;
+    &lt;a href=&quot;https://github.com/RedLeader962/Dockerized-SNOW&quot; target=&quot;blank&quot;&gt;Project container: &lt;b&gt;Dockerized-SNOW&lt;/b&gt;&lt;/a&gt; &lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;br /&gt;
+    &lt;a href=&quot;https://github.com/RedLeader962/SNOW_AutoRally&quot; target=&quot;blank&quot;&gt;Project repository: &lt;b&gt;SNOW_AutoRally&lt;/b&gt;&lt;/a&gt; &lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;!-- 
+&lt;figure class=&quot;l-body-outset&quot; style=&quot;margin-left: -0.5rem; margin-top: -0.5rem;&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;a href=&quot;https://www.youtube.com/embed/xf0izxr4Y2Q?controls=2&amp;start=3&amp;showinfo=0&quot;  target=&quot;blank&quot;&gt;
+            &lt;img src=&quot;/assets/img/E21_norlab_oral_title_page.png&quot; /&gt;
+            &lt;/a&gt; 
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+--&gt;
+
+&lt;!--
+[comment]: &lt;&gt; (&lt;div class=&quot;l-page-outset embed-responsive embed-responsive-16by9&quot;&gt;)
+
+&lt;div class=&quot;l-body embed-responsive embed-responsive-16by9&quot; style=&quot;padding-top: 0em; padding-bottom: 3em; margin-top: 0em&quot;&gt;
+    &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/xf0izxr4Y2Q?controls=2&amp;start=3&amp;showinfo=0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;br&gt;
+--&gt;
+
+&lt;h4 id=&quot;related-literature&quot;&gt;Related literature&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving &lt;d-cite key=&quot; Williams2018&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;Information theoretic MPC for model-based reinforcement learning &lt;d-cite key=&quot;Williams2017&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;Aggressive driving with model predictive path integral control &lt;d-cite key=&quot;Williams2016&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;AutoRally: An Open Platform for Aggressive Autonomous Driving &lt;d-cite key=&quot;Goldfain2019&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;Evaluation of Skid-Steering Kinematic Models for Subarctic Environments &lt;d-cite key=&quot;baril2020evaluation&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Luc Coupal</name></author><summary type="html">Supervisors Prof. François Pomerleau Director of the NorLab and professor in computer science at Université Laval Prof. Philippe Giguère Co-director of the NorLab and professor in computer science at Université Laval Dominic Baril PHD student at NorLab, Université Laval</summary></entry><entry><title type="html">Une intuition sur RUDDER</title><link href="https://redleader962.github.io/blog/2021/distill-RUDDER-post/" rel="alternate" type="text/html" title="Une intuition sur RUDDER" /><published>2021-04-09T00:00:00-04:00</published><updated>2021-04-09T00:00:00-04:00</updated><id>https://redleader962.github.io/blog/2021/distill-RUDDER-post</id><content type="html" xml:base="https://redleader962.github.io/blog/2021/distill-RUDDER-post/">&lt;p class=&quot;text-center&quot;&gt;
+    &lt;a href=&quot;https://youtu.be/2xH1TjVt9I8&quot; target=&quot;blank&quot;&gt;Visionner sur &lt;b&gt;YouTube&lt;/b&gt;&lt;/a&gt; &lt;i class=&quot;fab fa-youtube&quot;&gt;&lt;/i&gt;&lt;br /&gt;  
+    &lt;a href=&quot;https://github.com/RedLeader962/Une-intuition-sur-RUDDER&quot; target=&quot;blank&quot;&gt;Télécharger les &lt;b&gt;diapositives&lt;/b&gt;&lt;/a&gt; &lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;br /&gt;  
+&lt;/p&gt;
+
+&lt;h4 id=&quot;matériel-lié-à-larticle-de-arjona-medina-ja-et-al&quot;&gt;Matériel lié à l’article de &lt;i&gt;Arjona-Medina, J.A&lt;/i&gt; et &lt;i&gt;al.&lt;/i&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Version de l’article accepté à NeurIPS 2019 &lt;d-cite key=&quot;Arjona-Medina2018&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;Annexe de l’article (64 pages + bibliographie) &lt;d-cite key=&quot;Arjona-Medina&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;i&gt;Blog post&lt;/i&gt; des auteurs (&lt;cite&gt;5 min read&lt;/cite&gt; + &lt;cite&gt;20 min read&lt;/cite&gt;) &lt;d-cite key=&quot;Arjona-Medina2018-Blog&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;l-body-outset embed-responsive embed-responsive-16by9&quot;&gt;
+&lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/2xH1TjVt9I8?controls=1;&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Luc Coupal</name></author></entry><entry><title type="html">Soft Actor-Critic part 1: intuition and theoretical aspect</title><link href="https://redleader962.github.io/blog/2020/SAC-part-1-distillarized/" rel="alternate" type="text/html" title="Soft Actor-Critic part 1: intuition and theoretical aspect" /><published>2020-03-13T00:00:00-04:00</published><updated>2020-03-13T00:00:00-04:00</updated><id>https://redleader962.github.io/blog/2020/SAC-part-1-distillarized</id><content type="html" xml:base="https://redleader962.github.io/blog/2020/SAC-part-1-distillarized/">&lt;div class=&quot;container supervisorDbyline&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Supervisor &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!--
+            Force next columns to break to new line
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-3&quot;&gt;
+            Prof.
+                &lt;a href=&quot;https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/&quot; target=&quot;blank&quot;&gt;
+                  &lt;span class=&quot;supervisorThe&quot;&gt; Brahim Chaib-draa &lt;/span&gt;
+                &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+            Directeur du programme de baccalauréat en génie logiciel à l&apos;&lt;a href=&quot;https://www.ulaval.ca&quot; target=&quot;blank&quot;&gt;
+            Université Laval
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;container supervisorDbyline&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Acknowledgments &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!--
+            Force next columns to break to new line
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+        A big thank you to my angel &lt;span class=&quot;acknowledgments&quot;&gt; Karen Cadet &lt;/span&gt; for her support and precious insight on the english language.
+&lt;/div&gt;
+
+&lt;hr class=&quot;supervisorDbylineHorizontalRule&quot;&gt;
+
+
+&lt;figure id=&quot;fig:fb3a3962240c48ebaeef4ea6d5737b&quot; class=&quot;l-body&quot; style=&quot;margin-left: -0.5rem; margin-top: -0.5rem;&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_SAC/images/TaxonomySoftActorCritic_mod.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;            &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;sec:SoftActorCritic&quot;&gt;Soft Actor-Critic&lt;/h1&gt;
+
+&lt;p&gt;Soft Actor-Critic (&lt;i&gt;SAC&lt;/i&gt;) is an off-policy algorithm based on the &lt;i&gt;Maximum Entropy&lt;/i&gt; &lt;i&gt;Reinforcement&lt;/i&gt; &lt;i&gt;Learning&lt;/i&gt; framework.
+The main idea behind &lt;i&gt;Maximum Entropy RL&lt;/i&gt; is to frame the decision-making problem as a &lt;i&gt;probabilistic graphical model&lt;/i&gt; from top to bottom and then solve it using tools borrowed from that same field. Under &lt;i&gt;Maximum Entropy RL&lt;/i&gt; framework, a learning agent seeks to maximize both the return and the entropy simultaneously.&lt;/p&gt;
+
+&lt;p&gt;This approach benefits &lt;i&gt;Deep Reinforcement Learning&lt;/i&gt; algorithms by giving them&lt;/p&gt;
+
+&lt;p class=&quot;distillarizer-lead text-center&quot;&gt;
+the capacity to consider and learn&lt;br/&gt;many alternate paths leading to an optimal goal&lt;br/&gt;and the capacity to learn how to act optimally&lt;br/&gt;despite adverse circumstances.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;SAC&lt;/i&gt; is an off-policy algorithm, which means it has the ability to train on samples coming from a different policy.
+What is particular though is that, contrary to other off-policy algortihms, it’s stable. This mean that the algorithm is much less picky in terms of hyperparameter tuning.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;SAC&lt;/i&gt; &lt;d-cite key=&quot;Haarnoja2018a&quot;&gt;&lt;/d-cite&gt; is curently &lt;strong&gt;the state of the art&lt;/strong&gt; &lt;i&gt;Deep Reinforcement Learning&lt;/i&gt; algorithm together with Twin Delayed Deep Deterministic policy gradient ( &lt;i&gt;TD3&lt;/i&gt; ) &lt;d-cite key=&quot;DBLP:journals/corr/abs-1802-09477&quot;&gt;&lt;/d-cite&gt;.&lt;/p&gt;
+
+&lt;p&gt;The learning curve of the &lt;i&gt;Maximum Entropy RL&lt;/i&gt; framework is quite steep due to how much it rethinks the RL problem. Diving in depth into the &lt;i&gt;Maximum Entropy RL&lt;/i&gt; theory is definitely required in order to understand how &lt;i&gt;SAC&lt;/i&gt; work.
+Tackling the applied part was arguably the hardest project I did so far, both in terms of component implementation and in terms of evil silent bugs.
+Nevertheless, it’s worth every headache and nightmare I had in the process once it started working.&lt;/p&gt;
+
+    &lt;p&gt;You can find my implementaion on &lt;a href=&quot;https://github.com/RedLeader962/LectureDirigeDRLimplementation&quot; target=&quot;_blank&quot; title=&quot;GitHub&quot;&gt;my GitHub &lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+    
+
+&lt;h2 id=&quot;reading-material&quot;&gt;Reading material:&lt;/h2&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor &lt;d-cite key=&quot;Haarnoja2018a&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review &lt;d-cite key=&quot;Levine2018&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Soft Actor-Critic Algorithms and Applications &lt;d-cite key=&quot;Haarnoja2018&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Reinforcement Learning with Deep Energy-Based Policies &lt;d-cite key=&quot;Haarnoja2017&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Deterministic Policy Gradient Algorithms &lt;d-cite key=&quot;Silver2014&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Reinforcement learning: An introduction &lt;d-cite key=&quot;Sutton1394&quot;&gt;&lt;/d-cite&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve also complemented my reading with the following resources:&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&apos;http://rail.eecs.berkeley.edu/deeprlcourse-fa18/&apos; title=&apos;&apos;&gt;CS 294–112 &lt;i&gt;Deep Reinforcement Learning&lt;/i&gt;&lt;/a&gt;: lectures 14-15 by Sergey Levine from University Berkeley;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&apos;https://spinningup.openai.com/en/latest/algorithms/sac.html&apos; title=&apos;&apos;&gt;&lt;i&gt;OpenAI: Spinning Up: &lt;i&gt;Soft Actor-Critic&lt;/i&gt;&lt;/i&gt;&lt;/a&gt;, by Josh Achiam;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;and also &lt;a href=&apos;https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#sac&apos; title=&apos;&apos;&gt;&lt;i&gt;Lil’ Log blog:Policy Gradient Algorithms&lt;/i&gt;&lt;/a&gt; by Lilian Weng, research intern at &lt;i&gt;OpenAI&lt;/i&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;l-body&quot;&gt;
+
+&lt;!---- Collapsable card -----------------------------------------------------------------------------------------------&gt;
+&lt;div class=&quot;collapsable-card&quot; style=&quot;padding-top: 1em; padding-bottom: 3em; margin-top: 0em&quot;&gt;
+    &lt;div class=&quot;card-shadow&quot;&gt;
+        &lt;button class=&quot;btn btn-lg btn-block close-icon shadow-none collapsed&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#commentOnNotation&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;commentOnNotation&quot;&gt;
+        Comment on notation
+        &lt;/button&gt;
+        &lt;div id=&quot;commentOnNotation&quot; class=&quot;collapse&quot;&gt;
+            &lt;div class=&quot;card shadow-none&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+
+
+&lt;p&gt;Since there are a lot of different notations across paper, I’ve decided to follow (for the most part) the convention established by Sutton &amp;amp; Barto in their book Reinforcement Learning: An Introduction &lt;d-cite key=&quot;Sutton1394&quot;&gt;&lt;/d-cite&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNotation.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--------------------------------------------------------------------------------------- Collapsable card ---(end)----&gt;
+
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;subsec:buildingBlocMaximumEntropyFramework&quot;&gt;An overview of the &lt;i&gt;Maximum Entropy&lt;/i&gt; framework&lt;/h2&gt;
+
+&lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;div class=&quot;definition&quot;&gt;    &lt;dl class=&quot;row&quot;&gt;
+        &lt;dt class=&quot;col-3&quot;&gt;Goal:&lt;/dt&gt;
+        &lt;dd class=&quot;col&quot;&gt;&lt;p&gt;Solving decision-making problems in a way that define optimality as a context-dependent and multi-solution concept.&lt;/p&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;dl class=&quot;row&quot;&gt;
+        &lt;dt class=&quot;col-3&quot;&gt;How?&lt;/dt&gt;
+        &lt;dd class=&quot;col&quot;&gt;&lt;p&gt;By learning a &lt;a href=&apos;https://en.wikipedia.org/wiki/Principle_of_maximum_entropy&apos; title=&apos;&apos;&gt;Maximum Entropy model&lt;/a&gt;.&lt;/p&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;i&gt;Maximum Entropy&lt;/i&gt; framework is an approach to solving decision-making problem that uses the formalism and tools of the field of &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt;.
+The difference between &lt;i&gt;Classical RL&lt;/i&gt; and &lt;i&gt;Maximum Entropy RL&lt;/i&gt; is not obvious at first because in both cases, it’s all about dealing with probabilities, random variable,
+expectation maximization and so on.
+As we will see, those two are fundamentally different.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-other-way-of-framing-the-decision-making-problem&quot;&gt;A other way of framing the decision-making problem&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;The classical approach used in RL&lt;/strong&gt; is to formalize the decision-making problem &lt;strong&gt;using a&lt;/strong&gt; &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt; &lt;strong&gt;augmented with a reward input&lt;/strong&gt; and then seek to maximize the sum of cumulative reward using some kind of tools borrowed from &lt;i&gt;Stochastic Optimization&lt;/i&gt; (in the broad sense).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The &lt;i&gt;Maximum Entropy RL&lt;/i&gt; approach&lt;/strong&gt; on the other end formalize the decision-making problem &lt;strong&gt;as a&lt;/strong&gt; &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt;
+and then solve a learning and inference problem using &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt; tools.
+While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;distillarizer-lead text-center&quot;&gt;
+In other word, the &lt;i&gt;Maximum Entropy RL&lt;/i&gt;&lt;d-footnote&gt;This approach to tackling decision-making problem is not new in the literature and has many names: &lt;i&gt;Maximum Entropy RL&lt;/i&gt;, &lt;i&gt;KL-divergence control&lt;/i&gt;, &lt;i&gt;stochastic optimal control&lt;/i&gt;. In this essay we will use the name &lt;i&gt;Maximum Entropy RL&lt;/i&gt;.&lt;/d-footnote&gt;framework&lt;br/&gt;&lt;strong&gt;formalize and solve the entirety of the RL problem&lt;br/&gt;using probability theory&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;h4 id=&quot;how-does-it-make-the-rl-problem-different-an-intuition&quot; class=&quot;unnumbered&quot;&gt;How does it make the RL problem different (an intuition):&lt;/h4&gt;
+
+&lt;p&gt;Consider an environment with a continuous action space.
+The &lt;i&gt;Classical RL&lt;/i&gt; approach would specify the agent policy &lt;d-math&gt;\pi&lt;/d-math&gt; as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
+In contrast, the &lt;i&gt;Maximum Entropy RL&lt;/i&gt; approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.&lt;/p&gt;
+
+&lt;h4 id=&quot;why-does-it-matter&quot; class=&quot;unnumbered&quot;&gt;Why does it matter?&lt;/h4&gt;
+
+&lt;p&gt;Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Suppose the optimal way is simply impractical at a given time, meaning there is no choice to fallback to a lesser optimal way. Does he know how to handle non-optimal alternative way to do things?&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Suppose there is more than one optimal way to do things all leading to the same end result, how does he choose between them?&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;Suppose now that there exist multiple equally optimal but different end result, how does he proceed now?&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;What about the case where there are many ways to do things and only one optimal way but we want the agent to relax is expectation regarding the end result, in other words, we don’t care whether the end result is optimal or near optimal? Will he be able to make good use of that relaxed requirement of near optimality?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Those are all legitimate scenario that an agent should be required to successfully handle in order to become effective, skillful, agile, nimble, resilient and capable of handling adverse condition.&lt;/p&gt;
+
+&lt;p class=&quot;distillarizer-lead text-center&quot;&gt;
+The problem with &lt;i&gt;Classical RL&lt;/i&gt; is that it converges (in expectation) to a deterministic policy &lt;d-math&gt;\pi&lt;/d-math&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;This is one of the keys takes away proof from the &lt;i&gt;Deterministic Policy Gradient&lt;/i&gt; (DPG) &lt;d-cite key=&quot;Silver2014&quot;&gt;&lt;/d-cite&gt; paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  &lt;d-cite key=&quot;Sutton1394&quot;&gt;&lt;/d-cite&gt;
+This mean that the algorithm will optimize for one and only one way to do things.
+Once it starts &lt;i&gt;believing&lt;/i&gt; that a path is more promising than the others, it will start to optimize for that &lt;i&gt;believed-best&lt;/i&gt; path and it will discard all the alternate ones.
+Even if the algorithm is forced to explore using whatever trick, those trick only promote &lt;i&gt;believed unpromising&lt;/i&gt; path for consideration but it still results in an algorithm that
+learn to optimize for one and only one way to do things.
+On the other end, &lt;i&gt;Maximum Entropy RL&lt;/i&gt; optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;effective exploration&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;transfer learning capabilities out of the box&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;robustness and adaptability&lt;/li&gt;
+&lt;/ul&gt;
+
+        &lt;h3&gt;Nuts and bolts &lt;span style=&quot;font-weight: normal&quot;&gt;(Key component related to SAC)&lt;/span&gt;&lt;/h3&gt;
+        
+
+&lt;h4 id=&quot;the-maxent-policy-pi&quot; class=&quot;unnumbered&quot;&gt;The &lt;i&gt;MaxEnt&lt;/i&gt; policy &lt;d-math&gt;\pi&lt;/d-math&gt;:&lt;/h4&gt;
+
+&lt;p&gt;Recall the &lt;i&gt;Classical RL&lt;/i&gt; stochastic policy &lt;d-math&gt;\pi&lt;/d-math&gt; definition&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_1.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;which is modelled either as a categorical or a Gaussian distribution with his mean value representing the best action &lt;d-math&gt;\mathbf{a}&lt;/d-math&gt; given satet &lt;d-math&gt;\mathbf{s}&lt;/d-math&gt; at &lt;i&gt;timestep&lt;/i&gt; &lt;d-math&gt;t&lt;/d-math&gt;.
+How this distribution is defined is a arbitrary choice let to the algorithm design.&lt;/p&gt;
+
+&lt;p&gt;On the other end, &lt;i&gt;Maximum Entropy RL&lt;/i&gt; defines the distribution explicitely either in terms of
+&lt;i&gt;advantage&lt;/i&gt; &lt;d-math&gt;A^\pi&lt;/d-math&gt; as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_3.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;or in terms of
+&lt;i&gt;Q-function&lt;/i&gt; &lt;d-math&gt;Q^\pi&lt;/d-math&gt; as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_2.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;\alpha&lt;/d-math&gt; being the &lt;i&gt;temperature&lt;/i&gt; and &lt;d-math&gt;\propto&lt;/d-math&gt; the symbol of proportionality.&lt;/p&gt;
+
+&lt;p&gt;We can observe that it’s an analogue of the &lt;a href=&apos;https://en.wikipedia.org/wiki/Boltzmann_distribution&apos; title=&apos;&apos;&gt;Boltzmann distribution&lt;/a&gt; (aka Gibbs distribution) with the &lt;i&gt;advantage&lt;/i&gt; being the negative energy found in the Boltzmann distribution.
+Equivalently, it gives us a &lt;i&gt;probability measure&lt;/i&gt; of a RL agent doing action &lt;d-math&gt;\mathbf{a}_t&lt;/d-math&gt; in a given state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; as a function of that state energy &lt;d-math&gt;A(\mathbf{s}_t, \mathbf{a}_t)&lt;/d-math&gt; (&lt;i&gt;the advantage&lt;/i&gt;).
+As the &lt;i&gt;temperature&lt;/i&gt; &lt;d-math&gt;\alpha&lt;/d-math&gt; decreases and approach to zero, the policy behaves like a standard &lt;i&gt;greedy policy&lt;/i&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_4.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;This hyperparameter &lt;d-math&gt;\alpha&lt;/d-math&gt; control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-maxent-objective-jpi&quot; class=&quot;unnumbered&quot;&gt;The &lt;i&gt;MaxEnt&lt;/i&gt; objective &lt;d-math&gt;J(\pi)&lt;/d-math&gt;:&lt;/h4&gt;
+
+&lt;p&gt;The RL objective derived from the &lt;i&gt;Maximum Entropy RL&lt;/i&gt; framework is similar to the &lt;i&gt;Classical RL&lt;/i&gt; one with the exception of an added entropy term &lt;d-math&gt;\mathcal{H}&lt;/d-math&gt; and the temperature. &lt;d-math&gt;\alpha&lt;/d-math&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-top: 0.5rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_5.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;div class=&quot;definition&quot;&gt;    &lt;dl class=&quot;row&quot;&gt;
+        &lt;dt class=&quot;col-3&quot;&gt;Key idea:&lt;/dt&gt;
+        &lt;dd class=&quot;col&quot;&gt;&lt;p&gt;This objective seeks to maximize the expected &lt;i&gt;return&lt;/i&gt; &lt;strong&gt;and&lt;/strong&gt; maximize the action &lt;i&gt;entropy&lt;/i&gt; at the same time.&lt;/p&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;dl class=&quot;row&quot;&gt;
+        &lt;dt class=&quot;col-3&quot;&gt;Moving part&lt;/dt&gt;
+        &lt;dd class=&quot;col&quot;&gt;&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;strong&gt;The return:&lt;/strong&gt; Same as in &lt;i&gt;Classical RL&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;strong&gt;The entropy term:&lt;/strong&gt; Can be viewed as a regularizer, an uniform prior over the policy or a way to tackle the exploration/exploitation trade off.&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;strong&gt;The temperature &lt;d-math&gt;\alpha&lt;/d-math&gt;:&lt;/strong&gt; Control the trade-off between exploration/exploitation.&lt;/li&gt;
+&lt;/ul&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!---- Static card ----------------------------------------------------------------------------------------------------&gt;
+&lt;div class=&quot;static-card l-body-outset&quot; style=&quot;padding-top: 1em; padding-bottom: 3em; margin-top: 0em&quot;&gt;
+    &lt;div class=&quot;card-shadow&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;div class=&quot;card-header&quot; style=&quot;&quot;&gt;
+            Entropy
+            &lt;/div&gt;
+            &lt;div class=&quot;card-body&quot;&gt;
+
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-top: 1.1rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_entropy.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href=&apos;https://en.wikipedia.org/wiki/Information_theory_and_measure_theory&apos; title=&apos;&apos;&gt;It’s a measure&lt;/a&gt; of the randomness of a random variable.&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;d-math&gt;0 \leq \mathcal{H} \leq 1&lt;/d-math&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;d-math&gt;\mathcal{H} = 0 \ \Longrightarrow&lt;/d-math&gt; the variable is deterministic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span&gt;&lt;a href=&apos;https://en.wikipedia.org/wiki/Entropy_(information_theory)&apos; title=&apos;&apos;&gt;Additional information&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;d-math&gt;\mathcal{H}&lt;/d-math&gt; tel us how wide is the distribution from which are sampled the random variables.&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;A wide distribution will produce high entropy &lt;i&gt;random variable.&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;A narrow distribution will produce low entropy &lt;i&gt;random variable.&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-------------------------------------------------------------------------------------------- Static card ---(end)----&gt;
+
+
+&lt;h4 id=&quot;the-soft-value-function-qpi-and-vpi&quot; class=&quot;unnumbered&quot;&gt;The &lt;i&gt;soft&lt;/i&gt; value function &lt;d-math&gt;Q^\pi&lt;/d-math&gt; and &lt;d-math&gt;V^\pi&lt;/d-math&gt;&lt;/h4&gt;
+
+&lt;p&gt;Under the &lt;i&gt;Maximum Entropy&lt;/i&gt; framework, both value function are redefined to handle the added entropy term.&lt;/p&gt;
+
+&lt;p&gt;First we need to rewrite the &lt;i&gt;MaxEnt&lt;/i&gt; objective by expanding the &lt;i&gt;entropy&lt;/i&gt; term and using the &lt;i&gt;Q-function&lt;/i&gt; definition such that&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_1.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;This leads us to the definition of both &lt;i&gt;value function&lt;/i&gt;. The &lt;i&gt;state-action value function&lt;/i&gt; is defined as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_2.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;and the &lt;i&gt;state value function&lt;/i&gt; is defined as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_3.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;or alternatively&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_4.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;We can also rewrite the &lt;i&gt;Bellman&lt;/i&gt; equation in terms of &lt;d-math&gt;Q_{soft}^\pi&lt;/d-math&gt; and &lt;d-math&gt;V_{soft}^\pi&lt;/d-math&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;p&lt;/d-math&gt; being the &lt;i&gt;transition dynamic&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;softQfunctionIsBackwardMessage&quot;&gt;&lt;/h5&gt;
+
+&lt;p&gt;Without diving to deep into the &lt;i&gt;Maximum Entropy&lt;/i&gt; framework, it’s valuable to point out that
+&lt;d-math&gt;Q_{soft}^\pi&lt;/d-math&gt; doesn’t work like a &lt;i&gt;Classical RL&lt;/i&gt; &lt;i&gt;reward-to-go&lt;/i&gt; &lt;d-math&gt;Q^\pi&lt;/d-math&gt;
+and it doesn’t have the same properties either&lt;d-footnote&gt;For those who are familiar with &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt;, it’s a &lt;i&gt;backward message&lt;/i&gt;.&lt;/d-footnote&gt;.
+The &lt;i&gt;Maximum Entropy RL&lt;/i&gt; Q-function general definition is&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5b.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;\mathcal{O}&lt;/d-math&gt; being a optimality random variable. This definition can be interpreted as&lt;/p&gt;
+
+&lt;p class=&quot;distillarizer-lead text-center&quot;&gt;
+&lt;strong&gt;the probability&lt;/strong&gt; (on a logaritmic scale)&lt;br/&gt;&lt;strong&gt;of being optimal from timestep &lt;d-math&gt;t&lt;/d-math&gt; until the trajectory end&lt;/strong&gt;&lt;br/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;given that we are in state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; and we take action &lt;d-math&gt;\mathbf{a}_t&lt;/d-math&gt;.
+Looking back at the initial formulation of the policy &lt;d-math&gt;\pi_{MaxEnt}&lt;/d-math&gt; in its ratio form&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5c.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;we can appreciate how it uses both value-function in order to evaluate the quality of an action &lt;d-math&gt;\mathbf{a}_t&lt;/d-math&gt; &lt;strong&gt;with regard to every other legal action &lt;d-math&gt;\mathbf{a}&amp;#39;_t&lt;/d-math&gt; available&lt;/strong&gt; in that state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt;. This ratio is equivalent to the formulation of a conditional probability with the lowest possible value being close to &lt;d-math&gt;0.0&lt;/d-math&gt; for a very bad action outcome. In effect, this probability like formulation mean that&lt;/p&gt;
+
+&lt;p class=&quot;distillarizer-lead text-center&quot;&gt;
+it give a measure of the quality of an ongoing trajectory&lt;br/&gt;as per definition of a &lt;i&gt;measure&lt;/i&gt; in &lt;a href=&apos;https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;amp;oldid=970525184&apos; title=&apos;&apos;&gt;&lt;i&gt;measure theory&lt;/i&gt;&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;Having this in mind leads us to an interesting question:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    Is taking the value-function &lt;d-math&gt;Q_{classical}^\pi&lt;/d-math&gt; alone a reliable way of assessing the quality of a trajectory?
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s common to say in &lt;i&gt;classical RL/DRL&lt;/i&gt; that the &lt;i&gt;reward-to-go&lt;/i&gt; &lt;d-math&gt;Q_{classical}^\pi&lt;/d-math&gt; is a &lt;i&gt;measure&lt;/i&gt; of performance. Nevertheless, in the sense of &lt;i&gt;measure theory&lt;/i&gt;, it’s not since it does not satisfy the property of the &lt;i&gt;null empty set&lt;/i&gt; &lt;d-math&gt;\mu(\emptyset)=0&lt;/d-math&gt;. As a matter of fact,
+we have no guarantee that the environment dynamic was designed to produce&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_6.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Take the case of an environment where the &lt;i&gt;reward&lt;/i&gt; signal upper-bound is 0 by design. In that case, 0 would be the highest possible &lt;i&gt;return&lt;/i&gt; but it certainly doesn’t mean that it’s a non-rewarding trajectory or that the trajectory was initialized on a terminal state.&lt;/p&gt;
+
+&lt;p&gt;For now, this is all we need to understand how the &lt;i&gt;Soft Actor-Critic&lt;/i&gt; algorithm work.
+More on the subject of &lt;i&gt;Maximum Entropy RL&lt;/i&gt; in a futur post.&lt;/p&gt;
+
+&lt;figure id=&quot;&quot; class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 0rem; margin-top: 0rem&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col one&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneBuildingBlocOfMaxEntRL.svg&quot; class=&quot;img-fluid distillarizerStandalone&quot; width=&quot;100%&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+
+
+&lt;h2 id=&quot;subsec:BuildingBloc&quot;&gt;Building blocks of Soft Actor-Critic&lt;/h2&gt;
+
+&lt;p&gt;The algorithm seeks to maximize the &lt;i&gt;maximum entropy&lt;/i&gt; objective &lt;d-math&gt;J(\pi_{MaxEnt})&lt;/d-math&gt; by doing &lt;i&gt;soft policy iteration&lt;/i&gt;, which is similar to regular policy iteration (more on this in the
+algorithm anatomy section &lt;a href=&apos;#subsec:AlgorithmAnatomy&apos; title=&apos;&apos;&gt;1.4&lt;/a&gt; ).&lt;/p&gt;
+
+&lt;p&gt;To do so, the algorithm will have to learn simultaneously the &lt;i&gt;soft Q-function&lt;/i&gt; &lt;d-math&gt;Q_\theta^\pi&lt;/d-math&gt; and &lt;i&gt;Maximum Entropy policy&lt;/i&gt; &lt;d-math&gt;\pi_{MaxEnt}&lt;/d-math&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because it’s learning both value and policy at the same time, &lt;i&gt;Soft Actor-Critic&lt;/i&gt; (&lt;i&gt;SAC&lt;/i&gt; for short) &lt;strong&gt;is considered a &lt;i&gt;value-based&lt;/i&gt; &lt;i&gt;Actor-Critic&lt;/i&gt; algorithm&lt;/strong&gt;. This also means that it can be trained using &lt;i&gt;off-policy&lt;/i&gt; samples.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;off-policy&lt;/i&gt; learning capability is a very valuable and coveted ability: it means that &lt;strong&gt;the algorithm can learn from samples generated by another policy &lt;d-math&gt;\pi&lt;/d-math&gt; distribution than the current one&lt;/strong&gt;. Those samples could be coming from the same but older policy &lt;d-math&gt;\pi_{older}&lt;/d-math&gt; (in other word samples generated earlier) or they could be coming from a totally different policy &lt;d-math&gt;\pi&amp;#39;&lt;/d-math&gt; that is producing them elsewhere.&lt;/p&gt;
+
+&lt;p&gt;The key benefit here is that it can &lt;strong&gt;speed up training by reducing the overhead of having to produce new sample at every gradient step&lt;/strong&gt;.
+It’s particularly useful in environment where producing new samples is a long process, like in real life robotic.&lt;/p&gt;
+
+&lt;h3 id=&quot;subsubsec:LearningTheSoftQfunction&quot;&gt;Learning the &lt;i&gt;soft Q-function&lt;/i&gt;&lt;/h3&gt;
+
+&lt;p&gt;Recall that we talk earlier about &lt;d-math&gt;Q_{soft}^\pi&lt;/d-math&gt; being a &lt;i&gt;Probabilistic Graphical Model&lt;/i&gt;
+backward message &lt;a href=&apos;#softQfunctionIsBackwardMessage&apos; title=&apos;&apos;&gt;1.2.1.0.1&lt;/a&gt;
+. In order to be able to compute that value efficiently, we need to approximate it.&lt;/p&gt;
+
+&lt;p&gt;We can do this by representing it as a parametrized function &lt;d-math&gt;Q_{\theta}^\pi (\mathbf{s}_t, \mathbf{a}_t )&lt;/d-math&gt; of parameters &lt;d-math&gt;\theta&lt;/d-math&gt;. We then learn &lt;d-math&gt;\theta&lt;/d-math&gt; by minimizing the squared soft Bellman residual error&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 0rem;&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneJQtheta.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;\widehat{Q}_{soft}^\pi&lt;/d-math&gt; being the target.&lt;/p&gt;
+
+&lt;p&gt;In theory, &lt;d-math&gt;V_{soft}^\pi(\mathbf{s}_t)&lt;/d-math&gt; value can be estimated directly using &lt;strong&gt;&lt;i&gt;equation 6&lt;/i&gt;&lt;/strong&gt;. However, representing &lt;d-math&gt;V_{soft}^\pi&lt;/d-math&gt; explicitly has the added benefit of helping stabilize learning. We can represent it as a parametrized function &lt;d-math&gt;V_{\psi}^\pi (\mathbf{s}_t)&lt;/d-math&gt; of parameters &lt;d-math&gt;\psi&lt;/d-math&gt;. We then learn &lt;d-math&gt;\psi&lt;/d-math&gt; by minimizing the squared residual error&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 0rem;&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneJVpsi.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;\widehat{V}_{soft}^\pi&lt;/d-math&gt; being the target.&lt;/p&gt;
+
+&lt;p&gt;We now need a way to represent and learn &lt;d-math&gt;\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )&lt;/d-math&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;deriving-the-objective-jpi_maxent-of-sac&quot;&gt;Deriving the objective &lt;d-math&gt;J(\pi_{MaxEnt})&lt;/d-math&gt; of SAC:&lt;/h3&gt;
+
+&lt;p&gt;Let first rewrite the &lt;i&gt;Maximum Entropy RL&lt;/i&gt; objective for a single timestep in terms of &lt;d-math&gt;Q_\theta^\pi&lt;/d-math&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 0rem;&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneJpiMaxEnt.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with the &lt;i&gt;constant&lt;/i&gt; &lt;d-math&gt;C&lt;/d-math&gt; being the &lt;a href=&apos;https://en.wikipedia.org/wiki/Partition_function_(mathematics)&apos; title=&apos;&apos;&gt;partition function&lt;/a&gt; that is used to normalize the distribution.&lt;br/&gt;We can then learn this objective by minimizing the expected &lt;i&gt;KL-divergence&lt;/i&gt; directly using this update rule&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standalonePiNew.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;with &lt;d-math&gt;\Pi&lt;/d-math&gt; being a family of policy.&lt;/p&gt;
+
+&lt;div class=&quot;container-fluid&quot;&gt;
+    &lt;div class=&quot;definition&quot;&gt;    &lt;dl class=&quot;row&quot;&gt;
+        &lt;dt class=&quot;col-3&quot;&gt;Note:&lt;/dt&gt;
+        &lt;dd class=&quot;col&quot;&gt;&lt;p&gt;The authors of the SAC paper as demonstrated that the constant can be omitted since it does not contribute to the gradient of &lt;d-math&gt;J(\pi_{MaxEnt})&lt;/d-math&gt; &lt;d-cite key=&quot;Haarnoja2018a&quot;&gt;&lt;/d-cite&gt; (see appendix B).&lt;/p&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!---- Static card ----------------------------------------------------------------------------------------------------&gt;
+&lt;div class=&quot;static-card l-body-outset&quot; style=&quot;padding-top: 1em; padding-bottom: 3em; margin-top: 0em&quot;&gt;
+    &lt;div class=&quot;card-shadow&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;div class=&quot;card-header&quot; style=&quot;&quot;&gt;
+            KL-divergence (aka. relative entropy)
+            &lt;/div&gt;
+            &lt;div class=&quot;card-body&quot;&gt;
+
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneKLdivergence.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;It tel us how much different are two distributions&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;d-math&gt;0 \leq D_{KL} \big(q \Vert p\big)&lt;/d-math&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;d-math&gt;D_{KL} \big(q \Vert p\big)  = 0 \ \Longrightarrow \ q&lt;/d-math&gt; and &lt;d-math&gt;p&lt;/d-math&gt; are similar&lt;/li&gt;
+&lt;/ul&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-------------------------------------------------------------------------------------------- Static card ---(end)----&gt;
+
+
+&lt;h3 id=&quot;learning-the-policy-pi_maxent&quot;&gt;Learning the policy &lt;d-math&gt;\pi_{MaxEnt}&lt;/d-math&gt;&lt;/h3&gt;
+
+&lt;p&gt;Concretely, we are going to approximate the policy &lt;d-math&gt;\pi_{SAC}&lt;/d-math&gt; by representing it as a parametrized Gaussian distribution &lt;d-math&gt;\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )&lt;/d-math&gt; of parameters &lt;d-math&gt;\phi&lt;/d-math&gt; with a learnable mean and covariance.
+We cannot directly differentiate a probability distribution but using the &lt;i&gt;reparameterization trick&lt;/i&gt;, we can remodel the policy so that it exposes different parameters: in our case the mean and covariance of a Gaussian distribution. Using this trick, we can express the action&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_1.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_2.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;where &lt;d-math&gt;\epsilon \sim \mathcal{N}(\mu, \Sigma)&lt;/d-math&gt; and define implicitly the policy &lt;d-math&gt;\pi_\phi&lt;/d-math&gt; in terms of &lt;d-math&gt;f_\phi&lt;/d-math&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_3.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;We then rewrite &lt;strong&gt;&lt;i&gt;equation 11&lt;/i&gt;&lt;/strong&gt; as&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; &quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_4.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;figure id=&quot;&quot; class=&quot;l-body-outset&quot; style=&quot;&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col one&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneBuildingBlocKeyIdea.svg&quot; class=&quot;img-fluid distillarizerStandalone&quot; width=&quot;100%&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+
+
+&lt;h2 id=&quot;subsec:AlgorithmAnatomy&quot;&gt;Algorithm anatomy:&lt;/h2&gt;
+
+&lt;p&gt;In order to be effective while tackling large continuous domain, the &lt;i&gt;SAC&lt;/i&gt; algorithm uses an approximation of the &lt;i&gt;soft policy iteration&lt;/i&gt; algorithm:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;It used function approximator for the &lt;i&gt;soft Q-function&lt;/i&gt; &lt;d-math&gt;Q_{soft}^\pi&lt;/d-math&gt; and the policy &lt;d-math&gt;\pi_{SAC}&lt;/d-math&gt;&lt;/li&gt;
+&lt;li&gt;It alternates between &lt;i&gt;soft policy evaluation&lt;/i&gt; and &lt;i&gt;soft policy improvement&lt;/i&gt; instead of running each one to convergence separately like in &lt;i&gt;Classical RL&lt;/i&gt; &lt;i&gt;policy iteration&lt;/i&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure id=&quot;&quot; class=&quot;l-body-outset&quot; style=&quot;&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col one&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgo_1.svg&quot; class=&quot;img-fluid distillarizerStandalone&quot; width=&quot;100%&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+
+
+&lt;h3 id=&quot;training-soft-function-approximator-implementation-details&quot;&gt;Training soft function approximator: implementation details&lt;/h3&gt;
+
+&lt;p&gt;The algorithm will learn&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;a parametrized soft &lt;i&gt;state-value function&lt;/i&gt; &lt;d-math&gt;V_\psi^\pi(\mathbf{s}_t)&lt;/d-math&gt;;&lt;/li&gt;
+&lt;li&gt;two parametrized &lt;i&gt;soft Q-function&lt;/i&gt; &lt;d-math&gt;Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t )&lt;/d-math&gt;;&lt;/li&gt;
+&lt;li&gt;and a &lt;i&gt;maximum entropy policy&lt;/i&gt; &lt;d-math&gt;\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )&lt;/d-math&gt;;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;with &lt;d-math&gt;\psi, \theta&lt;/d-math&gt; and &lt;d-math&gt;\phi&lt;/d-math&gt; modelled as neural networks.
+Note that &lt;d-math&gt;\pi_\phi&lt;/d-math&gt; will be reparameterized as a Gaussian distribution with a learnable mean and covariance.&lt;/p&gt;
+
+&lt;p&gt;The algorithm also uses a &lt;strong&gt;replay buffer&lt;/strong&gt; &lt;d-math&gt;D&lt;/d-math&gt; to collect and accumulate samples &lt;d-math&gt;(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, r_{t+1}, done_{t+1} )&lt;/d-math&gt;.
+One of the key benefits of sampling tuple
+randomly from a &lt;i&gt;replay buffer&lt;/i&gt; is that it breaks temporal correlation which helps learning  &lt;/p&gt;
+
+&lt;figure id=&quot;&quot; class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1rem; margin-top: 1rem&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col one&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgo_2.svg&quot; class=&quot;img-fluid distillarizerStandalone&quot; width=&quot;100%&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+
+
+&lt;h4 id=&quot;why-learn-the-soft-state-value-function-v_psipi&quot;&gt;Why learn the soft &lt;i&gt;state-value function&lt;/i&gt; &lt;d-math&gt;V_\psi^\pi&lt;/d-math&gt; ?&lt;/h4&gt;
+
+&lt;p&gt;As we talked
+earlier,
+there is no theoretical requirement for learning &lt;d-math&gt;V_\psi(\mathbf{s}_t)&lt;/d-math&gt; since it can be recovered from &lt;strong&gt;&lt;i&gt;equation 6&lt;/i&gt;&lt;/strong&gt; directly using &lt;d-math&gt;Q_\theta(\mathbf{s}_t, \mathbf{a}_t )&lt;/d-math&gt; and &lt;d-math&gt;\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )&lt;/d-math&gt;.
+In practice, it can stabilize training  &lt;/p&gt;
+
+&lt;h4 id=&quot;why-learn-the-two-soft-q-function-q_thetapi&quot;&gt;Why learn the two soft &lt;i&gt;Q-function&lt;/i&gt; &lt;d-math&gt;Q_\theta^\pi&lt;/d-math&gt; ?&lt;/h4&gt;
+
+&lt;p&gt;The policy improvement step is known to produce positive bias that reduces the performance in value-based method. This is a trick (aka &lt;i&gt;clipped double-Q&lt;/i&gt;) that help reduce the impact of this problem. How it work is that the algorithm learn &lt;d-math&gt;Q_{\theta 1}^\pi&lt;/d-math&gt; and &lt;d-math&gt;Q_{\theta 2}^\pi&lt;/d-math&gt; separately then take the minimum between the two when training &lt;d-math&gt;V_\psi^\pi&lt;/d-math&gt;.
+In practice, the SAC authors founded that &lt;q&gt;it significantly speed up training, especially on harder task&lt;/q&gt;  &lt;/p&gt;
+
+&lt;h4 id=&quot;detail-regarding-the-soft-state-value-function&quot;&gt;Detail regarding the Soft state value function&lt;/h4&gt;
+
+&lt;p&gt;Like we
+explained earlier&lt;/p&gt;
+
+&lt;p&gt;we can train the &lt;i&gt;soft state value function&lt;/i&gt; by least squared regression&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 1rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_1.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Observe that state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; is sampled from the &lt;i&gt;replay buffer&lt;/i&gt; but not action &lt;d-math&gt;\mathbf{a}_t&lt;/d-math&gt; which is sampled from the current policy &lt;d-math&gt;\pi&lt;/d-math&gt;. It’s a critical detail that is easy to miss. Also, this is where we make use of our two learned &lt;i&gt;soft Q-function&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;detail-regarding-the-soft-q-function&quot;&gt;Detail regarding the Soft Q-function&lt;/h4&gt;
+
+&lt;p&gt;Again, we can train the &lt;i&gt;soft Q-function&lt;/i&gt; by least squared regression&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 1rem; margin-top: 1rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_2.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The learning target is represented by a copy of the main &lt;d-math&gt;V_\psi^\pi(\mathbf{s}_t)&lt;/d-math&gt; with parameter noted &lt;d-math&gt;\bar{\psi}&lt;/d-math&gt;.
+Network weight from &lt;d-math&gt;V_\psi^\pi&lt;/d-math&gt; are copied in a controlled manner to &lt;d-math&gt;V_{\bar{\psi}}^\pi&lt;/d-math&gt; using exponential moving average and adjusted by a target smoothing coefficient hyperparameter &lt;d-math&gt;\tau&lt;/d-math&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;detail-regarding-the-soft-actor-critic-policy&quot;&gt;Detail regarding the &lt;i&gt;Soft Actor-Critic&lt;/i&gt; policy&lt;/h4&gt;
+
+&lt;p&gt;Policy &lt;d-math&gt;\pi_\phi&lt;/d-math&gt; is trained using &lt;strong&gt;&lt;i&gt;equation 13&lt;/i&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_3.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Like we have explained earlier, the policy &lt;d-math&gt;\pi&lt;/d-math&gt; is modelled using a Gaussian distribution. It’s important to consider the fact that Gaussian distributions are unbounded contrary to our policy which needs to produce action inside a bound reflecting the environment &lt;i&gt;action space&lt;/i&gt;. Thus, enforcing those bounds is done by applying a squashing function&lt;/p&gt;
+
+&lt;div class=&quot;l-body-outset&quot; style=&quot;margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem&quot;&gt;
+    &lt;img src=&quot;/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_4.svg&quot;  class=&quot;img-fluid&quot; width=&quot;100%&quot;/&gt;
+&lt;/div&gt;
+
+
+&lt;div style=&quot;margin-top: 2em; margin-bottom: 2em;&quot;&gt;
+
+&lt;h1 id=&quot;next-step&quot;&gt;Next step&lt;/h1&gt;
+
+&lt;p&gt;This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
+Come back soon for the sequel: &lt;i&gt;Soft Actor-Critic (Part 2 - In Practice)&lt;/i&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;hr class=&quot;supervisorDbylineHorizontalRule&quot;&gt;
+
+&lt;h5 id=&quot;cite-my-post-as&quot;&gt;Cite my post as:&lt;/h5&gt;
+
+&lt;d-code block language=&quot;bash&quot; class=&quot;l-body-outset&quot;&gt;
+@article{lcoupal2020SoftActorCriticPart1,
+      author   = {Coupal, Luc},
+      journal  = {redleader962.github.io/blog},
+      title    = {{Soft Actor-Critic part 1: intuition and theoretical aspect}},
+      year     = {2020},
+      url      = {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized},
+      keywords = {Deep reinforcement learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic}
+    }
+&lt;/d-code&gt;</content><author><name>Luc Coupal</name></author><summary type="html">Supervisor Prof. Brahim Chaib-draa Directeur du programme de baccalauréat en génie logiciel à l&apos; Université Laval</summary></entry><entry><title type="html">Do implementation details matter in Deep Reinforcement Learning?</title><link href="https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/" rel="alternate" type="text/html" title="Do implementation details matter in Deep Reinforcement Learning?" /><published>2019-11-01T00:00:00-04:00</published><updated>2019-11-01T00:00:00-04:00</updated><id>https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning</id><content type="html" xml:base="https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/">&lt;!-- Bibtex citation key
+Henderson2018
+Plappert2017
+Duan2016
+Schulman2015a
+Amiranashvili2018
+--&gt;
+
+&lt;div class=&quot;container supervisorDbyline&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Supervisor &lt;/p&gt; 
+        &lt;/div&gt;
+        &lt;!-- 
+            Force next columns to break to new line 
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-3&quot;&gt;
+            Prof. 
+                &lt;a href=&quot;https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/&quot; target=&quot;blank&quot;&gt;
+                  &lt;span class=&quot;supervisorThe&quot;&gt; Brahim Chaib-draa &lt;/span&gt;
+                &lt;/a&gt; 
+        &lt;/div&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+            Directeur du programme de baccalauréat en génie logiciel à l&apos;&lt;a href=&quot;https://www.ulaval.ca&quot; target=&quot;blank&quot;&gt;
+            Université Laval
+            &lt;/a&gt; 
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;container supervisorDbyline&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;p class=&quot;supervisorDbylineTitle&quot;&gt; Acknowledgments &lt;/p&gt; 
+        &lt;/div&gt;
+        &lt;!-- 
+            Force next columns to break to new line 
+        --&gt;
+        &lt;div class=&quot;w-100&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+        A big thank you to my angel &lt;span class=&quot;acknowledgments&quot;&gt; Karen Cadet &lt;/span&gt; for her support and precious insight on the english language. 
+&lt;/div&gt;
+
+&lt;hr class=&quot;supervisorDbylineHorizontalRule&quot; /&gt;
+
+&lt;h1 id=&quot;a-quest-for-answers&quot;&gt;A quest for answers&lt;/h1&gt;
+
+&lt;p&gt;While I was finishing an essay on &lt;em&gt;Deep Reinforcement Learning Advantage
+Actor-Critic&lt;/em&gt; method, a part of me felt that some important questions
+ linked to the applied part were  unanswered or disregarded.&lt;/p&gt;
+
+&lt;!-- 
+Those questions were linked to design &amp; architectural aspects of Deep
+Reinforcement Learning from a software engineering perspective applied
+to research.
+--&gt;
+
+&lt;p class=&quot;text-center myLead&quot;&gt;
+Which design &amp;amp; architecture should I choose?&lt;br /&gt;
+Which implementation details are impactful or critical?&lt;br /&gt;  
+Does it even make a difference?&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This essay is my journey through that reflection process and the lessons
+I have learned on the importance of design decisions, architectural
+decisions and implementation details in Deep Reinforcement Learning
+(specificaly regarding the class of policy gradient algorithms).&lt;/p&gt;
+
+&lt;h2 id=&quot;clarification-on-ambiguous-terminology&quot;&gt;Clarification on ambiguous terminology&lt;/h2&gt;
+
+&lt;div class=&quot;definition&quot;&gt;
+    &lt;dl class=&quot;row&quot;&gt;
+      &lt;dt class=&quot;col-md-3&quot;&gt;The setting&lt;/dt&gt; 
+      &lt;dd class=&quot;col-md-9 ml-auto&quot;&gt;
+        In this essay, with respect to an algorithm implementation, the term
+        &quot;setting&quot; will refer to any outside element like the following:
+        &lt;h5&gt;- implementation requirement:&lt;/h5&gt;  
+        method signature, choice of hyperparameter to expose or capacity to run
+        multi-process in parallel…
+        &lt;h5&gt;- output requirement:&lt;/h5&gt;  
+        robustness, wall clock time limitation, minimum return goal…
+        &lt;h5&gt;– inputed environment:&lt;/h5&gt;  
+        observation space dimensionality, discreet vs. continuous action space,
+        episodic vs. infinite horizon…
+        &lt;h5&gt;– computing ressources:&lt;/h5&gt;  
+        available number of cores, RAM capacity…
+      &lt;/dd&gt;
+      &lt;dt class=&quot;col-md-3&quot;&gt;Architecture (Software)&lt;/dt&gt; 
+      &lt;dd class=&quot;col-md-9 ml-auto&quot;&gt;
+        From the &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_architecture&quot; target=&quot;blank&quot;&gt;wikipedia page on Software
+        architecture&lt;/a&gt;
+        &lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+            &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+            refers to the fundamental structures of a software system and the
+            discipline of creating such structures and systems. Each structure
+            comprises software elements, relations among them, and properties of
+            both elements and relations.
+            &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Clements et al.&lt;/cite&gt;&lt;/footer&gt;
+        &lt;/blockquote&gt;
+        In the ML field, it often refers to the computation graph structure,
+        data handling and algorithm structure.
+      &lt;/dd&gt;
+      &lt;dt class=&quot;col-md-3&quot;&gt;Design (Software)&lt;/dt&gt; 
+      &lt;dd class=&quot;col-md-9 ml-auto&quot;&gt;
+        There are a lot of different definitions and the line between design and
+        architectural concern is often not clear. Let’s use the first definition
+        stated on the 
+        &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_design#cite_note-2&quot; target=&quot;blank&quot;&gt;wikipedia page on Software
+        design&lt;/a&gt;
+        &lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+            &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+            the process by which an agent creates a specification of a software
+        artifact, &lt;b&gt;intended to accomplish goals&lt;/b&gt;, using a set of primitive
+        components and &lt;b&gt;subject to constraints&lt;/b&gt;.
+            &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Ralf &amp;amp; Wand&lt;/cite&gt;&lt;/footer&gt;
+        &lt;/blockquote&gt;
+        In the ML field, it often refers to choices made regarding improvement
+        techniques, hyperparameters, algorithm type, math computation…
+      &lt;/dd&gt;
+      &lt;dt class=&quot;col-md-3&quot;&gt;Implementation details&lt;/dt&gt; 
+      &lt;dd class=&quot;col-md-9 ml-auto&quot;&gt;
+        This is a term often a source of confusion in software engineering 
+        &lt;d-footnote&gt;I recommend this very good post on the topic of &lt;i&gt;Implementation details&lt;/i&gt; by Vladimir Khorikov: &lt;a href=&quot;https://enterprisecraftsmanship.com/posts/what-is-implementation-detail/&quot; target=&quot;blank&quot;&gt;What is an implementation detail?&lt;/a&gt;&lt;/d-footnote&gt;. 
+        The
+        consensus is the following:
+        &lt;!-- 
+        &lt;p class=&quot;text-center&quot; style=&quot;padding-top: 0.75em;&quot;&gt;
+        everything that should not leak outside
+        a public API is an implementation detail.
+        &lt;/p&gt;
+        --&gt;
+        &lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+            &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+            everything that should not leak outside a public API is an implementation detail.
+        &lt;/blockquote&gt;
+        &lt;p&gt;So it’s closely linked to the definition and specification of an API but it’s not just code. 
+        &lt;b&gt;The meaning feels blurier in the machine learning
+        field as it often gives the impression that it’s usage implicitly means:&lt;/b&gt; 
+        &lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+            &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+            everything that is not part of the math formula or the high-level algorithm is an implementation detail.
+        &lt;/blockquote&gt;
+        and also that:
+        &lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+            &lt;div class=&quot;&quot;&gt;
+            &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+            &lt;span style=&quot;font-weight: bolder&quot;&gt;those are just&lt;/span&gt; implementation details.
+            &lt;/div&gt;
+        &lt;/blockquote&gt;
+        &lt;/p&gt;
+      &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;going-down-the-rabbit-hole&quot;&gt;Going down the rabbit hole&lt;/h2&gt;
+
+&lt;p&gt;Making sense of &lt;em&gt;Actor-Critic&lt;/em&gt; algorithm scheme definitively ticked my curiosity. 
+Studying the theoretical part was a relatively straight forward process as there is a lot of literature covering the 
+core theory with well-detailed analysis &amp;amp; explanation. On the other hand, studying the applied part has been puzzling. 
+Here’s why.&lt;/p&gt;
+
+&lt;p&gt;I took the habit when I study a new algorithm-related subject, to first
+implement it by myself without any code example. After I’ve done the
+work, I look at other published code examples or different framework
+codebases. This way I get an intimate sense of what’s going on under the
+hood and it makes me appreciate other solutions to problems I have
+encountered that often are very clever. It also helps me to highlight
+details I was not understanding or for which I was not giving enough
+attention. Proceeding this way takes more time, it’s often a reality
+check and a self-confidence shaker, but in the end, I get a deeper
+understanding of the studied subject.&lt;/p&gt;
+
+&lt;p&gt;So I did exactly that. I started by refactoring my &lt;em&gt;Basic Policy
+Gradient&lt;/em&gt; implementation toward an &lt;em&gt;Advantage Actor-Critic&lt;/em&gt; one. I made
+a few attempts with unconvincing results and finally managed to make it
+work. I then started to look at other existing implementations. Like it
+was the case for the theoretical part, there was also a lot of
+available, well-crafted code example &amp;amp; published implementation of
+various &lt;em&gt;Actor-Critic&lt;/em&gt; class 
+algorithm &lt;d-footnote&gt;
+    - &lt;a href=&quot;https://github.com/openai/baselines&quot; target=&quot;blank&quot;&gt;OpenAI Baseline&lt;/a&gt;&lt;br /&gt;
+    - &lt;a href=&quot;https://github.com/Breakend/DeepReinforcementLearningThatMatters&quot; target=&quot;blank&quot;&gt;DeepReinforcementLearningThatMatters on GitHub&lt;/a&gt; The accompanying code for the paper &quot;&lt;a href=&quot;https://arxiv.org/abs/1709.06560&quot; target=&quot;blank&quot;&gt;Deep Reinforcement Learning at Matters&lt;/a&gt;&quot;&lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;&lt;br /&gt;
+    - &lt;a href=&quot;https://github.com/openai/spinningup/blob/master/spinup/algos/vpg/vpg.py&quot; target=&quot;blank&quot;&gt;OpenAI: Spinning Up&lt;/a&gt;, by Josh Achiam;&lt;br /&gt;
+    - &lt;a href=&quot;https://github.com/dennybritz/reinforcement-learning/blob/master/PolicyGradient&quot; target=&quot;blank&quot;&gt;Ex Google Brain resident Denny Britz GitHub&lt;/a&gt;&lt;br /&gt;
+    - &lt;a href=&quot;https://github.com/lilianweng/deep-reinforcement-learning-gym/blob/master/playground/policies/actor_critic.py&quot; target=&quot;blank&quot;&gt;Lil’Log GitHub by Lilian Weng&lt;/a&gt;, research intern at OpenAI&lt;br /&gt;
+&lt;/d-footnote&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, I was surprised to find that most of serious implementations
+were very different. The high-level ideas were more or less the same,
+taking into account what flavour of &lt;em&gt;Actor-Critic&lt;/em&gt; was the implemented
+subject, but the implementation details were more often than not very
+different. To the point where I had to ask myself if I was missing the
+bigger picture. Was I looking at esthetical choices with no implication,
+at personal touch taken lightly or &lt;strong&gt;was I looking at well considered,
+deliberate, impactful design &amp;amp; architectural decision&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;While going down that rabbit hole, the path became even blurrier when I
+began to realize that some design implementation related to theory and
+others related to speed optimization were not having just plus value,
+they could have a tradeoff on certain settings.&lt;/p&gt;
+
+&lt;p&gt;Still, a part of me was seeking for a clear choice like some kind of
+&lt;em&gt;best practice&lt;/em&gt;, &lt;em&gt;design patern&lt;/em&gt; or &lt;em&gt;most effective architectural
+pattern&lt;/em&gt;. Which led me to those next questions:&lt;/p&gt;
+
+&lt;p class=&quot;text-center myLead&quot;&gt;
+    Which design &amp;amp; architecture should I choose?&lt;br /&gt;  
+    Which implementation details are impactful or critical?&lt;br /&gt;  
+    Does it even make a difference?&lt;br /&gt;  
+&lt;/p&gt;
+
+&lt;div id=&quot;sec-does-it-even-matter&quot;&gt; &lt;/div&gt;
+
+&lt;h3 id=&quot;does-it-even-make-a-difference&quot;&gt;Does it even make a difference?&lt;/h3&gt;
+
+&lt;p&gt;Apparently, it does a great deal as Henderson, P. et al. demonstrated in
+their paper &lt;em&gt;Deep reinforcement learning that matters&lt;/em&gt; &lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;  (from McGill’s
+university and Microsoft Malumba Montreal). Their goal was to highlight
+many recurring problems regarding reproducibility in DRL publication.
+Even though my concerns were not on reproducibility, I was astonished by
+how much the questions and doubts I was experiencing at that time were
+related to some of their findings.&lt;/p&gt;
+
+&lt;div id=&quot;subsec-regarding-implementation-details&quot;&gt; &lt;/div&gt;
+
+&lt;h4 id=&quot;regarding-implementation-details&quot;&gt;Regarding implementation details:&lt;/h4&gt;
+&lt;p&gt;One disturbing result they got was on one experiment they conducted on
+the performance of a given algorithm across different code base. Their
+goal was “to draw attention to the variance due to implementation
+details across algorithms”. As an example they compared 3 high quality
+implementations of TRPO: OpenAI Baselines&lt;d-cite key=&quot;Plappert2017&quot;&gt;&lt;/d-cite&gt; , OpenAI rllab&lt;d-cite key=&quot;Duan2016&quot;&gt;&lt;/d-cite&gt;  and the
+original TRPO&lt;d-cite key=&quot;Schulman2015a&quot;&gt;&lt;/d-cite&gt; codebase.&lt;/p&gt;
+
+&lt;p&gt;The way I see it, those are all codebase linked to publish papers so they
+were all implemented by experts and must have been extensively peer
+reviewed. So I would assume that given the same settings (same
+hyperparameters, same environment) they would all have similar
+performances. As you can see, that assumption is wrong.&lt;/p&gt;
+
+&lt;figure id=&quot;trpo-codebase-comparison-henderson-2018&quot; class=&quot;l-body-outset&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_a_reflexion_on_design_and_implementation/trpo_codebase_result2_drlthatMatter.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+    TRPO codebase comparison using a default set of hyperparameters.&lt;br /&gt;
+    &lt;span class=&quot;captionSource&quot;&gt;&lt;b&gt;Source:&lt;/b&gt; Figure 35 from &lt;i&gt;Deep reinforcement learning that matters&lt;/i&gt; &lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;&lt;/span&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;They also did the same experiment with DDPG and got similar results and this is what they found:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    &lt;b&gt;... implementation differences which are often not reflected in
+    publications can have dramatic impacts on performance&lt;/b&gt; ... This
+    [result] demonstrates the necessity that implementation details be
+    enumerated, codebases packaged with publications ...
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This does not answer my question about “Which implementation details are
+impactful or critical?” however &lt;span style=&quot;font-weight: bold;&quot;&gt;it certainly tells me that SOME
+implementation details ARE impactful or critical&lt;/span&gt; and this is an aspect
+that deserves a lot more attention.&lt;/p&gt;
+
+&lt;div id=&quot;subsec-regarding-the-setting&quot;&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;regarding-the-setting&quot;&gt;Regarding the setting:&lt;/h4&gt;
+&lt;p&gt;In another experiment, they examined the impact an environment choice
+could have on policy gradient family algorithm performances. They made a
+comparison using 4 different environments with 4 different algorithms. &lt;d-footnote&gt;Environment: Hopper, HalfCheetah, Swimmer and Walker are continuous control task from OpenAI MuJoCo Gym Algorithm: TRPO, PPO, DDPG and ACKTR (Note: DDPG and ACKTR are Actor-Critic class algorithm)&lt;/d-footnote&gt;&lt;/p&gt;
+
+&lt;p&gt;Maybe I’m naive, but when I read on an algorithm, I usually get the
+impression that it outperforms all benchmark across the board.
+Nevertheless, their result showed that:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    &lt;b&gt;no single algorithm can perform consistently better in all
+    environments.&lt;/b&gt;
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To me, that sounds like an important detail. If putting an algorithm in a
+given environment has such a huge impact on its performance, would it
+not be wise to take it into consideration before planning the
+implementation as it could clearly affect the outcome. &lt;span style=&quot;font-weight: bolder; &quot;&gt;Otherwise it’s
+like expecting a Formula One to perform well in the desert during a
+Paris-Dakar race on the basis that it holds a top speed record of 400
+km/h&lt;/span&gt;. They concluded that:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    In continuous control tasks, often the environments have random
+    stochasticity, shortened trajectories, or different dynamic properties
+    ... as a result of these differences, algorithm performance can vary
+    across environments ...
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;figure id=&quot;comparing-policy-gradients-across-various-environments-henderson-2018&quot; class=&quot;l-body-outset&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_a_reflexion_on_design_and_implementation/environment_impact_on_performance_DRLThatMatter_1de2.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_a_reflexion_on_design_and_implementation/environment_impact_on_performance_DRLThatMatter_2de2.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+    Comparing Policy Gradients across various environments.&lt;br /&gt;
+    &lt;span class=&quot;captionSource&quot;&gt;&lt;b&gt;Source:&lt;/b&gt; Figure 26 from &lt;i&gt;Deep reinforcement learning that matters&lt;/i&gt; &lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;&lt;/span&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;regarding-design--architecture&quot;&gt;Regarding design &amp;amp; architecture:&lt;/h4&gt;
+&lt;p&gt;They have also shown how policy gradient class algorithms can be
+affected by choices of network structures, activation functions and
+reward scale. Here are a few examples:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    Figure 2 shows how significantly performance can be affected by simple changes to the policy or value network
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;figure id=&quot;significance-of-policy-network-structure-and-activation-henderson-2018&quot; class=&quot;l-page&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_a_reflexion_on_design_and_implementation/policyNetwork_structure_big_drlThatMatter.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+    Significance of Policy Network Structure and Activation Functions PPO
+(left), TRPO (middle) and DDPG (right).&lt;br /&gt;
+    &lt;span class=&quot;captionSource&quot;&gt;&lt;b&gt;Source:&lt;/b&gt; Figure 2 from &lt;i&gt;Deep reinforcement learning that matters&lt;/i&gt; &lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;&lt;/span&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    Our results show that the value network structure can have a significant effect on the performance of ACKTR algorithms.
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;figure id=&quot;acktr-value-network-structure-henderson-2018&quot; class=&quot;l-body-outset&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;img src=&quot;/assets/img/post_a_reflexion_on_design_and_implementation/ACKTR_architecture_drlThatMatter.png&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+    ACKTR Value Network Structure.&lt;br /&gt;
+    &lt;span class=&quot;captionSource&quot;&gt;&lt;b&gt;Source:&lt;/b&gt; Figure 11 from &lt;i&gt;Deep reinforcement learning that matters&lt;/i&gt; &lt;d-cite key=&quot;Henderson2018&quot;&gt;&lt;/d-cite&gt;&lt;/span&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;They make the following conclusions regarding network structure and
+activation function:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    The effects are not consistent across algorithms or environments.
+    This inconsistency &lt;b&gt;demonstrates how interconnected network
+    architecture is to algorithm methodology&lt;/b&gt;.
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s not a surprise that hyperparameter has an effect on the
+performance. To me, the key takeaway is that policy gradient class
+algorithm can be highly sensitive to small changes, enough to make it fall
+or fly if not considered properly.&lt;/p&gt;
+
+&lt;h4 id=&quot;ok-it-does-matter--what-now&quot;&gt;Ok it does matter! … What now?&lt;/h4&gt;
+&lt;p&gt;Like I said earlier, the goal of their paper was to highlight problems
+regarding reproducibility in DRL publication. As a by-product, they
+clearly establish that DRL algorithm can be very sensitive to change
+like environment choice or network architecture. I think it also showed
+that the applied part of DRL, whether it’s about implementation details
+or design &amp;amp; architectural decisions, play a key role and is detrimental
+to a DRL project success just as much as the mathematic and the theory
+on top of which they are built. By the way, I really liked that part of
+their closing thought, which reads as follows:&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    Maybe new methods should be answering the question: &lt;b&gt;in what settings would this work be useful?&lt;/b&gt;
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt; &lt;cite title=&quot;Source Title&quot;&gt;Henderson et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;p id=&quot;subsec-which-implementation-details-are-impactful-or-critical&quot;&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;which-implementation-details-are-impactful-or-critical&quot;&gt;Which implementation details are impactful or critical?&lt;/h3&gt;
+
+&lt;p&gt;We have established 
+&lt;a href=&quot;#subsec-regarding-implementation-details&quot;&gt;previously&lt;/a&gt;
+that implementation details could be impactful with regards to the
+performance of an algorithm eg.: how fast it converges to an optimal solution or
+ if it converges at all.&lt;/p&gt;
+
+&lt;p&gt;Could it be impactful else where? Like wall clock speed for example or
+memory management. Of course it could, any book on data structure or
+algorithm analysis support that claim. On the other end, there is this famous
+say in the computer science community :&lt;/p&gt;
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    Early optimization is a sin.
+&lt;/blockquote&gt;
+
+&lt;p&gt;Does it apply to the ML/RL field? Anyone that has been waiting for an
+experiment to conclude after a few strikes will say that waiting for
+result is playing with their mind and that speed matters &lt;strong&gt;a lot&lt;/strong&gt; to them at the moment. Aside from mental health, the reality is that &lt;strong&gt;the
+faster you can iterate between experiments, the faster you get feedback
+from your decisions, the faster you can make adjustments towards your
+goals.&lt;/strong&gt; So optimizing for speed sooner than later is impactful indeed
+in ML/RL. It’s all about choosing what is a good optimization investment.&lt;/p&gt;
+
+&lt;!---- Collapsable card -----------------------------------------------------------------------------------------------&gt;
+&lt;div class=&quot;collapsable-card&quot; style=&quot;padding-top: 1em; padding-bottom: 3em; margin-top: 0em&quot;&gt;
+    &lt;div class=&quot;card-shadow&quot;&gt;
+        &lt;button class=&quot;btn btn-lg btn-block close-icon shadow-none&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#quick-refresher&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;quick-refresher&quot;&gt;
+        A quick refresher on &lt;b&gt;Advantage Actor-Critic&lt;/b&gt; method with &lt;b&gt;bootstrap target&lt;/b&gt;
+        &lt;/button&gt;
+        &lt;div id=&quot;quick-refresher&quot; class=&quot;collapse show&quot;&gt;
+            &lt;div class=&quot;card shadow-none&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;p&gt; We need to train two neural network: 
+                    &lt;ul class=&quot;fa-ul&quot;&gt;
+                        &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;
+                        the &lt;b&gt;actor network&lt;/b&gt; &lt;d-math&gt;\widehat{\pi}_{\theta}&lt;/d-math&gt; (the one reponsible for making acting decision in the environment)
+                        &lt;/li&gt;
+                        &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;
+                        the &lt;b&gt;critic network&lt;/b&gt; &lt;d-math&gt;\widehat{V}_\phi^\pi&lt;/d-math&gt; (the one responsible for evaluating if &lt;d-math&gt;
+                                \widehat{\pi}_\theta&lt;/d-math&gt; is doing a good job)
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;The &lt;b&gt;gradient of the Actor-Critic objective&lt;/b&gt; goes like this
+                    &lt;d-math block=&quot;&quot; class=&quot;card-d-math-display&quot;&gt;
+                        \nabla_\theta J(\theta) \, \approx \, \frac{1}{N} \sum_{i = 1}^{N} \sum_{t=1}^\mathsf{T} \nabla_\theta \, \log  \, \pi_\theta (\mathbf{a}_{t} | \mathbf{s}_{t} ) \,  \widehat{A}^\pi\left(\mathbf{s}_{t}, r_{t}^{_{(i)}}, \mathbf{s}_{t+1}^{_{(i)}}\right)
+                    &lt;/d-math&gt;
+                    with the &lt;b&gt;advantage&lt;/b&gt;
+                    &lt;d-math block=&quot;&quot; class=&quot;card-d-math-display&quot;&gt;
+                        \:\: \widehat{A}^\pi\left(\mathbf{s}_{t}, r_{t}^{_{(i)}}, \mathbf{s}_{t+1}^{_{(i)}}\right) \:\: = \:\: r_{t+1}^{_{(i)}} \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) \ - \ \widehat{V}_\phi^\pi(\mathbf{s}_{t})
+                    &lt;/d-math&gt;
+                    &lt;span class=&quot;comment&quot;&gt;
+                        Note : &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; is the current state at timestep &lt;d-math&gt;t&lt;/d-math&gt; and was sampled at the previous iteration. On the other hand, both &lt;d-math&gt;r_{t+1}^{_{(i)}}&lt;/d-math&gt; and &lt;d-math&gt;\mathbf{s}_{t+1}^{_{(i)}}&lt;/d-math&gt; are sampled from the environnement by trying the policy &lt;d-math&gt;\widehat{\pi}_\theta (\mathbf{a}_{t} | \mathbf{s}_{t} ) &lt;/d-math&gt; on the current state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; and seeing where it land. 
+                    &lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt; Training the &lt;b&gt;critic network&lt;/b&gt; &lt;d-math&gt;\widehat{V}_\phi^\pi\,&lt;/d-math&gt; part is a supervised regression problem that we can define as
+                        the training data
+                            &lt;d-math block=&quot;&quot; class=&quot;card-d-math-display&quot; style=&quot;margin-bottom: 0.35em;&quot;&gt;
+                            \mathcal{D}^{\text{train}} \, = \, \Big\{ \, \Big( \ \mathbf{x}^{_{(i)}} \, , \, y^{_{(i)}} \, ) \,  \Big)  \, \Big\} 
+                            &lt;/d-math&gt;
+                        with
+                        &lt;ul class=&quot;fa-ul&quot; style=&quot;margin-left: 3.5em; margin-top: -2.9em; padding-top: -2.9em;&quot;&gt;
+                            &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;
+                            the &lt;d-math&gt;i^e&lt;/d-math&gt; &lt;b&gt;input&lt;/b&gt; &lt;d-math&gt;\:\: \mathbf{x}^{_{(i)}} \, := \, \mathbf{s}_{t} \:\:&lt;/d-math&gt; 
+                             &lt;!-- 
+                             &lt;br&gt;
+                             &lt;span class=&quot;comment&quot;&gt;Note: &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; is the current state at timestep &lt;d-math&gt;t&lt;/d-math&gt;&lt;/span&gt;
+                             --&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;
+                            and the &lt;b&gt;bootstrap target&lt;/b&gt;
+                                &lt;d-math&gt;
+                                \:\: y^{_{(i)}} \: := \: r_{t+1}^{_{(i)}} \, + \, \widehat{V}_\phi^\pi(\mathbf{s}_{t+1}^{_{(i)}}) 
+                                &lt;!-- 
+                                \: \approx \: V^\pi(\mathbf{s}_t)
+                                --&gt; 
+                                &lt;/d-math&gt;
+                                &lt;!-- 
+                                &lt;br&gt;
+                                &lt;span class=&quot;comment&quot;&gt;Note: &lt;d-math&gt;r_{t+1}^{_{(i)}}&lt;/d-math&gt;  and &lt;d-math&gt;\mathbf{s}_{t+1}^{_{(i)}}&lt;/d-math&gt; are both sampled from the environnement by trying the policy &lt;d-math&gt;\widehat{\pi}_\theta&lt;/d-math&gt; at the current state &lt;d-math&gt;\mathbf{s}_t&lt;/d-math&gt; and seeing where it land. &lt;/span&gt;
+                                --&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        and the loss function
+                        &lt;d-math block=&quot;&quot; class=&quot;card-d-math-display&quot; style=&quot;margin-top: 0em; margin-bottom: -1em;&quot;&gt;
+                            \mathcal{L}\left( \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, \middle| \, y^{_{(i)}}  \, \right) \, = \, \frac{1}{2} \sum_{i = 1}^{N} \left\| \, \widehat{V}_\phi^\pi(\mathbf{s}_{t}) \, - \, y^{_{(i)}}  \, \right\|^2 
+                        &lt;/d-math&gt;
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--------------------------------------------------------------------------------------- Collapsable card ---(end)----&gt;
+
+&lt;p&gt;So we now need to look for 2 types of implementation details:&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+    &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;those related to algorithm performance&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt; &lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt; &lt;/span&gt;and those related to wall clock speed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s when things get trickier. Take for example the &lt;em&gt;value estimate&lt;/em&gt; computation of the &lt;strong&gt;critic&lt;/strong&gt; &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s}) \, \approx \, V^\pi(\mathbf{s})&lt;/d-math&gt;in a &lt;strong&gt;batch Actor-Critic&lt;/strong&gt; algorithm with a &lt;strong&gt;bootstraps target&lt;/strong&gt; design.
+I won’t dive in the details here, but keep in mind that in the end, we just need &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s})&lt;/d-math&gt; to compute the &lt;strong&gt;critic bootstrap target&lt;/strong&gt; and
+the &lt;strong&gt;advantage&lt;/strong&gt; at the update stage. 
+Knowing that, what’s the best place to compute &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s})&lt;/d-math&gt;? 
+Is it at &lt;em&gt;timestep level&lt;/em&gt; close to the &lt;em&gt;collect process&lt;/em&gt; or at &lt;em&gt;batch level&lt;/em&gt; close to the &lt;em&gt;update process&lt;/em&gt;?&lt;/p&gt;
+
+&lt;p class=&quot;text-center myLead&quot; style=&quot;padding-top: 0em; padding-bottom: 0em&quot;&gt;Does it even make a difference?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Casse 1 - &lt;em&gt;timestep level&lt;/em&gt; :&lt;/strong&gt; Choosing to do this operation at each timestep instead of doing it over
+a batch might make no difference on a &lt;a href=&quot;https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py&quot;&gt;&lt;em&gt;CartPole-v1&lt;/em&gt; Gym
+environment&lt;/a&gt;
+since you only need to store in RAM at each timestep a 4-digit
+observation and that trajectory length is capped at $200$ steps so you
+end up with relatively small batches size. Even if that design choice
+completely fails to leverage the power of matrix computation framework,
+considering the setting, computing &lt;d-math&gt;\widehat{V}_\phi^\pi&lt;/d-math&gt;
+anywhere would be relatively fast anyway.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Casse 2 - &lt;em&gt;batch level&lt;/em&gt; :&lt;/strong&gt; On the other hand, using the same design in an environment with very
+high dimensional observation space like the &lt;a href=&quot;https://github.com/deepmind/pysc2&quot;&gt;&lt;em&gt;PySc2
+Starcraft&lt;/em&gt;&lt;/a&gt; environment &lt;d-footnote&gt;PySc2 have multiple observation output. As an example, minimap observation is an RGB representation of 7 feature layers with resolution ranging from 32 − 2562&lt;sup&gt;2&lt;/sup&gt; where most pixel value give important information on the game state.&lt;/d-footnote&gt;, will make
+that same operation slower, potentially to a point where it could become
+a bottleneck that will considerably impair experimentation speed. So
+maybe a design where you compute &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s})&lt;/d-math&gt;
+at &lt;em&gt;batch level&lt;/em&gt; would make more sense in that setting.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Casse 3 - &lt;em&gt;trajectory level&lt;/em&gt; :&lt;/strong&gt; Now let’s consider trajectory length. As an example, a 30-minute &lt;em&gt;PySc2
+Starcraft&lt;/em&gt; game is  &lt;d-math&gt;\sim 40, 000&lt;/d-math&gt; steps long. In order to compute &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s})&lt;/d-math&gt; at batch level, you need to store
+in RAM memory each timestep observation for the full batch, so given the observation space size and the range of trajectory length, in that
+setting you could end up with RAM issues. If you have access to powerful hardware like they have in Google Deepmind laboratory it won’t really be
+a problem, but if you have a humble consumer market computer, it will matter. So maybe in that case, keeping only observations from the
+current trajectory and computing &lt;d-math&gt;\widehat{V}_\phi^\pi(\mathbf{s})&lt;/d-math&gt;
+at trajectory end would be a better design choice.&lt;/p&gt;
+
+&lt;p&gt;What I want to show with this example is that &lt;strong&gt;some implementation details might have no effect in some settings but can be a game changer in others.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This means that it’s a &lt;strong&gt;setting sensitive&lt;/strong&gt; issue and the real question we need to ask ourselves is:&lt;/p&gt;
+
+&lt;p class=&quot;text-center myLead&quot;&gt;
+    How do we recognize &lt;b&gt;when&lt;/b&gt; an implementation detail&lt;br /&gt; becomes impactful or critical?   
+&lt;/p&gt;
+
+&lt;h3 id=&quot;asking-the-right-questions&quot;&gt;Asking the right questions&lt;/h3&gt;
+
+&lt;p&gt;From my understanding, there is no cookbook defining the recipe of a
+&lt;em&gt;one best&lt;/em&gt; design &amp;amp; architecture that will outperform all the other ones
+in every setting, maybe there was at one point, but not anymore.&lt;/p&gt;
+
+&lt;p&gt;As a matter of fact, it was well establish since de 90’s that &lt;strong&gt;Temporal-Diference&lt;/strong&gt; RL method were superior to 
+&lt;strong&gt;Monte-Carlo&lt;/strong&gt; RL method. Never the less, it was recently highlithed by Amiranashvili et al. 
+(2018)&lt;d-cite key=&quot;Amiranashvili2018&quot;&gt;&lt;/d-cite&gt; 
+that &lt;strong&gt;RL theorical and empirical result might not systematicaly hold up in the context of DRL&lt;/strong&gt;. 
+They point out that modern problem tackled in DRL research deal with a much more rich and complex state space than those
+use for RL experiment at the time were those results where found. 
+As such, those new empirical results show that, in the context of DRL, MC methods might be back being a top contender in 
+certain settings. Those results contrast with how MC methods where performing in the RL setting where they were left in the dust
+by TD methods.&lt;/p&gt;
+
+&lt;blockquote class=&quot;blockquote text-justify&quot;&gt;
+    &lt;i class=&quot;fas fa-quote-left fa-1x fa-pull-left&quot;&gt;&lt;/i&gt;
+    We find that while TD is at an advantage in tasks with simple perception, long planning horizons, or terminal 
+    rewards, MC training is more robust to noisy rewards, effective for training perception systems from raw sensory 
+    inputs, and surprisingly successful in dealing with sparse and delayed rewards. 
+    &lt;footer class=&quot;blockquote-footer text-right&quot;&gt;  &lt;cite title=&quot;Source Title&quot;&gt;Amiranashvili et al.&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We also saw earlier that there was no clear winner amongst policy gradient class algorithms &lt;d-footnote&gt;Refer to the 
+subsection: &lt;a href=&quot;#subsec-regarding-the-setting&quot;&gt;Regarding the setting&lt;/a&gt;&lt;/d-footnote&gt;. 
+So we can safely say that performance of DRL algorithm can be significantly affected by the setting in wich they are trained.
+It’s also clear now that for a given type of algorithm and with respect to certain settings, implementation details, design decisions and
+architectural decisions can have a huge impact&lt;d-footnote&gt;Refer to the subsection: &lt;a href=&quot;#subsec-regarding-implementation-details&quot; data-reference-type=&quot;ref&quot;&gt;Regarding implementation details&lt;/a&gt;&lt;/d-footnote&gt; so that aspect deserves a lot of attention.&lt;/p&gt;
+
+&lt;p&gt;We are now left with the following unanswered questions:&lt;/p&gt;
+
+&lt;p class=&quot;text-center myLead&quot;&gt;
+    &lt;b&gt;Why&lt;/b&gt; choose a design &amp;amp; architecture over another?&lt;br /&gt;  
+    How do I recognize &lt;b&gt;when&lt;/b&gt; an implementation detail becomes impactful&lt;br /&gt; or critical?
+&lt;/p&gt;
+
+&lt;p&gt;I don’t think there is a single answer to those questions and gaining experience
+at implementing DRL algorithm might probably help, but
+it’s also clear that none of those questions can be answered without
+doing a proper assessment of the settings. I think that design &amp;amp;
+architectural decisions &lt;strong&gt;need to be well thought out, planned prior to development and based on multiple considerations&lt;/strong&gt; like the
+following:&lt;/p&gt;
+
+&lt;ul class=&quot;fa-ul&quot;&gt;
+    &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;output requirement (eg. robustness, generalization performance, learning speed, ...)&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;environment to tackle (eg. action space dimensionality, observation type ...)&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;fa-li&quot;&gt;&lt;i class=&quot;fas fa-caret-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;resource available to do it (eg. computation power, data storage ...)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;text-center myLead&quot;&gt;
+One thing for sure, those decisions &lt;b&gt;cannot be&lt;/b&gt; &lt;br /&gt;
+a &lt;b&gt;“flavour of the month”&lt;/b&gt;-based decision.  
+&lt;/p&gt;
+
+&lt;p&gt;I will argue that &lt;strong&gt;learning to recognize when&lt;/strong&gt; implementation details
+becomes important or critical &lt;strong&gt;is a valuable skill that needs to be
+developed&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 class=&quot;mainH1&quot;&gt;Closing thoughts&lt;/h1&gt;
+
+&lt;p&gt;In retrospect, I have the feeling that the many practical aspects of DRL
+are maybe sometimes undervalued in the literature at the moment but my
+observation led me to conclude that it probably plays a greater role in
+the success or failure of a DRL project and it’s a must study.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h5 id=&quot;cite-as&quot;&gt;Cite as:&lt;/h5&gt;
+
+&lt;d-code block=&quot;&quot; language=&quot;bash&quot;&gt;
+@article{lcoupal2019implementation,
+  author   = {Coupal, Luc},
+  journal  = {redleader962.github.io/blog},
+  title    = {{Do implementation details matter in Deep Reinforcement Learning?}},
+  year     = {2019},
+  url      = {https://redleader962.github.io/blog/2019/do-implementation-details-matter-in-deep-reinforcement-learning/},
+  keywords = {Deep reinforcement learning,Reinforcement learning,policy gradient methods,Software engineering}
+}
+&lt;/d-code&gt;</content><author><name>Luc Coupal</name></author><summary type="html"></summary></entry></feed>

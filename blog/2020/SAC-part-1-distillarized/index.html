@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<!-- Check for references implementation:
+    al-folio dev branch: https://github.com/alshedivat/al-folio/blob/dev/_layouts/distill.html
+    al-folio mod in pgm-spring-2019: https://github.com/sailinglab/pgm-spring-2019/blob/master/_layouts/distill.html
+-->
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Luc Coupal blog | Soft Actor-Critic part 1: intuition and theoretical aspect</title>
+<meta name="description" content="How to teach robustness to a deep reinforcement learning agent using the maximum entropy principle. In this essay, I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.">
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.17.0/css/mdb.min.css"
+      integrity="sha256-/SwJ2GDcEt5382i8zqDwl36VJGECxEoIcBIuoLmLR4g=" crossorigin="anonymous"/>
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
+      integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+<!-- Styles -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--
+     FAVICON
+     Note: The following lines were generated with https://realfavicongenerator.net
+-->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?version=02">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?version=02">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?version=02">
+<link rel="shortcut icon" href="/favicon.ico?version=02">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?version=02" color="#454545">
+<meta name="apple-mobile-web-app-title" content="Luc Coupal blog &amp; projects">
+<meta name="application-name" content="Luc Coupal blog &amp; projects">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000">
+
+<!--
+     Note:  Cannonical link must be a absolute (!)
+            Validate jekyll deployed files directly on the GitHub repo
+            or using https://developers.facebook.com/tools/debug/
+-->
+<link rel="canonical" href="https://redleader962.github.io/blog/2020/SAC-part-1-distillarized/">
+
+<!--
+    OPEN GRAPH
+-->
+<meta property="og:title"
+      content="Luc Coupal blog | Soft Actor-Critic part 1: intuition and theoretical aspect"/>
+<meta property="og:description" content="How to teach robustness to a <i>deep reinforcement learning</i> agent using the <i>maximum entropy</i> principle. In this essay, I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework."/>
+
+<!-- Type related -->
+
+<meta property="og:type" content="article"/>
+<meta property="article:author" content="Luc Coupal"/>
+<meta property="article:tag" content="Deep Reinforcement Learning"/>
+<meta property="article:tag" content="DRL"/>
+<meta property="article:tag" content="Artificial intelligence"/>
+<meta property="article:tag" content="AI"/>
+<meta property="article:tag" content="A.I."/>
+
+
+<meta property="og:site_name" content="Luc Coupal blog & projects"/>
+<meta property="og:url" content="https://redleader962.github.io/blog/2020/SAC-part-1-distillarized/"/>
+
+<!-- Main image -->
+
+<meta property="og:image"
+      content="https://redleader962.github.io/assets/img/open-graph-img/Tales-from-a-computer-scientist-in-the-AI-world-OG-super-alt.jpg"/>
+<meta property="og:image:type" content="image/jpeg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="628"/>
+<meta property="og:image:alt" content="Tales from a computer scientist in the A.I. world"/>
+<!-- Fall back image -->
+<!--<meta property="og:image" content="https://redleader962.github.io/android-chrome-512x512.png"/>-->
+<!--<meta property="og:image:type" content="image/png"/>-->
+<!--<meta property="og:image:width" content="512"/>-->
+<!--<meta property="og:image:height" content="512"/>-->
+
+<!-- Twitter specific -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@Red_Leader962"/>
+<meta name="twitter:image"
+      content="https://redleader962.github.io/assets/img/open-graph-img/Tales-from-a-computer-scientist-in-the-AI-world-OG-super-alt.jpg"/>
+<meta name="twitter:image:alt" content="Tales from a computer scientist in the A.I. world">
+
+
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+<!--    <script src="http://distill.pub/template.v2.js"></script>-->
+<!--    <script src="http://distill.pub/transforms.v2.js"></script>-->
+    
+    <style type="text/css">
+        d-byline {
+    padding: 1.5rem 0;
+    padding-bottom: 0em;
+    margin-bottom: 0em;
+    min-height: 1.8em;
+} d-article {
+    border-top: 0px solid rgba(0, 0, 0, 0.1);
+    padding-top: 0rem;
+    margin-top: 0rem;
+}
+
+    </style>
+    
+</head>
+
+
+<!-- Muted from the front-matter -->
+<d-front-matter>
+    <script type="text/json">{
+      "title": "Soft Actor-Critic part 1: intuition and theoretical aspect",
+      "description": "How to teach robustness to a <i>deep reinforcement learning</i> agent using the <i>maximum entropy</i> principle. In this essay, I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.",
+      "published": "March 13, 2020",
+      "authors": [
+        
+        {
+          "author": "Luc Coupal",
+          "authorURL": "https://redleader962.github.io",
+          "affiliations": [
+            {
+              "name": "Université Laval",
+              "url": "https://www.ulaval.ca"
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }
+    </script>
+</d-front-matter>
+
+<body class="fixed-top-nav sticky-bottom-footer">
+
+<!-- Header -->
+
+<header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar"
+         class="navbar navbar-dark navbar-expand-md fixed-top">
+        <div class="container navbar-glow">
+            <a class="navbar-brand title "
+               href="/about/">
+                <!--        -->
+                <!--                                    <span class="font-weight-bold ">-->
+                <!--                        <img src="/assets/img/favicon/favicon-safari-pinned-tab.svg"-->
+                <!--                             width="20" , style="filter: invert(1);"/>-->
+                <!--                Luc-->
+                <!--                                    </span>-->
+                <!--                Coupal-->
+<!--                <svg height="2.25rem" viewBox="0 0 892 292" version="1.1" xmlns="http://www.w3.org/2000/svg"-->
+                <svg height="1.80em" viewBox="0 0 892 292" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+                     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="Calque3"></g>
+                    <g id="Calque5"></g>
+                    <rect id="Plan-de-travail1" serif:id="Plan de travail1" x="-8312.5" y="-5820.83" width="10000"
+                          height="16666.7" style="fill:none;"/>
+                    <g id="Plan-de-travail11" serif:id="Plan de travail1"><g id="Calque4"><use xlink:href="#_Image1" x="1908" y="607" width="527px" height="1221px" transform="matrix(4.16667,0,0,4.16667,-9379.17,-6887.5)"/></g>
+                        <g id="ligne-au-milieu" serif:id="ligne au milieu"></g>
+                        <g id="plume"></g>
+                        <g id="plume1" serif:id="plume"></g>
+                        <g id="plume2" serif:id="plume"></g>
+                        <g><path d="M86.843,166.356c-5.129,0.916 -9.836,-3.937 -21.702,-3.441c-14.607,0.61 -41.084,6.649 -43.442,7.763c-6.419,3.032 -18.208,-1.218 -15.349,-9.264c7.491,-21.088 44.795,-118.914 49.911,-131.222c2.321,-5.584 22.675,-6.839 22.511,-3.253c-0.253,5.559 -48.884,106.916 -45.782,117.186c1.606,5.318 27.238,-6.118 37.041,-8.221c7.235,-1.551 21.247,-6.839 21.776,-4.393c0.917,4.239 -0.433,18.403 -1.261,24.211c-0.524,3.679 0.302,9.919 -3.703,10.634Z" style="fill-rule:nonzero;"/>
+                            <path d="M163.618,72.467c0.137,-2.409 2.083,-4.547 5.84,-6.414c3.756,-1.868 7.546,-2.801 11.371,-2.801c2.185,-0 3.961,0.391 5.327,1.174c1.366,0.783 1.98,2.018 1.844,3.705c-0.274,4.577 -0.41,8.251 -0.41,11.022c-0.683,15.661 -1.878,28.972 -3.586,39.935c-1.707,10.962 -5.497,21.262 -11.371,30.899c-5.873,9.637 -14.615,15.962 -26.225,18.973c-3.961,0.964 -7.717,1.446 -11.269,1.446c-8.741,-0 -16.425,-2.289 -23.049,-6.867c-6.625,-4.577 -10.415,-10.781 -11.371,-18.612c-0.273,-3.132 -0.41,-5.481 -0.41,-7.047c0,-8.312 1.434,-16.805 4.303,-25.478c2.868,-8.674 7.034,-19.154 12.498,-31.442c1.639,-3.252 3.483,-7.408 5.531,-12.468c0.82,-2.048 2.903,-3.765 6.249,-5.15c3.347,-1.385 6.659,-2.078 9.937,-2.078c2.186,0 3.961,0.392 5.327,1.175c1.366,0.783 2.049,1.897 2.049,3.342c0,0.482 -0.136,1.205 -0.41,2.169c-2.731,6.987 -4.849,12.227 -6.351,15.721c-3.961,9.757 -7.034,17.919 -9.22,24.484c-2.185,6.566 -3.688,13.282 -4.507,20.148c-0.273,2.891 -0.41,5.18 -0.41,6.867c-0,7.107 1.98,12.227 5.942,15.359c1.229,1.084 2.868,2.078 4.917,2.982c2.049,0.903 3.961,1.415 5.737,1.536l1.639,0.361c0.136,0 0.409,-0.181 0.819,-0.542c3.415,-1.928 6.181,-5.21 8.298,-9.848c2.117,-4.638 3.517,-8.764 4.2,-12.378c0.683,-3.614 1.639,-9.336 2.869,-17.166c0.956,-6.385 1.741,-13.372 2.356,-20.961c0.614,-7.59 1.127,-14.938 1.536,-22.046Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M292.438,128.015l-2.15,3.65c-10.515,17.735 -34.171,30.581 -57.542,30.155c-15.028,-0.273 -32.489,-7.72 -38.596,-21.447c-12.147,-27.302 10.607,-50.276 29.316,-67.171c8.616,-7.781 25.237,-14.091 38.458,-10.284c7.929,2.282 10.418,12.753 8.416,20.021c-0.951,3.455 -5.247,11.591 -12.323,9.721c-3.066,-0.81 -5.335,-4.448 -6.805,-7.112c-4.422,-3.231 -12.861,-1.155 -15.56,3.041c-10.893,10.213 -21.019,23.875 -19.708,39.426c0.604,7.16 3.387,16.324 11.776,19.648c11.531,4.569 27.961,-8.014 34.204,-14.327c2.926,-2.957 2.132,-8.23 5.17,-11.092c4.332,-4.081 18.272,-1.228 21.102,-0.698c3.321,0.622 5.982,3.362 4.242,6.469Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M407.677,58.972c0.137,-0.061 0.273,-0.121 0.41,-0.181c-0.137,0.06 -0.273,0.12 -0.41,0.181Zm19.669,-26.563c5.719,2.709 15.097,10.781 15.644,19.501c0.649,10.33 10.2,38.438 -11.751,42.478c-9.655,1.778 -14.326,-18.537 -14.957,-20.057c-1.349,-3.256 -2.247,-6.66 -3.79,-9.848c-0.86,-1.777 -2.095,-6.533 -3.381,-4.969c-7.03,8.55 -21.678,43.116 -24.217,53.068l-1.025,3.614c-1.309,5.199 -3.626,13.49 -3.483,19.154c0.346,13.649 11.711,17.189 25.611,14.095c3.853,-0.858 7.582,-2.125 11.269,-3.433c2.554,-0.907 6.594,-1.24 7.171,-3.614c0.958,-3.945 -1.355,-10.15 2.868,-14.275c1.966,-1.921 8.916,-10.38 15.161,-9.939c8.838,0.624 10.216,11.007 10.859,16.624c0.773,6.743 -7.32,15.004 -11.063,18.432c-15.813,14.478 -40.612,25.525 -63.515,26.562c-9.57,0.434 -18.409,-3.497 -22.127,-11.564c-6.094,-13.222 -2.53,-29.34 1.331,-42.194c7.442,-24.768 25.524,-58.046 38.662,-78.728c2.935,-4.618 6.83,-8.947 11.628,-12.129c8.086,-5.364 10.171,-7.01 19.105,-2.778Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M523.191,131.014c3.142,-6.505 4.712,-13.191 4.712,-20.058c0,-5.421 -1.058,-10.39 -3.175,-14.907c-2.118,-4.518 -5.43,-8.222 -9.937,-11.113c-3.005,-1.928 -5.874,-2.892 -8.605,-2.892c-1.093,0 -2.459,0.241 -4.098,0.723c1.229,0.482 1.844,1.325 1.844,2.53c-0,0.723 -0.273,1.566 -0.82,2.53c-3.141,5.3 -5.6,11.052 -7.376,17.256c-1.775,6.204 -2.663,12.439 -2.663,18.703c-0,7.228 1.229,14.094 3.688,20.599c1.639,3.614 3.346,6.445 5.122,8.493c0.819,0.843 1.639,1.446 2.459,1.807c3.961,-2.409 7.546,-5.782 10.756,-10.119c3.21,-4.337 5.908,-8.854 8.093,-13.552Zm-2.868,-63.426c6.692,1.205 12.429,3.795 17.21,7.771c4.781,3.975 8.4,8.763 10.859,14.365c2.458,5.602 3.688,11.414 3.688,17.437c-0,7.108 -1.571,14.396 -4.713,21.865c-3.141,7.469 -7.444,14.335 -12.907,20.6c-5.464,6.264 -11.542,11.203 -18.235,14.817c-6.283,3.373 -12.43,5.059 -18.44,5.059c-6.01,0 -11.268,-1.626 -15.776,-4.878c-4.507,-3.253 -7.785,-7.951 -9.834,-14.095c-2.322,-6.264 -3.483,-13.311 -3.483,-21.142c-0,-4.698 0.409,-9.275 1.229,-13.733c-0.956,0.241 -2.39,0.362 -4.303,0.362c-4.644,-0 -6.966,-1.386 -6.966,-4.156c0,-0.964 0.137,-1.747 0.41,-2.349c4.644,-11.445 11.644,-21.413 21.001,-29.906c9.356,-8.493 20.113,-12.739 32.269,-12.739c1.776,-0 4.439,0.241 7.991,0.722Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M620.511,72.467c0.137,-2.409 2.083,-4.547 5.839,-6.414c3.757,-1.868 7.547,-2.801 11.371,-2.801c2.186,-0 3.962,0.391 5.327,1.174c1.366,0.783 1.981,2.018 1.844,3.705c-0.273,4.577 -0.409,8.251 -0.409,11.022c-0.683,15.661 -1.878,28.972 -3.586,39.935c-1.707,10.962 -5.498,21.262 -11.371,30.899c-5.873,9.637 -14.615,15.962 -26.225,18.973c-3.961,0.964 -7.717,1.446 -11.269,1.446c-8.742,-0 -16.425,-2.289 -23.049,-6.867c-6.625,-4.577 -10.415,-10.781 -11.371,-18.612c-0.274,-3.132 -0.41,-5.481 -0.41,-7.047c-0,-8.312 1.434,-16.805 4.302,-25.478c2.869,-8.674 7.035,-19.154 12.498,-31.442c1.639,-3.252 3.483,-7.408 5.532,-12.468c0.82,-2.048 2.903,-3.765 6.249,-5.15c3.347,-1.385 6.659,-2.078 9.937,-2.078c2.186,0 3.961,0.392 5.327,1.175c1.366,0.783 2.049,1.897 2.049,3.342c-0,0.482 -0.137,1.205 -0.41,2.169c-2.732,6.987 -4.849,12.227 -6.351,15.721c-3.961,9.757 -7.035,17.919 -9.22,24.484c-2.185,6.566 -3.688,13.282 -4.508,20.148c-0.273,2.891 -0.409,5.18 -0.409,6.867c-0,7.107 1.98,12.227 5.941,15.359c1.23,1.084 2.869,2.078 4.918,2.982c2.048,0.903 3.961,1.415 5.736,1.536l1.639,0.361c0.137,0 0.41,-0.181 0.82,-0.542c3.415,-1.928 6.181,-5.21 8.298,-9.848c2.117,-4.638 3.517,-8.764 4.2,-12.378c0.683,-3.614 1.639,-9.336 2.868,-17.166c0.956,-6.385 1.742,-13.372 2.357,-20.961c0.614,-7.59 1.126,-14.938 1.536,-22.046Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M713.119,117.642c2.049,-4.578 3.073,-8.975 3.073,-13.191c0,-5.541 -1.775,-10.059 -5.327,-13.552c-5.327,-5.542 -14.273,-8.192 -26.84,-7.951c-2.458,19.033 -4.37,41.982 -5.736,68.846c7.785,-3.614 14.751,-8.402 20.898,-14.366c6.146,-5.963 10.79,-12.558 13.932,-19.786Zm-27.045,-48.789c1.503,-0.12 3.825,-0.18 6.966,-0.18c16.664,-0 29.094,3.614 37.289,10.842c6.147,5.3 9.22,12.106 9.22,20.419c0,4.336 -1.093,9.516 -3.278,15.54c-4.507,11.323 -12.02,21.473 -22.537,30.447c-10.518,8.975 -22.538,15.811 -36.06,20.51c-0.546,12.287 -0.956,23.039 -1.229,32.254c-0.274,9.216 -0.478,16.896 -0.615,23.039c-0.137,14.697 -0.546,29.454 -1.229,44.272c-0.137,2.529 -2.186,4.758 -6.147,6.685c-3.961,1.928 -7.99,2.892 -12.088,2.892c-4.781,-0 -7.171,-1.566 -7.171,-4.699l0.205,-14.455c0.136,-4.699 0.376,-16.022 0.717,-33.972c0.341,-17.949 0.922,-34.694 1.742,-50.234c-3.688,0.361 -7.308,0.542 -10.859,0.542c-2.596,0 -4.542,-0.361 -5.84,-1.084c-1.297,-0.723 -1.946,-1.687 -1.946,-2.891c0,-2.169 1.673,-4.458 5.02,-6.867c3.346,-2.409 6.727,-3.614 10.141,-3.614c1.913,0 3.279,-0.06 4.098,-0.181c1.503,-25.9 3.825,-50.776 6.966,-74.628c-0.956,-0.482 -1.434,-1.265 -1.434,-2.349c0,-1.446 0.888,-3.132 2.664,-5.06c-0,-0.722 0.136,-1.927 0.409,-3.614c0.41,-2.529 2.596,-4.728 6.557,-6.595c3.961,-1.867 7.785,-2.801 11.473,-2.801c2.322,0 4.132,0.422 5.43,1.265c1.297,0.843 1.809,2.108 1.536,3.795l0,0.722Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M778.887,114.751l-1.639,3.614l14.342,10.661l-1.434,-5.24c-0.956,-3.373 -2.869,-10.541 -5.737,-21.503l-5.532,12.468Zm23.357,-52.764c1.912,10.48 4.337,21.111 7.273,31.893c2.937,10.782 6.522,23.16 10.757,37.134c3.961,13.251 6.556,22.045 7.785,26.382c0.137,0.361 0.205,0.903 0.205,1.626c0,2.891 -1.844,5.391 -5.532,7.499c-3.688,2.108 -7.512,3.162 -11.473,3.162c-3.278,0 -5.805,-0.783 -7.581,-2.349c-3.961,-3.734 -8.127,-7.288 -12.498,-10.661c-4.371,-3.373 -10.108,-7.529 -17.21,-12.468l-6.761,-4.879c-5.737,10.842 -10.176,18.853 -13.318,24.033c-0.956,1.807 -3.449,3.463 -7.478,4.969c-4.03,1.506 -7.752,2.259 -11.166,2.259c-3.825,-0 -5.737,-1.085 -5.737,-3.253c-0,-0.602 0.205,-1.325 0.614,-2.168c4.098,-8.915 8.947,-19.154 14.547,-30.719l4.303,-9.216c-3.415,-3.011 -5.122,-4.517 -5.122,-4.517c-0.956,-0.843 -1.434,-1.807 -1.434,-2.891c-0,-2.048 1.502,-4.006 4.507,-5.873c3.005,-1.867 6.351,-3.102 10.039,-3.704c6.557,-13.854 12.703,-27.948 18.44,-42.284c0.546,-1.686 2.288,-3.162 5.225,-4.427c2.936,-1.265 6.044,-2.078 9.322,-2.439c2.322,-0.603 4.302,-0.904 5.941,-0.904c3.825,0 5.942,1.265 6.352,3.795Z"
+                                  style="fill-rule:nonzero;"/>
+                            <path d="M858.587,26.389c0.273,-2.289 2.459,-4.367 6.556,-6.234c4.098,-1.867 7.991,-2.801 11.679,-2.801c4.371,0 6.488,1.446 6.351,4.337c-2.185,21.563 -5.805,51.318 -10.859,89.265c-3.278,25.9 -5.395,42.705 -6.351,50.415c-0.273,2.53 -2.424,4.789 -6.454,6.776c-4.029,1.988 -7.956,2.982 -11.781,2.982c-5.327,-0 -7.785,-1.747 -7.376,-5.24c4.781,-41.441 10.859,-87.94 18.235,-139.5Z"
+                                  style="fill-rule:nonzero;"/></g></g>
+                    <defs><image id="_Image1" width="527px" height="1221px" xlink:href="data:image/png;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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"/></defs></svg>
+            </a>
+            
+            <div class="row ml-1 ml-sm-0 social-icon-glow">
+                <span class="contact-icon text-center ">
+  <a href="mailto:%6C%75%63.%63%6F%75%70%61%6C.%31@%75%6C%61%76%61%6C.%63%61"><i class="fas fa-envelope"></i></a>
+  
+  
+  
+  
+  
+  <a href="https://twitter.com/Red_Leader962" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+  <a href="https://github.com/RedLeader962" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  
+  
+  
+  
+</span>
+
+            </div>
+            
+            <!-- Navbar Toogle -->
+            <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ml-auto flex-nowrap nav-link-glow align-items-center">
+                    
+                    <!-- Blog -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog/">
+                            Blog
+                            
+                            <span class="sr-only">(current)</span>
+                            
+                        </a>
+                    </li>
+                    
+                    <!-- Other pages -->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/projects/">
+                            Projects
+                            
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!-- About -->
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/about/">
+                            About me (cv)
+                            
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+<!-- Content -->
+
+<div class="post distill">
+
+
+    <d-title>
+        <h1>
+            <!--<img src="/apple-touch-icon.png" style="height: 0.75em"/>-->
+            <img src="/safari-pinned-tab.svg"
+                 style="height: 2.5rem; margin-bottom: 0.15em; margin-right: -0.05em"/> Soft Actor-Critic part 1: intuition and theoretical aspect
+        </h1>
+        <p>How to teach robustness to a <i>deep reinforcement learning</i> agent using the <i>maximum entropy</i> principle. In this essay, I cover the building blocks of the SAC algorithm and the relevant nuts and bolts of the Maximum Entropy RL framework.</p>
+    </d-title>
+
+    <d-byline></d-byline>
+
+    <d-article>
+        <div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Supervisor </p>
+        </div>
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+        <div class="col-md-3">
+            Prof.
+                <a href="https://www.fsg.ulaval.ca/departements/professeurs/brahim-chaib-draa-166/" target="blank">
+                  <span class="supervisorThe"> Brahim Chaib-draa </span>
+                </a>
+        </div>
+        <div class="col-md-9">
+            Directeur du programme de baccalauréat en génie logiciel à l'<a href="https://www.ulaval.ca" target="blank">
+            Université Laval
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container supervisorDbyline">
+    <div class="row">
+        <div class="col">
+            <p class="supervisorDbylineTitle"> Acknowledgments </p>
+        </div>
+        <!--
+            Force next columns to break to new line
+        -->
+        <div class="w-100"></div>
+    </div>
+        A big thank you to my angel <span class="acknowledgments"> Karen Cadet </span> for her support and precious insight on the english language.
+</div>
+
+<hr class="supervisorDbylineHorizontalRule">
+
+
+<figure id="fig:fb3a3962240c48ebaeef4ea6d5737b" class="l-body" style="margin-left: -0.5rem; margin-top: -0.5rem;">
+    <div class="row">
+        <div class="col">
+            <img src="/assets/img/post_SAC/images/TaxonomySoftActorCritic_mod.png" />
+        </div>
+    </div>
+    <figcaption>            </figcaption>
+</figure>
+
+<h1 id="sec:SoftActorCritic">Soft Actor-Critic</h1>
+
+<p>Soft Actor-Critic (<i>SAC</i>) is an off-policy algorithm based on the <i>Maximum Entropy</i> <i>Reinforcement</i> <i>Learning</i> framework.
+The main idea behind <i>Maximum Entropy RL</i> is to frame the decision-making problem as a <i>probabilistic graphical model</i> from top to bottom and then solve it using tools borrowed from that same field. Under <i>Maximum Entropy RL</i> framework, a learning agent seeks to maximize both the return and the entropy simultaneously.</p>
+
+<p>This approach benefits <i>Deep Reinforcement Learning</i> algorithms by giving them</p>
+
+<p class="distillarizer-lead text-center">
+the capacity to consider and learn<br/>many alternate paths leading to an optimal goal<br/>and the capacity to learn how to act optimally<br/>despite adverse circumstances.
+</p>
+
+<p><i>SAC</i> is an off-policy algorithm, which means it has the ability to train on samples coming from a different policy.
+What is particular though is that, contrary to other off-policy algortihms, it’s stable. This mean that the algorithm is much less picky in terms of hyperparameter tuning.</p>
+
+<p><i>SAC</i> <d-cite key="Haarnoja2018a"></d-cite> is curently <strong>the state of the art</strong> <i>Deep Reinforcement Learning</i> algorithm together with Twin Delayed Deep Deterministic policy gradient ( <i>TD3</i> ) <d-cite key="DBLP:journals/corr/abs-1802-09477"></d-cite>.</p>
+
+<p>The learning curve of the <i>Maximum Entropy RL</i> framework is quite steep due to how much it rethinks the RL problem. Diving in depth into the <i>Maximum Entropy RL</i> theory is definitely required in order to understand how <i>SAC</i> work.
+Tackling the applied part was arguably the hardest project I did so far, both in terms of component implementation and in terms of evil silent bugs.
+Nevertheless, it’s worth every headache and nightmare I had in the process once it started working.</p>
+
+    <p>You can find my implementaion on <a href="https://github.com/RedLeader962/LectureDirigeDRLimplementation" target="_blank" title="GitHub">my GitHub <i class="fab fa-github"></i></a></p>
+    
+
+<h2 id="reading-material">Reading material:</h2>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor <d-cite key="Haarnoja2018a"></d-cite></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review <d-cite key="Levine2018"></d-cite></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Soft Actor-Critic Algorithms and Applications <d-cite key="Haarnoja2018"></d-cite></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement Learning with Deep Energy-Based Policies <d-cite key="Haarnoja2017"></d-cite></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Deterministic Policy Gradient Algorithms <d-cite key="Silver2014"></d-cite></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Reinforcement learning: An introduction <d-cite key="Sutton1394"></d-cite></li>
+</ul>
+
+<p>I’ve also complemented my reading with the following resources:</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><a href='http://rail.eecs.berkeley.edu/deeprlcourse-fa18/' title=''>CS 294–112 <i>Deep Reinforcement Learning</i></a>: lectures 14-15 by Sergey Levine from University Berkeley;</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><a href='https://spinningup.openai.com/en/latest/algorithms/sac.html' title=''><i>OpenAI: Spinning Up: <i>Soft Actor-Critic</i></i></a>, by Josh Achiam;</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>and also <a href='https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#sac' title=''><i>Lil’ Log blog:Policy Gradient Algorithms</i></a> by Lilian Weng, research intern at <i>OpenAI</i>;</li>
+</ul>
+
+<div class="l-body">
+
+<!---- Collapsable card ----------------------------------------------------------------------------------------------->
+<div class="collapsable-card" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
+    <div class="card-shadow">
+        <button class="btn btn-lg btn-block close-icon shadow-none collapsed" type="button" data-toggle="collapse" data-target="#commentOnNotation" aria-expanded="false" aria-controls="commentOnNotation">
+        Comment on notation
+        </button>
+        <div id="commentOnNotation" class="collapse">
+            <div class="card shadow-none">
+                <div class="card-body">
+
+
+<p>Since there are a lot of different notations across paper, I’ve decided to follow (for the most part) the convention established by Sutton &amp; Barto in their book Reinforcement Learning: An Introduction <d-cite key="Sutton1394"></d-cite></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNotation.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------------------------------------------------------------- Collapsable card ---(end)---->
+
+
+</div>
+
+<h2 id="subsec:buildingBlocMaximumEntropyFramework">An overview of the <i>Maximum Entropy</i> framework</h2>
+
+<div class="container-fluid">
+    <div class="definition">    <dl class="row">
+        <dt class="col-3">Goal:</dt>
+        <dd class="col"><p>Solving decision-making problems in a way that define optimality as a context-dependent and multi-solution concept.</p></dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-3">How?</dt>
+        <dd class="col"><p>By learning a <a href='https://en.wikipedia.org/wiki/Principle_of_maximum_entropy' title=''>Maximum Entropy model</a>.</p></dd>
+    </dl>
+    </div>
+</div>
+
+<p>The <i>Maximum Entropy</i> framework is an approach to solving decision-making problem that uses the formalism and tools of the field of <i>Probabilistic Graphical Model</i>.
+The difference between <i>Classical RL</i> and <i>Maximum Entropy RL</i> is not obvious at first because in both cases, it’s all about dealing with probabilities, random variable,
+expectation maximization and so on.
+As we will see, those two are fundamentally different.</p>
+
+<h3 id="a-other-way-of-framing-the-decision-making-problem">A other way of framing the decision-making problem</h3>
+
+<p><strong>The classical approach used in RL</strong> is to formalize the decision-making problem <strong>using a</strong> <i>Probabilistic Graphical Model</i> <strong>augmented with a reward input</strong> and then seek to maximize the sum of cumulative reward using some kind of tools borrowed from <i>Stochastic Optimization</i> (in the broad sense).</p>
+
+<p><strong>The <i>Maximum Entropy RL</i> approach</strong> on the other end formalize the decision-making problem <strong>as a</strong> <i>Probabilistic Graphical Model</i>
+and then solve a learning and inference problem using <i>Probabilistic Graphical Model</i> tools.
+While the former can use Probabilistic Graphical Model to describe the RL problem, the later formalize the complete RL problem as <i>Probabilistic Graphical Model</i>.</p>
+
+<p class="distillarizer-lead text-center">
+In other word, the <i>Maximum Entropy RL</i><d-footnote>This approach to tackling decision-making problem is not new in the literature and has many names: <i>Maximum Entropy RL</i>, <i>KL-divergence control</i>, <i>stochastic optimal control</i>. In this essay we will use the name <i>Maximum Entropy RL</i>.</d-footnote>framework<br/><strong>formalize and solve the entirety of the RL problem<br/>using probability theory</strong>.
+</p>
+
+<h4 id="how-does-it-make-the-rl-problem-different-an-intuition" class="unnumbered">How does it make the RL problem different (an intuition):</h4>
+
+<p>Consider an environment with a continuous action space.
+The <i>Classical RL</i> approach would specify the agent policy <d-math>\pi</d-math> as a unimodal probability distribution for which the center is the maximal Q-value and indicate the optimal action for a given state.
+In contrast, the <i>Maximum Entropy RL</i> approach would specify the policy as a multimodal distribution for which all mode centers are local maxima Q-values that each indicates good alternative action for a given state.</p>
+
+<h4 id="why-does-it-matter" class="unnumbered">Why does it matter?</h4>
+
+<p>Because since in any given real life task, there is in general more than one way to do things, then an RL agent should be able to handle the following scenario:</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose the optimal way is simply impractical at a given time, meaning there is no choice to fallback to a lesser optimal way. Does he know how to handle non-optimal alternative way to do things?</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose there is more than one optimal way to do things all leading to the same end result, how does he choose between them?</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>Suppose now that there exist multiple equally optimal but different end result, how does he proceed now?</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>What about the case where there are many ways to do things and only one optimal way but we want the agent to relax is expectation regarding the end result, in other words, we don’t care whether the end result is optimal or near optimal? Will he be able to make good use of that relaxed requirement of near optimality?</li>
+</ul>
+
+<p>Those are all legitimate scenario that an agent should be required to successfully handle in order to become effective, skillful, agile, nimble, resilient and capable of handling adverse condition.</p>
+
+<p class="distillarizer-lead text-center">
+The problem with <i>Classical RL</i> is that it converges (in expectation) to a deterministic policy <d-math>\pi</d-math>.
+</p>
+
+<p>This is one of the keys takes away proof from the <i>Deterministic Policy Gradient</i> (DPG) <d-cite key="Silver2014"></d-cite> paper (see appendix C in the supplementary material). They show that for a wide range of stochastic policy, policy gradient algorithms converge to a deterministic gradient as the variance goes to zero. The same idea goes for value-based algorithms  <d-cite key="Sutton1394"></d-cite>
+This mean that the algorithm will optimize for one and only one way to do things.
+Once it starts <i>believing</i> that a path is more promising than the others, it will start to optimize for that <i>believed-best</i> path and it will discard all the alternate ones.
+Even if the algorithm is forced to explore using whatever trick, those trick only promote <i>believed unpromising</i> path for consideration but it still results in an algorithm that
+learn to optimize for one and only one way to do things.
+On the other end, <i>Maximum Entropy RL</i> optimize for multiple alternate ways of doing things which lead to algorithms that exhibit the following property:</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>effective exploration</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>transfer learning capabilities out of the box</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>robustness and adaptability</li>
+</ul>
+
+        <h3>Nuts and bolts <span style="font-weight: normal">(Key component related to SAC)</span></h3>
+        
+
+<h4 id="the-maxent-policy-pi" class="unnumbered">The <i>MaxEnt</i> policy <d-math>\pi</d-math>:</h4>
+
+<p>Recall the <i>Classical RL</i> stochastic policy <d-math>\pi</d-math> definition</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_1.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>which is modelled either as a categorical or a Gaussian distribution with his mean value representing the best action <d-math>\mathbf{a}</d-math> given satet <d-math>\mathbf{s}</d-math> at <i>timestep</i> <d-math>t</d-math>.
+How this distribution is defined is a arbitrary choice let to the algorithm design.</p>
+
+<p>On the other end, <i>Maximum Entropy RL</i> defines the distribution explicitely either in terms of
+<i>advantage</i> <d-math>A^\pi</d-math> as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_3.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>or in terms of
+<i>Q-function</i> <d-math>Q^\pi</d-math> as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_2.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>\alpha</d-math> being the <i>temperature</i> and <d-math>\propto</d-math> the symbol of proportionality.</p>
+
+<p>We can observe that it’s an analogue of the <a href='https://en.wikipedia.org/wiki/Boltzmann_distribution' title=''>Boltzmann distribution</a> (aka Gibbs distribution) with the <i>advantage</i> being the negative energy found in the Boltzmann distribution.
+Equivalently, it gives us a <i>probability measure</i> of a RL agent doing action <d-math>\mathbf{a}_t</d-math> in a given state <d-math>\mathbf{s}_t</d-math> as a function of that state energy <d-math>A(\mathbf{s}_t, \mathbf{a}_t)</d-math> (<i>the advantage</i>).
+As the <i>temperature</i> <d-math>\alpha</d-math> decreases and approach to zero, the policy behaves like a standard <i>greedy policy</i></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_4.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>This hyperparameter <d-math>\alpha</d-math> control the stochasticity of the policy and become very useful later on during training in order to adjust the trade-off between exploration and exploitation.</p>
+
+<h4 id="the-maxent-objective-jpi" class="unnumbered">The <i>MaxEnt</i> objective <d-math>J(\pi)</d-math>:</h4>
+
+<p>The RL objective derived from the <i>Maximum Entropy RL</i> framework is similar to the <i>Classical RL</i> one with the exception of an added entropy term <d-math>\mathcal{H}</d-math> and the temperature. <d-math>\alpha</d-math></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-top: 0.5rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_5.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<div class="container-fluid">
+    <div class="definition">    <dl class="row">
+        <dt class="col-3">Key idea:</dt>
+        <dd class="col"><p>This objective seeks to maximize the expected <i>return</i> <strong>and</strong> maximize the action <i>entropy</i> at the same time.</p></dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-3">Moving part</dt>
+        <dd class="col"><ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The return:</strong> Same as in <i>Classical RL</i></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The entropy term:</strong> Can be viewed as a regularizer, an uniform prior over the policy or a way to tackle the exploration/exploitation trade off.</li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><strong>The temperature <d-math>\alpha</d-math>:</strong> Control the trade-off between exploration/exploitation.</li>
+</ul></dd>
+    </dl>
+    </div>
+</div>
+
+<!---- Static card ---------------------------------------------------------------------------------------------------->
+<div class="static-card l-body-outset" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
+    <div class="card-shadow">
+        <div class="card">
+            <div class="card-header" style="">
+            Entropy
+            </div>
+            <div class="card-body">
+
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-top: 1.1rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneNutsAndBolt_entropy.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p><a href='https://en.wikipedia.org/wiki/Information_theory_and_measure_theory' title=''>It’s a measure</a> of the randomness of a random variable.</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>0 \leq \mathcal{H} \leq 1</d-math></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>\mathcal{H} = 0 \ \Longrightarrow</d-math> the variable is deterministic.</li>
+</ul>
+
+<p><span><a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)' title=''>Additional information</a></span></p>
+
+<p><d-math>\mathcal{H}</d-math> tel us how wide is the distribution from which are sampled the random variables.</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>A wide distribution will produce high entropy <i>random variable.</i></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span>A narrow distribution will produce low entropy <i>random variable.</i></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------------------------------------------------------- Static card ---(end)---->
+
+
+<h4 id="the-soft-value-function-qpi-and-vpi" class="unnumbered">The <i>soft</i> value function <d-math>Q^\pi</d-math> and <d-math>V^\pi</d-math></h4>
+
+<p>Under the <i>Maximum Entropy</i> framework, both value function are redefined to handle the added entropy term.</p>
+
+<p>First we need to rewrite the <i>MaxEnt</i> objective by expanding the <i>entropy</i> term and using the <i>Q-function</i> definition such that</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_1.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>This leads us to the definition of both <i>value function</i>. The <i>state-action value function</i> is defined as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_2.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>and the <i>state value function</i> is defined as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_3.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>or alternatively</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_4.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>We can also rewrite the <i>Bellman</i> equation in terms of <d-math>Q_{soft}^\pi</d-math> and <d-math>V_{soft}^\pi</d-math></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>p</d-math> being the <i>transition dynamic</i>.</p>
+
+<h5 id="softQfunctionIsBackwardMessage"></h5>
+
+<p>Without diving to deep into the <i>Maximum Entropy</i> framework, it’s valuable to point out that
+<d-math>Q_{soft}^\pi</d-math> doesn’t work like a <i>Classical RL</i> <i>reward-to-go</i> <d-math>Q^\pi</d-math>
+and it doesn’t have the same properties either<d-footnote>For those who are familiar with <i>Probabilistic Graphical Model</i>, it’s a <i>backward message</i>.</d-footnote>.
+The <i>Maximum Entropy RL</i> Q-function general definition is</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5b.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>\mathcal{O}</d-math> being a optimality random variable. This definition can be interpreted as</p>
+
+<p class="distillarizer-lead text-center">
+<strong>the probability</strong> (on a logaritmic scale)<br/><strong>of being optimal from timestep <d-math>t</d-math> until the trajectory end</strong><br/>
+</p>
+
+<p>given that we are in state <d-math>\mathbf{s}_t</d-math> and we take action <d-math>\mathbf{a}_t</d-math>.
+Looking back at the initial formulation of the policy <d-math>\pi_{MaxEnt}</d-math> in its ratio form</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_5c.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>we can appreciate how it uses both value-function in order to evaluate the quality of an action <d-math>\mathbf{a}_t</d-math> <strong>with regard to every other legal action <d-math>\mathbf{a}&#39;_t</d-math> available</strong> in that state <d-math>\mathbf{s}_t</d-math>. This ratio is equivalent to the formulation of a conditional probability with the lowest possible value being close to <d-math>0.0</d-math> for a very bad action outcome. In effect, this probability like formulation mean that</p>
+
+<p class="distillarizer-lead text-center">
+it give a measure of the quality of an ongoing trajectory<br/>as per definition of a <i>measure</i> in <a href='https://en.wikipedia.org/w/index.php?title=Measure_(mathematics)&amp;oldid=970525184' title=''><i>measure theory</i></a>.
+</p>
+
+<p>Having this in mind leads us to an interesting question:</p>
+
+<blockquote class="blockquote text-justify">
+    <i class="fas fa-quote-left fa-1x fa-pull-left"></i>
+    Is taking the value-function <d-math>Q_{classical}^\pi</d-math> alone a reliable way of assessing the quality of a trajectory?
+</blockquote>
+
+<p>It’s common to say in <i>classical RL/DRL</i> that the <i>reward-to-go</i> <d-math>Q_{classical}^\pi</d-math> is a <i>measure</i> of performance. Nevertheless, in the sense of <i>measure theory</i>, it’s not since it does not satisfy the property of the <i>null empty set</i> <d-math>\mu(\emptyset)=0</d-math>. As a matter of fact,
+we have no guarantee that the environment dynamic was designed to produce</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneSoftValueFct_6.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>Take the case of an environment where the <i>reward</i> signal upper-bound is 0 by design. In that case, 0 would be the highest possible <i>return</i> but it certainly doesn’t mean that it’s a non-rewarding trajectory or that the trajectory was initialized on a terminal state.</p>
+
+<p>For now, this is all we need to understand how the <i>Soft Actor-Critic</i> algorithm work.
+More on the subject of <i>Maximum Entropy RL</i> in a futur post.</p>
+
+<figure id="" class="l-body-outset" style="margin-bottom: 0rem; margin-top: 0rem">
+    <div class="row">
+        <div class="col one">
+            <img src="/assets/img/post_SAC/distillarized-svg/standaloneBuildingBlocOfMaxEntRL.svg" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
+
+<h2 id="subsec:BuildingBloc">Building blocks of Soft Actor-Critic</h2>
+
+<p>The algorithm seeks to maximize the <i>maximum entropy</i> objective <d-math>J(\pi_{MaxEnt})</d-math> by doing <i>soft policy iteration</i>, which is similar to regular policy iteration (more on this in the
+algorithm anatomy section <a href='#subsec:AlgorithmAnatomy' title=''>1.4</a> ).</p>
+
+<p>To do so, the algorithm will have to learn simultaneously the <i>soft Q-function</i> <d-math>Q_\theta^\pi</d-math> and <i>Maximum Entropy policy</i> <d-math>\pi_{MaxEnt}</d-math>.</p>
+
+<p>Because it’s learning both value and policy at the same time, <i>Soft Actor-Critic</i> (<i>SAC</i> for short) <strong>is considered a <i>value-based</i> <i>Actor-Critic</i> algorithm</strong>. This also means that it can be trained using <i>off-policy</i> samples.</p>
+
+<p><i>off-policy</i> learning capability is a very valuable and coveted ability: it means that <strong>the algorithm can learn from samples generated by another policy <d-math>\pi</d-math> distribution than the current one</strong>. Those samples could be coming from the same but older policy <d-math>\pi_{older}</d-math> (in other word samples generated earlier) or they could be coming from a totally different policy <d-math>\pi&#39;</d-math> that is producing them elsewhere.</p>
+
+<p>The key benefit here is that it can <strong>speed up training by reducing the overhead of having to produce new sample at every gradient step</strong>.
+It’s particularly useful in environment where producing new samples is a long process, like in real life robotic.</p>
+
+<h3 id="subsubsec:LearningTheSoftQfunction">Learning the <i>soft Q-function</i></h3>
+
+<p>Recall that we talk earlier about <d-math>Q_{soft}^\pi</d-math> being a <i>Probabilistic Graphical Model</i>
+backward message <a href='#softQfunctionIsBackwardMessage' title=''>1.2.1.0.1</a>
+. In order to be able to compute that value efficiently, we need to approximate it.</p>
+
+<p>We can do this by representing it as a parametrized function <d-math>Q_{\theta}^\pi (\mathbf{s}_t, \mathbf{a}_t )</d-math> of parameters <d-math>\theta</d-math>. We then learn <d-math>\theta</d-math> by minimizing the squared soft Bellman residual error</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 0rem;">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneJQtheta.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>\widehat{Q}_{soft}^\pi</d-math> being the target.</p>
+
+<p>In theory, <d-math>V_{soft}^\pi(\mathbf{s}_t)</d-math> value can be estimated directly using <strong><i>equation 6</i></strong>. However, representing <d-math>V_{soft}^\pi</d-math> explicitly has the added benefit of helping stabilize learning. We can represent it as a parametrized function <d-math>V_{\psi}^\pi (\mathbf{s}_t)</d-math> of parameters <d-math>\psi</d-math>. We then learn <d-math>\psi</d-math> by minimizing the squared residual error</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 0rem;">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneJVpsi.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>\widehat{V}_{soft}^\pi</d-math> being the target.</p>
+
+<p>We now need a way to represent and learn <d-math>\pi_{MaxEnt} (\mathbf{a}_t | \mathbf{s}_t )</d-math>.</p>
+
+<h3 id="deriving-the-objective-jpi_maxent-of-sac">Deriving the objective <d-math>J(\pi_{MaxEnt})</d-math> of SAC:</h3>
+
+<p>Let first rewrite the <i>Maximum Entropy RL</i> objective for a single timestep in terms of <d-math>Q_\theta^\pi</d-math></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 0rem;">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneJpiMaxEnt.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with the <i>constant</i> <d-math>C</d-math> being the <a href='https://en.wikipedia.org/wiki/Partition_function_(mathematics)' title=''>partition function</a> that is used to normalize the distribution.<br/>We can then learn this objective by minimizing the expected <i>KL-divergence</i> directly using this update rule</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standalonePiNew.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>with <d-math>\Pi</d-math> being a family of policy.</p>
+
+<div class="container-fluid">
+    <div class="definition">    <dl class="row">
+        <dt class="col-3">Note:</dt>
+        <dd class="col"><p>The authors of the SAC paper as demonstrated that the constant can be omitted since it does not contribute to the gradient of <d-math>J(\pi_{MaxEnt})</d-math> <d-cite key="Haarnoja2018a"></d-cite> (see appendix B).</p></dd>
+    </dl>
+    </div>
+</div>
+
+<!---- Static card ---------------------------------------------------------------------------------------------------->
+<div class="static-card l-body-outset" style="padding-top: 1em; padding-bottom: 3em; margin-top: 0em">
+    <div class="card-shadow">
+        <div class="card">
+            <div class="card-header" style="">
+            KL-divergence (aka. relative entropy)
+            </div>
+            <div class="card-body">
+
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneKLdivergence.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>It tel us how much different are two distributions</p>
+
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>0 \leq D_{KL} \big(q \Vert p\big)</d-math></li>
+<li><span class="fa-li"><i class="fas fa-caret-right"></i></span><d-math>D_{KL} \big(q \Vert p\big)  = 0 \ \Longrightarrow \ q</d-math> and <d-math>p</d-math> are similar</li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------------------------------------------------------- Static card ---(end)---->
+
+
+<h3 id="learning-the-policy-pi_maxent">Learning the policy <d-math>\pi_{MaxEnt}</d-math></h3>
+
+<p>Concretely, we are going to approximate the policy <d-math>\pi_{SAC}</d-math> by representing it as a parametrized Gaussian distribution <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math> of parameters <d-math>\phi</d-math> with a learnable mean and covariance.
+We cannot directly differentiate a probability distribution but using the <i>reparameterization trick</i>, we can remodel the policy so that it exposes different parameters: in our case the mean and covariance of a Gaussian distribution. Using this trick, we can express the action</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_1.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_2.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>where <d-math>\epsilon \sim \mathcal{N}(\mu, \Sigma)</d-math> and define implicitly the policy <d-math>\pi_\phi</d-math> in terms of <d-math>f_\phi</d-math></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_3.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>We then rewrite <strong><i>equation 11</i></strong> as</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; ">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneLearningpolicy_4.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<figure id="" class="l-body-outset" style="">
+    <div class="row">
+        <div class="col one">
+            <img src="/assets/img/post_SAC/distillarized-svg/standaloneBuildingBlocKeyIdea.svg" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
+
+<h2 id="subsec:AlgorithmAnatomy">Algorithm anatomy:</h2>
+
+<p>In order to be effective while tackling large continuous domain, the <i>SAC</i> algorithm uses an approximation of the <i>soft policy iteration</i> algorithm:</p>
+
+<ol>
+<li>It used function approximator for the <i>soft Q-function</i> <d-math>Q_{soft}^\pi</d-math> and the policy <d-math>\pi_{SAC}</d-math></li>
+<li>It alternates between <i>soft policy evaluation</i> and <i>soft policy improvement</i> instead of running each one to convergence separately like in <i>Classical RL</i> <i>policy iteration</i>.</li>
+</ol>
+
+<figure id="" class="l-body-outset" style="">
+    <div class="row">
+        <div class="col one">
+            <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgo_1.svg" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
+
+<h3 id="training-soft-function-approximator-implementation-details">Training soft function approximator: implementation details</h3>
+
+<p>The algorithm will learn</p>
+
+<ol>
+<li>a parametrized soft <i>state-value function</i> <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math>;</li>
+<li>two parametrized <i>soft Q-function</i> <d-math>Q_\theta^\pi(\mathbf{s}_t, \mathbf{a}_t )</d-math>;</li>
+<li>and a <i>maximum entropy policy</i> <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>;</li>
+</ol>
+
+<p>with <d-math>\psi, \theta</d-math> and <d-math>\phi</d-math> modelled as neural networks.
+Note that <d-math>\pi_\phi</d-math> will be reparameterized as a Gaussian distribution with a learnable mean and covariance.</p>
+
+<p>The algorithm also uses a <strong>replay buffer</strong> <d-math>D</d-math> to collect and accumulate samples <d-math>(\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1}, r_{t+1}, done_{t+1} )</d-math>.
+One of the key benefits of sampling tuple
+randomly from a <i>replay buffer</i> is that it breaks temporal correlation which helps learning  </p>
+
+<figure id="" class="l-body-outset" style="margin-bottom: 1rem; margin-top: 1rem">
+    <div class="row">
+        <div class="col one">
+            <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgo_2.svg" class="img-fluid distillarizerStandalone" width="100%"/>
+        </div>
+    </div>
+</figure>
+
+
+<h4 id="why-learn-the-soft-state-value-function-v_psipi">Why learn the soft <i>state-value function</i> <d-math>V_\psi^\pi</d-math> ?</h4>
+
+<p>As we talked
+earlier,
+there is no theoretical requirement for learning <d-math>V_\psi(\mathbf{s}_t)</d-math> since it can be recovered from <strong><i>equation 6</i></strong> directly using <d-math>Q_\theta(\mathbf{s}_t, \mathbf{a}_t )</d-math> and <d-math>\pi_\phi (\mathbf{a}_t | \mathbf{s}_t )</d-math>.
+In practice, it can stabilize training  </p>
+
+<h4 id="why-learn-the-two-soft-q-function-q_thetapi">Why learn the two soft <i>Q-function</i> <d-math>Q_\theta^\pi</d-math> ?</h4>
+
+<p>The policy improvement step is known to produce positive bias that reduces the performance in value-based method. This is a trick (aka <i>clipped double-Q</i>) that help reduce the impact of this problem. How it work is that the algorithm learn <d-math>Q_{\theta 1}^\pi</d-math> and <d-math>Q_{\theta 2}^\pi</d-math> separately then take the minimum between the two when training <d-math>V_\psi^\pi</d-math>.
+In practice, the SAC authors founded that <q>it significantly speed up training, especially on harder task</q>  </p>
+
+<h4 id="detail-regarding-the-soft-state-value-function">Detail regarding the Soft state value function</h4>
+
+<p>Like we
+explained earlier</p>
+
+<p>we can train the <i>soft state value function</i> by least squared regression</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 2rem; margin-top: 1rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_1.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>Observe that state <d-math>\mathbf{s}_t</d-math> is sampled from the <i>replay buffer</i> but not action <d-math>\mathbf{a}_t</d-math> which is sampled from the current policy <d-math>\pi</d-math>. It’s a critical detail that is easy to miss. Also, this is where we make use of our two learned <i>soft Q-function</i>.</p>
+
+<h4 id="detail-regarding-the-soft-q-function">Detail regarding the Soft Q-function</h4>
+
+<p>Again, we can train the <i>soft Q-function</i> by least squared regression</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 1rem; margin-top: 1rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_2.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>The learning target is represented by a copy of the main <d-math>V_\psi^\pi(\mathbf{s}_t)</d-math> with parameter noted <d-math>\bar{\psi}</d-math>.
+Network weight from <d-math>V_\psi^\pi</d-math> are copied in a controlled manner to <d-math>V_{\bar{\psi}}^\pi</d-math> using exponential moving average and adjusted by a target smoothing coefficient hyperparameter <d-math>\tau</d-math>.</p>
+
+<h4 id="detail-regarding-the-soft-actor-critic-policy">Detail regarding the <i>Soft Actor-Critic</i> policy</h4>
+
+<p>Policy <d-math>\pi_\phi</d-math> is trained using <strong><i>equation 13</i></strong></p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_3.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<p>Like we have explained earlier, the policy <d-math>\pi</d-math> is modelled using a Gaussian distribution. It’s important to consider the fact that Gaussian distributions are unbounded contrary to our policy which needs to produce action inside a bound reflecting the environment <i>action space</i>. Thus, enforcing those bounds is done by applying a squashing function</p>
+
+<div class="l-body-outset" style="margin-bottom: 1.5rem; margin-bottom: 3rem; margin-top: 1rem">
+    <img src="/assets/img/post_SAC/distillarized-svg/standaloneAlgoAnatony_4.svg"  class="img-fluid" width="100%"/>
+</div>
+
+
+<div style="margin-top: 2em; margin-bottom: 2em;">
+
+<h1 id="next-step">Next step</h1>
+
+<p>This concludes the theoretical part. Next step …  the fun part: implementation and experimentation.
+Come back soon for the sequel: <i>Soft Actor-Critic (Part 2 - In Practice)</i>.</p>
+
+</div>
+
+<hr class="supervisorDbylineHorizontalRule">
+
+<h5 id="cite-my-post-as">Cite my post as:</h5>
+
+<d-code block language="bash" class="l-body-outset">
+@article{lcoupal2020SoftActorCriticPart1,
+      author   = {Coupal, Luc},
+      journal  = {redleader962.github.io/blog},
+      title    = {{Soft Actor-Critic part 1: intuition and theoretical aspect}},
+      year     = {2020},
+      url      = {https://redleader962.github.io/blog/2020/SAC-part-1-distillarized},
+      keywords = {Deep reinforcement learning,Reinforcement learning,Maximum Entropy,Soft Actor-Critic}
+    }
+</d-code>
+
+    </d-article>
+
+    <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+    </d-appendix>
+
+</div>
+
+<!-- Footer -->
+
+
+<footer class="sticky-bottom mt-5">
+    <div class="container">
+
+        
+
+        <!-- See Boosstrap ref: https://getbootstrap.com/docs/4.5/layout/grid/#nesting   -->
+        <div class="row justify-content-center">
+
+            <div class="col-auto">
+                &copy; Copyright 2021 <a class="u-email" href="mailto:luc.coupal.1@ulaval.ca">Luc Coupal</a>.
+            </div>
+
+            <div class="col-auto">
+                &copy; Copyright 2018 <a href="https://github.com/distillpub/template/blob/master/AUTHORS">The Distill
+                Template Authors.</a>
+            </div>
+
+            <div class="col-auto">
+                Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Based on <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+
+            </div>
+        </div>
+
+        
+        <p>
+            <br/>
+            Last updated: October 15, 2021.
+        </p>
+        
+    </div>
+</footer>
+
+
+
+</body>
+
+<!-- Load Core and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js" integrity="sha256-OH05DFHUWzr725HmuHo3pnuvUUn+TJuj8/Qz9xytFEw=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.17.0/js/mdb.min.js"  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" integrity="sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+<!-- Load Mansory & imagesLoaded -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<!-- Project Cards Layout -->
+<script type="text/javascript">
+  // Init Masonry
+  var $grid = $('.grid').masonry({
+    gutter: 10,
+    horizontalOrder: true,
+    itemSelector: '.grid-item',
+  });
+  // layout Masonry after each image loads
+  $grid.imagesLoaded().progress( function() {
+    $grid.masonry('layout');
+  });
+</script>
+
+
+
+<!-- Enable Tooltips -->
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+
+
+
+
+<d-bibliography src="/assets/bibliography/ProjetDeLecture2019.bib">
+</d-bibliography>
+
+</html>
